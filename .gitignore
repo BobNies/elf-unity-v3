@@ -58,3 +58,37 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+Assets/3Skyboxes/
+
+Assets/AVProVideo/
+
+Assets/Christmas-Assets-FREE/
+
+Assets/Gizmos/
+
+Assets/Hodgepodge Pack/
+
+Assets/HONETi/
+
+Assets/PlayMaker/
+
+Assets/Plugins/
+
+Assets/Presents 3D Pack/
+
+Assets/SkySerie Freebie/
+
+Assets/TextMesh Pro/
+
+*.meta
+
+Packages/packages-lock.json
+
+UserSettings/EditorUserSettings.asset
+
+Packages/manifest.json
+
+ProjectSettings/ProjectVersion.txt
+
+log.txt
