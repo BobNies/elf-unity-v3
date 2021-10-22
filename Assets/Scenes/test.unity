@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 273413280}
   - component: {fileID: 273413279}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +672,7 @@ RectTransform:
   m_GameObject: {fileID: 490837890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 1298322808}
   - {fileID: 503294512}
@@ -1160,8 +1160,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100,000,000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ec16a402c2ed61845983b1d5fef78962, type: 2}
-  m_sharedMaterial: {fileID: 21921293584828856, guid: ec16a402c2ed61845983b1d5fef78962, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.65
+  m_fontSize: 26.85
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1662,7 +1662,7 @@ RectTransform:
   m_GameObject: {fileID: 708744323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287797572}
   - {fileID: 2044118037}
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 708744323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afc750e07527b841ad3024915ecfd5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0489c4671f61348babf1c30f5720bd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerScoreText: {fileID: 571938566}
@@ -2017,7 +2017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afc750e07527b841ad3024915ecfd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScoreText: {fileID: 0}
 --- !u!1001 &1027322135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2473,7 +2472,7 @@ GameObject:
   - component: {fileID: 1381418629}
   - component: {fileID: 1381418628}
   m_Layer: 5
-  m_Name: Image
+  m_Name: banner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2495,8 +2494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 18, y: 85}
-  m_SizeDelta: {x: 110, y: 100}
+  m_AnchoredPosition: {x: 23, y: 85}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381418628
 MonoBehaviour:
@@ -3535,7 +3534,7 @@ RectTransform:
   m_GameObject: {fileID: 2031634728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 858890314}
   - {fileID: 1856418206}
@@ -3572,7 +3571,7 @@ RectTransform:
   m_GameObject: {fileID: 2044118036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 568826831}
   - {fileID: 1545749283}
