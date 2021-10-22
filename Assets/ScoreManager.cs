@@ -6,38 +6,53 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI playerScoreText;
+    public TextMeshProUGUI player1Text;
+    public TextMeshProUGUI player2Text;
+    public TextMeshProUGUI player3Text;
+    public TextMeshProUGUI player4Text;
 
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // Called just after the Unity object is enabled. This happens when a MonoBehaviour instance is created.
+    private int currentPlayerNumber;
+  
     void Start()
     {
-        // Adds an 'OnModeStart' event handler
+        currentPlayerNumber = 0;
         BcpMessageController.OnPlayerScore += PlayerScore;
-        Debug.Log("bob onEnable");
     }
 
-    // Called when the Unity object becomes disabled or inactive
     void OnDisable()
     {
-        // Removes an 'OnModeStart' event handler
         BcpMessageController.OnPlayerScore -= PlayerScore;
     }
 
-    // OnModeStart event handler function
+    void Update()
+    {
+        if (currentPlayerNumber != Globals.playerNumber)
+        {
+            currentPlayerNumber = Globals.playerNumber;
+            //TODO - listen for player change, update UI
+        }
+    }
+
     public void PlayerScore(object sender, PlayerScoreMessageEventArgs e)
     {
-        // Put mode start code here
+        int player = e.PlayerNum;
         int score = e.Value;
-        playerScoreText.text = score.ToString();
-        Debug.Log("bob ScoreReceived:" + score);
+        //  Debug.Log("bob ScoreReceived:" + score);
+        switch (player)
+        {
+            case 1:
+                player1Text.text = score.ToString();
+                break;
+            case 2:
+                player2Text.text = score.ToString();
+                break;
+            case 3:
+                player3Text.text = score.ToString();
+                break;
+            case 4:
+                player4Text.text = score.ToString();
+                break;
+        }
+        
     }  
 }
