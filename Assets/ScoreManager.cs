@@ -6,6 +6,8 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
+    public VideoManager videoManager;
+
     public TextMeshProUGUI player1Text;
     public TextMeshProUGUI player2Text;
     public TextMeshProUGUI player3Text;
@@ -17,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     {
         currentPlayerNumber = 0;
         BcpMessageController.OnPlayerScore += PlayerScore;
+        videoManager.playVideo("bye_buddy");
     }
 
     void OnDisable()
@@ -37,6 +40,8 @@ public class ScoreManager : MonoBehaviour
     {
         int player = e.PlayerNum;
         int score = e.Value;
+        int change = e.Change;
+        int previousVal = e.PreviousValue;
         //  Debug.Log("bob ScoreReceived:" + score);
         switch (player)
         {

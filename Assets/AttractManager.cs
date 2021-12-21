@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class AttractManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        BcpMessageController.OnModeStart += ModeStart;
+        BcpMessageController.OnModeStop += ModeStop;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        BcpMessageController.OnModeStart -= ModeStart;
+        BcpMessageController.OnModeStop -= ModeStop;
+    }
+
+    public void ModeStart(object sender, ModeStartMessageEventArgs e)
+    {
+        if (e.Name == "attract")
+        {
+            //TODO
+        }
+    }
+
+    public void ModeStop(object sender, ModeStopMessageEventArgs e)
+    {
+        if (e.Name == "attract")
+        {
+            //TODO
+        }
     }
 }
