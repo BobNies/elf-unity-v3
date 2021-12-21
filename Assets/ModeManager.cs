@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        BcpMessageController.OnModeStart += ModeStart;
+        BcpMessageController.OnModeStop += ModeStop;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        BcpMessageController.OnModeStart -= ModeStart;
+        BcpMessageController.OnModeStop -= ModeStop;
+    }
+
+        public void ModeStart(object sender, ModeStartMessageEventArgs e)
+    {
+        //TODO - switch on mode names
+    }
+
+    public void ModeStop(object sender, ModeStopMessageEventArgs e)
+    {
+        //todo
     }
 }
