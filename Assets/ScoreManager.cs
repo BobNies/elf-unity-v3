@@ -8,10 +8,10 @@ public class ScoreManager : MonoBehaviour
 {
     public VideoManager videoManager;
 
-    public TextMeshProUGUI player1Text;
-    public TextMeshProUGUI player2Text;
-    public TextMeshProUGUI player3Text;
-    public TextMeshProUGUI player4Text;
+    public TextMeshProUGUI player1ScoreText;
+    public TextMeshProUGUI player2ScoreText;
+    public TextMeshProUGUI player3ScoreText;
+    public TextMeshProUGUI player4ScoreText;
 
     private int currentPlayerNumber;
   
@@ -46,16 +46,16 @@ public class ScoreManager : MonoBehaviour
         switch (player)
         {
             case 1:
-                player1Text.text = score.ToString();
+                player1ScoreText.text = score.ToString();
                 break;
             case 2:
-                player2Text.text = score.ToString();
+                player2ScoreText.text = score.ToString();
                 break;
             case 3:
-                player3Text.text = score.ToString();
+                player3ScoreText.text = score.ToString();
                 break;
             case 4:
-                player4Text.text = score.ToString();
+                player4ScoreText.text = score.ToString();
                 break;
         }
         
