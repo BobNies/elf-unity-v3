@@ -994,7 +994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: -15}
+  m_AnchoredPosition: {x: 320, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &503294511
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 503294514}
   - component: {fileID: 503294513}
   m_Layer: 5
-  m_Name: score_p3
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,7 +1290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504608779248296641, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 571938567}
   - component: {fileID: 571938566}
   m_Layer: 5
-  m_Name: score_p1
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,10 +1838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoManager: {fileID: 69051577}
-  player1ScoreText: {fileID: 571938566}
-  player2ScoreText: {fileID: 1545749284}
-  player3ScoreText: {fileID: 503294513}
-  player4ScoreText: {fileID: 1856418207}
+  playerOneTransform: {fileID: 1287797571}
+  playerTwoTransform: {fileID: 2044118036}
+  playerThreeTransform: {fileID: 490837890}
+  playerFourTransform: {fileID: 2031634728}
 --- !u!1 &780891481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,10 +2411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoManager: {fileID: 0}
-  player1ScoreText: {fileID: 0}
-  player2ScoreText: {fileID: 0}
-  player3ScoreText: {fileID: 0}
-  player4ScoreText: {fileID: 0}
+  playerOneTransform: {fileID: 0}
+  playerTwoTransform: {fileID: 0}
+  playerThreeTransform: {fileID: 0}
+  playerFourTransform: {fileID: 0}
 --- !u!1001 &1027322135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3153,6 +3153,7 @@ MonoBehaviour:
   videoManager: {fileID: 69051577}
   videoPlayerAdded: 
   videoPlayerTurnStart: 
+  scoreManager: {fileID: 708744325}
   playerOneAddedSound: blast
   playerTwoAddedSound: 
   playerThreeAddedSound: 
@@ -3689,7 +3690,7 @@ GameObject:
   - component: {fileID: 1545749285}
   - component: {fileID: 1545749284}
   m_Layer: 5
-  m_Name: score_p2
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4107,7 +4108,7 @@ GameObject:
   - component: {fileID: 1856418208}
   - component: {fileID: 1856418207}
   m_Layer: 5
-  m_Name: score_p4
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4954,7 +4955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 390, y: -15}
+  m_AnchoredPosition: {x: 480, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2044118036

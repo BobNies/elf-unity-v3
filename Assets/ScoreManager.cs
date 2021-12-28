@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class ScoreManager : MonoBehaviour
 {
     public VideoManager videoManager;
 
-    public TextMeshProUGUI player1ScoreText;
-    public TextMeshProUGUI player2ScoreText;
-    public TextMeshProUGUI player3ScoreText;
-    public TextMeshProUGUI player4ScoreText;
+    //public TextMeshProUGUI player1ScoreText;
+
+    public GameObject playerOneTransform;
+    public GameObject playerTwoTransform;
+    public GameObject playerThreeTransform;
+    public GameObject playerFourTransform;
 
     private int currentPlayerNumber;
   
@@ -46,16 +49,21 @@ public class ScoreManager : MonoBehaviour
         switch (player)
         {
             case 1:
-                player1ScoreText.text = score.ToString();
+                var scoreP1 = playerOneTransform.transform.Find("score").GetComponent<Text>();
+                scoreP1.text = score.ToString();
+                //player1ScoreText.text = score.ToString();
                 break;
             case 2:
-                player2ScoreText.text = score.ToString();
+                var scoreP2 = playerTwoTransform.transform.Find("score").GetComponent<Text>();
+                scoreP2.text = score.ToString();
                 break;
             case 3:
-                player3ScoreText.text = score.ToString();
+                var scoreP3 = playerThreeTransform.transform.Find("score").GetComponent<Text>();
+                scoreP3.text = score.ToString();
                 break;
             case 4:
-                player4ScoreText.text = score.ToString();
+                var scoreP4 = playerFourTransform.transform.Find("score").GetComponent<Text>();
+                scoreP4.text = score.ToString();
                 break;
         }
         
