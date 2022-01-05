@@ -7,6 +7,9 @@ public class Globals : MonoBehaviour
 {
     // Current player 1 thru 4
     public static int playerNumber;
+    public static int ballNumber;
+
+    public static int playerNumberPrevious;
 
     // Add BCP listeners that will update statics.
     void Start()
@@ -14,6 +17,7 @@ public class Globals : MonoBehaviour
         playerNumber = 0;
 
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
+        BcpMessageController.OnBallStart += BallStart;
     }
 
     void OnDisable()
@@ -24,6 +28,12 @@ public class Globals : MonoBehaviour
 
     public void PlayerTurnStart(object sender, PlayerTurnStartMessageEventArgs e)
     {
+        playerNumberPrevious = playerNumber;
         playerNumber = e.PlayerNum;
+    }
+
+    public void BallStart(object sender, BallStartMessageEventArgs e)
+    {
+        ballNumber = e.Ball;
     }
 }
