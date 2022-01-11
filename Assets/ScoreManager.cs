@@ -9,7 +9,10 @@ public class ScoreManager : MonoBehaviour
 {
     public VideoManager videoManager;
 
-    //public TextMeshProUGUI player1ScoreText;
+    private TextMeshProUGUI scoreP1;
+    private TextMeshProUGUI scoreP2;
+    private TextMeshProUGUI scoreP3;
+    private TextMeshProUGUI scoreP4;
 
     public GameObject playerOneTransform;
     public GameObject playerTwoTransform;
@@ -20,6 +23,14 @@ public class ScoreManager : MonoBehaviour
   
     void Start()
     {
+        scoreP1 = playerOneTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
+        scoreP2 = playerTwoTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
+        scoreP3 = playerThreeTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
+        scoreP4 = playerFourTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
+
+        // reset scores
+        scoreP1.text = "0";
+
         currentPlayerNumber = 0;
         BcpMessageController.OnPlayerScore += PlayerScore;
         videoManager.playVideo("bye_buddy");
@@ -48,21 +59,16 @@ public class ScoreManager : MonoBehaviour
         //  Debug.Log("bob ScoreReceived:" + score);
         switch (player)
         {
-            case 1:
-                var scoreP1 = playerOneTransform.transform.Find("score").GetComponent<Text>();
+            case 1:             
                 scoreP1.text = score.ToString();
-                //player1ScoreText.text = score.ToString();
                 break;
-            case 2:
-                var scoreP2 = playerTwoTransform.transform.Find("score").GetComponent<Text>();
+            case 2:               
                 scoreP2.text = score.ToString();
                 break;
-            case 3:
-                var scoreP3 = playerThreeTransform.transform.Find("score").GetComponent<Text>();
+            case 3:               
                 scoreP3.text = score.ToString();
                 break;
-            case 4:
-                var scoreP4 = playerFourTransform.transform.Find("score").GetComponent<Text>();
+            case 4:               
                 scoreP4.text = score.ToString();
                 break;
         }
