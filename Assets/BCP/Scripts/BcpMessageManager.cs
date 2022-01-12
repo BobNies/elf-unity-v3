@@ -751,6 +751,7 @@ public class BcpMessageController
         _processTimers = processTimers;
 
         // Setup message processing callbacks
+        // TODO - add custom callbacks for scores posted, etc
         SetAllMessageCallback(AllMessageHandler);
         SetMessageCallback("hello", HelloMessageHandler);
         SetMessageCallback("goodbye", GoodbyeMessageHandler);
