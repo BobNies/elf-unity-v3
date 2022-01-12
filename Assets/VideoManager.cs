@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Video;
 using DG.Tweening;
 
+/* ELF
+    Video Manager: handles video playback 
+*/
 public class VideoManager : MonoBehaviour
 {
     public string videoName;
@@ -17,7 +20,7 @@ public class VideoManager : MonoBehaviour
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += CheckOver;
 
-         //playVideo(videoName);
+        //playVideo(videoName);
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
@@ -29,7 +32,7 @@ public class VideoManager : MonoBehaviour
         //videoPlayer.targetTexture.Release();
         // videoPlayer.transform.DOMoveY(-30, 1);
         videoPlayer.transform.DOScaleY(.1f, .5f);
-        
+
         //videoPlayer.enabled = false;
         //vp.playbackSpeed = vp.playbackSpeed / 10.0F;
     }

@@ -3,6 +3,10 @@ using UnityEngine;
 using DarkTonic.MasterAudio;
 using DG.Tweening;
 
+/* ELF
+    Player Manager: tracks players added/removed, game reset
+    Handles player score UI animations
+*/
 public class PlayerManager : MonoBehaviour
 {
     public VideoManager videoManager;

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ELF
+// Mode manager: Listen for modes to start/stop and update the UI.
+// Normally we will play videos, sounds, trigger UI effects (b-day box animations)
 public class ModeManager : MonoBehaviour
 {
 
@@ -19,9 +22,9 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
-        //TODO - switch on mode names
         switch (e.Name)
         {
+            //TODO - play videos
             case "start_singing":
                 break;
             case "snow_fight":

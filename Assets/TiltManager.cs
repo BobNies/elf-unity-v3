@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Handles tilt & tilt warning
+/* ELF
+    Tilt manager: Handles tilt & tilt warning
+*/
 public class TiltManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -24,10 +26,10 @@ public class TiltManager : MonoBehaviour
     {
         // TODO
         //if (!warnings.IsNone)
-          //  warnings.Value = e.Warnings;
+        //  warnings.Value = e.Warnings;
 
         //if (!warningsRemaining.IsNone)
-          //  warningsRemaining.Value = e.WarningsRemaining;
+        //  warningsRemaining.Value = e.WarningsRemaining;
     }
 
     public void Tilt(object sender, BcpMessageEventArgs e)

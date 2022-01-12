@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Class that holds global variables so they can be accessible by other classes.
+/*
+Class that holds global variables so they can be accessible by other classes.
+*/
 public class Globals : MonoBehaviour
 {
     // Current player 1 thru 4

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using System;
 using UnityEngine;
 
+/* ELF
+    Button handler used with the Service scene.
+*/
 public class ButtonHandler : Button
 {
     private string switchName;
