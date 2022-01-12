@@ -33,7 +33,6 @@ public class ScoreManager : MonoBehaviour
 
         currentPlayerNumber = 0;
         BcpMessageController.OnPlayerScore += PlayerScore;
-        videoManager.playVideo("bye_buddy");
     }
 
     void OnDisable()

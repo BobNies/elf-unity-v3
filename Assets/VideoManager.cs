@@ -17,7 +17,7 @@ public class VideoManager : MonoBehaviour
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += CheckOver;
 
-         playVideo(videoName);
+         //playVideo(videoName);
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)

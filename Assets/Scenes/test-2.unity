@@ -994,7 +994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 320, y: -15}
+  m_AnchoredPosition: {x: 320, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &503294511
@@ -1282,7 +1282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848200001055886468, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
       propertyPath: additionalTriggers
-      value: 
+      value: game_cancel_released,start_full_ball_mb,pop_jester,plunger_skill_shot_awarded,start_extra_ball,snow_lane_advance_complete,top_lane_advance_complete,santa_lit_complete,angry_targets_advance_complete,drop_elf_advance_complete,targets_buddy_advance_complete,target_food_groups_awarded
       objectReference: {fileID: 0}
     - target: {fileID: 6504608779248296641, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
       propertyPath: m_Name
@@ -3064,7 +3064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1288889225
@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoManager: {fileID: 69051577}
   videoPlayerAdded: 
-  videoPlayerTurnStart: 
+  videoPlayerTurnStart: bye_buddy
   scoreManager: {fileID: 708744325}
   playerOneAddedSound: blast
   playerTwoAddedSound: blast
@@ -4955,7 +4955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 480, y: -15}
+  m_AnchoredPosition: {x: 480, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2044118036
@@ -4994,7 +4994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -15}
+  m_AnchoredPosition: {x: 160, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2072775029

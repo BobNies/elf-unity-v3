@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour
     {
         BcpMessageController.OnPlayerAdded += PlayerAdded;
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
+        // catch all Triggers not predefined in BcpMessageController
+        BcpMessageController.OnTrigger += Trigger;
 
         //Test mode only
         // scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
@@ -37,14 +39,15 @@ public class PlayerManager : MonoBehaviour
     {
         BcpMessageController.OnPlayerAdded -= PlayerAdded;
         BcpMessageController.OnPlayerTurnStart -= PlayerTurnStart;
+        BcpMessageController.OnTrigger -= Trigger;
     }
 
     public void PlayerAdded(object sender, PlayerAddedMessageEventArgs e)
     {
-        
+
         // TODO switch on playerNum
         int playerNum = e.PlayerNum;
-        
+
         if (!String.IsNullOrEmpty(videoPlayerAdded))
         {
             videoManager.playVideo(videoPlayerAdded);
@@ -120,7 +123,7 @@ public class PlayerManager : MonoBehaviour
                 scoreManager.playerOneTransform.transform.DOScale(.5f, 1);
                 scoreManager.playerOneTransform.transform.DOMoveY(-30, 1);
                 break;
-            case 2:              
+            case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(.5f, 1);
                 scoreManager.playerTwoTransform.transform.DOMoveY(-30, 1);
                 break;
@@ -135,4 +138,19 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    //All other messages
+    public void Trigger(object sender, TriggerMessageEventArgs e)
+    {
+        // Determine if this trigger message is the one we are interested in. 
+        string name = e.Name;
+        Debug.Log("bob triggner:" + name);
+        if (name == "game_cancel_released")
+        {
+            //Start button long-pressed: restart game
+            scoreManager.playerOneTransform.transform.DOScale(.8f, 1);
+            scoreManager.playerOneTransform.transform.DOMoveY(30, 1);
+        }
     }
+
+}
+
