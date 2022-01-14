@@ -152,7 +152,7 @@ public class PlayerManager : MonoBehaviour
         {
             //Start button long-pressed: restart game
             scoreManager.playerOneTransform.transform.DOScale(.8f, 1);
-            scoreManager.playerOneTransform.transform.DOMoveY(30, 1);
+            scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
         }
     }
 
