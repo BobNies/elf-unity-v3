@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0366f86e1d7984197cdeade9b878c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoName: bye_buddy
+  videoName: mountain_top_walk
 --- !u!1 &157009322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,7 +3117,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoManager: {fileID: 69051577}
-  videoCandyCaneForest: 
+  videoCandyCaneForest: walked_7_levels
+  videoCentralPark: central_park_rangers
+  videoCoffee: worlds_best_cup_coffee
+  videoGimbels: gimbels_window
+  videoGumdrop: speghetti
+  videoLincolnTunnel: tunnel_exit
+  videoNutcracker: son_of_a_nutcracker
+  videoOmg: santa_i_know_him
+  videoSinging: im_singing
+  videoSomeoneSpecial: special_someone
 --- !u!114 &1288889230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,10 +3143,10 @@ MonoBehaviour:
   videoPlayerAdded: 
   videoPlayerTurnStart: bye_buddy
   scoreManager: {fileID: 708744325}
-  playerOneAddedSound: blast
-  playerTwoAddedSound: blast
-  playerThreeAddedSound: 
-  playerFourAddedSound: 
+  playerOneAddedSound: finch_yes
+  playerTwoAddedSound: thats_rediculous
+  playerThreeAddedSound: does_someone_need_a_hug
+  playerFourAddedSound: finch_yes
 --- !u!114 &1288889231
 MonoBehaviour:
   m_ObjectHideFlags: 0
