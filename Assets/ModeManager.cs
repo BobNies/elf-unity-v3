@@ -7,6 +7,18 @@ using UnityEngine;
 // Normally we will play videos, sounds, trigger UI effects (b-day box animations)
 public class ModeManager : MonoBehaviour
 {
+    public VideoManager videoManager;
+    public string videoCandyCaneForest;
+    public string videoCentralPark;
+    public string videoCoffee;
+    public string videoGimbels;
+    public string videoGumdrop;
+    public string videoLincolnTunnel;
+    public string videoNutcracker;
+    //public string videoBallLock;
+    public string videoOmg;
+    public string videoSinging;
+    public string videoSomeoneSpecial;
 
     void Start()
     {
@@ -22,29 +34,57 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
+        Debug.Log("bob ModeStart:" + e.Name);
+        BcpLogger.Trace("ModeStart: " + e.Name);
         switch (e.Name)
         {
             //TODO - play videos
-            case "start_singing":
+            // case "attract": // TODO- handle n attractManager
+            // 7 levels
+            case "level_candy_cane_forest":
+                videoManager.playVideo(videoCandyCaneForest);
                 break;
-            case "snow_fight":
+            case "level_central_park":
+                videoManager.playVideo(videoCentralPark);
+                break;
+            case "level_coffee":
+                videoManager.playVideo(videoCoffee);
+                break;
+            case "level_gimbels":
+                videoManager.playVideo(videoGimbels);
+                break;
+            case "level_gumdrop":
+                videoManager.playVideo(videoGumdrop);
+                break;
+            case "level_lincoln_tunnel":
+                videoManager.playVideo(videoLincolnTunnel);
+                break;
+            case "level_nutcracker":
+                videoManager.playVideo(videoNutcracker);
+                break;
+            // sub-levels
+            case "ball_lock":
+                break;
+            case "end_of_ball_bonus":
+                break;
+            case "jackpot":
+                break;
+            case "jet_bonus":
+                break;
+            case "omg":
+                videoManager.playVideo(videoOmg);
+                break;
+            case "plunger_skill_shot":
+                break;
+            case "ramp_shot":
+                break;
+            case "singing":
+                videoManager.playVideo(videoSinging);
                 break;
             case "someone_special":
+                videoManager.playVideo(videoSomeoneSpecial);
                 break;
-            case "lvl_best_coffee":
-                break;
-            case "lvl_candy_cane_forest":
-                break;
-            case "lvl_central_park":
-                break;
-            case "lvl_gimbels":
-                break;
-            case "lvl_lincoln_tunnel":
-                break;
-            case "lvl_nutcracker":
-                break;
-            case "lvl_sea_gumdrop":
-                break;
+            
         }
         
     }
