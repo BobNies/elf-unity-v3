@@ -1282,7 +1282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848200001055886468, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
       propertyPath: additionalTriggers
-      value: game_cancel_released,start_full_ball_mb,pop_jester,plunger_skill_shot_awarded,start_extra_ball,snow_lane_advance_complete,top_lane_advance_complete,santa_lit_complete,angry_targets_advance_complete,drop_elf_advance_complete,targets_buddy_advance_complete,target_food_groups_awarded
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6504608779248296641, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
       propertyPath: m_Name
@@ -2393,28 +2393,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 476937436731245976, guid: 7fb7931556f55c448953ee2d40ffe85b, type: 3}
   m_PrefabInstance: {fileID: 873428419}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &892862412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6504608779248296641, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
-  m_PrefabInstance: {fileID: 557716574}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &892862413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892862412}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afc750e07527b841ad3024915ecfd5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoManager: {fileID: 0}
-  playerOneTransform: {fileID: 0}
-  playerTwoTransform: {fileID: 0}
-  playerThreeTransform: {fileID: 0}
-  playerFourTransform: {fileID: 0}
 --- !u!1001 &1027322135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3138,6 +3116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707cadab13ff42439a8a2f6421cfcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  videoManager: {fileID: 69051577}
+  videoCandyCaneForest: 
 --- !u!114 &1288889230
 MonoBehaviour:
   m_ObjectHideFlags: 0

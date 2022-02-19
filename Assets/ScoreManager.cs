@@ -116,7 +116,7 @@ public class ScoreManager : MonoBehaviour
         timeoutSecondsRemaining -= Time.deltaTime;
         if (timeoutSecondsRemaining <= 0.0f)
         {
-            BcpLogger.Trace("GetBCPHighScoreEnterInitials: Timeout reached");
+            //BcpLogger.Trace("GetBCPHighScoreEnterInitials: Timeout reached");
             // Abort();
         }
 
