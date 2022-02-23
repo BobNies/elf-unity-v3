@@ -34,11 +34,12 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
+        //TODO - only play on ball 1
+        if (Globals.ballNumber > 1) { return; }
         Debug.Log("bob ModeStart:" + e.Name);
         BcpLogger.Trace("ModeStart: " + e.Name);
         switch (e.Name)
         {
-            //TODO - play videos
             // case "attract": // TODO- handle n attractManager
             // 7 levels
             case "level_candy_cane_forest":
