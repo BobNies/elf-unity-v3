@@ -23,12 +23,9 @@ public class VideoManager : MonoBehaviour
         videoPlayer.loopPointReached += CheckOver;
         //videoPlayer.transform.DOScaleY(1f, .5f);
 
+        // Hide video screen onStart
         videoPlayer.transform.DOScale(0f, .5f)
             .SetEase(Ease.OutQuint);
-        //playVideo(videoName);
-        //doTweenStart.CreateTween(true, true);
-        //doTween.DOPlay();
-        //doTween.DOPlayBackwards();
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
@@ -44,6 +41,14 @@ public class VideoManager : MonoBehaviour
             .SetEase(Ease.OutQuint);
        // videoHasPlayed = true;
         //vp.playbackSpeed = vp.playbackSpeed / 10.0F;
+    }
+
+    public void stopAllVideos()
+    {
+        if(videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
     }
 
     public void playVideo(string videoName)

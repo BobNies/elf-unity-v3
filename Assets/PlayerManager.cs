@@ -25,25 +25,16 @@ public class PlayerManager : MonoBehaviour
     {
         BcpMessageController.OnPlayerAdded += PlayerAdded;
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
+        //BcpMessageController.OnBallEnd += BallEnd;
         // catch all Triggers not predefined in BcpMessageController
         BcpMessageController.OnTrigger += Trigger;
-        //TODO - kill vid on player ended - play end vid?
-
-        //Test mode only
-        // scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
-        // scoreManager.playerOneTransform.transform.DOScale(1, 1);
-
-        //scoreManager.playerOneTransform.transform.DOMoveY(-30, 1).SetRelative();
-        //scoreManager.playerOneTransform.transform.DOScale(.5f, 1);
-        //scoreManager.playerTwoTransform.transform.DOMoveY(30f, 1).SetRelative();
-        //scoreManager.playerTwoTransform.transform.DOMoveX(-20f, 1).SetRelative();
-        //scoreManager.playerTwoTransform.transform.DOScale(.8f, 1);
     }
 
     void OnDisable()
     {
         BcpMessageController.OnPlayerAdded -= PlayerAdded;
         BcpMessageController.OnPlayerTurnStart -= PlayerTurnStart;
+        //BcpMessageController.OnBallEnd += BallEnd;
         BcpMessageController.OnTrigger -= Trigger;
     }
 
@@ -151,6 +142,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("bob triggner:" + name);
         if (name == "game_cancel_released")
         {
+            //TODO - finish -- reset
             //Start button long-pressed: restart game
             scoreManager.playerOneTransform.transform.DOScale(.8f, 1);
             scoreManager.playerOneTransform.transform.DOMoveY(100, 1);

@@ -34,10 +34,11 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
-        //TODO - only play on ball 1
+        // only play on ball 1
         if (Globals.ballNumber > 1) { return; }
         Debug.Log("bob ModeStart:" + e.Name);
         BcpLogger.Trace("ModeStart: " + e.Name);
+
         switch (e.Name)
         {
             // case "attract": // TODO- handle n attractManager
@@ -92,6 +93,6 @@ public class ModeManager : MonoBehaviour
 
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
     {
-        //todo
+        //todo - kill active vids?
     }
 }
