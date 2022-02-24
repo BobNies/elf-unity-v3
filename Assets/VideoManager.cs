@@ -9,12 +9,12 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
-    public DOTweenAnimation doTween;
-    public string videoName;
+   // public DOTweenAnimation doTween;
+   // public string videoName;
 
     private VideoPlayer videoPlayer;
     private VideoSource videoSource;
-    private bool videoHasPlayed = false;
+   // private bool videoHasPlayed = false;
 
     void Start()
     {
@@ -23,6 +23,8 @@ public class VideoManager : MonoBehaviour
         videoPlayer.loopPointReached += CheckOver;
         //videoPlayer.transform.DOScaleY(1f, .5f);
 
+        videoPlayer.transform.DOScale(0f, .5f)
+            .SetEase(Ease.OutQuint);
         //playVideo(videoName);
         //doTweenStart.CreateTween(true, true);
         //doTween.DOPlay();
@@ -32,20 +34,25 @@ public class VideoManager : MonoBehaviour
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
         UnityEngine.Debug.Log("video is done ***");
-        doTween.DOPlay();
+       // doTween.DOPlay();
         //videoPlayer.frame = -1;
         videoPlayer.Pause();
         //videoPlayer.targetTexture.Release();
         // videoPlayer.transform.DOMoveY(-30, 1);
-       // videoPlayer.transform.DOScaleY(0f, .5f);
-        videoHasPlayed = true;
+        // transform.DOMoveX(45, 1).SetDelay(2).SetEase(Ease.OutQuad).OnComplete(MyCallback);
+        videoPlayer.transform.DOScale(0f, .5f)
+            .SetEase(Ease.OutQuint);
+       // videoHasPlayed = true;
         //vp.playbackSpeed = vp.playbackSpeed / 10.0F;
     }
 
     public void playVideo(string videoName)
     {
         UnityEngine.Debug.Log("playVideo ***");
-        doTween.DOPlayBackwards();
+        Vector3 v = new Vector3(5, 3);
+        videoPlayer.transform.DOScale(v, .5f)
+            .SetEase(Ease.OutQuint);
+        // doTween.DOPlayBackwards();
 
         string url = "file://" + Application.streamingAssetsPath + "/" + videoName + ".mp4";
         //videoPlayer.source = VideoSource.VideoClip;
@@ -54,7 +61,7 @@ public class VideoManager : MonoBehaviour
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = url;
         videoPlayer.Play();
-        videoHasPlayed = true;
+       // videoHasPlayed = true;
     }
 
 }

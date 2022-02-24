@@ -27,6 +27,7 @@ public class PlayerManager : MonoBehaviour
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
         // catch all Triggers not predefined in BcpMessageController
         BcpMessageController.OnTrigger += Trigger;
+        //TODO - kill vid on player ended - play end vid?
 
         //Test mode only
         // scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
@@ -84,7 +85,7 @@ public class PlayerManager : MonoBehaviour
     {
         // TODO switch on playerNum
         int playerNum = e.PlayerNum;
-        if (!String.IsNullOrEmpty(videoPlayerTurnStart))
+        if (!String.IsNullOrEmpty(videoPlayerTurnStart) && Globals.ballNumber == 2)
         {
             videoManager.playVideo(videoPlayerTurnStart);
         }
