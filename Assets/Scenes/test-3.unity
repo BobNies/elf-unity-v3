@@ -2660,7 +2660,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: IdleAnim
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: ClickedAnim
@@ -2671,13 +2671,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      propertyPath: AutoCloseBack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      propertyPath: CloseBackDelay
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: EnableCloseBack
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: ClickToCloseBack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      propertyPath: ContainedItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      propertyPath: ContainedItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 100000, guid: 16c05fd43a80f9a4ba337731340291d0, type: 3}
     - target: {fileID: 4352817861519170530, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: m_Name
       value: main-box
@@ -3996,6 +4012,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381418626}
   m_CullTransparentMesh: 1
+--- !u!4 &1393427380 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4352817861519263694, guid: c8766f979ed17164980347440ab65c74, type: 3}
+  m_PrefabInstance: {fileID: 818782770}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406694630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5494,16 +5515,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058106168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.00000006657903, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.3}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
-  m_Father: {fileID: 1789558274}
-  m_RootOrder: 1
+  m_Father: {fileID: 1393427380}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.3}
+  m_AnchoredPosition: {x: -0.3, y: 0.07}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058106170
