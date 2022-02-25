@@ -24,6 +24,8 @@ public class ModeManager : MonoBehaviour
     {
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
+
+        //videoManager.playVideo(videoCandyCaneForest);
     }
 
     void OnDisable()
