@@ -9,8 +9,9 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
-   // public DOTweenAnimation doTween;
-   // public string videoName;
+    // public DOTweenAnimation doTween;
+    // public string videoName;
+    public bool initVideoScreen = true;
 
     private VideoPlayer videoPlayer;
     private VideoSource videoSource;
@@ -24,8 +25,11 @@ public class VideoManager : MonoBehaviour
         //videoPlayer.transform.DOScaleY(1f, .5f);
 
         // Hide video screen onStart
-        videoPlayer.transform.DOScale(0f, .5f)
-            .SetEase(Ease.OutQuint);
+        if (initVideoScreen)
+        {
+            videoPlayer.transform.DOScale(0f, .5f)
+                .SetEase(Ease.OutQuint);
+        }
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
