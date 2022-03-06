@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 219
+  openTime: 226
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -8829,8 +8829,9 @@ GameObject:
   - component: {fileID: 1288889229}
   - component: {fileID: 1288889228}
   - component: {fileID: 1288889232}
+  - component: {fileID: 1288889231}
   m_Layer: 0
-  m_Name: ScenelManager
+  m_Name: ScenelManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8917,6 +8918,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8047b247c363348ab852d015e55b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1288889231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288889225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa754a939d2f5e3439e549c6a90debe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoManager: {fileID: 69051577}
+  scoreManager: {fileID: 708744325}
+  ballCountUpdater: {fileID: 1914678391}
 --- !u!114 &1288889232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11497,7 +11513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 220
+  openTime: 227
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -12672,7 +12688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 206
+  openTime: 213
 --- !u!4 &2071364072
 Transform:
   m_ObjectHideFlags: 0

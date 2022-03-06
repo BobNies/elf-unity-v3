@@ -85,6 +85,9 @@ public class ScoreManager : MonoBehaviour
 
         // reset scores
         scoreP1.text = "0";
+        scoreP2.text = "0";
+        scoreP3.text = "0";
+        scoreP4.text = "0";
 
         currentPlayerNumber = 0;
         BcpMessageController.OnPlayerScore += PlayerScore;
@@ -119,6 +122,15 @@ public class ScoreManager : MonoBehaviour
             //BcpLogger.Trace("GetBCPHighScoreEnterInitials: Timeout reached");
             // Abort();
         }
+
+    }
+
+    public void ResetallScores()
+    {
+        scoreP1.text = "0";
+        scoreP2.text = "0";
+        scoreP3.text = "0";
+        scoreP4.text = "0";
 
     }
 

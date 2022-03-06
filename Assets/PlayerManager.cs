@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
         //BcpMessageController.OnBallEnd += BallEnd;
         // catch all Triggers not predefined in BcpMessageController
-        BcpMessageController.OnTrigger += Trigger;
+        BcpMessageController.OnTrigger += Trigger; //TODO - move to separate
 
         //test only
         //MasterAudio.PlaySound(playerOneAddedSound);
@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         BcpMessageController.OnPlayerAdded -= PlayerAdded;
         BcpMessageController.OnPlayerTurnStart -= PlayerTurnStart;
         //BcpMessageController.OnBallEnd += BallEnd;
-        BcpMessageController.OnTrigger -= Trigger;
+        //BcpMessageController.OnTrigger -= Trigger;
     }
 
     public void PlayerAdded(object sender, PlayerAddedMessageEventArgs e)
@@ -148,7 +148,7 @@ public class PlayerManager : MonoBehaviour
         // Determine if this trigger message is the one we are interested in. 
         string name = e.Name;
         Debug.Log("bob triggner:" + name);
-        if (name == "game_cancel_released")
+        if (name == "game_ended") // game_cancel_released
         {
             //TODO - finish -- reset
             //Start button long-pressed: restart game
