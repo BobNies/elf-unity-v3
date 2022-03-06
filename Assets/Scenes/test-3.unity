@@ -532,7 +532,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 199
+  openTime: 219
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -11391,7 +11391,6 @@ GameObject:
   - component: {fileID: 1914678388}
   - component: {fileID: 1914678387}
   - component: {fileID: 1914678391}
-  - component: {fileID: 1914678390}
   - component: {fileID: 1914678392}
   m_Layer: 0
   m_Name: TextBallCount
@@ -11498,7 +11497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 200
+  openTime: 220
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -11506,8 +11505,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914678386}
-  m_LocalRotation: {x: 0.4214369, y: 0.14275773, z: -0.042193085, w: 0.8945563}
-  m_LocalPosition: {x: 0.5, y: -0.74, z: 1.2}
+  m_LocalRotation: {x: 0.4214369, y: 0.14275776, z: -0.0421931, w: 0.8945563}
+  m_LocalPosition: {x: 0.5, y: -1, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 362214286}
@@ -11524,27 +11523,6 @@ Transform:
   m_Father: {fileID: 4214648}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: 20, z: 4}
---- !u!114 &1914678390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914678386}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2a85735d21c8c43af7398b82645ae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modular3DText: {fileID: 0}
-  text: Typewriter text
-  speed: {x: 1, y: 1}
-  typeSound: {fileID: 0}
-  volume: {x: 1, y: 1}
-  audioSource: {fileID: 0}
-  typingSymbol: 
-  startAutomatically: 1
-  startDelay: 0
 --- !u!114 &1914678391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11565,7 +11543,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914678386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
   m_Name: 
@@ -11605,7 +11583,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 1
   duration: 1
-  easeType: 35
+  easeType: 23
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -11638,16 +11616,16 @@ MonoBehaviour:
   isIndependentUpdate: 0
   autoKill: 1
   autoGenerate: 1
-  isActive: 1
+  isActive: 0
   isValid: 1
   target: {fileID: 1914678389}
-  animationType: 14
+  animationType: 2
   targetType: 11
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 0.2, y: 1, z: 1}
+  endValueV3: {x: 0.5, y: -0.7399979, z: 1.2}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -12694,7 +12672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 186
+  openTime: 206
 --- !u!4 &2071364072
 Transform:
   m_ObjectHideFlags: 0
