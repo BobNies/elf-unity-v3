@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 // ELF
 // Mode manager: Listen for modes to start/stop and update the UI.
@@ -8,24 +9,25 @@ using UnityEngine;
 public class ModeManager : MonoBehaviour
 {
     public VideoManager videoManager;
-    public string videoCandyCaneForest;
-    public string videoCentralPark;
-    public string videoCoffee;
-    public string videoGimbels;
-    public string videoGumdrop;
-    public string videoLincolnTunnel;
-    public string videoNutcracker;
+    public VideoClip videoCandyCaneForest;
+    public VideoClip videoCentralPark;
+    public VideoClip videoCoffee;
+    public VideoClip videoGimbels;
+    public VideoClip videoGumdrop;
+    public VideoClip videoLincolnTunnel;
+    public VideoClip videoNutcracker;
     //public string videoBallLock;
-    public string videoOmg;
-    public string videoSinging;
-    public string videoSomeoneSpecial;
+    public VideoClip videoOmg;
+    public VideoClip videoSinging;
+    public VideoClip videoSomeoneSpecial;
 
     void Start()
     {
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
 
-        //videoManager.playVideo(videoCandyCaneForest);
+        // test only
+       // videoManager.playVideo(videoCandyCaneForest);
     }
 
     void OnDisable()

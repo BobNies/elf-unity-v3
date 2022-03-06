@@ -55,22 +55,33 @@ public class VideoManager : MonoBehaviour
         }
     }
 
+    public void playVideo(VideoClip videoClip)
+    {
+        easeInVideoScreen();
+        videoPlayer.clip = videoClip;
+        videoPlayer.Play();
+
+        //  //videoPlayer.source = VideoSource.VideoClip;
+    }
+
     public void playVideo(string videoName)
+    {
+        easeInVideoScreen();
+
+        string url = "file://" + Application.streamingAssetsPath + "/" + videoName + ".mp4";
+
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = url;
+        videoPlayer.Play();
+    }
+
+    public void easeInVideoScreen()
     {
         UnityEngine.Debug.Log("playVideo ***");
         Vector3 v = new Vector3(5, 3);
         videoPlayer.transform.DOScale(v, .5f)
             .SetEase(Ease.OutQuint);
         // doTween.DOPlayBackwards();
-
-        string url = "file://" + Application.streamingAssetsPath + "/" + videoName + ".mp4";
-        //videoPlayer.source = VideoSource.VideoClip;
-        //We want to play from url
-
-        videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = url;
-        videoPlayer.Play();
-       // videoHasPlayed = true;
     }
 
 }

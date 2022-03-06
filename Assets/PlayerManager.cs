@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DarkTonic.MasterAudio;
+using UnityEngine.Video;
 using DG.Tweening;
 
 /* ELF
@@ -10,8 +11,8 @@ using DG.Tweening;
 public class PlayerManager : MonoBehaviour
 {
     public VideoManager videoManager;
-    public string videoPlayerAdded;
-    public string videoPlayerTurnStart;
+    public VideoClip videoPlayerAdded;
+    public VideoClip videoPlayerTurnStart;
 
     public ScoreManager scoreManager;
 
@@ -28,6 +29,9 @@ public class PlayerManager : MonoBehaviour
         //BcpMessageController.OnBallEnd += BallEnd;
         // catch all Triggers not predefined in BcpMessageController
         BcpMessageController.OnTrigger += Trigger;
+
+        //test only
+        //MasterAudio.PlaySound(playerOneAddedSound);
     }
 
     void OnDisable()
@@ -44,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         // TODO switch on playerNum
         int playerNum = e.PlayerNum;
 
-        if (!String.IsNullOrEmpty(videoPlayerAdded))
+        if (videoPlayerAdded != null)
         {
             videoManager.playVideo(videoPlayerAdded);
         }
@@ -55,7 +59,7 @@ public class PlayerManager : MonoBehaviour
                 // Sound
                 MasterAudio.PlaySound(playerOneAddedSound);
                 // Score UI animation - move it into the scene
-                scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
+                scoreManager.playerOneTransform.transform.DOMoveY(200, 1);
                 break;
             case 2:
                 MasterAudio.PlaySound(playerTwoAddedSound);
@@ -76,7 +80,7 @@ public class PlayerManager : MonoBehaviour
     {
         // TODO switch on playerNum
         int playerNum = e.PlayerNum;
-        if (!String.IsNullOrEmpty(videoPlayerTurnStart) && Globals.ballNumber == 2)
+        if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
         {
             videoManager.playVideo(videoPlayerTurnStart);
         }
