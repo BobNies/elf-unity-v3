@@ -10,6 +10,8 @@ using DG.Tweening;
 */
 public class PlayerManager : MonoBehaviour
 {
+    private bool animatePlayerOneScore = false;
+
     public VideoManager videoManager;
     public VideoClip videoPlayerAdded;
     public VideoClip videoPlayerTurnStart;
@@ -96,24 +98,25 @@ public class PlayerManager : MonoBehaviour
         switch (playerNum)
         {
             case 1:
-                if (Globals.ballNumber > 1)
+                if (animatePlayerOneScore)
                 {
                     // already scaled up for ball 1
                     scoreManager.playerOneTransform.transform.DOScale(1f, 1).SetEase(Ease.InElastic);
-                    //scoreManager.playerOneTransform.transform.DOMoveY(30, 1);
                 }
+
+                animatePlayerOneScore = true;
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-                // scoreManager.playerTwoTransform.transform.DOMoveY(30, 1);
+               
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-                // scoreManager.playerThreeTransform.transform.DOMoveY(30, 1);
+               
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-                // scoreManager.playerFourTransform.transform.DOMoveY(30, 1);
+               
                 break;
         }
 
@@ -122,19 +125,19 @@ public class PlayerManager : MonoBehaviour
         {
             case 1:
                 scoreManager.playerOneTransform.transform.DOScale(.5f, 1);
-                //scoreManager.playerOneTransform.transform.DOMoveY(-30, 1);
+               
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(.5f, 1);
-                //scoreManager.playerTwoTransform.transform.DOMoveY(-30, 1);
+                
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(.5f, 1);
-               // scoreManager.playerThreeTransform.transform.DOMoveY(-30, 1);
+               
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(.5f, 1);
-               // scoreManager.playerFourTransform.transform.DOMoveY(-30, 1);
+               
                 break;
         }
     }

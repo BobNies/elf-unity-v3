@@ -9,13 +9,11 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
-    // public DOTweenAnimation doTween;
-    // public string videoName;
     public bool initVideoScreen = true;
 
     private VideoPlayer videoPlayer;
     private VideoSource videoSource;
-   // private bool videoHasPlayed = false;
+    private Vector3 vec = new Vector3(5, 3);
 
     void Start()
     {
@@ -78,8 +76,7 @@ public class VideoManager : MonoBehaviour
     public void easeInVideoScreen()
     {
         UnityEngine.Debug.Log("playVideo ***");
-        Vector3 v = new Vector3(5, 3);
-        videoPlayer.transform.DOScale(v, .5f)
+        videoPlayer.transform.DOScale(vec, .5f)
             .SetEase(Ease.OutQuint);
         // doTween.DOPlayBackwards();
     }
