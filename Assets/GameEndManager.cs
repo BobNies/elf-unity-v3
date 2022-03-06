@@ -13,6 +13,7 @@ public class GameEndManager : MonoBehaviour
     public VideoManager videoManager;
     public ScoreManager scoreManager;
     public BallCountUpdater ballCountUpdater;
+    public AwardManager awardManager;
 
     private string modeName = "game";
 
@@ -39,6 +40,8 @@ public class GameEndManager : MonoBehaviour
             scoreManager.ResetallScores();
             // reset ball#
             ballCountUpdater.tweenOut();
+            //reset awards
+            awardManager.tweenOut();
 
             //Debug.Log("bob ModeStop - **********************************");
             //BcpLogger.Trace("bob ModeStop - **********************************");
