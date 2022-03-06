@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour
 
         //test only
         //MasterAudio.PlaySound(playerOneAddedSound);
+        //scoreManager.playerOneTransform.transform.DOScale(.5f, 1).SetEase(Ease.InElastic);
     }
 
     void OnDisable()
@@ -45,7 +46,6 @@ public class PlayerManager : MonoBehaviour
     public void PlayerAdded(object sender, PlayerAddedMessageEventArgs e)
     {
 
-        // TODO switch on playerNum
         int playerNum = e.PlayerNum;
 
         if (videoPlayerAdded != null)
@@ -59,19 +59,20 @@ public class PlayerManager : MonoBehaviour
                 // Sound
                 MasterAudio.PlaySound(playerOneAddedSound);
                 // Score UI animation - move it into the scene
-                scoreManager.playerOneTransform.transform.DOMoveY(200, 1);
+                // 0 to view, -100 to hide
+                scoreManager.playerOneTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
                 break;
             case 2:
                 MasterAudio.PlaySound(playerTwoAddedSound);
-                scoreManager.playerTwoTransform.transform.DOMoveY(100, 1);
+                scoreManager.playerTwoTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
                 MasterAudio.PlaySound(playerThreeAddedSound);
-                scoreManager.playerThreeTransform.transform.DOMoveY(100, 1);
+                scoreManager.playerThreeTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
                 MasterAudio.PlaySound(playerFourAddedSound);
-                scoreManager.playerFourTransform.transform.DOMoveY(100, 1);
+                scoreManager.playerFourTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
                 break;
         }
     }
@@ -98,21 +99,21 @@ public class PlayerManager : MonoBehaviour
                 if (Globals.ballNumber > 1)
                 {
                     // already scaled up for ball 1
-                    scoreManager.playerOneTransform.transform.DOScale(.8f, 1);
-                    scoreManager.playerOneTransform.transform.DOMoveY(30, 1);
+                    scoreManager.playerOneTransform.transform.DOScale(1f, 1).SetEase(Ease.InElastic);
+                    //scoreManager.playerOneTransform.transform.DOMoveY(30, 1);
                 }
                 break;
             case 2:
-                scoreManager.playerTwoTransform.transform.DOScale(.8f, 1);
-                scoreManager.playerTwoTransform.transform.DOMoveY(30, 1);
+                scoreManager.playerTwoTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                // scoreManager.playerTwoTransform.transform.DOMoveY(30, 1);
                 break;
             case 3:
-                scoreManager.playerThreeTransform.transform.DOScale(.8f, 1);
-                scoreManager.playerThreeTransform.transform.DOMoveY(30, 1);
+                scoreManager.playerThreeTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                // scoreManager.playerThreeTransform.transform.DOMoveY(30, 1);
                 break;
             case 4:
-                scoreManager.playerFourTransform.transform.DOScale(.8f, 1);
-                scoreManager.playerFourTransform.transform.DOMoveY(30, 1);
+                scoreManager.playerFourTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                // scoreManager.playerFourTransform.transform.DOMoveY(30, 1);
                 break;
         }
 
@@ -121,19 +122,19 @@ public class PlayerManager : MonoBehaviour
         {
             case 1:
                 scoreManager.playerOneTransform.transform.DOScale(.5f, 1);
-                scoreManager.playerOneTransform.transform.DOMoveY(-30, 1);
+                //scoreManager.playerOneTransform.transform.DOMoveY(-30, 1);
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(.5f, 1);
-                scoreManager.playerTwoTransform.transform.DOMoveY(-30, 1);
+                //scoreManager.playerTwoTransform.transform.DOMoveY(-30, 1);
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(.5f, 1);
-                scoreManager.playerThreeTransform.transform.DOMoveY(-30, 1);
+               // scoreManager.playerThreeTransform.transform.DOMoveY(-30, 1);
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(.5f, 1);
-                scoreManager.playerFourTransform.transform.DOMoveY(-30, 1);
+               // scoreManager.playerFourTransform.transform.DOMoveY(-30, 1);
                 break;
         }
     }
