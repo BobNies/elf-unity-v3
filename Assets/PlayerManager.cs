@@ -10,7 +10,6 @@ using DG.Tweening;
 */
 public class PlayerManager : MonoBehaviour
 {
-    private bool animatePlayerOneScore = false;
     private int numberOfPlayers = 0;
     private int currentPlayerNum = 0;
 
@@ -44,11 +43,14 @@ public class PlayerManager : MonoBehaviour
 
     private void PlayerRemoved(int playerNum)
     {
+        Debug.Log("bob remove " + playerNum);
+        BcpLogger.Trace("bob remove " + playerNum);
         switch (playerNum)
         {
             case 1:
                 // 0 to view, -100 to hide
                 scoreManager.playerOneTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
@@ -100,6 +102,8 @@ public class PlayerManager : MonoBehaviour
     {
         int playerNum = e.PlayerNum;
         currentPlayerNum = playerNum;
+        Debug.Log("bob PlayerTurnStart " + playerNum);
+        BcpLogger.Trace("bob PlayerTurnStart " + playerNum);
 
         if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
         {
@@ -115,26 +119,17 @@ public class PlayerManager : MonoBehaviour
         // Move/Expand the score widget
         switch (playerNum)
         {
-            case 1:
-                if (animatePlayerOneScore)
-                {
-                    // already scaled up for ball 1
-                    scoreManager.playerOneTransform.transform.DOScale(1f, 1).SetEase(Ease.InElastic);
-                }
-
-                animatePlayerOneScore = true;
+            case 1:                
+                scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-
                 break;
         }
 
@@ -170,8 +165,8 @@ public class PlayerManager : MonoBehaviour
         // minimize last player
         minimizeCurrentScore(currentPlayerNum);
         // loop each player - move off screen
-        for (int i = 0; i < numberOfPlayers; i++)
-        {
+        for (int i = 1; i < numberOfPlayers+1; i++)
+        {           
             PlayerRemoved(i);
         }         
     }
