@@ -11,6 +11,8 @@ using DG.Tweening;
 public class PlayerManager : MonoBehaviour
 {
     private bool animatePlayerOneScore = false;
+    private int numberOfPlayers = 0;
+    private int currentPlayerNum = 0;
 
     public VideoManager videoManager;
     public VideoClip videoPlayerAdded;
@@ -28,9 +30,6 @@ public class PlayerManager : MonoBehaviour
     {
         BcpMessageController.OnPlayerAdded += PlayerAdded;
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
-        //BcpMessageController.OnBallEnd += BallEnd;
-        // catch all Triggers not predefined in BcpMessageController
-        BcpMessageController.OnTrigger += Trigger; //TODO - move to separate
 
         //test only
         //MasterAudio.PlaySound(playerOneAddedSound);
@@ -41,14 +40,32 @@ public class PlayerManager : MonoBehaviour
     {
         BcpMessageController.OnPlayerAdded -= PlayerAdded;
         BcpMessageController.OnPlayerTurnStart -= PlayerTurnStart;
-        //BcpMessageController.OnBallEnd += BallEnd;
-        //BcpMessageController.OnTrigger -= Trigger;
+    }
+
+    private void PlayerRemoved(int playerNum)
+    {
+        switch (playerNum)
+        {
+            case 1:
+                // 0 to view, -100 to hide
+                scoreManager.playerOneTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                break;
+            case 2:
+                scoreManager.playerTwoTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                break;
+            case 3:
+                scoreManager.playerThreeTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                break;
+            case 4:
+                scoreManager.playerFourTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                break;
+        }
     }
 
     public void PlayerAdded(object sender, PlayerAddedMessageEventArgs e)
     {
-
         int playerNum = e.PlayerNum;
+        numberOfPlayers = playerNum;
 
         if (videoPlayerAdded != null)
         {
@@ -81,8 +98,9 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerTurnStart(object sender, PlayerTurnStartMessageEventArgs e)
     {
-        // TODO switch on playerNum
         int playerNum = e.PlayerNum;
+        currentPlayerNum = playerNum;
+
         if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
         {
             videoManager.playVideo(videoPlayerTurnStart);
@@ -108,53 +126,54 @@ public class PlayerManager : MonoBehaviour
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-               
+
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-               
+
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
-               
+
                 break;
         }
 
         // minimize the previous player score widget
-        switch (Globals.playerNumberPrevious)
+        minimizeCurrentScore(Globals.playerNumberPrevious);
+    }
+
+    private void minimizeCurrentScore(int playerNum)
+    {
+        switch (playerNum)
         {
             case 1:
                 scoreManager.playerOneTransform.transform.DOScale(.5f, 1);
-               
+
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOScale(.5f, 1);
-                
+
                 break;
             case 3:
                 scoreManager.playerThreeTransform.transform.DOScale(.5f, 1);
-               
+
                 break;
             case 4:
                 scoreManager.playerFourTransform.transform.DOScale(.5f, 1);
-               
+
                 break;
         }
     }
 
-    //All other messages
-    public void Trigger(object sender, TriggerMessageEventArgs e)
+    public void resetScoreTransforms()
     {
-        // Determine if this trigger message is the one we are interested in. 
-        string name = e.Name;
-        Debug.Log("bob triggner:" + name);
-        if (name == "game_ended") // game_cancel_released
+        // minimize last player
+        minimizeCurrentScore(currentPlayerNum);
+        // loop each player - move off screen
+        for (int i = 0; i < numberOfPlayers; i++)
         {
-            //TODO - finish -- reset
-            //Start button long-pressed: restart game
-            scoreManager.playerOneTransform.transform.DOScale(.8f, 1);
-            scoreManager.playerOneTransform.transform.DOMoveY(100, 1);
-        }
+            PlayerRemoved(i);
+        }         
     }
 
 }

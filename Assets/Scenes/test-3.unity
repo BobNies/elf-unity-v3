@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 233
+  openTime: 235
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -8934,6 +8934,7 @@ MonoBehaviour:
   scoreManager: {fileID: 708744325}
   ballCountUpdater: {fileID: 1914678391}
   awardManager: {fileID: 2100080883}
+  playerManager: {fileID: 1288889229}
 --- !u!114 &1288889232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11514,7 +11515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 234
+  openTime: 236
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -12689,7 +12690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 220
+  openTime: 222
 --- !u!4 &2071364072
 Transform:
   m_ObjectHideFlags: 0

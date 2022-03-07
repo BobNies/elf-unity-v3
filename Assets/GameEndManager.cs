@@ -14,6 +14,7 @@ public class GameEndManager : MonoBehaviour
     public ScoreManager scoreManager;
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
+    public PlayerManager playerManager;
 
     private string modeName = "game";
 
@@ -38,6 +39,7 @@ public class GameEndManager : MonoBehaviour
             videoManager.stopAllVideos();
             // reset scores
             scoreManager.ResetallScores();
+            playerManager.resetScoreTransforms();
             // reset ball#
             ballCountUpdater.tweenOut();
             //reset awards
