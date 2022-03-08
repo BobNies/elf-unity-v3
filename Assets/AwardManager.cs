@@ -43,9 +43,13 @@ public class AwardManager : MonoBehaviour
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
+        // To receive a trigger, it MUST be registered in BcpMessageManager
         //  #Event: ======'spinner_collect_award'====== Args={'count': 3}
         string name = e.Name;
+        //Debug.Log("bob name:" + name);
+        //BcpLogger.Trace("bob name: " + name);
         string count = e.BcpMessage.Parameters["count"].Value;
+       
         if (name == triggerAward1)
         {           
             textAward1.text = count;

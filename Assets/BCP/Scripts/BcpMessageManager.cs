@@ -458,7 +458,11 @@ public class BcpMessageManager : MonoBehaviour
         "drop_elf_advance_complete," +      // 3-drop target
         "targets_buddy_advance_complete," + // 5 green targets
         "target_food_groups_awarded," +     // right captive ball - htit 4 times
-        "spinner_collect_award";                 
+        "spinner_collect_award," +
+        "jets_collect_award," +
+        "loop_collect_award," +
+        "vuk_collect_award";
+        // ^^ include comma ^^
 
 
         foreach (string trigger in elfTriggers.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries))
