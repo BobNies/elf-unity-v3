@@ -43,8 +43,6 @@ public class PlayerManager : MonoBehaviour
 
     private void PlayerRemoved(int playerNum)
     {
-        Debug.Log("bob remove " + playerNum);
-        BcpLogger.Trace("bob remove " + playerNum);
         switch (playerNum)
         {
             case 1:
@@ -102,8 +100,6 @@ public class PlayerManager : MonoBehaviour
     {
         int playerNum = e.PlayerNum;
         currentPlayerNum = playerNum;
-        Debug.Log("bob PlayerTurnStart " + playerNum);
-        BcpLogger.Trace("bob PlayerTurnStart " + playerNum);
 
         if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
         {

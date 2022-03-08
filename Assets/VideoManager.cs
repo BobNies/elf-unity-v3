@@ -20,7 +20,6 @@ public class VideoManager : MonoBehaviour
         //video player component
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += CheckOver;
-        //videoPlayer.transform.DOScaleY(1f, .5f);
 
         // Hide video screen onStart
         if (initVideoScreen)
@@ -32,17 +31,10 @@ public class VideoManager : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        UnityEngine.Debug.Log("video is done ***");
-       // doTween.DOPlay();
-        //videoPlayer.frame = -1;
         videoPlayer.Pause();
-        //videoPlayer.targetTexture.Release();
-        // videoPlayer.transform.DOMoveY(-30, 1);
-        // transform.DOMoveX(45, 1).SetDelay(2).SetEase(Ease.OutQuad).OnComplete(MyCallback);
+
         videoPlayer.transform.DOScale(0f, .5f)
             .SetEase(Ease.OutQuint);
-       // videoHasPlayed = true;
-        //vp.playbackSpeed = vp.playbackSpeed / 10.0F;
     }
 
     public void stopAllVideos()
@@ -58,8 +50,6 @@ public class VideoManager : MonoBehaviour
         easeInVideoScreen();
         videoPlayer.clip = videoClip;
         videoPlayer.Play();
-
-        //  //videoPlayer.source = VideoSource.VideoClip;
     }
 
     public void playVideo(string videoName)
@@ -78,7 +68,6 @@ public class VideoManager : MonoBehaviour
         UnityEngine.Debug.Log("playVideo ***");
         videoPlayer.transform.DOScale(vec, .5f)
             .SetEase(Ease.OutQuint);
-        // doTween.DOPlayBackwards();
     }
 
 }

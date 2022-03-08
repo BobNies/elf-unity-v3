@@ -16,7 +16,6 @@ public class ModeManager : MonoBehaviour
     public VideoClip videoGumdrop;
     public VideoClip videoLincolnTunnel;
     public VideoClip videoNutcracker;
-    //public string videoBallLock;
     public VideoClip videoOmg;
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
@@ -40,8 +39,8 @@ public class ModeManager : MonoBehaviour
     {
         // only play on ball 1
         if (Globals.ballNumber > 1) { return; }
-        Debug.Log("bob ModeStart:" + e.Name);
-        BcpLogger.Trace("ModeStart: " + e.Name);
+        //Debug.Log("bob ModeStart:" + e.Name);
+        //BcpLogger.Trace("bob ModeStart: " + e.Name);
 
         switch (e.Name)
         {
