@@ -447,7 +447,6 @@ public class BcpMessageManager : MonoBehaviour
         // ELF specific triggers. Setting them here instead of Scene
         // Do not add modes here, they go in ModeManager
         string elfTriggers =
-        "game_cancel_released," +           // start button reset
         "start_full_ball_mb," +             // multiball
         "pop_jester," +                     // jester
         "plunger_skill_shot_awarded," +     // plunge ball & hit correct drop target
@@ -458,8 +457,14 @@ public class BcpMessageManager : MonoBehaviour
         "angry_targets_advance_complete," + // 5-red targets angry
         "drop_elf_advance_complete," +      // 3-drop target
         "targets_buddy_advance_complete," + // 5 green targets
-        "target_food_groups_awarded";       // right captive ball - htit 4 times
-       
+        "target_food_groups_awarded," +     // right captive ball - htit 4 times
+        "spinner_collect_award," +
+        "jets_collect_award," +
+        "loop_collect_award," +
+        "vuk_collect_award";
+        // ^^ include comma ^^
+
+
         foreach (string trigger in elfTriggers.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries))
         {
             BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage(trigger.Trim()));

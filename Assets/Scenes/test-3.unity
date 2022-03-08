@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 273
+  openTime: 282
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -3977,7 +3977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 37
+  openTime: 46
 --- !u!1 &608589622
 GameObject:
   m_ObjectHideFlags: 0
@@ -10533,7 +10533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 38
+  openTime: 47
 --- !u!1 &1774588547
 GameObject:
   m_ObjectHideFlags: 0
@@ -11470,7 +11470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 274
+  openTime: 283
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -12921,10 +12921,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   awardTransform: {fileID: 2100080881}
-  award1: {fileID: 2133200736}
-  award2: {fileID: 40584411}
-  award3: {fileID: 315736834}
-  award4: {fileID: 1182320687}
+  textAward1: {fileID: 2133200736}
+  textAward2: {fileID: 40584411}
+  textAward3: {fileID: 315736834}
+  textAward4: {fileID: 1182320687}
+  triggerAward1: spinner_collect_award
+  triggerAward2: jets_collect_award
+  triggerAward3: loop_collect_award
+  triggerAward4: vuk_collect_award
 --- !u!1 &2133200734
 GameObject:
   m_ObjectHideFlags: 0
