@@ -33,7 +33,7 @@ public class HiScoreManager : MonoBehaviour
     private int currentCharacter;
     private int currentPosition;
     private List<string> initials = null;
-    //private List<string> characterList = null;
+    private List<string> characterList = null;
     private float timeoutSecondsRemaining;
 
 
@@ -109,7 +109,7 @@ public class HiScoreManager : MonoBehaviour
         if (e.Name == shiftLeftEvent) ShiftLeft();
         else if (e.Name == shiftRightEvent) ShiftRight();
         else if (e.Name == selectEvent) Select();
-        else if (e.Name == abortEvent) Abort();
+        //else if (e.Name == abortEvent) Abort();
     }
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
