@@ -36,47 +36,29 @@ public class HiScoreManager : MonoBehaviour
     //private List<string> characterList = null;
     private float timeoutSecondsRemaining;
 
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
-        hightScoreAwardDisplay = "high_score_award_display";
+        hightScoreAwardDisplay = "high_score_award_display";  // Display score/awards
         highScoreEnterInitials = "high_score_enter_initials";
 
-        maxCharacters = 3;
-        // characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_- ";
-        shiftLeftEvent = "s_flipper_lt";
-        shiftRightEvent = "s_flipper_rt";
-        selectEvent = "s_start";
-        abortEvent = "sw_esc";
-        timeoutSeconds = 20.0f;
-        // TODO - move high score to own file.
-        currentCharacter = 0;
-        currentPosition = 0;
-        timeoutSecondsRemaining = timeoutSeconds;
-
-        if (initials == null)
-            initials = new List<string>(maxCharacters);
-        else
-            initials.Clear();
-
-        for (int index = 0; index < maxCharacters; index++)
-            initials.Add("");
-
-
-
+        // enter initials
+        BcpMessageController.OnSwitch += Switch;
         //High scores
-        BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage(hightScoreAwardDisplay));
-        BcpMessageController.OnTrigger += Trigger;
+        //BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage(hightScoreAwardDisplay));
+        //BcpMessageController.OnTrigger += Trigger;
+
+        reset();
+        BuildCharacterList();
+        //PositionChanged();
+        //CharacterChanged();
 
     }
 
     void OnDisable()
     {
-        BcpMessageController.OnTrigger -= Trigger;
+        BcpMessageController.OnSwitch -= Switch;
+        //BcpMessageController.OnTrigger -= Trigger;
 
     }
 
@@ -94,6 +76,41 @@ public class HiScoreManager : MonoBehaviour
 
     }
 
+    private void reset() {
+        maxCharacters = 3;
+        timeoutSeconds = 20.0f;
+        characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_- ";
+        shiftLeftEvent = "s_flipper_lt";
+        shiftRightEvent = "s_flipper_rt";
+        selectEvent = "s_start";
+        abortEvent = "sw_esc";
+       
+        // TODO - move high score to own file.
+        currentCharacter = 0;
+        currentPosition = 0;
+        timeoutSecondsRemaining = timeoutSeconds;
+
+        if (initials == null)
+            initials = new List<string>(maxCharacters);
+        else
+            initials.Clear();
+
+        for (int index = 0; index < maxCharacters; index++)
+            initials.Add("");
+    }
+
+     public void Switch(object sender, SwitchMessageEventArgs e)
+    {
+        BcpLogger.Trace("GetBCPHighScoreEnterInitials: Switch (" + e.Name + ", " + e.State.ToString() + ")");
+
+        if (e.State != 1)
+            return;
+
+        if (e.Name == shiftLeftEvent) ShiftLeft();
+        else if (e.Name == shiftRightEvent) ShiftRight();
+        else if (e.Name == selectEvent) Select();
+        else if (e.Name == abortEvent) Abort();
+    }
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
@@ -114,4 +131,56 @@ public class HiScoreManager : MonoBehaviour
 
         }
     }
+
+    // Called when user presses shift left button
+    private void ShiftLeft()
+    {
+        BcpLogger.Trace("GetBCPHighScoreEnterInitials: ShiftLeft");
+
+        currentCharacter--;
+        if (currentCharacter < 0)
+            currentCharacter = characterList.Count - 1;
+
+        CharacterChanged();
+    }
+
+    // Called when user presses shift right button
+    private void ShiftRight()
+    {
+        BcpLogger.Trace("GetBCPHighScoreEnterInitials: ShiftRight");
+
+        currentCharacter++;
+        if (currentCharacter >= characterList.Count)
+            currentCharacter = 0;
+
+        CharacterChanged();
+    }
+
+    // Called when user presses select button
+    private void Select()
+    {
+        
+    }
+    //Called whenever the current character changes
+    private void CharacterChanged()
+    {
+    }
+
+    // Called whenever the current character position changes
+    private void PositionChanged() 
+    {
+
+    }
+
+    private void BuildCharacterList() 
+    {
+
+    }
+
+    // Called internally when the user has completed entering their initials.
+    private void Done()
+    {
+
+    }
+
 }
