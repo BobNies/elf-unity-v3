@@ -42,14 +42,12 @@ public class BallCountUpdater : MonoBehaviour
 
     private void tweenIn()
     {
-         Vector3 v = new Vector3(.5f, -0.7399979f, 1.2f);
-         modular3DText.transform.DOLocalMove(v, 1f).SetEase(Ease.InElastic);
+         modular3DText.transform.DOMoveY(-0.7399979f, 1f).SetEase(Ease.InElastic);
     }
 
     public void tweenOut()
     {
-        Vector3 v = new Vector3(.5f, -1f, 1.2f);
-        modular3DText.transform.DOLocalMove(v, 1f).SetEase(Ease.OutElastic);
+        modular3DText.transform.DOMoveY(-1f, 1f).SetEase(Ease.OutElastic);
     }
 
 }

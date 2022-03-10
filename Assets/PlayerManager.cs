@@ -47,17 +47,18 @@ public class PlayerManager : MonoBehaviour
         {
             case 1:
                 // 0 to view, -100 to hide
-                scoreManager.playerOneTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
-                scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                scoreManager.playerOneTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerOneTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
+                //scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
-                scoreManager.playerTwoTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerTwoTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
-                scoreManager.playerThreeTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerThreeTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
-                scoreManager.playerFourTransform.transform.DOLocalMoveY(-100, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerFourTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
                 break;
         }
     }
@@ -78,20 +79,19 @@ public class PlayerManager : MonoBehaviour
                 // Sound
                 MasterAudio.PlaySound(playerOneAddedSound);
                 // Score UI animation - move it into the scene
-                // 0 to view, -100 to hide
-                scoreManager.playerOneTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerOneTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 2:
                 MasterAudio.PlaySound(playerTwoAddedSound);
-                scoreManager.playerTwoTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerTwoTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
                 MasterAudio.PlaySound(playerThreeAddedSound);
-                scoreManager.playerThreeTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerThreeTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
                 MasterAudio.PlaySound(playerFourAddedSound);
-                scoreManager.playerFourTransform.transform.DOLocalMoveY(0, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerFourTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
         }
     }
@@ -116,16 +116,16 @@ public class PlayerManager : MonoBehaviour
         switch (playerNum)
         {
             case 1:                
-                scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                scoreManager.playerOneTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
-                scoreManager.playerTwoTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                scoreManager.playerTwoTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
                 break;
             case 3:
-                scoreManager.playerThreeTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                scoreManager.playerThreeTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
                 break;
             case 4:
-                scoreManager.playerFourTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
+                scoreManager.playerFourTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
                 break;
         }
 
@@ -161,7 +161,7 @@ public class PlayerManager : MonoBehaviour
         // minimize last player
         minimizeCurrentScore(currentPlayerNum);
         // loop each player - move off screen
-        for (int i = 1; i < numberOfPlayers+1; i++)
+        for (int i = 1; i < 5; i++)
         {           
             PlayerRemoved(i);
         }         

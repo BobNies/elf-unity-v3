@@ -79,13 +79,11 @@ public class AwardManager : MonoBehaviour
 
     public void tweenIn()
     {
-        Vector3 v = new Vector3(100f, 0f);
-        awardTransform.DOLocalMove(v, 1f).SetEase(Ease.InElastic);
+        awardTransform.DOMoveX(100, 1f).SetEase(Ease.InElastic);
     }
 
     public void tweenOut()
     {
-        Vector3 v = new Vector3(-100f, 0f);
-        awardTransform.DOLocalMove(v, 1f).SetEase(Ease.OutQuad);
+        awardTransform.DOMoveX(-100, 1f).SetEase(Ease.OutQuad);
     }
 }

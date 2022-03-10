@@ -13,7 +13,7 @@ using DG.Tweening;
      Listen for Event when a high_score_award_display BCP Trigger 
      Handles high-scores.
 */
-public class ScoreManager : MonoBehaviour
+public class HiScoreManager : MonoBehaviour
 {
     //public VideoManager videoManager;
 
@@ -76,7 +76,6 @@ public class ScoreManager : MonoBehaviour
 
     void OnDisable()
     {
-        BcpMessageController.OnPlayerScore -= PlayerScore;
         BcpMessageController.OnTrigger -= Trigger;
 
     }
