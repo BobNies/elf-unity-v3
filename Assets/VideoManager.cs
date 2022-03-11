@@ -9,7 +9,7 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
-    public bool initVideoScreen = true;
+    public bool minimizeOnStart = true;
 
     private VideoPlayer videoPlayer;
     private VideoSource videoSource;
@@ -22,7 +22,7 @@ public class VideoManager : MonoBehaviour
         videoPlayer.loopPointReached += CheckOver;
 
         // Hide video screen onStart
-        if (initVideoScreen)
+        if (minimizeOnStart)
         {
             videoPlayer.transform.DOScale(0f, .5f)
                 .SetEase(Ease.OutQuint);
