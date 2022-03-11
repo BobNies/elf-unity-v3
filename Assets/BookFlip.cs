@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using echo17.EndlessBook;
+using DG.Tweening;
 
 public class BookFlip : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class BookFlip : MonoBehaviour
         //SetState(EndlessBook.StateEnum.OpenFront);
         //book.TurnForward(1);
         //book.TurnToPage(3, turnTimeType, turnTime);
+        //tweenOut();
     }
 
     protected virtual void SetState(EndlessBook.StateEnum state)
@@ -53,6 +55,7 @@ public class BookFlip : MonoBehaviour
             currentPage += 1;
             if (currentPage > book.LastPageNumber)
             {
+                //tweenOut();
                 currentPage = 1;
                 cycles += 1;
             }
@@ -63,5 +66,15 @@ public class BookFlip : MonoBehaviour
     private void changePage()
     {
         book.TurnToPage(3, turnTimeType, turnTime);
+    }
+
+    public void tweenIn()
+    {
+        book.transform.DOScale(1f, 1f).SetEase(Ease.InElastic);
+    }
+
+    public void tweenOut()
+    {
+        book.transform.DOScale(0f, 1f).SetEase(Ease.OutElastic);
     }
 }
