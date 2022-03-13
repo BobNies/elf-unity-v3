@@ -6,12 +6,16 @@ using DG.Tweening;
 
 public class BookFlip : MonoBehaviour
 {
+    public VideoManager videoManager;
 
     public EndlessBook book;
     public float stateAnimationTime = 1f;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
-    public float turnTime = 1f;
-    public float timeBetweenTurn = 20f;
+    public float PageFlipAnimationTime = 1f;
+    public float turnTimePage1 = 20f;
+    public float turnTimePage2 = 20f;
+    public float turnTimePage3 = 20f;
+    public float turnTimePage4 = 20f;
 
     private float timer = 0f;
     private float origTimeBetweenTurn = 20;
@@ -22,7 +26,7 @@ public class BookFlip : MonoBehaviour
     {
         // cache the book
         book = GameObject.Find("Book").GetComponent<EndlessBook>();
-        origTimeBetweenTurn = timeBetweenTurn;
+        origTimeBetweenTurn = turnTimePage1;
     }
 
     // Start is called before the first frame update
@@ -59,13 +63,13 @@ public class BookFlip : MonoBehaviour
                 currentPage = 1;
                 cycles += 1;
             }
-            book.TurnToPage(currentPage, turnTimeType, turnTime);
+            book.TurnToPage(currentPage, turnTimeType, PageFlipAnimationTime);
         }
     }
 
     private void changePage()
     {
-        book.TurnToPage(3, turnTimeType, turnTime);
+        book.TurnToPage(3, turnTimeType, PageFlipAnimationTime);
     }
 
     public void tweenIn()
