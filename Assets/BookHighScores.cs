@@ -26,32 +26,9 @@ public class BookHighScores : MonoBehaviour
 
     void Start()
     {
-        BcpLogger.Trace("bob start............................");
-        name1.Text = "start";
-        // ["data_manager", "high_scores", "high_score_config", "pending_award"]
-        // set the text from machine var
-        // high_score_category1_label
-        //if (!String.IsNullOrEmpty(machineVariableName))
-        //{
-        // Event: ====== 'machine_var_score1_label'====== Args={'value': 'GRAND CHAMPION', 'prev_value': None, 'change': True}
-        // Event: ====== 'machine_var_score1_name' ====== Args ={ 'value': 'BRI', 'prev_value': None, 'change': True}
-        // Event: ====== 'machine_var_score1_value' ====== Args ={ 'value': 4242, 'prev_value': None, 'change': True}
-        //  JSONNode label1 = BcpMessageManager.Instance.GetMachineVariable("score1_label");
-        //Debug.Log("bob label1:" + label1);
-        // BcpLogger.Trace("========= bob label1: " + label1);
-        //if (label1 != null)
-        //{
-        //  textScore1.Text = label1;
-        // string value = variable.Value;
-
-        //if (intValue != null && !intValue.IsNone) intValue.Value = variable.AsInt;
-        //if (floatValue != null && !floatValue.IsNone) floatValue.Value = variable.AsFloat;
-        //if (boolValue != null && !boolValue.IsNone) boolValue.Value = variable.AsBool;
-        //}
-        //}
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!updated)

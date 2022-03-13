@@ -362,7 +362,7 @@ public class BcpMessageManager : MonoBehaviour
     /// <param name="e">The <see cref="MachineVariableMessageEventArgs"/> instance containing the event data.</param>
     public void MachineVariable(object sender, MachineVariableMessageEventArgs e)
     {
-        Debug.Log("bob MachineVariable:" + e.Name);
+        // Debug.Log("bob MachineVariable:" + e.Name);
         _machineVars[e.Name] = e.Value;
     }
 
