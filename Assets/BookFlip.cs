@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using echo17.EndlessBook;
 using DG.Tweening;
 
 public class BookFlip : MonoBehaviour
 {
     public VideoManager videoManager;
+    public VideoClip videoClip1;
 
     public EndlessBook book;
     public float stateAnimationTime = 1f;
@@ -37,6 +39,9 @@ public class BookFlip : MonoBehaviour
         //book.TurnForward(1);
         //book.TurnToPage(3, turnTimeType, turnTime);
         //tweenOut();
+        Debug.Log("bob play");
+        BcpLogger.Trace("bob play");
+        videoManager.playVideo(videoClip1);
     }
 
     protected virtual void SetState(EndlessBook.StateEnum state)
