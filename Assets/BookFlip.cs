@@ -35,6 +35,8 @@ public class BookFlip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         // listen to flipper buttons
+        BcpMessageController.OnSwitch += Switch;
         //book.TurnForward(1);
         //SetState(EndlessBook.StateEnum.OpenFront);
         //book.TurnForward(1);
@@ -43,6 +45,10 @@ public class BookFlip : MonoBehaviour
         //Debug.Log("bob play");
         //BcpLogger.Trace("bob play");
         //videoManager.playVideo(videoClip1);
+    }
+
+    void OnDisable() {
+        BcpMessageController.OnSwitch -= Switch;
     }
 
     protected virtual void SetState(EndlessBook.StateEnum state)
@@ -103,5 +109,22 @@ public class BookFlip : MonoBehaviour
     public void tweenOut()
     {
         book.transform.DOScale(0f, 1f).SetEase(Ease.OutElastic);
+    }
+
+     public void Switch(object sender, SwitchMessageEventArgs e)
+    {
+        // Determine if this switch message is the one we are interested in (name and value equal desired values).  If so, send specified FSM event.
+        if (e.Name == "s_flipper_rt" && e.State == 1) 
+        {
+            // reset time, flip page next
+            timer = origTimeBetweenTurn;
+            book.TurnForward(1);
+        } else if (e.Name == "s_flipper_lt" && e.State == 1) 
+        {
+            // reset time, flip page
+            timer = origTimeBetweenTurn;
+            book.TurnBackward(1);
+        }
+           
     }
 }
