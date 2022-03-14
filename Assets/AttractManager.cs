@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using DarkTonic.MasterAudio;
 
 public class AttractManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AttractManager : MonoBehaviour
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
     public PlayerManager playerManager;
+
+    [MasterCustomEventAttribute] public string playlist;
 
     public Transform present;
 
@@ -37,6 +40,8 @@ public class AttractManager : MonoBehaviour
             //reset awards
             awardManager.tweenOut();
             present.DOScale(0f, .5f); //SetEase(Ease.InElastic); // DOMove(new Vector3(0, 4, 0), 2);
+            // play audio from Master playlist audioPlaylist
+            MasterAudio.StartPlaylist(playlist);
         }
     }
 

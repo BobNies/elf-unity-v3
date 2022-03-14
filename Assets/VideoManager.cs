@@ -9,20 +9,21 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
-    public bool initVideoScreen = true;
+    public bool minimizeOnStart = true;
+    public bool mainGameVideo = true;
 
-    private VideoPlayer videoPlayer;
+    public VideoPlayer videoPlayer;
     private VideoSource videoSource;
     private Vector3 vec = new Vector3(5, 3);
 
     void Start()
     {
         //video player component
-        videoPlayer = GetComponent<VideoPlayer>();
+        //videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += CheckOver;
 
         // Hide video screen onStart
-        if (initVideoScreen)
+        if (minimizeOnStart && mainGameVideo)
         {
             videoPlayer.transform.DOScale(0f, .5f)
                 .SetEase(Ease.OutQuint);
@@ -33,8 +34,11 @@ public class VideoManager : MonoBehaviour
     {
         videoPlayer.Pause();
 
-        videoPlayer.transform.DOScale(0f, .5f)
-            .SetEase(Ease.OutQuint);
+        if (mainGameVideo)
+        {
+            videoPlayer.transform.DOScale(0f, .5f)
+                .SetEase(Ease.OutQuint);
+        }
     }
 
     public void stopAllVideos()
@@ -65,9 +69,12 @@ public class VideoManager : MonoBehaviour
 
     public void easeInVideoScreen()
     {
-        UnityEngine.Debug.Log("playVideo ***");
-        videoPlayer.transform.DOScale(vec, .5f)
-            .SetEase(Ease.OutQuint);
+        if (mainGameVideo)
+        {
+            UnityEngine.Debug.Log("playVideo ***");
+            videoPlayer.transform.DOScale(vec, .5f)
+                .SetEase(Ease.OutQuint);
+        }
     }
 
 }
