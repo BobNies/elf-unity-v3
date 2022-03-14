@@ -8,7 +8,7 @@ using DG.Tweening;
 public class BookFlip : MonoBehaviour
 {
     public VideoManager videoManager;
-    public VideoClip videoClip1;
+    public VideoClip[] videoClips;
 
     public EndlessBook book;
     public float stateAnimationTime = 1f;
@@ -21,12 +21,15 @@ public class BookFlip : MonoBehaviour
     private float origTimeBetweenTurn = 20;
     private int currentPage = 1;
     private int cycles = 0;
+    private int videoCount = 0;
+    private int videoIndex = 0;
 
     void Awake()
     {
         // cache the book
         book = GameObject.Find("Book").GetComponent<EndlessBook>();
         origTimeBetweenTurn = turnTimePage;
+        videoCount = videoClips.Length;
     }
 
     // Start is called before the first frame update
@@ -72,7 +75,14 @@ public class BookFlip : MonoBehaviour
             if(currentPage == 7 && cycles == 0)
             {
                 // start the video early by using left side page
-                videoManager.playVideo(videoClip1);
+                videoManager.playVideo(videoClips[videoIndex]);
+                if (videoIndex == videoCount-1)
+                {
+                    videoIndex = 0;
+                } else
+                {
+                    videoIndex += 1;
+                }
             } else if (currentPage == 1)
             {
                 videoManager.stopAllVideos();
