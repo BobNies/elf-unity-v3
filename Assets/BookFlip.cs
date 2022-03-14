@@ -14,10 +14,8 @@ public class BookFlip : MonoBehaviour
     public float stateAnimationTime = 1f;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float PageFlipAnimationTime = 1f;
-    public float turnTimePage1 = 20f;
-    public float turnTimePage2 = 20f;
-    public float turnTimePage3 = 20f;
-    public float turnTimePage4 = 20f;
+    public float turnTimePage = 5f;
+    public int cyclesBetweenVideoPlay = 3;
 
     private float timer = 0f;
     private float origTimeBetweenTurn = 20;
@@ -28,7 +26,7 @@ public class BookFlip : MonoBehaviour
     {
         // cache the book
         book = GameObject.Find("Book").GetComponent<EndlessBook>();
-        origTimeBetweenTurn = turnTimePage1;
+        origTimeBetweenTurn = turnTimePage;
     }
 
     // Start is called before the first frame update
@@ -39,9 +37,9 @@ public class BookFlip : MonoBehaviour
         //book.TurnForward(1);
         //book.TurnToPage(3, turnTimeType, turnTime);
         //tweenOut();
-        Debug.Log("bob play");
-        BcpLogger.Trace("bob play");
-        videoManager.playVideo(videoClip1);
+        //Debug.Log("bob play");
+        //BcpLogger.Trace("bob play");
+        //videoManager.playVideo(videoClip1);
     }
 
     protected virtual void SetState(EndlessBook.StateEnum state)
@@ -66,15 +64,25 @@ public class BookFlip : MonoBehaviour
             {
                 //tweenOut();
                 currentPage = 1;
-                cycles += 1;
+                cycles += 1;               
             }
-            book.TurnToPage(currentPage, turnTimeType, PageFlipAnimationTime);
-        }
-    }
 
-    private void changePage()
-    {
-        book.TurnToPage(3, turnTimeType, PageFlipAnimationTime);
+            book.TurnToPage(currentPage, turnTimeType, PageFlipAnimationTime);
+
+            if(currentPage == 7 && cycles == 0)
+            {
+                // start the video early by using left side page
+                videoManager.playVideo(videoClip1);
+            } else if (currentPage == 1)
+            {
+                videoManager.stopAllVideos();
+            }
+            
+            if (cycles >= cyclesBetweenVideoPlay)
+            {
+                cycles = 0;
+            }
+        }
     }
 
     public void tweenIn()
