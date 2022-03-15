@@ -38,15 +38,6 @@ public class BookFlip : MonoBehaviour
     {
         // listen to flipper buttons
        // BcpMessageController.OnTrigger += Trigger;
-
-        //book.TurnForward(1);
-        //SetState(EndlessBook.StateEnum.OpenFront);
-        //book.TurnForward(1);
-        //book.TurnToPage(3, turnTimeType, turnTime);
-        //tweenOut();
-        //Debug.Log("bob play");
-        //BcpLogger.Trace("bob play");
-        //videoManager.playVideo(videoClip1);
     }
 
     void OnDisable() {
@@ -55,14 +46,10 @@ public class BookFlip : MonoBehaviour
 
     protected virtual void SetState(EndlessBook.StateEnum state)
     {
-        // turn of the touch pad
-       // ToggleTouchPad(false);
-
         // set the state
         book.SetState(state, stateAnimationTime);
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
@@ -73,7 +60,6 @@ public class BookFlip : MonoBehaviour
             currentPage += 1;
             if (currentPage > book.LastPageNumber)
             {
-                //tweenOut();
                 currentPage = 1;
                 cycles += 1;               
             }

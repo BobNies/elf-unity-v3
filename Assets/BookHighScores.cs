@@ -37,6 +37,7 @@ public class BookHighScores : MonoBehaviour
 
             if (score1Name != null)
             {
+                Globals.championName = score1Name;
                 name1.Text = score1Name;
                 //get the rest of the values
                 name2.Text = BcpMessageManager.Instance.GetMachineVariable("score2_name");

@@ -13,10 +13,13 @@ public class Globals : MonoBehaviour
 
     public static int playerNumberPrevious;
 
+    public static string championName;
+
     // Add BCP listeners that will update statics.
     void Start()
     {
         playerNumber = 0;
+        championName = "";
 
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
         BcpMessageController.OnBallStart += BallStart;
