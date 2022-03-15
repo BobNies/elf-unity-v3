@@ -79,11 +79,11 @@ public class AwardManager : MonoBehaviour
 
     public void tweenIn()
     {
-        awardTransform.DOMoveX(100, 1f).SetEase(Ease.InElastic);
+        awardTransform.DOLocalMoveX(-350, 1f).SetEase(Ease.InQuad);
     }
 
     public void tweenOut()
     {
-        awardTransform.DOMoveX(-100, 1f).SetEase(Ease.OutQuad);
+        awardTransform.DOLocalMoveX(-500, 1f).SetEase(Ease.OutQuad);
     }
 }

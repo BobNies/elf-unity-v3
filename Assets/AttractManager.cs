@@ -11,6 +11,7 @@ public class AttractManager : MonoBehaviour
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
     public PlayerManager playerManager;
+    public BookFlip bookFlip;
 
     [MasterCustomEventAttribute] public string playlist;
 
@@ -42,7 +43,17 @@ public class AttractManager : MonoBehaviour
             present.DOScale(0f, .5f); //SetEase(Ease.InElastic); // DOMove(new Vector3(0, 4, 0), 2);
             // play audio from Master playlist audioPlaylist
             MasterAudio.StartPlaylist(playlist);
+            //book
+            bookFlip.tweenIn();
+            //StartCoroutine(Test());
         }
+    }
+
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(3);
+        //awardManager.tweenIn();
+        bookFlip.tweenOut();
     }
 
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
@@ -53,6 +64,10 @@ public class AttractManager : MonoBehaviour
             awardManager.tweenIn();
             Vector3 v = new Vector3(3, 3, 1);
             present.DOScale(v, .5f).SetEase(Ease.InElastic);
+            //hide book
+            bookFlip.tweenOut();
+            //stop audio
+            MasterAudio.StopPlaylist();
         }
     }
 }

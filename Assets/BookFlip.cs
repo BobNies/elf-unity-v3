@@ -19,10 +19,11 @@ public class BookFlip : MonoBehaviour
 
     private float timer = 0f;
     private float origTimeBetweenTurn = 20;
-    private int currentPage = 1;
+    private int currentPage = 0;
     private int cycles = 0;
     private int videoCount = 0;
     private int videoIndex = 0;
+    private bool disabled = false;
 
     void Awake()
     {
@@ -35,8 +36,9 @@ public class BookFlip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         // listen to flipper buttons
-        BcpMessageController.OnSwitch += Switch;
+        // listen to flipper buttons
+       // BcpMessageController.OnTrigger += Trigger;
+
         //book.TurnForward(1);
         //SetState(EndlessBook.StateEnum.OpenFront);
         //book.TurnForward(1);
@@ -48,7 +50,7 @@ public class BookFlip : MonoBehaviour
     }
 
     void OnDisable() {
-        BcpMessageController.OnSwitch -= Switch;
+      //  BcpMessageController.OnTrigger -= Trigger;
     }
 
     protected virtual void SetState(EndlessBook.StateEnum state)
@@ -64,7 +66,7 @@ public class BookFlip : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0.0f)
+        if (!disabled && timer <= 0.0f)
         {
             //flip the page
             timer = origTimeBetweenTurn;
@@ -103,23 +105,27 @@ public class BookFlip : MonoBehaviour
 
     public void tweenIn()
     {
-        book.transform.DOScale(1f, 1f).SetEase(Ease.InElastic);
+        book.transform.DOScale(1f, .5f).SetEase(Ease.InQuad);
+        disabled = false;
+        timer = origTimeBetweenTurn;
+        currentPage = 0;
     }
 
     public void tweenOut()
     {
-        book.transform.DOScale(0f, 1f).SetEase(Ease.OutElastic);
+        book.transform.DOScale(0f, .5f).SetEase(Ease.OutQuad);
+        disabled = true;
     }
 
-     public void Switch(object sender, SwitchMessageEventArgs e)
+     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
         // Determine if this switch message is the one we are interested in (name and value equal desired values).  If so, send specified FSM event.
-        if (e.Name == "s_flipper_rt" && e.State == 1) 
+        if (e.Name == "s_flipper_rt_active") 
         {
             // reset time, flip page next
             timer = origTimeBetweenTurn;
             book.TurnForward(1);
-        } else if (e.Name == "s_flipper_lt" && e.State == 1) 
+        } else if (e.Name == "s_flipper_lt_active") 
         {
             // reset time, flip page
             timer = origTimeBetweenTurn;
