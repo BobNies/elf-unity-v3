@@ -26,9 +26,10 @@ public class ModeManager : MonoBehaviour
     {
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
+        //reset PF monitor to attract
 
         // test only
-       // videoManager.playVideo(videoCandyCaneForest);
+        // videoManager.playVideo(videoCandyCaneForest);
     }
 
     void OnDisable()
@@ -41,8 +42,8 @@ public class ModeManager : MonoBehaviour
     {
         // only play on ball 1
         if (Globals.ballNumber > 1) { return; }
-        //Debug.Log("bob ModeStart:" + e.Name);
-        //BcpLogger.Trace("bob ModeStart: " + e.Name);
+        Debug.Log("bob ModeStart:" + e.Name);
+        BcpLogger.Trace("bob ModeStart: " + e.Name);
 
         switch (e.Name)
         {
@@ -50,17 +51,20 @@ public class ModeManager : MonoBehaviour
             // play videos
             // control small monitor UI
             // TODO - set up small PF on attract
+            case "attract":
+                playfieldManager.ShowLevel(0);
+                break;
             case "level_candy_cane_forest":
                 videoManager.playVideo(videoCandyCaneForest);
                 playfieldManager.ShowLevel(1);
                 break;
             case "level_central_park":
                 videoManager.playVideo(videoCentralPark);
-                playfieldManager.ShowLevel(2);
+                playfieldManager.ShowLevel(7);
                 break;
             case "level_coffee":
                 videoManager.playVideo(videoCoffee);
-                playfieldManager.ShowLevel(3);
+                playfieldManager.ShowLevel(5);
                 break;
             case "level_gimbels":
                 videoManager.playVideo(videoGimbels);
@@ -68,42 +72,47 @@ public class ModeManager : MonoBehaviour
                 break;
             case "level_gumdrop":
                 videoManager.playVideo(videoGumdrop);
-                playfieldManager.ShowLevel(5);
+                playfieldManager.ShowLevel(2);
                 break;
             case "level_lincoln_tunnel":
                 videoManager.playVideo(videoLincolnTunnel);
-                playfieldManager.ShowLevel(6);
+                playfieldManager.ShowLevel(3);
                 break;
             case "level_nutcracker":
                 videoManager.playVideo(videoNutcracker);
+                playfieldManager.ShowLevel(6);
+                break;
+            case "level_park":
                 playfieldManager.ShowLevel(7);
                 break;
             // sub-levels
+            // TODO - 8 is unused
+            // TODO - play then put back
             case "ball_lock":
-                playfieldManager.ShowLevel(8);
+               // playfieldManager.ShowLevel(9);
                 break;
             case "end_of_ball_bonus":
                 break;
             case "jackpot":
-                playfieldManager.ShowLevel(9);
+                //playfieldManager.ShowLevel(10);
                 break;
             case "jet_bonus":
                 break;
             case "omg":
-                videoManager.playVideo(videoOmg);
+                //videoManager.playVideo(videoOmg);
                 break;
             case "plunger_skill_shot":
-                playfieldManager.ShowLevel(10);
+                //playfieldManager.ShowLevel(11);
                 break;
             case "ramp_shot":
-                playfieldManager.ShowLevel(11);
+                //playfieldManager.ShowLevel(12);
                 break;
             case "singing":
-                videoManager.playVideo(videoSinging);
+                //videoManager.playVideo(videoSinging);
                 break;
             case "someone_special":
                 videoManager.playVideo(videoSomeoneSpecial);
-                playfieldManager.ShowLevel(12);
+                //playfieldManager.ShowLevel(13);
                 break;
             
         }
