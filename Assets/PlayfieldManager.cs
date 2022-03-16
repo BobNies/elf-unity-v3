@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayfieldManager : MonoBehaviour
 {
 
+    public GameObject Attract;
     public GameObject L1;
     public GameObject L2;
     public GameObject L3;
@@ -26,7 +27,7 @@ public class PlayfieldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        screens = new GameObject[] { L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13 };
+        screens = new GameObject[] { L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, Attract };
     }
 
     // 1 -forest
@@ -73,6 +74,7 @@ public class PlayfieldManager : MonoBehaviour
             case 12:
                 break;
             case 13:
+                //attract
                 break;
         }
     }
