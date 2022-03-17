@@ -50,6 +50,7 @@ public class BookHighScores : MonoBehaviour
         {
             name1.Text = score1Name;
             score1.Text = score1Value;
+            Globals.championName = score1Name;
         }
         if (score2Name != null && score2Value != null)
         {
