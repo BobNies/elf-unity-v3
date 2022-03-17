@@ -40,14 +40,14 @@ public class BallCountUpdater : MonoBehaviour
         }
     }
 
-    private void tweenIn()
+    public void tweenIn()
     {
-         modular3DText.transform.DOMoveY(-0.7399979f, 1f).SetEase(Ease.InElastic);
+        modular3DText.transform.DOScale(1f, .1f); //.SetEase(Ease.InQuint);
     }
 
     public void tweenOut()
     {
-        modular3DText.transform.DOMoveY(-1f, 1f).SetEase(Ease.OutElastic);
+        modular3DText.transform.DOScale(0f, .1f); //.SetEase(Ease.OutQuint);
     }
 
 }

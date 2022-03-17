@@ -69,6 +69,7 @@ public class AttractManager : MonoBehaviour
             awardManager.tweenIn();
             Vector3 v = new Vector3(3, 3, 1);
             present.DOScale(v, .5f).SetEase(Ease.InElastic);
+            ballCountUpdater.tweenIn();
             //hide book
             bookFlip.tweenOut();
             //stop audio
