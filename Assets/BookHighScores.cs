@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using System.Collections;
 using MText;
 using DG.Tweening;
 using BCP.SimpleJSON;
@@ -22,40 +24,53 @@ public class BookHighScores : MonoBehaviour
     public Modular3DText name5 = null;
     public Modular3DText score5 = null;
 
-    private bool updated = false;
-
     void Start()
     {
-        
+        StartCoroutine(updateView());
     }
 
-    void Update()
+    //TODO - find better way - need to update when a new score is set.
+    IEnumerator updateView()
     {
-        if (!updated)
+        yield return new WaitForSeconds(2);
+
+        JSONNode score1Name = BcpMessageManager.Instance.GetMachineVariable("score1_name");
+        JSONNode score2Name = BcpMessageManager.Instance.GetMachineVariable("score2_name");
+        JSONNode score3Name = BcpMessageManager.Instance.GetMachineVariable("score3_name");
+        JSONNode score4Name = BcpMessageManager.Instance.GetMachineVariable("score4_name");
+        JSONNode score5Name = BcpMessageManager.Instance.GetMachineVariable("score5_name");
+
+        JSONNode score1Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+        JSONNode score2Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+        JSONNode score3Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+        JSONNode score4Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+        JSONNode score5Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+
+        if (score1Name != null && score1Value != null)
         {
-            JSONNode score1Name = BcpMessageManager.Instance.GetMachineVariable("score1_name");
-
-            if (score1Name != null)
-            {
-                Globals.championName = score1Name;
-                name1.Text = score1Name;
-                //get the rest of the values
-                name2.Text = BcpMessageManager.Instance.GetMachineVariable("score2_name");
-                name2.Text = BcpMessageManager.Instance.GetMachineVariable("score3_name");
-                name4.Text = BcpMessageManager.Instance.GetMachineVariable("score4_name");
-                name5.Text = BcpMessageManager.Instance.GetMachineVariable("score5_name");
-
-                score1.Text = BcpMessageManager.Instance.GetMachineVariable("score1_value");
-                score2.Text = BcpMessageManager.Instance.GetMachineVariable("score2_value");
-                score3.Text = BcpMessageManager.Instance.GetMachineVariable("score3_value");
-                score4.Text = BcpMessageManager.Instance.GetMachineVariable("score4_value");
-
-                JSONNode score5Name = BcpMessageManager.Instance.GetMachineVariable("score5_value");
-                if (score5Name != null) {
-                    updated = true;
-                    score5.Text = score5Name;
-                }
-            }
+            name1.Text = score1Name;
+            score1.Text = score1Value;
+        }
+        if (score2Name != null && score2Value != null)
+        {
+            name2.Text = score2Name;
+            score2.Text = score2Value;
+        }
+        if (score3Name != null && score3Value != null)
+        {
+            name3.Text = score3Name;
+            score3.Text = score3Value;
+        }
+        if (score4Name != null && score4Value != null)
+        {
+            name4.Text = score4Name;
+            score4.Text = score4Value;
+        }
+        if (score5Name != null && score5Value != null)
+        {
+            name5.Text = score5Name;
+            score5.Text = score5Value;
         }
     }
+
 }
