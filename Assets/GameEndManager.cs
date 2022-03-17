@@ -15,6 +15,7 @@ public class GameEndManager : MonoBehaviour
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
     public PlayerManager playerManager;
+    public PlayfieldManager playfieldManager;
 
     private string modeName = "game";
 
@@ -44,6 +45,8 @@ public class GameEndManager : MonoBehaviour
             ballCountUpdater.tweenOut();
             //reset awards
             awardManager.tweenOut();
+            // reset PF screen.
+            playfieldManager.ShowLevel(0);  //TODO - show something before attract
 
             //Debug.Log("bob ModeStop - **********************************");
             //BcpLogger.Trace("bob ModeStop - **********************************");
