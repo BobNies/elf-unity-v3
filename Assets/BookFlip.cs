@@ -28,7 +28,7 @@ public class BookFlip : MonoBehaviour
     void Awake()
     {
         // cache the book
-        book = GameObject.Find("Book").GetComponent<EndlessBook>();
+       // book = GameObject.Find("Book").GetComponent<EndlessBook>();
         origTimeBetweenTurn = turnTimePage;
         videoCount = videoClips.Length;
     }
@@ -103,20 +103,20 @@ public class BookFlip : MonoBehaviour
         disabled = true;
     }
 
-     public void Trigger(object sender, TriggerMessageEventArgs e)
-    {
+   //  public void Trigger(object sender, TriggerMessageEventArgs e)
+    //{
         // Determine if this switch message is the one we are interested in (name and value equal desired values).  If so, send specified FSM event.
-        if (e.Name == "s_flipper_rt_active") 
-        {
+      ///  if (e.Name == "s_flipper_rt_active") 
+        //{
             // reset time, flip page next
-            timer = origTimeBetweenTurn;
-            book.TurnForward(1);
-        } else if (e.Name == "s_flipper_lt_active") 
-        {
+          //  timer = origTimeBetweenTurn;
+        //    book.TurnForward(1);
+    //    } else if (e.Name == "s_flipper_lt_active") 
+      //  {
             // reset time, flip page
-            timer = origTimeBetweenTurn;
-            book.TurnBackward(1);
-        }
+        //    timer = origTimeBetweenTurn;
+          //  book.TurnBackward(1);
+     //   }
            
-    }
+   // }
 }
