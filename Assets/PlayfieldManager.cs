@@ -6,7 +6,7 @@ using UnityEngine;
 // show/hide objects per level
 public class PlayfieldManager : MonoBehaviour
 {
-    public GameObject background;
+   // public GameObject background;
     public GameObject attract;
     public GameObject L1;
     public GameObject L2;
@@ -53,17 +53,17 @@ public class PlayfieldManager : MonoBehaviour
         Debug.Log("bob ShowLevel: " + level);
         BcpLogger.Trace("bob ShowLevel: " + level);
         hideAll();
-        if (level != 0)
-        {
-            background.SetActive(true);
-        }
+       // if (level != 0)
+        //{
+           // background.SetActive(true);
+        //}
         
         // loop by a tag instead
         switch (level)
         {
             case 0:
                 // attrack
-                background.SetActive(false);
+               // background.SetActive(false);
                 attract.SetActive(true);
                 break;
             case 1:
