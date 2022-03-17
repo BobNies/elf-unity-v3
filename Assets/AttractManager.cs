@@ -13,6 +13,7 @@ public class AttractManager : MonoBehaviour
     public PlayerManager playerManager;
     public BookFlip bookFlip;
 
+    public bool playMusicOnStart = false;
     [MasterCustomEventAttribute] public string playlist;
 
     public Transform present;
@@ -42,7 +43,11 @@ public class AttractManager : MonoBehaviour
             awardManager.tweenOut();
             present.DOScale(0f, .5f); //SetEase(Ease.InElastic); // DOMove(new Vector3(0, 4, 0), 2);
             // play audio from Master playlist audioPlaylist
-            MasterAudio.StartPlaylist(playlist);
+            if(playMusicOnStart && playlist != null)
+            {
+                MasterAudio.StartPlaylist(playlist);
+            }
+           
             //book
             bookFlip.tweenIn();
             //StartCoroutine(Test());
