@@ -26,8 +26,12 @@ public class HighScoreManager : MonoBehaviour
     [SerializeField]
     public Modular3DText selector = null;
 
-    private string hightScoreAwardDisplay;  // show high scores
-    private string highScoreEnterInitials; // player enters initials
+    public BookFlip bookFlip;
+    public GameObject highScoresContainer;
+    public GameObject initialsContainer;
+
+   // private string hightScoreAwardDisplay;  // show high scores
+   // private string highScoreEnterInitials; // player enters initials
 
     // The maximum number of high score characters user is permitted
     private int maxCharacters;
@@ -46,16 +50,18 @@ public class HighScoreManager : MonoBehaviour
     private float timeoutSecondsRemaining;
 
 
+    //TODO - hide onStart
     void Start()
     {
-        hightScoreAwardDisplay = "high_score_award_display";  // Display score/awards
-        highScoreEnterInitials = "high_score_enter_initials";
+        BcpLogger.Trace("HighScoreManager: Start");
+        //hightScoreAwardDisplay = "high_score_award_display";  // Display score/awards
+        //highScoreEnterInitials = "high_score_enter_initials";
 
         // enter initials
         BcpMessageController.OnSwitch += Switch;
         //High scores
-        //BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage(hightScoreAwardDisplay));
-        //BcpMessageController.OnTrigger += Trigger;
+        BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
+        BcpMessageController.OnTrigger += Trigger;
 
         reset();
         BuildCharacterList();
@@ -67,7 +73,7 @@ public class HighScoreManager : MonoBehaviour
     void OnDisable()
     {
         BcpMessageController.OnSwitch -= Switch;
-        //BcpMessageController.OnTrigger -= Trigger;
+        BcpMessageController.OnTrigger -= Trigger;
 
     }
 
@@ -110,7 +116,7 @@ public class HighScoreManager : MonoBehaviour
 
      public void Switch(object sender, SwitchMessageEventArgs e)
     {
-        BcpLogger.Trace("HighScoreManager: Switch (" + e.Name + ", " + e.State.ToString() + ")");
+        //BcpLogger.Trace("HighScoreManager: Switch (" + e.Name + ", " + e.State.ToString() + ")");
 
         if (e.State != 1)
             return;
@@ -124,18 +130,25 @@ public class HighScoreManager : MonoBehaviour
     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
         // Determine if this trigger message is the one we are interested in.  If so, send specified FSM event.
-        if (!String.IsNullOrEmpty(hightScoreAwardDisplay) && e.Name == hightScoreAwardDisplay)
+        if (e.Name == "high_score_enter_initials")
         {
+            BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
             try
             {
-                string award = e.BcpMessage.Parameters["award"].Value;
-                string playerName = e.BcpMessage.Parameters["player_name"].Value;
-                int value = e.BcpMessage.Parameters["value"].AsInt;
-                //TODO - show player initial Scene.
+                //string award = e.BcpMessage.Parameters["award"].Value;
+                //string playerName = e.BcpMessage.Parameters["player_name"].Value;
+                //int value = e.BcpMessage.Parameters["value"].AsInt;
+                //TODO here
+                //show book
+                bookFlip.tweenIn();
+                highScoresContainer.SetActive(false);
+
+                initialsContainer.SetActive(true);
+
             }
             catch (Exception ex)
             {
-                BcpServer.Instance.Send(BcpMessage.ErrorMessage("An error occurred while processing a 'high_score_award_display' trigger message: " + ex.Message, e.BcpMessage.RawMessage));
+                BcpServer.Instance.Send(BcpMessage.ErrorMessage("HighScoreManager An error occurred while processing a 'high_score_award_display' trigger message: " + ex.Message, e.BcpMessage.RawMessage));
             }
 
         }
@@ -168,6 +181,7 @@ public class HighScoreManager : MonoBehaviour
     // Called when user presses select button
     private void Select()
     {
+        BcpLogger.Trace("HighScoreManager: Select");
         if (characterList[currentCharacter] == "back")
         {
             if (currentPosition > 0)
@@ -217,13 +231,14 @@ public class HighScoreManager : MonoBehaviour
     //Called whenever the current character changes
     private void CharacterChanged()
     {
+        BcpLogger.Trace("HighScoreManager: CharacterChanged");
         selector.Text = characterList[currentCharacter];
     }
 
     // Called whenever the current character position changes
     private void PositionChanged() 
     {
-
+        BcpLogger.Trace("HighScoreManager: PositionChanged");
     }
 
     private void BuildCharacterList() 
