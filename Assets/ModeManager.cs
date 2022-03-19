@@ -51,8 +51,6 @@ public class ModeManager : MonoBehaviour
             // TODO - set up small PF on attract
             case "high_score":
                 this.gameObject.GetComponent<HighScoreManager>().enabled = true;
-                //here
-               // bookFlip.tweenIn();
                 break;
             case "attract":                
                 playfieldManager.ShowLevel(0);
@@ -122,14 +120,6 @@ public class ModeManager : MonoBehaviour
         
     }
 
-    private void playVideoOnBallOne(VideoClip clip)
-    {
-        if (Globals.ballNumber == 1)
-        {
-            videoManager.playVideo(clip);
-        }
-    }
-
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
     {
         //todo - kill active vids?
@@ -143,5 +133,14 @@ public class ModeManager : MonoBehaviour
                 this.gameObject.GetComponent<HighScoreManager>().enabled = false;
                 break;
         }
+    }
+
+    private void playVideoOnBallOne(VideoClip clip)
+    {
+        if (Globals.ballNumber == 1)
+        {
+            videoManager.playVideo(clip);
         }
+    }
+
 }

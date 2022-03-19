@@ -148,8 +148,6 @@ public class HighScoreManager : MonoBehaviour
     // Called when user presses shift left button
     private void ShiftLeft()
     {
-        BcpLogger.Trace("HighScoreManager: ShiftLeft");
-
         currentCharacter--;
         if (currentCharacter < 0)
             currentCharacter = characterList.Count - 1;
@@ -160,8 +158,6 @@ public class HighScoreManager : MonoBehaviour
     // Called when user presses shift right button
     private void ShiftRight()
     {
-        BcpLogger.Trace("HighScoreManager: ShiftRight");
-
         currentCharacter++;
         if (currentCharacter >= characterList.Count)
             currentCharacter = 0;
@@ -172,7 +168,7 @@ public class HighScoreManager : MonoBehaviour
     // Called when user presses select button
     private void Select()
     {
-        BcpLogger.Trace("HighScoreManager: Select");
+        //BcpLogger.Trace("HighScoreManager: Select");
         if (characterList[currentCharacter] == "back")
         {
             if (currentPosition > 0)
@@ -193,10 +189,10 @@ public class HighScoreManager : MonoBehaviour
             initials[currentPosition] += currentChar;
 
             // set UI
-            Debug.Log("bob currentPosition:" + currentPosition);
-            Debug.Log("bob initials:" + initials[currentPosition]);
-            BcpLogger.Trace("bob: currentPosition:"+ currentPosition);
-            BcpLogger.Trace("bob: text:" + initials[currentPosition]);
+           // Debug.Log("bob currentPosition:" + currentPosition);
+           // Debug.Log("bob initials:" + initials[currentPosition]);
+            //BcpLogger.Trace("bob: currentPosition:"+ currentPosition);
+            //BcpLogger.Trace("bob: text:" + initials[currentPosition]);
             switch (currentPosition)
             {
                 case 0:
@@ -214,8 +210,8 @@ public class HighScoreManager : MonoBehaviour
             currentPosition++;
             if (currentPosition >= maxCharacters)
             {
-                Debug.Log("bob currentPosition done:" + currentPosition);
-                BcpLogger.Trace("bob: currentPosition DONE:" + currentPosition);
+               // Debug.Log("bob currentPosition done:" + currentPosition);
+                //BcpLogger.Trace("bob: currentPosition DONE:" + currentPosition);
                 Done();
             }
             else
@@ -229,14 +225,14 @@ public class HighScoreManager : MonoBehaviour
     //Called whenever the current character changes
     private void CharacterChanged()
     {
-        BcpLogger.Trace("HighScoreManager: CharacterChanged");
+        //BcpLogger.Trace("HighScoreManager: CharacterChanged");
         selector.Text = characterList[currentCharacter];
     }
 
     // Called whenever the current character position changes
     private void PositionChanged() 
     {
-        BcpLogger.Trace("HighScoreManager: PositionChanged");
+       // BcpLogger.Trace("HighScoreManager: PositionChanged");
     }
 
     private void BuildCharacterList() 
@@ -258,16 +254,18 @@ public class HighScoreManager : MonoBehaviour
     // Called internally when the user has completed entering their initials.
     private void Done()
     {
-        BcpLogger.Trace("HighScoreManager: Done");
+        //BcpLogger.Trace("HighScoreManager: Done");
 
         string finalInitials = string.Join("", initials).TrimEnd();
-        //if (!selectedInitials.IsNone)
-          //  selectedInitials.Value = finalInitials;
 
         //Globals.championName = finalInitials;
         BcpMessage message = BcpMessage.TriggerMessage("text_input_high_score_complete");
         message.Parameters["text"] = new JSONString(finalInitials);
         BcpServer.Instance.Send(message);
+
+        // hide initials screen
+        highScoresContainer.SetActive(true);
+        initialsContainer.SetActive(false);
     }
 
 }

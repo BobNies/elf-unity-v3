@@ -28,7 +28,6 @@ public class BookFlip : MonoBehaviour
 
     void Awake()
     {
-        // cache the book
         book = this.gameObject.GetComponent<EndlessBook>();
         videoManager = this.gameObject.GetComponent<VideoManager>();
         origTimeBetweenTurn = turnTimePage;
