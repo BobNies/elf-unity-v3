@@ -40,7 +40,6 @@ public class HighScoreManager : MonoBehaviour
     private string shiftLeftEvent;
     private string shiftRightEvent;
     private string selectEvent;
-    private string abortEvent;
     private float timeoutSeconds;
 
     private int currentCharacter;
@@ -54,8 +53,6 @@ public class HighScoreManager : MonoBehaviour
     void Start()
     {
         BcpLogger.Trace("HighScoreManager: Start");
-        //hightScoreAwardDisplay = "high_score_award_display";  // Display score/awards
-        //highScoreEnterInitials = "high_score_enter_initials";
 
         // enter initials
         BcpMessageController.OnSwitch += Switch;
@@ -67,14 +64,16 @@ public class HighScoreManager : MonoBehaviour
         BuildCharacterList();
         //PositionChanged();
         //CharacterChanged();
-
+        // resetUI
+        bookFlip.tweenIn();
+        highScoresContainer.SetActive(false);
+        initialsContainer.SetActive(true);
     }
 
     void OnDisable()
     {
         BcpMessageController.OnSwitch -= Switch;
         BcpMessageController.OnTrigger -= Trigger;
-
     }
 
     /// <summary>
@@ -87,6 +86,7 @@ public class HighScoreManager : MonoBehaviour
         {
             BcpLogger.Trace("HighScoreManager: Timeout reached");
             // Abort();
+            // todo time out here, not mpf. send msg ?
         }
 
     }
@@ -98,9 +98,7 @@ public class HighScoreManager : MonoBehaviour
         shiftLeftEvent = "s_flipper_lt";
         shiftRightEvent = "s_flipper_rt";
         selectEvent = "s_start";
-        abortEvent = "sw_esc";
        
-        // TODO - move high score to own file.
         currentCharacter = 0;
         currentPosition = 0;
         timeoutSecondsRemaining = timeoutSeconds;
@@ -124,7 +122,6 @@ public class HighScoreManager : MonoBehaviour
         if (e.Name == shiftLeftEvent) ShiftLeft();
         else if (e.Name == shiftRightEvent) ShiftRight();
         else if (e.Name == selectEvent) Select();
-        //else if (e.Name == abortEvent) Abort();
     }
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
@@ -135,16 +132,10 @@ public class HighScoreManager : MonoBehaviour
             BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
             try
             {
-                //string award = e.BcpMessage.Parameters["award"].Value;
-                //string playerName = e.BcpMessage.Parameters["player_name"].Value;
-                //int value = e.BcpMessage.Parameters["value"].AsInt;
                 //TODO here
                 //show book
-                bookFlip.tweenIn();
-                highScoresContainer.SetActive(false);
-
-                initialsContainer.SetActive(true);
-
+                Debug.Log("bob tweenIn:");
+                BcpLogger.Trace("bob tweenIn");              
             }
             catch (Exception ex)
             {
@@ -197,20 +188,25 @@ public class HighScoreManager : MonoBehaviour
         }
         else
         {
+            string currentChar = characterList[currentCharacter];
             // Add selected character to saved initials string
-            initials[currentPosition] += characterList[currentCharacter];
+            initials[currentPosition] += currentChar;
 
             // set UI
-            switch(currentPosition)
+            Debug.Log("bob currentPosition:" + currentPosition);
+            Debug.Log("bob initials:" + initials[currentPosition]);
+            BcpLogger.Trace("bob: currentPosition:"+ currentPosition);
+            BcpLogger.Trace("bob: text:" + initials[currentPosition]);
+            switch (currentPosition)
             {
                 case 0:
-                    initial1.Text = initials[currentPosition];
+                    initial1.Text = currentChar;
                     break;
                 case 1:
-                    initial2.Text = initials[currentPosition];
+                    initial2.Text = currentChar;
                     break;
                 case 2:
-                    initial3.Text = initials[currentPosition];
+                    initial3.Text = currentChar;
                     break;
             }
 
@@ -218,12 +214,14 @@ public class HighScoreManager : MonoBehaviour
             currentPosition++;
             if (currentPosition >= maxCharacters)
             {
+                Debug.Log("bob currentPosition done:" + currentPosition);
+                BcpLogger.Trace("bob: currentPosition DONE:" + currentPosition);
                 Done();
             }
             else
             {
                 PositionChanged();
-               // BuildCharacterList();
+                BuildCharacterList();
             }
         }
     }

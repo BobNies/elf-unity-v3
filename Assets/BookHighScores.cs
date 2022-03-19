@@ -41,10 +41,10 @@ public class BookHighScores : MonoBehaviour
         JSONNode score5Name = BcpMessageManager.Instance.GetMachineVariable("score5_name");
 
         JSONNode score1Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
-        JSONNode score2Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
-        JSONNode score3Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
-        JSONNode score4Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
-        JSONNode score5Value = BcpMessageManager.Instance.GetMachineVariable("score1_value");
+        JSONNode score2Value = BcpMessageManager.Instance.GetMachineVariable("score2_value");
+        JSONNode score3Value = BcpMessageManager.Instance.GetMachineVariable("score3_value");
+        JSONNode score4Value = BcpMessageManager.Instance.GetMachineVariable("score4_value");
+        JSONNode score5Value = BcpMessageManager.Instance.GetMachineVariable("score5_value");
 
         if (score1Name != null && score1Value != null)
         {

@@ -10,6 +10,7 @@ public class ModeManager : MonoBehaviour
 {
     public VideoManager videoManager;
     public PlayfieldManager playfieldManager;
+   // public HighScoreManager highScoreManager;
 
     public VideoClip videoCandyCaneForest;
     public VideoClip videoCentralPark;
@@ -26,7 +27,6 @@ public class ModeManager : MonoBehaviour
     {
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
-        //reset PF monitor to attract
 
         // test only
         // videoManager.playVideo(videoCandyCaneForest);
@@ -40,8 +40,6 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
-        // only play on ball 1
-        if (Globals.ballNumber > 1) { return; }
         Debug.Log("bob ModeStart:" + e.Name);
         BcpLogger.Trace("bob ModeStart: " + e.Name);
 
@@ -51,35 +49,40 @@ public class ModeManager : MonoBehaviour
             // play videos
             // control small monitor UI
             // TODO - set up small PF on attract
-            case "attract":
+            case "high_score":
+                this.gameObject.GetComponent<HighScoreManager>().enabled = true;
+                //here
+               // bookFlip.tweenIn();
+                break;
+            case "attract":                
                 playfieldManager.ShowLevel(0);
                 break;
             case "level_candy_cane_forest":
-                videoManager.playVideo(videoCandyCaneForest);
+                playVideoOnBallOne(videoCandyCaneForest);
                 playfieldManager.ShowLevel(1);
                 break;
             case "level_central_park":
-                videoManager.playVideo(videoCentralPark);
+                playVideoOnBallOne(videoCentralPark);
                 playfieldManager.ShowLevel(7);
                 break;
             case "level_coffee":
-                videoManager.playVideo(videoCoffee);
+                playVideoOnBallOne(videoCoffee);
                 playfieldManager.ShowLevel(5);
                 break;
             case "level_gimbels":
-                videoManager.playVideo(videoGimbels);
+                playVideoOnBallOne(videoGimbels);
                 playfieldManager.ShowLevel(4);
                 break;
             case "level_gumdrop":
-                videoManager.playVideo(videoGumdrop);
+                playVideoOnBallOne(videoGumdrop);
                 playfieldManager.ShowLevel(2);
                 break;
             case "level_lincoln_tunnel":
-                videoManager.playVideo(videoLincolnTunnel);
+                playVideoOnBallOne(videoLincolnTunnel);
                 playfieldManager.ShowLevel(3);
                 break;
             case "level_nutcracker":
-                videoManager.playVideo(videoNutcracker);
+                playVideoOnBallOne(videoNutcracker);
                 playfieldManager.ShowLevel(6);
                 break;
             case "level_park":
@@ -111,7 +114,7 @@ public class ModeManager : MonoBehaviour
                 //videoManager.playVideo(videoSinging);
                 break;
             case "someone_special":
-                videoManager.playVideo(videoSomeoneSpecial);
+                playVideoOnBallOne(videoSomeoneSpecial);
                 //playfieldManager.ShowLevel(13);
                 break;
             
@@ -119,8 +122,26 @@ public class ModeManager : MonoBehaviour
         
     }
 
+    private void playVideoOnBallOne(VideoClip clip)
+    {
+        if (Globals.ballNumber == 1)
+        {
+            videoManager.playVideo(clip);
+        }
+    }
+
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
     {
         //todo - kill active vids?
-    }
+        switch (e.Name)
+        {
+            // 7 levels
+            // play videos
+            // control small monitor UI
+            // TODO - set up small PF on attract
+            case "high_score":
+                this.gameObject.GetComponent<HighScoreManager>().enabled = false;
+                break;
+        }
+        }
 }
