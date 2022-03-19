@@ -15,11 +15,18 @@ public class PlayfieldManager : MonoBehaviour
     public GameObject L5;
     public GameObject L6;
     public GameObject L7;
-    public GameObject L8;
-    public GameObject L9;
-    public GameObject L10;
-    public GameObject L11;
-    public GameObject L12;
+
+    // 8 - plunger skillshot
+    // 9 - ball lock
+    // 10 - jackpot
+    // 11 - shoot ramp
+    // 12 - special
+    // 13 - empty
+    public GameObject SkillshotPlunger;
+    public GameObject SkillshotLock;
+    public GameObject SkillshotJackpot;
+    public GameObject SkillshotRamp;
+    public GameObject SkillshotSpecial;
     public GameObject L13;
 
     //private GameObject[] screens;
@@ -27,9 +34,6 @@ public class PlayfieldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // screens = new GameObject[] { Attract, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13};
-        Debug.Log("bob start --:");
-        BcpLogger.Trace("bob start");
         ShowLevel(0);
     }
 
@@ -41,13 +45,13 @@ public class PlayfieldManager : MonoBehaviour
     // 5 - coffee
     // 6 - nutcrackker
     // 7 - park
-    // 8 - UNUSED
 
+    // 8 - plunger skillshot
     // 9 - ball lock
     // 10 - jackpot
-    // 11 - plunger skillshot
-    // 12 - shoot ramp
-    // 13 - special
+    // 11 - shoot ramp
+    // 12 - special
+    // 13 - empty
     public void ShowLevel(int level)
     {
         Debug.Log("bob ShowLevel: " + level);
@@ -88,19 +92,19 @@ public class PlayfieldManager : MonoBehaviour
                 L7.SetActive(true);
                 break;
             case 8:
-               // L8.SetActive(true);
+                SkillshotPlunger.SetActive(true);
                 break;
             case 9:
-                L9.SetActive(true);
+                SkillshotLock.SetActive(true);
                 break;
             case 10:
-                L10.SetActive(true);
+                SkillshotJackpot.SetActive(true);
                 break;
             case 11:
-                L11.SetActive(true);
+                SkillshotRamp.SetActive(true);
                 break;
             case 12:
-                L12.SetActive(true);
+                SkillshotSpecial.SetActive(true);
                 break;
             case 13:
                 L13.SetActive(true);
@@ -118,11 +122,12 @@ public class PlayfieldManager : MonoBehaviour
         L5.SetActive(false);
         L6.SetActive(false);
         L7.SetActive(false);
-        L8.SetActive(false);
-        L9.SetActive(false);
-        L10.SetActive(false);
-        L11.SetActive(false);
-        L12.SetActive(false);
+
+        SkillshotPlunger.SetActive(false);
+        SkillshotLock.SetActive(false);
+        SkillshotJackpot.SetActive(false);
+        SkillshotRamp.SetActive(false);
+        SkillshotSpecial.SetActive(false);
         L13.SetActive(false);
 
         //screens[level].SetActive(true);
