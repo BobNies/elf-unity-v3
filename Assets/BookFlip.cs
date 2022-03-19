@@ -7,15 +7,16 @@ using DG.Tweening;
 
 public class BookFlip : MonoBehaviour
 {
-    public VideoManager videoManager;
     public VideoClip[] videoClips;
 
-    public EndlessBook book;
     public float stateAnimationTime = 1f;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float PageFlipAnimationTime = 1f;
     public float turnTimePage = 5f;
     public int cyclesBetweenVideoPlay = 3;
+
+    private EndlessBook book;
+    private VideoManager videoManager;
 
     private float timer = 0f;
     private float origTimeBetweenTurn = 20;
@@ -28,7 +29,8 @@ public class BookFlip : MonoBehaviour
     void Awake()
     {
         // cache the book
-       // book = GameObject.Find("Book").GetComponent<EndlessBook>();
+        book = this.gameObject.GetComponent<EndlessBook>();
+        videoManager = this.gameObject.GetComponent<VideoManager>();
         origTimeBetweenTurn = turnTimePage;
         videoCount = videoClips.Length;
     }

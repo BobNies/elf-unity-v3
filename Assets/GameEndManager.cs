@@ -14,10 +14,14 @@ public class GameEndManager : MonoBehaviour
     public ScoreManager scoreManager;
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
-    public PlayerManager playerManager;
     public PlayfieldManager playfieldManager;
 
-    private string modeName = "game";
+    private PlayerManager playerManager;
+
+    void Awake()
+    {
+        playerManager = this.gameObject.GetComponent<PlayerManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +37,8 @@ public class GameEndManager : MonoBehaviour
 
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
     {      
-        if (!String.IsNullOrEmpty(modeName) && e.Name == modeName)
+        if (e.Name == "game")
         {
-            // TODO - reset Ui
             // stop all videos
             videoManager.stopAllVideos();
             // reset scores

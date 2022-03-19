@@ -10,14 +10,17 @@ public class AttractManager : MonoBehaviour
     public ScoreManager scoreManager;
     public BallCountUpdater ballCountUpdater;
     public AwardManager awardManager;
-    public PlayerManager playerManager;
     public BookFlip bookFlip;
-
+    public Transform present;
     public bool playMusicOnStart = false;
     [MasterCustomEventAttribute] public string playlist;
 
-    public Transform present;
+    private PlayerManager playerManager;
 
+    void Awake()
+    {
+        playerManager = this.gameObject.GetComponent<PlayerManager>();
+    }
 
     void Start()
     {
