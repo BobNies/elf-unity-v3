@@ -33,6 +33,8 @@ public class PresentManager : MonoBehaviour
     {
         //update the text, then reset the animator
         //presentAnimator.loadContainedItems();
+        containedItemText.Text = score;
+        presentAnimator.Animate();
     }
 
 }
