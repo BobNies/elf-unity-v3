@@ -26,12 +26,13 @@ public class HighScoreManager : MonoBehaviour
     [SerializeField]
     public Modular3DText selector = null;
 
+    public BookHighScores bookHighScores;
     public BookFlip bookFlip;
     public GameObject highScoresContainer;
     public GameObject initialsContainer;
 
-   // private string hightScoreAwardDisplay;  // show high scores
-   // private string highScoreEnterInitials; // player enters initials
+    // private string hightScoreAwardDisplay;  // show high scores
+    // private string highScoreEnterInitials; // player enters initials
 
     // The maximum number of high score characters user is permitted
     private int maxCharacters;
@@ -275,8 +276,11 @@ public class HighScoreManager : MonoBehaviour
         message.Parameters["text"] = new JSONString(finalInitials);
         BcpServer.Instance.Send(message);
 
+        //reset UI
         highScoresContainer.SetActive(true);
         initialsContainer.SetActive(false);
+        // update score on page 1  -- BookHighScore
+        bookHighScores.Update();
     }
 
 }

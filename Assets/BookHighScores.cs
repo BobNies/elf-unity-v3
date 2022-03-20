@@ -26,13 +26,18 @@ public class BookHighScores : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(updateView());
+        StartCoroutine(updateView(2));
+    }
+
+    public void Update()
+    {
+        StartCoroutine(updateView(1));
     }
 
     //TODO - find better way - need to update when a new score is set.
-    IEnumerator updateView()
+    IEnumerator updateView(int waitTime)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(waitTime);
 
         JSONNode score1Name = BcpMessageManager.Instance.GetMachineVariable("score1_name");
         JSONNode score2Name = BcpMessageManager.Instance.GetMachineVariable("score2_name");
