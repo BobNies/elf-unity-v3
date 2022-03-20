@@ -89,8 +89,15 @@ public class BookFlip : MonoBehaviour
         }
     }
 
+    public void turnToPageOneAndDisableFlip()
+    {
+        disabled = true;
+        book.TurnToPage(1, turnTimeType, PageFlipAnimationTime);
+    }
+
     public void tweenIn()
     {
+        BcpLogger.Trace("bob tweenIn *: Start");
         book.transform.DOScale(1f, .5f).SetEase(Ease.InQuad);
         disabled = false;
         timer = origTimeBetweenTurn;
@@ -99,6 +106,7 @@ public class BookFlip : MonoBehaviour
 
     public void tweenOut()
     {
+        BcpLogger.Trace("bob tweenOut ***: Start");
         book.transform.DOScale(0f, .5f).SetEase(Ease.OutQuad);
         disabled = true;
     }

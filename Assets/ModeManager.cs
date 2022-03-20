@@ -40,8 +40,8 @@ public class ModeManager : MonoBehaviour
 
         public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
-        Debug.Log("bob ModeStart:" + e.Name);
-        BcpLogger.Trace("bob ModeStart: " + e.Name);
+        //Debug.Log("bob ModeStart:" + e.Name);
+        //BcpLogger.Trace("bob ModeStart: " + e.Name);
 
         switch (e.Name)
         {
@@ -52,7 +52,7 @@ public class ModeManager : MonoBehaviour
             case "high_score":
                 this.gameObject.GetComponent<HighScoreManager>().enabled = true;
                 //here
-               // bookFlip.tweenIn();
+                //bookFlip.tweenIn();
                 break;
             case "attract":                
                 playfieldManager.ShowLevel(0);

@@ -52,7 +52,7 @@ public class HighScoreManager : MonoBehaviour
     //TODO - hide onStart
     void Start()
     {
-        BcpLogger.Trace("HighScoreManager: Start");
+        BcpLogger.Trace("bob HighScoreManager: Start");
 
         // enter initials
         BcpMessageController.OnSwitch += Switch;
@@ -66,8 +66,14 @@ public class HighScoreManager : MonoBehaviour
         //CharacterChanged();
         // resetUI
         bookFlip.tweenIn();
+        bookFlip.turnToPageOneAndDisableFlip();
         highScoresContainer.SetActive(false);
         initialsContainer.SetActive(true);
+    }
+
+    void Active()
+    {
+
     }
 
     void OnDisable()
@@ -84,7 +90,7 @@ public class HighScoreManager : MonoBehaviour
         timeoutSecondsRemaining -= Time.deltaTime;
         if (timeoutSecondsRemaining <= 0.0f)
         {
-            BcpLogger.Trace("HighScoreManager: Timeout reached");
+           // BcpLogger.Trace("HighScoreManager: Timeout reached");
             // Abort();
             // todo time out here, not mpf. send msg ?
         }
@@ -268,6 +274,9 @@ public class HighScoreManager : MonoBehaviour
         BcpMessage message = BcpMessage.TriggerMessage("text_input_high_score_complete");
         message.Parameters["text"] = new JSONString(finalInitials);
         BcpServer.Instance.Send(message);
+
+        highScoresContainer.SetActive(true);
+        initialsContainer.SetActive(false);
     }
 
 }
