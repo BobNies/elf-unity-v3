@@ -281,6 +281,7 @@ public class HighScoreManager : MonoBehaviour
         initialsContainer.SetActive(false);
         // update score on page 1  -- BookHighScore
         bookHighScores.Update();
+        //TODO - update Champion Text here ?
 
     }
 
