@@ -84,12 +84,11 @@ public class ScoreManager : MonoBehaviour
         int score = e.Value;
         int change = e.Change;
         int previousVal = e.PreviousValue;
-          Debug.Log("bob ScoreReceived:" + score);
 
         // if score > 1mil, pop the box with score
         if (score >= minScorePopBox)
         {
-            presentManager.updateScoreText(score.ToString());
+            presentManager.updateScoreText(change.ToString());
         }
 
         switch (player)

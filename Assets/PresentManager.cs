@@ -19,7 +19,7 @@ public class PresentManager : MonoBehaviour
         //scoreP1 = playerOneTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
         //containedItemText = containedItem.transform.Find("JackpotText").GetComponent<Modular3DText>();
         //TEST
-        containedItemText.Text = "1,234,500";
+        //containedItemText.Text = "1,234,500";
         //presentAnimator.loadContainedItems();
     }
 
@@ -32,7 +32,6 @@ public class PresentManager : MonoBehaviour
     public void updateScoreText(string score)
     {
         //update the text, then reset the animator
-        //presentAnimator.loadContainedItems();
         containedItemText.Text = score;
         presentAnimator.Animate();
     }
