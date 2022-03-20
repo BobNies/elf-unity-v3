@@ -17,7 +17,7 @@ public class Champion : MonoBehaviour
         BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_award_display"));
 
         //UpdateName();
-        name.Text = "abc";  //Globals.championName;
+        name.Text = "rjn";  //Globals.championName;
     }
 
     void OnDisable()
@@ -25,19 +25,31 @@ public class Champion : MonoBehaviour
         BcpMessageController.OnTrigger -= Trigger;
     }
 
+    public void UpdateText()
+    {
+        
+        DoNameChange();
+        //BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_award_display"));
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!updated)
         {
-            string cn = Globals.championName;
-            if (!String.IsNullOrEmpty(cn))
-            {
-                updated = true;
-                name.Text = Globals.championName;
-            }
+            DoNameChange();
         }
         
+    }
+
+    private void DoNameChange()
+    {
+        string cn = Globals.championName;
+        if (!String.IsNullOrEmpty(cn))
+        {
+            updated = true;
+            name.Text = Globals.championName;
+        }
     }
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
@@ -47,11 +59,14 @@ public class Champion : MonoBehaviour
             try
             {
                 string playerName = e.BcpMessage.Parameters["player_name"].Value;
-                if (!String.IsNullOrEmpty(playerName))
+                string award = e.BcpMessage.Parameters["award"].Value;
+                if (!String.IsNullOrEmpty(playerName)&& !String.IsNullOrEmpty(award)
+                    && award == "GRAND CHAMPION")
                 {
                     Globals.championName = playerName;
                     name.Text = playerName;
                 }
+               
             }
             catch (Exception ex)
             {
