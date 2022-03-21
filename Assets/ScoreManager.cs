@@ -16,6 +16,8 @@ using DG.Tweening;
 public class ScoreManager : MonoBehaviour
 {
     public VideoManager videoManager;
+    public PresentManager presentManager;
+    public int minScorePopBox = 1000000;
 
     private TextMeshProUGUI scoreP1;
     private TextMeshProUGUI scoreP2;
@@ -82,7 +84,13 @@ public class ScoreManager : MonoBehaviour
         int score = e.Value;
         int change = e.Change;
         int previousVal = e.PreviousValue;
-        //  Debug.Log("bob ScoreReceived:" + score);
+
+        // if score > 1mil, pop the box with score
+        if (score >= minScorePopBox)
+        {
+            presentManager.updateScoreText(change.ToString());
+        }
+
         switch (player)
         {
             case 1:
