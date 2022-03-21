@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         //scoreManager.playerOneTransform.transform.DOScale(.5f, 1).SetEase(Ease.InElastic);
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnPlayerAdded -= PlayerAdded;
         BcpMessageController.OnPlayerTurnStart -= PlayerTurnStart;

@@ -13,12 +13,6 @@ public class BallCountUpdater : MonoBehaviour
     private bool isShowing = false;
     private Vector3 vec = new Vector3(.2f, 1f, 1f);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //test only
-        //tweenIn();
-    }
 
     // Update is called once per frame
     void Update()

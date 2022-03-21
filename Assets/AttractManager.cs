@@ -25,7 +25,7 @@ public class AttractManager : MonoBehaviour
         BcpMessageController.OnModeStop += ModeStop;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnModeStart -= ModeStart;
         BcpMessageController.OnModeStop -= ModeStop;

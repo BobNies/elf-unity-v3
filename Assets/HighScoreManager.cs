@@ -54,7 +54,7 @@ public class HighScoreManager : MonoBehaviour
     //TODO - hide onStart
     void Start()
     {
-        //BcpLogger.Trace("bob HighScoreManager: Start");
+        BcpLogger.Trace("bob HighScoreManager: Start");
 
         // enter initials
         BcpMessageController.OnSwitch += Switch;
@@ -77,10 +77,10 @@ public class HighScoreManager : MonoBehaviour
 
     void Active()
     {
-
+        BcpLogger.Trace("bob HighScoreManager: Active");
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnSwitch -= Switch;
        // BcpMessageController.OnTrigger -= Trigger;

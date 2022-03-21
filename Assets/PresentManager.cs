@@ -23,12 +23,6 @@ public class PresentManager : MonoBehaviour
         //presentAnimator.loadContainedItems();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //presentAnimator.loadContainedItems();
-    }
-
     public void updateScoreText(string score)
     {
         //update the text, then reset the animator

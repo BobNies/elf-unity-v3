@@ -15,7 +15,7 @@ public class TiltManager : MonoBehaviour
         BcpMessageController.OnSlamTilt += SlamTilt;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnTiltWarning -= TiltWarning;
         BcpMessageController.OnTilt -= Tilt;

@@ -36,7 +36,7 @@ public class AwardManager : MonoBehaviour
         //tweenIn();
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnTrigger -= Trigger;
     }

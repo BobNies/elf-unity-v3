@@ -26,7 +26,7 @@ public class GameEndManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnModeStop -= ModeStop;
     }

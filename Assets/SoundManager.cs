@@ -4,7 +4,7 @@ using UnityEngine;
 using DarkTonic.MasterAudio;
 
 // play audio clips on ball end, etc
-public class BallStartEndManager : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
 
     [SoundGroupAttribute] public string[] ballEndSounds;
@@ -15,6 +15,7 @@ public class BallStartEndManager : MonoBehaviour
         BcpMessageController.OnBallEnd += BallEnd;
     }
 
+    // Update is called once per frame
     void OnDestroy()
     {
         BcpMessageController.OnBallEnd -= BallEnd;

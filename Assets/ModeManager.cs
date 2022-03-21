@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using DarkTonic.MasterAudio;
 
 // ELF
 // Mode manager: Listen for modes to start/stop and update the UI.
@@ -12,16 +13,18 @@ public class ModeManager : MonoBehaviour
     public PlayfieldManager playfieldManager;
    // public HighScoreManager highScoreManager;
 
-    public VideoClip videoCandyCaneForest;
-    public VideoClip videoCentralPark;
-    public VideoClip videoCoffee;
-    public VideoClip videoGimbels;
-    public VideoClip videoGumdrop;
-    public VideoClip videoLincolnTunnel;
-    public VideoClip videoNutcracker;
+   // public VideoClip videoCandyCaneForest;
+   // public VideoClip videoCentralPark;
+    //public VideoClip videoCoffee;
+    //public VideoClip videoGimbels;
+    //public VideoClip videoGumdrop;
+    //public VideoClip videoLincolnTunnel;
+    //public VideoClip videoNutcracker;
     public VideoClip videoOmg;
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
+    public VideoClip[] videoClips;
+    [MasterCustomEventAttribute] public string playlist;
 
     void Start()
     {
@@ -32,7 +35,7 @@ public class ModeManager : MonoBehaviour
         // videoManager.playVideo(videoCandyCaneForest);
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnModeStart -= ModeStart;
         BcpMessageController.OnModeStop -= ModeStop;
@@ -57,31 +60,33 @@ public class ModeManager : MonoBehaviour
                 playfieldManager.ShowLevel(0);
                 break;
             case "level_candy_cane_forest":
-                playVideoOnBallOne(videoCandyCaneForest);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(1);
+                // start BG music
+                StartPlaylist();
                 break;
             case "level_central_park":
-                playVideoOnBallOne(videoCentralPark);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(7);
                 break;
             case "level_coffee":
-                playVideoOnBallOne(videoCoffee);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(5);
                 break;
             case "level_gimbels":
-                playVideoOnBallOne(videoGimbels);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(4);
                 break;
             case "level_gumdrop":
-                playVideoOnBallOne(videoGumdrop);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(2);
                 break;
             case "level_lincoln_tunnel":
-                playVideoOnBallOne(videoLincolnTunnel);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(3);
                 break;
             case "level_nutcracker":
-                playVideoOnBallOne(videoNutcracker);
+                playVideoOnBallOne();
                 playfieldManager.ShowLevel(6);
                 break;
             case "level_park":
@@ -110,22 +115,24 @@ public class ModeManager : MonoBehaviour
                 //playfieldManager.ShowLevel(12);
                 break;
             case "singing":
-                //videoManager.playVideo(videoSinging);
+                videoManager.playVideo(videoSinging);
                 break;
             case "someone_special":
-                playVideoOnBallOne(videoSomeoneSpecial);
-                //playfieldManager.ShowLevel(13);
+                playVideoOnBallOne();
+                playfieldManager.ShowLevel(13);
                 break;
             
         }
         
     }
 
-    private void playVideoOnBallOne(VideoClip clip)
+    private void playVideoOnBallOne()
     {
         if (Globals.ballNumber == 1)
         {
-            videoManager.playVideo(clip);
+            //videoClips[Random.Range(0, videoClips.Length)]
+            // MasterAudio.PlaySound(ballEndSounds[Random.Range(0, ballEndSounds.Length)]);
+            videoManager.playVideo(videoClips[Random.Range(0, videoClips.Length)]);
         }
     }
 
@@ -142,5 +149,16 @@ public class ModeManager : MonoBehaviour
                 this.gameObject.GetComponent<HighScoreManager>().enabled = false;
                 break;
         }
-        }
+    }
+
+    private void StartPlaylist()
+    {
+        MasterAudio.StartPlaylist(playlist);
+    }
+
+    private void PausePlaylist()
+    {
+        MasterAudio.StopPlaylist();
+    }
+
 }

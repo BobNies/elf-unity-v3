@@ -20,7 +20,7 @@ public class Champion : MonoBehaviour
         name.Text = "rjn";  //Globals.championName;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnTrigger -= Trigger;
     }

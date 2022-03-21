@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         BcpMessageController.OnPlayerScore -= PlayerScore;
 
@@ -88,7 +88,7 @@ public class ScoreManager : MonoBehaviour
         int previousVal = e.PreviousValue;
 
         // if score > 1mil, pop the box with score
-        if (score >= minScorePopBox)
+        if (change >= minScorePopBox)
         {
             presentManager.updateScoreText(change.ToString());
             //TODO - find better sound
