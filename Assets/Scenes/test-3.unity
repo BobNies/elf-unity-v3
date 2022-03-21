@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 292
+  openTime: 293
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 289
+  openTime: 290
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 288
+  openTime: 289
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,7 +5141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 288
+  openTime: 289
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 737
+  openTime: 738
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -10412,7 +10412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 293
+  openTime: 294
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10940,7 +10940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 501
+  openTime: 502
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -12493,6 +12493,7 @@ MonoBehaviour:
   videoManager: {fileID: 69051577}
   presentManager: {fileID: 629728012}
   minScorePopBox: 999999
+  popJesterSound: 
   playerOneTransform: {fileID: 1287797571}
   playerTwoTransform: {fileID: 2044118036}
   playerThreeTransform: {fileID: 490837890}
@@ -14696,7 +14697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 288
+  openTime: 289
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -20081,7 +20082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 287
+  openTime: 288
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -22681,7 +22682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 287
+  openTime: 288
 --- !u!1 &1266930615
 GameObject:
   m_ObjectHideFlags: 0
@@ -23011,7 +23012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 295
+  openTime: 296
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -23222,7 +23223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 294
+  openTime: 295
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -23403,6 +23404,8 @@ MonoBehaviour:
   ballEndSounds:
   - does_someone_need_a_hug
   - thats_rediculous
+  - cotton_headed_mini_muggins
+  - finch_south_pole_elf
 --- !u!1 &1298322807
 GameObject:
   m_ObjectHideFlags: 0
@@ -24144,7 +24147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 288
+  openTime: 289
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -24507,7 +24510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 289
+  openTime: 290
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -30998,7 +31001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 502
+  openTime: 503
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33759,7 +33762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 295
+  openTime: 296
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -34240,7 +34243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 738
+  openTime: 739
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -34898,7 +34901,32 @@ MonoBehaviour:
       resourceFileName: 
       volume: 1
       pitch: 1
-      isExpanded: 1
+      isExpanded: 0
+      isLoop: 0
+      isChecked: 1
+      metadataStringValues: []
+      metadataBoolValues: []
+      metadataIntValues: []
+      metadataFloatValues: []
+      metadataExpanded: 1
+      songStartTimeMode: 0
+      customStartTime: 0
+      customStartTimeMax: 0
+      lastKnownTimePoint: 0
+      wasLastKnownTimePointSet: 0
+      songIndex: 0
+      songStartedEventExpanded: 0
+      songStartedCustomEvent: 
+      songChangedEventExpanded: 0
+      songChangedCustomEvent: 
+    - alias: 
+      audLocation: 0
+      clip: {fileID: 8300000, guid: 9e0fa60ff5f3a44bfb074fedcb2f117a, type: 3}
+      songName: Pinball_fx_bell
+      resourceFileName: 
+      volume: 1
+      pitch: 1
+      isExpanded: 0
       isLoop: 0
       isChecked: 1
       metadataStringValues: []
@@ -36101,7 +36129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 293
+  openTime: 294
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -36402,7 +36430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 288
+  openTime: 289
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0

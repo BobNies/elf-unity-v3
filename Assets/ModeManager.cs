@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-using DarkTonic.MasterAudio;
 
 // ELF
 // Mode manager: Listen for modes to start/stop and update the UI.

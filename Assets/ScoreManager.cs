@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using TMPro;
 using DG.Tweening;
+using DarkTonic.MasterAudio;
 
 /* ELF
      Score manager: listen for score/points changes and update users's score.
@@ -18,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     public VideoManager videoManager;
     public PresentManager presentManager;
     public int minScorePopBox = 1000000;
+    [SoundGroupAttribute] public string popJesterSound;
 
     private TextMeshProUGUI scoreP1;
     private TextMeshProUGUI scoreP2;
@@ -89,7 +91,8 @@ public class ScoreManager : MonoBehaviour
         if (score >= minScorePopBox)
         {
             presentManager.updateScoreText(change.ToString());
-            //TODO - play audio
+            //TODO - find better sound
+            MasterAudio.PlaySound(popJesterSound);
         }
 
         switch (player)
