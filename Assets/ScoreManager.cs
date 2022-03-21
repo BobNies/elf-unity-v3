@@ -89,6 +89,7 @@ public class ScoreManager : MonoBehaviour
         if (score >= minScorePopBox)
         {
             presentManager.updateScoreText(change.ToString());
+            //TODO - play audio
         }
 
         switch (player)

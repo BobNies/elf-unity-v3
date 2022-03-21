@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using DarkTonic.MasterAudio;
 
 // ELF
 // Mode manager: Listen for modes to start/stop and update the UI.
@@ -50,11 +51,10 @@ public class ModeManager : MonoBehaviour
             // control small monitor UI
             // TODO - set up small PF on attract
             case "high_score":
+                //enable high score script
                 this.gameObject.GetComponent<HighScoreManager>().enabled = true;
-                //here
-                //bookFlip.tweenIn();
                 break;
-            case "attract":                
+            case "attract":
                 playfieldManager.ShowLevel(0);
                 break;
             case "level_candy_cane_forest":

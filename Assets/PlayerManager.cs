@@ -77,20 +77,35 @@ public class PlayerManager : MonoBehaviour
         {
             case 1:
                 // Sound
-                MasterAudio.PlaySound(playerOneAddedSound);
+                if (playerOneAddedSound != null)
+                {
+                    MasterAudio.PlaySound(playerOneAddedSound);
+                }
                 // Score UI animation - move it into the scene
                 scoreManager.playerOneTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 2:
-                MasterAudio.PlaySound(playerTwoAddedSound);
+                if (playerTwoAddedSound != null)
+                {
+                    MasterAudio.PlaySound(playerTwoAddedSound);
+                }
+
                 scoreManager.playerTwoTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
-                MasterAudio.PlaySound(playerThreeAddedSound);
+                if (playerThreeAddedSound != null)
+                {
+                    MasterAudio.PlaySound(playerThreeAddedSound);
+                }
+                
                 scoreManager.playerThreeTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
-                MasterAudio.PlaySound(playerFourAddedSound);
+                if (playerFourAddedSound != null)
+                {
+                    MasterAudio.PlaySound(playerFourAddedSound);
+                }
+               
                 scoreManager.playerFourTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
         }

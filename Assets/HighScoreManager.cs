@@ -10,6 +10,7 @@ using TMPro;
 using MText;
 using DG.Tweening;
 using BCP.SimpleJSON;
+using DarkTonic.MasterAudio;
 
 /* ELF
      Listen for Event when a high_score_award_display BCP Trigger 
@@ -53,7 +54,7 @@ public class HighScoreManager : MonoBehaviour
     //TODO - hide onStart
     void Start()
     {
-        BcpLogger.Trace("bob HighScoreManager: Start");
+        //BcpLogger.Trace("bob HighScoreManager: Start");
 
         // enter initials
         BcpMessageController.OnSwitch += Switch;
@@ -70,6 +71,8 @@ public class HighScoreManager : MonoBehaviour
         bookFlip.turnToPageOneAndDisableFlip();
         highScoresContainer.SetActive(false);
         initialsContainer.SetActive(true);
+        //play audio
+        MasterAudio.PlaySound("whats_your_name");
     }
 
     void Active()
