@@ -54,14 +54,17 @@ public class HighScoreManager : MonoBehaviour
     //TODO - hide onStart
     void Start()
     {
-        BcpLogger.Trace("bob HighScoreManager: Start");
-
         // enter initials
         BcpMessageController.OnSwitch += Switch;
         //High scores
        // BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
        // BcpMessageController.OnTrigger += Trigger;
 
+       
+    }
+
+    void OnEnable()
+    {
         reset();
         BuildCharacterList();
         //PositionChanged();
@@ -72,12 +75,7 @@ public class HighScoreManager : MonoBehaviour
         highScoresContainer.SetActive(false);
         initialsContainer.SetActive(true);
         //play audio
-        MasterAudio.PlaySound("whats_your_name");
-    }
-
-    void Active()
-    {
-        BcpLogger.Trace("bob HighScoreManager: Active");
+        StartCoroutine(PlayClip());
     }
 
     void OnDestroy()
@@ -99,6 +97,12 @@ public class HighScoreManager : MonoBehaviour
             // todo time out here, not mpf. send msg ?
         }
 
+    }
+
+    IEnumerator PlayClip()
+    {
+        yield return new WaitForSeconds(1);
+        MasterAudio.PlaySound("whats_your_name");
     }
 
     private void reset() {

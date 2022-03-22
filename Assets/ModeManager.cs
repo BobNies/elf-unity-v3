@@ -54,6 +54,7 @@ public class ModeManager : MonoBehaviour
             // TODO - set up small PF on attract
             case "high_score":
                 //enable high score script
+                BcpLogger.Trace("bob high_score*** ");
                 this.gameObject.GetComponent<HighScoreManager>().enabled = true;
                 break;
             case "attract":
