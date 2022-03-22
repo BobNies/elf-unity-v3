@@ -53,29 +53,40 @@ public class BookHighScores : MonoBehaviour
 
         if (score1Name != null && score1Value != null)
         {
-            name1.Text = score1Name;
-            score1.Text = score1Value;
+            name1.Text = score1Name;    
             Globals.championName = score1Name;
+            int intVal;
+            int.TryParse(score1Value, out intVal);
+            score1.Text = intVal.ToString("n0");
         }
         if (score2Name != null && score2Value != null)
         {
             name2.Text = score2Name;
-            score2.Text = score2Value;
+
+            int intVal;
+            int.TryParse(score2Value, out intVal);
+            score2.Text = intVal.ToString("n0");
         }
         if (score3Name != null && score3Value != null)
         {
             name3.Text = score3Name;
-            score3.Text = score3Value;
+            int intVal;
+            int.TryParse(score3Value, out intVal);
+            score3.Text = intVal.ToString("n0");
         }
         if (score4Name != null && score4Value != null)
         {
             name4.Text = score4Name;
-            score4.Text = score4Value;
+            int intVal;
+            int.TryParse(score4Value, out intVal);
+            score4.Text = intVal.ToString("n0");
         }
         if (score5Name != null && score5Value != null)
         {
             name5.Text = score5Name;
-            score5.Text = score5Value;
+            int intVal;
+            int.TryParse(score5Value, out intVal);
+            score5.Text = intVal.ToString("n0");
         }
     }
 

@@ -85,12 +85,17 @@ public class ScoreManager : MonoBehaviour
         int player = e.PlayerNum;
         int score = e.Value;
         int change = e.Change;
-        int previousVal = e.PreviousValue;
+        //int previousVal = e.PreviousValue;
+        string newScore = score.ToString("n0"); //"#,#"
+        string newBoxScore = change.ToString("n0");
+
+        //format with commas
+
 
         // if score > 1mil, pop the box with score
         if (change >= minScorePopBox)
         {
-            presentManager.updateScoreText(change.ToString());
+            presentManager.updateScoreText(newBoxScore);
             //TODO - find better sound
             MasterAudio.PlaySound(popJesterSound);
         }
@@ -98,16 +103,16 @@ public class ScoreManager : MonoBehaviour
         switch (player)
         {
             case 1:
-                scoreP1.text = score.ToString();
+                scoreP1.text = newScore;
                 break;
             case 2:
-                scoreP2.text = score.ToString();
+                scoreP2.text = newScore;
                 break;
             case 3:
-                scoreP3.text = score.ToString();
+                scoreP3.text = newScore;
                 break;
             case 4:
-                scoreP4.text = score.ToString();
+                scoreP4.text = newScore;
                 break;
         }
 
