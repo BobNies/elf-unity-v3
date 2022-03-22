@@ -24,6 +24,7 @@ public class ModeManager : MonoBehaviour
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
     public VideoClip[] videoClips;
+    public int videoQueueTime = 1;
     [MasterCustomEventAttribute] public string playlist;
 
     void Start()
@@ -133,8 +134,15 @@ public class ModeManager : MonoBehaviour
         {
             //videoClips[Random.Range(0, videoClips.Length)]
             // MasterAudio.PlaySound(ballEndSounds[Random.Range(0, ballEndSounds.Length)]);
-            videoManager.playVideo(videoClips[Random.Range(0, videoClips.Length)]);
+            //videoManager.playVideo(videoClips[Random.Range(0, videoClips.Length)]);
+            StartCoroutine(queueVideo());
         }
+    }
+
+    IEnumerator queueVideo()
+    {
+        yield return new WaitForSeconds(videoQueueTime);
+        videoManager.playVideo(videoClips[Random.Range(0, videoClips.Length)]);
     }
 
     public void ModeStop(object sender, ModeStopMessageEventArgs e)

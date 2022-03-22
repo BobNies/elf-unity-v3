@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 324
+  openTime: 327
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 321
+  openTime: 324
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,7 +3014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 320
+  openTime: 323
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,7 +5853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 320
+  openTime: 323
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,7 +6674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 769
+  openTime: 772
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -12254,7 +12254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 325
+  openTime: 328
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,7 +12782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 533
+  openTime: 536
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14334,7 +14334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoManager: {fileID: 69051577}
   presentManager: {fileID: 629728012}
-  minScorePopBox: 499999
+  minScorePopBox: 750000
   popJesterSound: santa_helpers_cheer
   playerOneTransform: {fileID: 1287797571}
   playerTwoTransform: {fileID: 2044118036}
@@ -16489,7 +16489,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: IdleAnim
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
       propertyPath: ClickedAnim
@@ -16833,7 +16833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 320
+  openTime: 323
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -22734,7 +22734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 319
+  openTime: 322
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -25432,7 +25432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 319
+  openTime: 322
 --- !u!1 &1266930615
 GameObject:
   m_ObjectHideFlags: 0
@@ -25762,7 +25762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 327
+  openTime: 330
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -25973,7 +25973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 326
+  openTime: 329
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -26062,6 +26062,7 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 3fcf26b182478f446b5c7fdb463bf977, type: 3}
   - {fileID: 32900000, guid: 1cde141cfc2a6cd4f93f02f92e254a27, type: 3}
   - {fileID: 32900000, guid: e76443ed4f01f7d4f915d2e9913cbb68, type: 3}
+  videoQueueTime: 1
   playlist: attract_playlist
 --- !u!114 &1288889229
 MonoBehaviour:
@@ -26940,7 +26941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 320
+  openTime: 323
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -27303,7 +27304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 321
+  openTime: 324
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -34408,7 +34409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 534
+  openTime: 537
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36149,7 +36150,7 @@ MonoBehaviour:
   isAutoAdvance: 1
   loopPlaylist: 1
   _playlistVolume: 1
-  isMuted: 1
+  isMuted: 0
   startPlaylistName: attract_playlist
   syncGroupNum: -1
   ignoreListenerPause: 0
@@ -36186,7 +36187,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
@@ -36282,7 +36283,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
@@ -37992,7 +37993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 327
+  openTime: 330
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -38471,7 +38472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 770
+  openTime: 773
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -39013,7 +39014,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 651711ac69d890145bed953761824113, type: 3}
   - {fileID: 100000, guid: d73b1cd0b6df3d84c8b036e9b3e511ea, type: 2}
   mixerMuted: 0
-  playlistsMuted: 1
+  playlistsMuted: 0
   langMode: 0
   testLanguage: 10
   defaultLanguage: 10
@@ -39164,7 +39165,7 @@ MonoBehaviour:
   defaultUnduckTime: 1
   defaultDuckedVolumeCut: -6
   crossFadeTime: 1
-  _masterPlaylistVolume: 0.1
+  _masterPlaylistVolume: 0.31622776
   showGroupSelect: 0
   hideGroupsWithNoActiveVars: 0
   jukeBoxDisplayMode: 0
@@ -40605,7 +40606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 325
+  openTime: 328
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -40906,7 +40907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 320
+  openTime: 323
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0
