@@ -17,7 +17,7 @@ public class Champion : MonoBehaviour
         BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_award_display"));
 
         //UpdateName();
-        name.Text = "rjn";  //Globals.championName;
+        name.Text = "RJN";  //Globals.championName;
     }
 
     void OnDestroy()
