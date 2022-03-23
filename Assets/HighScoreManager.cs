@@ -26,8 +26,6 @@ public class HighScoreManager : MonoBehaviour
     public Modular3DText initial3 = null;
     [SerializeField]
     public Modular3DText selector = null;
-    [SerializeField]
-    public Modular3DText playerNumber = null;
 
     public BookHighScores bookHighScores;
     public BookFlip bookFlip;
@@ -59,10 +57,10 @@ public class HighScoreManager : MonoBehaviour
         // enter initials
         BcpMessageController.OnSwitch += Switch;
         //High scores
-       // BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
-        BcpMessageController.OnTrigger += Trigger;
+        // BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
+        // BcpMessageController.OnTrigger += Trigger;
 
-       
+
     }
 
     void OnEnable()
@@ -83,7 +81,7 @@ public class HighScoreManager : MonoBehaviour
     void OnDestroy()
     {
         BcpMessageController.OnSwitch -= Switch;
-        BcpMessageController.OnTrigger -= Trigger;
+        // BcpMessageController.OnTrigger -= Trigger;
     }
 
     /// <summary>
@@ -94,7 +92,7 @@ public class HighScoreManager : MonoBehaviour
         timeoutSecondsRemaining -= Time.deltaTime;
         if (timeoutSecondsRemaining <= 0.0f)
         {
-           // BcpLogger.Trace("HighScoreManager: Timeout reached");
+            // BcpLogger.Trace("HighScoreManager: Timeout reached");
             // Abort();
             // todo time out here, not mpf. send msg ?
         }
@@ -108,14 +106,15 @@ public class HighScoreManager : MonoBehaviour
         MasterAudio.PlaySound("whats_your_name");
     }
 
-    private void reset() {
+    private void reset()
+    {
         maxCharacters = 3;
         timeoutSeconds = 60.0f;
         characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_- ";
         shiftLeftEvent = "s_flipper_lt";
         shiftRightEvent = "s_flipper_rt";
         selectEvent = "s_start";
-       
+
         currentCharacter = 0;
         currentPosition = 0;
         timeoutSecondsRemaining = timeoutSeconds;
@@ -129,7 +128,7 @@ public class HighScoreManager : MonoBehaviour
             initials.Add("");
     }
 
-     public void Switch(object sender, SwitchMessageEventArgs e)
+    public void Switch(object sender, SwitchMessageEventArgs e)
     {
         //BcpLogger.Trace("HighScoreManager: Switch (" + e.Name + ", " + e.State.ToString() + ")");
 
@@ -149,9 +148,10 @@ public class HighScoreManager : MonoBehaviour
             //BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
             try
             {
-                // set player# on screen
-                int player = e.BcpMessage.Parameters["player_num"].AsInt;
-                playerNumber.Text = "Player " + player.ToString();
+                //TODO here
+                //show book
+                Debug.Log("bob tweenIn:");
+                BcpLogger.Trace("bob tweenIn");
             }
             catch (Exception ex)
             {
@@ -211,7 +211,7 @@ public class HighScoreManager : MonoBehaviour
             // set UI
             Debug.Log("bob currentPosition:" + currentPosition);
             Debug.Log("bob initials:" + initials[currentPosition]);
-            BcpLogger.Trace("bob: currentPosition:"+ currentPosition);
+            BcpLogger.Trace("bob: currentPosition:" + currentPosition);
             BcpLogger.Trace("bob: text:" + initials[currentPosition]);
             switch (currentPosition)
             {
@@ -250,12 +250,12 @@ public class HighScoreManager : MonoBehaviour
     }
 
     // Called whenever the current character position changes
-    private void PositionChanged() 
+    private void PositionChanged()
     {
         BcpLogger.Trace("HighScoreManager: PositionChanged");
     }
 
-    private void BuildCharacterList() 
+    private void BuildCharacterList()
     {
         if (characterList == null)
             characterList = new List<string>();
@@ -278,7 +278,7 @@ public class HighScoreManager : MonoBehaviour
 
         string finalInitials = string.Join("", initials).TrimEnd();
         //if (!selectedInitials.IsNone)
-          //  selectedInitials.Value = finalInitials;
+        //  selectedInitials.Value = finalInitials;
 
         //Globals.championName = finalInitials;
         BcpMessage message = BcpMessage.TriggerMessage("text_input_high_score_complete");
