@@ -9,7 +9,7 @@ public class SoundFxManager : MonoBehaviour
 {
     [SoundGroupAttribute] public string jets;
     [SoundGroupAttribute] public string spinner;
-    [SoundGroupAttribute] public string captiveLeft;
+    //[SoundGroupAttribute] public string captiveLeft;
     [SoundGroupAttribute] public string captiveRight;
     [SoundGroupAttribute] public string singleDrops;
     [SoundGroupAttribute] public string elfDrop;
@@ -24,18 +24,37 @@ public class SoundFxManager : MonoBehaviour
     //[SoundGroupAttribute] public string popJesterSound;
     [SoundGroupAttribute] public string santaRamp;
     [SoundGroupAttribute] public string tilt;
+    [SoundGroupAttribute] public string jesterCrank;
+    [SoundGroupAttribute] public string jesterPop;
 
 
     // Start is called before the first frame update
     void Start()
     {
         BcpMessageController.OnSwitch += Switch;
+        BcpMessageController.OnTrigger += Trigger;
     }
 
     void OnDestroy()
     {
         BcpMessageController.OnSwitch -= Switch;
-        // BcpMessageController.OnTrigger -= Trigger;
+        BcpMessageController.OnTrigger -= Trigger;
+    }
+
+    public void Trigger(object sender, TriggerMessageEventArgs e)
+    {
+        //trigger jester sounds -- ,sh_jester_hit_2_hit,sh_jester_hit_3_hit
+        BcpLogger.Trace("bob NAME:" + e.Name);
+        switch (e.Name)
+        {
+            case "sh_jester_hit_1_hit":
+            case "sh_jester_hit_2_hit":
+                MasterAudio.PlaySound(jesterCrank);
+                break;
+            case "sh_jester_hit_3_hit":
+                MasterAudio.PlaySound(jesterPop);
+                break;
+        }
     }
 
     public void Switch(object sender, SwitchMessageEventArgs e)
@@ -57,9 +76,9 @@ public class SoundFxManager : MonoBehaviour
             case "s_target_snowball_rt":
                 MasterAudio.PlaySound(captiveRight);
                 break;
-            case "s_target_snowball_ctr":
-                MasterAudio.PlaySound(captiveLeft);
-                break;
+           // case "s_target_snowball_ctr":
+             //   MasterAudio.PlaySound(captiveLeft);
+               // break;
             case "s_drop_single_lt":
             case "s_drop_single_rt":
                 MasterAudio.PlaySound(singleDrops);

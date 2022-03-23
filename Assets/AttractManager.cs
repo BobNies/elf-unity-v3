@@ -50,16 +50,8 @@ public class AttractManager : MonoBehaviour
            
             //book
             bookFlip.tweenIn();
-            //StartCoroutine(Test());
         }
     }
-
-   // IEnumerator Test()
-    //{
-      //  yield return new WaitForSeconds(3);
-        //awardManager.tweenIn();
-      //  bookFlip.tweenOut();
-   // }
 
     public void ModeStop(object sender, ModeStopMessageEventArgs e)
     {
