@@ -105,8 +105,7 @@ public class BookFlip : MonoBehaviour
     }
 
     public void tweenOut()
-    {
-        BcpLogger.Trace("bob tweenOut ***: Start");
+    {  
         book.transform.DOScale(0f, .5f).SetEase(Ease.OutQuad);
         disabled = true;
     }

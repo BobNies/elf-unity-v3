@@ -142,6 +142,7 @@ public class ModeManager : MonoBehaviour
     IEnumerator queueVideo()
     {
         yield return new WaitForSeconds(videoQueueTime);
+        videoManager.stopAllVideos(); // prevent dual vids playing
         videoManager.playVideo(videoClips[Random.Range(0, videoClips.Length)]);
     }
 
@@ -163,11 +164,6 @@ public class ModeManager : MonoBehaviour
     private void StartPlaylist()
     {
         MasterAudio.StartPlaylist(playlist);
-    }
-
-    private void PausePlaylist()
-    {
-        MasterAudio.StopPlaylist();
     }
 
 }

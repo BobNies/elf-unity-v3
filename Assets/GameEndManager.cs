@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Text;
+using DarkTonic.MasterAudio;
 
 
 public class GameEndManager : MonoBehaviour
@@ -35,7 +36,8 @@ public class GameEndManager : MonoBehaviour
     {      
         if (!String.IsNullOrEmpty(modeName) && e.Name == modeName)
         {
-            // TODO - reset Ui
+            // kill all audio (or play small sound 1 time)
+            StopPlaylist();
             // stop all videos
             videoManager.stopAllVideos();
             // reset scores
@@ -53,4 +55,10 @@ public class GameEndManager : MonoBehaviour
         }
 
     }
+
+    private void StopPlaylist()
+    {
+        MasterAudio.StopPlaylist();
+    }
+
 }

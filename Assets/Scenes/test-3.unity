@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 333
+  openTime: 342
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 330
+  openTime: 339
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,7 +3014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 329
+  openTime: 338
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,7 +3726,7 @@ MonoBehaviour:
   groupPlayType: 0
   isSelected: 0
   isExpanded: 1
-  groupMasterVolume: 0.0013803839
+  groupMasterVolume: 1
   retriggerPercentage: 100
   curVariationMode: 0
   alwaysHighestPriority: 0
@@ -3773,7 +3773,7 @@ MonoBehaviour:
   soundPlayedEventActive: 0
   soundPlayedCustomEvent: 
   willCleanUpDelegatesAfterStop: 1
-  frames: 716
+  frames: 1263
 --- !u!1 &171755256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,7 +5310,7 @@ MonoBehaviour:
   soundPlayedEventActive: 0
   soundPlayedCustomEvent: 
   willCleanUpDelegatesAfterStop: 1
-  frames: 1371
+  frames: 1723
 --- !u!1 &220661299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,7 +5853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 329
+  openTime: 338
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,7 +6674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 778
+  openTime: 787
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -10938,7 +10938,7 @@ MonoBehaviour:
   resourceFileName: 
   original_pitch: 0
   original_volume: 0
-  isExpanded: 1
+  isExpanded: 0
   isChecked: 1
   useFades: 0
   fadeInTime: 0
@@ -12254,7 +12254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 334
+  openTime: 343
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,7 +12782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 542
+  openTime: 551
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -16833,7 +16833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 329
+  openTime: 338
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -19243,7 +19243,7 @@ MonoBehaviour:
   soundPlayedEventActive: 0
   soundPlayedCustomEvent: 
   willCleanUpDelegatesAfterStop: 1
-  frames: 1641
+  frames: 1835
 --- !u!1 &944401702
 GameObject:
   m_ObjectHideFlags: 0
@@ -22943,7 +22943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 328
+  openTime: 337
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -25641,7 +25641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 328
+  openTime: 337
 --- !u!1 &1266930615
 GameObject:
   m_ObjectHideFlags: 0
@@ -25971,7 +25971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 336
+  openTime: 345
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -26182,7 +26182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 335
+  openTime: 344
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -26371,7 +26371,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288889225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea6d799b0b71e2a40a0e990938893cc6, type: 3}
   m_Name: 
@@ -27151,7 +27151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 329
+  openTime: 338
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -27514,7 +27514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 330
+  openTime: 339
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -29638,7 +29638,7 @@ MonoBehaviour:
   soundPlayedEventActive: 0
   soundPlayedCustomEvent: 
   willCleanUpDelegatesAfterStop: 1
-  frames: 178
+  frames: 1903
 --- !u!1 &1465366682
 GameObject:
   m_ObjectHideFlags: 0
@@ -34717,7 +34717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 543
+  openTime: 552
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36457,7 +36457,7 @@ MonoBehaviour:
   isShuffle: 0
   isAutoAdvance: 1
   loopPlaylist: 1
-  _playlistVolume: 1
+  _playlistVolume: 0.3715352
   isMuted: 0
   startPlaylistName: attract_playlist
   syncGroupNum: -1
@@ -38301,7 +38301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 336
+  openTime: 345
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -38780,7 +38780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 779
+  openTime: 788
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -39366,7 +39366,7 @@ MonoBehaviour:
   - {fileID: 1437325337}
   useTextPlaylistFilter: 0
   textPlaylistFilter: 
-  playListExpanded: 0
+  playListExpanded: 1
   playlistsExpanded: 0
   musicSpatialBlendType: 0
   musicSpatialBlend: 0
@@ -39473,7 +39473,7 @@ MonoBehaviour:
   defaultUnduckTime: 1
   defaultDuckedVolumeCut: -6
   crossFadeTime: 1
-  _masterPlaylistVolume: 0.31622776
+  _masterPlaylistVolume: 1
   showGroupSelect: 0
   hideGroupsWithNoActiveVars: 0
   jukeBoxDisplayMode: 0
@@ -39890,7 +39890,7 @@ MonoBehaviour:
   groupPlayType: 0
   isSelected: 0
   isExpanded: 1
-  groupMasterVolume: 0.010964781
+  groupMasterVolume: 1
   retriggerPercentage: 100
   curVariationMode: 0
   alwaysHighestPriority: 0
@@ -40916,7 +40916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 334
+  openTime: 343
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -41217,7 +41217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 329
+  openTime: 338
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0
@@ -43212,7 +43212,7 @@ MonoBehaviour:
   soundPlayedEventActive: 0
   soundPlayedCustomEvent: 
   willCleanUpDelegatesAfterStop: 1
-  frames: 178
+  frames: 726
 --- !u!1 &2119740962
 GameObject:
   m_ObjectHideFlags: 0
