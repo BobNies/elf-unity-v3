@@ -14,8 +14,8 @@ public class PlayerManager : MonoBehaviour
     private int currentPlayerNum = 0;
 
     public VideoManager videoManager;
-    public VideoClip videoPlayerAdded;
-    public VideoClip videoPlayerTurnStart;
+    //public VideoClip videoPlayerAdded;
+    //public VideoClip videoPlayerTurnStart;
 
     public ScoreManager scoreManager;
 
@@ -68,10 +68,10 @@ public class PlayerManager : MonoBehaviour
         int playerNum = e.PlayerNum;
         numberOfPlayers = playerNum;
 
-        if (videoPlayerAdded != null)
-        {
-            videoManager.playVideo(videoPlayerAdded);
-        }
+        //if (videoPlayerAdded != null)
+        //{
+          //  videoManager.playVideo(videoPlayerAdded);
+        //}
 
         switch (playerNum)
         {
@@ -116,10 +116,10 @@ public class PlayerManager : MonoBehaviour
         int playerNum = e.PlayerNum;
         currentPlayerNum = playerNum;
 
-        if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
-        {
-            videoManager.playVideo(videoPlayerTurnStart);
-        }
+       // if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
+        //{
+          //  videoManager.playVideo(videoPlayerTurnStart);
+        //}
 
         if (playerNum == Globals.playerNumberPrevious)
         {

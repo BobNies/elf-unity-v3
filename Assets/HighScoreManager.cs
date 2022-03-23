@@ -26,6 +26,8 @@ public class HighScoreManager : MonoBehaviour
     public Modular3DText initial3 = null;
     [SerializeField]
     public Modular3DText selector = null;
+    [SerializeField]
+    public Modular3DText playerNumber = null;
 
     public BookHighScores bookHighScores;
     public BookFlip bookFlip;
@@ -58,7 +60,7 @@ public class HighScoreManager : MonoBehaviour
         BcpMessageController.OnSwitch += Switch;
         //High scores
        // BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
-       // BcpMessageController.OnTrigger += Trigger;
+        BcpMessageController.OnTrigger += Trigger;
 
        
     }
@@ -81,7 +83,7 @@ public class HighScoreManager : MonoBehaviour
     void OnDestroy()
     {
         BcpMessageController.OnSwitch -= Switch;
-       // BcpMessageController.OnTrigger -= Trigger;
+        BcpMessageController.OnTrigger -= Trigger;
     }
 
     /// <summary>
@@ -147,10 +149,9 @@ public class HighScoreManager : MonoBehaviour
             //BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
             try
             {
-                //TODO here
-                //show book
-                Debug.Log("bob tweenIn:");
-                BcpLogger.Trace("bob tweenIn");
+                // set player# on screen
+                int player = e.BcpMessage.Parameters["player_num"].AsInt;
+                playerNumber.Text = "Player " + player.ToString();
             }
             catch (Exception ex)
             {

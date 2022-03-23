@@ -51,13 +51,17 @@ public class VideoManager : MonoBehaviour
 
     public void playVideo(VideoClip videoClip)
     {
+        stopAllVideos();
+
         easeInVideoScreen();
+
         videoPlayer.clip = videoClip;
         videoPlayer.Play();
     }
 
     public void playVideo(string videoName)
     {
+        stopAllVideos();
         easeInVideoScreen();
 
         string url = "file://" + Application.streamingAssetsPath + "/" + videoName + ".mp4";
@@ -71,7 +75,6 @@ public class VideoManager : MonoBehaviour
     {
         if (mainGameVideo)
         {
-            UnityEngine.Debug.Log("playVideo ***");
             videoPlayer.transform.DOScale(vec, .5f)
                 .SetEase(Ease.OutQuint);
         }

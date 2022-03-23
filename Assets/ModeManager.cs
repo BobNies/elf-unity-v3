@@ -118,6 +118,7 @@ public class ModeManager : MonoBehaviour
                 //playfieldManager.ShowLevel(12);
                 break;
             case "singing":
+                videoManager.stopAllVideos();
                 videoManager.playVideo(videoSinging);
                 break;
             case "someone_special":
@@ -157,6 +158,7 @@ public class ModeManager : MonoBehaviour
             // control small monitor UI
             // TODO - set up small PF on attract
             case "high_score":
+                videoManager.stopAllVideos();
                 this.gameObject.GetComponent<HighScoreManager>().enabled = false;
                 break;
         }
