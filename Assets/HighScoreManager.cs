@@ -101,7 +101,8 @@ public class HighScoreManager : MonoBehaviour
 
     IEnumerator PlayClip()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
+        MasterAudio.StopPlaylist(); // just incase
         MasterAudio.PlaySound("whats_your_name");
     }
 

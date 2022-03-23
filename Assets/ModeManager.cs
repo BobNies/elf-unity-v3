@@ -59,6 +59,7 @@ public class ModeManager : MonoBehaviour
                 this.gameObject.GetComponent<HighScoreManager>().enabled = true;
                 break;
             case "attract":
+                MasterAudio.StopPlaylist(); // just incase
                 playfieldManager.ShowLevel(0);
                 break;
             case "level_candy_cane_forest":
