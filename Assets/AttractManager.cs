@@ -13,14 +13,38 @@ public class AttractManager : MonoBehaviour
     public PlayerManager playerManager;
     public BookFlip bookFlip;
 
+#if UNITY_EDITOR
+    private KeyboardInput mgr;
+#endif
+
     public bool playMusicOnStart = false;
     [MasterCustomEventAttribute] public string playlist;
 
     public Transform present;
 
 
+#if UNITY_EDITOR
+  void Update()
+    {
+     if (Input.GetKeyDown(mgr.modeAttractStart))
+        {
+            print("modeAttractStart pressed");
+            ModeStartMessageEventArgs args = new ModeStartMessageEventArgs(null, "attract", 0);
+            ModeStart(null, args);
+        }
+     else  if (Input.GetKeyDown(mgr.modeAttractStop))
+        {
+            print("modeAttractStop pressed");
+            ModeStop(null, new ModeStopMessageEventArgs(null, "attract"));
+        }
+    }
+#endif
+
     void Start()
     {
+#if UNITY_EDITOR
+        mgr = GameObject.Find("TEST_ONLY").GetComponent<KeyboardInput>();
+#endif
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
     }
