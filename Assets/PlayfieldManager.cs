@@ -28,8 +28,6 @@ public class PlayfieldManager : MonoBehaviour
     void Start()
     {
        // screens = new GameObject[] { Attract, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13};
-        Debug.Log("bob start --:");
-        BcpLogger.Trace("bob start");
         ShowLevel(0);
     }
 
@@ -51,7 +49,7 @@ public class PlayfieldManager : MonoBehaviour
     public void ShowLevel(int level)
     {
         Debug.Log("bob ShowLevel: " + level);
-        BcpLogger.Trace("bob ShowLevel: " + level);
+        //BcpLogger.Trace("bob ShowLevelb: " + level);
         hideAll();
        // if (level != 0)
         //{

@@ -97,7 +97,6 @@ public class BookFlip : MonoBehaviour
 
     public void tweenIn()
     {
-        BcpLogger.Trace("bob tweenIn *: Start");
         book.transform.DOScale(1f, .5f).SetEase(Ease.InQuad);
         disabled = false;
         timer = origTimeBetweenTurn;

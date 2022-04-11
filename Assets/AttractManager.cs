@@ -23,28 +23,12 @@ public class AttractManager : MonoBehaviour
     public Transform present;
 
 
-#if UNITY_EDITOR
-  void Update()
-    {
-     if (Input.GetKeyDown(mgr.modeAttractStart))
-        {
-            print("modeAttractStart pressed");
-            ModeStartMessageEventArgs args = new ModeStartMessageEventArgs(null, "attract", 0);
-            ModeStart(null, args);
-        }
-     else  if (Input.GetKeyDown(mgr.modeAttractStop))
-        {
-            print("modeAttractStop pressed");
-            ModeStop(null, new ModeStopMessageEventArgs(null, "attract"));
-        }
-    }
-#endif
-
     void Start()
     {
 #if UNITY_EDITOR
         mgr = GameObject.Find("TEST_ONLY").GetComponent<KeyboardInput>();
 #endif
+
         BcpMessageController.OnModeStart += ModeStart;
         BcpMessageController.OnModeStop += ModeStop;
     }
@@ -61,17 +45,17 @@ public class AttractManager : MonoBehaviour
         {
             //TODO - hide all play UI
             playerManager.resetScoreTransforms();
-                // reset ball#
+            // reset ball#
             ballCountUpdater.tweenOut();
             //reset awards
             awardManager.tweenOut();
             present.DOScale(0f, .5f); //SetEase(Ease.InElastic); // DOMove(new Vector3(0, 4, 0), 2);
             // play audio from Master playlist audioPlaylist
-            if(playMusicOnStart && playlist != null)
+            if (playMusicOnStart && playlist != null)
             {
                 MasterAudio.StartPlaylist(playlist);
             }
-           
+
             //book
             bookFlip.tweenIn();
         }
@@ -92,4 +76,22 @@ public class AttractManager : MonoBehaviour
             MasterAudio.StopPlaylist();
         }
     }
+
+    // **** DEBUG
+#if UNITY_EDITOR
+  void Update()
+    {
+     if (Input.GetKeyDown(mgr.modeAttractStart))
+        {
+            Debug.Log("AttractManager modeAttractStart pressed");
+            ModeStartMessageEventArgs args = new ModeStartMessageEventArgs(null, "attract", 0);
+            ModeStart(null, args);
+        }
+     else  if (Input.GetKeyDown(mgr.modeAttractStop))
+        {
+            Debug.Log("AttractManager modeAttractStop pressed");
+            ModeStop(null, new ModeStopMessageEventArgs(null, "attract"));
+        }
+    }
+#endif
 }

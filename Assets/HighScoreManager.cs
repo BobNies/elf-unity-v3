@@ -150,8 +150,8 @@ public class HighScoreManager : MonoBehaviour
             {
                 //TODO here
                 //show book
-                Debug.Log("bob tweenIn:");
-                BcpLogger.Trace("bob tweenIn");
+                //Debug.Log("bob tweenIn:");
+                //BcpLogger.Trace("bob tweenIn");
             }
             catch (Exception ex)
             {
@@ -209,10 +209,10 @@ public class HighScoreManager : MonoBehaviour
             initials[currentPosition] += currentChar;
 
             // set UI
-            Debug.Log("bob currentPosition:" + currentPosition);
-            Debug.Log("bob initials:" + initials[currentPosition]);
-            BcpLogger.Trace("bob: currentPosition:" + currentPosition);
-            BcpLogger.Trace("bob: text:" + initials[currentPosition]);
+            //Debug.Log("bob currentPosition:" + currentPosition);
+            //Debug.Log("bob initials:" + initials[currentPosition]);
+            //BcpLogger.Trace("bob: currentPosition:" + currentPosition);
+            //BcpLogger.Trace("bob: text:" + initials[currentPosition]);
             switch (currentPosition)
             {
                 case 0:
@@ -230,8 +230,8 @@ public class HighScoreManager : MonoBehaviour
             currentPosition++;
             if (currentPosition >= maxCharacters)
             {
-                Debug.Log("bob currentPosition done:" + currentPosition);
-                BcpLogger.Trace("bob: currentPosition DONE:" + currentPosition);
+                ///Debug.Log("bob currentPosition done:" + currentPosition);
+                //BcpLogger.Trace("bob: currentPosition DONE:" + currentPosition);
                 Done();
             }
             else
