@@ -26,5 +26,6 @@ public class KeyboardInput : MonoBehaviour
     public string modeAttractStop = "9";
     public string playerAdded = "q";
     public string playerTurnStarted = "w";
+    public string tilt = "t";
 
 }

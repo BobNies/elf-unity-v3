@@ -11,6 +11,10 @@ using DG.Tweening;
 // icon 4: outer loop
 // vuk
 
+//TODO - amimations, FX when increasing val.
+// TODO - more awards: LoopMaster, RampMaster, JesterMaster
+// TODO - show current level
+
 public class AwardManager : MonoBehaviour
 {
     public Transform awardTransform;
@@ -25,9 +29,17 @@ public class AwardManager : MonoBehaviour
     public string triggerAward3;
     public string triggerAward4;
 
-    // Start is called before the first frame update
+#if UNITY_EDITOR
+    private KeyboardInput mgr;
+#endif
+
+    
     void Start()
     {
+#if UNITY_EDITOR
+        mgr = GameObject.Find("TEST_ONLY").GetComponent<KeyboardInput>();
+#endif
+
         BcpMessageController.OnTrigger += Trigger;
 
         resetAllAwards();
@@ -86,4 +98,33 @@ public class AwardManager : MonoBehaviour
     {
         awardTransform.DOLocalMoveX(-500, 1f).SetEase(Ease.OutQuad);
     }
+
+// **** DEBUG
+#if UNITY_EDITOR
+  void Update()
+    {
+     if (Input.GetKeyDown(mgr.award1))
+        {
+            Debug.Log("AwardManager Award-1  pressed");
+            
+            Trigger(null, new TriggerMessageEventArgs(null, triggerAward1));
+        }
+     else  if (Input.GetKeyDown(mgr.award2))
+        {
+            Debug.Log("AwardManager Award-2 pressed");
+             Trigger(null, new TriggerMessageEventArgs(null, triggerAward2));
+        }
+    else  if (Input.GetKeyDown(mgr.award3))
+        {
+            Debug.Log("AwardManager Award-3 pressed");
+             Trigger(null, new TriggerMessageEventArgs(null, triggerAward3));
+        }
+    else  if (Input.GetKeyDown(mgr.award4))
+        {
+            Debug.Log("AwardManager Award-4 pressed");
+            Trigger(null, new TriggerMessageEventArgs(null, triggerAward4));
+        }
+    }
+#endif
+
 }
