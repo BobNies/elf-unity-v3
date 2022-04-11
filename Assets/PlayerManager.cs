@@ -17,6 +17,12 @@ public class PlayerManager : MonoBehaviour
     //public VideoClip videoPlayerAdded;
     //public VideoClip videoPlayerTurnStart;
 
+#if UNITY_EDITOR
+    private KeyboardInput mgr;
+    private int playerAddedCount = 1;
+    private int playerStartedCount = 1;
+#endif
+
     public ScoreManager scoreManager;
 
     [SoundGroupAttribute] public string playerOneAddedSound;
@@ -27,6 +33,10 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_EDITOR
+        mgr = GameObject.Find("TEST_ONLY").GetComponent<KeyboardInput>();
+#endif
+
         BcpMessageController.OnPlayerAdded += PlayerAdded;
         BcpMessageController.OnPlayerTurnStart += PlayerTurnStart;
 
@@ -70,7 +80,7 @@ public class PlayerManager : MonoBehaviour
 
         //if (videoPlayerAdded != null)
         //{
-          //  videoManager.playVideo(videoPlayerAdded);
+        //  videoManager.playVideo(videoPlayerAdded);
         //}
 
         switch (playerNum)
@@ -97,7 +107,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     MasterAudio.PlaySound(playerThreeAddedSound);
                 }
-                
+
                 scoreManager.playerThreeTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
@@ -105,7 +115,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     MasterAudio.PlaySound(playerFourAddedSound);
                 }
-               
+
                 scoreManager.playerFourTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
                 break;
         }
@@ -116,9 +126,9 @@ public class PlayerManager : MonoBehaviour
         int playerNum = e.PlayerNum;
         currentPlayerNum = playerNum;
 
-       // if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
+        // if (videoPlayerTurnStart != null && Globals.ballNumber == 2)
         //{
-          //  videoManager.playVideo(videoPlayerTurnStart);
+        //  videoManager.playVideo(videoPlayerTurnStart);
         //}
 
         if (playerNum == Globals.playerNumberPrevious)
@@ -130,7 +140,7 @@ public class PlayerManager : MonoBehaviour
         // Move/Expand the score widget
         switch (playerNum)
         {
-            case 1:                
+            case 1:
                 scoreManager.playerOneTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
@@ -177,10 +187,35 @@ public class PlayerManager : MonoBehaviour
         minimizeCurrentScore(currentPlayerNum);
         // loop each player - move off screen
         for (int i = 1; i < 5; i++)
-        {           
+        {
             PlayerRemoved(i);
-        }         
+        }
     }
+
+    // **** DEBUG
+#if UNITY_EDITOR
+  void Update()
+    {
+        if (Input.GetKeyDown(mgr.playerAdded))
+        {
+            Debug.Log("PlayerManager playerAdded");
+            PlayerAdded(null, new PlayerAddedMessageEventArgs(null, playerAddedCount));
+            playerAddedCount +=1;
+        }
+        else if (Input.GetKeyDown(mgr.playerTurnStarted))
+        {
+            PlayerTurnStart(null, new PlayerTurnStartMessageEventArgs(null, playerStartedCount));
+            if (playerStartedCount == 4)
+            {
+                playerStartedCount = 1;
+            } else 
+            {
+                playerStartedCount +=1;
+            }
+        }
+       
+    }
+#endif
 
 }
 

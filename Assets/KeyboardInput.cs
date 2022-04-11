@@ -24,5 +24,7 @@ public class KeyboardInput : MonoBehaviour
     public string highScoreEnterInitials = "v";
     public string modeAttractStart = "8";
     public string modeAttractStop = "9";
+    public string playerAdded = "q";
+    public string playerTurnStarted = "w";
 
 }
