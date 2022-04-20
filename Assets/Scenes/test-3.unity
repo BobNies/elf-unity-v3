@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5916930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21591481}
   - component: {fileID: 21591482}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33849162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53224720}
   - component: {fileID: 53224719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67916471}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77432001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cover.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1557,7 +1557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 81948472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1896,7 +1896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92708031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2089,7 +2089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 111012124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 414
+  openTime: 416
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 411
+  openTime: 413
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,7 +2623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124229990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 410
+  openTime: 412
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,7 +3254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154636685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3410,7 +3410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 157557935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3662,7 +3662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 43
+  openTime: 47
 --- !u!1 &162966113
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,7 +4644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189931478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4757,7 +4757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198810161}
   - component: {fileID: 198810162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4851,7 +4851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201872450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,7 +4950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 204955604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Controller_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5391,7 +5391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217361228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6101,7 +6101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 44
+  openTime: 48
 --- !u!1 &240574758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,7 +6216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 410
+  openTime: 412
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -6226,7 +6226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249513581}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6598,7 +6598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 261561070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_RRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7118,7 +7118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 883
+  openTime: 887
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -7232,7 +7232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 282947700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7363,7 +7363,7 @@ GameObject:
   - component: {fileID: 293396373}
   - component: {fileID: 293396375}
   - component: {fileID: 293396374}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7426,7 +7426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 294169431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7456,7 +7456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298388289}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7487,7 +7487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298794452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7517,7 +7517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301825014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7548,7 +7548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302214095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_LRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8078,7 +8078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 44
+  openTime: 48
 --- !u!1 &318698409
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,7 +8088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318698410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8283,7 +8283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351085119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8454,7 +8454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 354633039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8745,7 +8745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374003005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.08_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8886,7 +8886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 379521185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8916,7 +8916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393229133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9156,7 +9156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 398289858}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9300,7 +9300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 419193176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9493,7 +9493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447867944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9757,7 +9757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466806855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9924,7 +9924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 477832635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10245,7 +10245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484505186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10390,7 +10390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 44
+  openTime: 48
 --- !u!1 &490837890
 GameObject:
   m_ObjectHideFlags: 0
@@ -10519,7 +10519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 500473980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.10_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11285,7 +11285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 515142881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11704,7 +11704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541161492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12479,7 +12479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565690091}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12509,7 +12509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566385009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12540,7 +12540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567994552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12885,7 +12885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 415
+  openTime: 417
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12895,7 +12895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578477849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13007,7 +13007,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 580349738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13413,7 +13413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 647
+  openTime: 651
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -13899,7 +13899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 636308225}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14092,7 +14092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642316942}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14123,7 +14123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643238534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pages.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14318,7 +14318,7 @@ GameObject:
   - component: {fileID: 651577649}
   - component: {fileID: 651577648}
   - component: {fileID: 651577647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookStandinOpenBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14722,7 +14722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690681925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14753,7 +14753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 691575047}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15568,7 +15568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726133930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16004,7 +16004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760268421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16626,7 +16626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 797294349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.10_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17383,7 +17383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 410
+  openTime: 412
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -17475,7 +17475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 823606164}
   - component: {fileID: 823606165}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookAnimated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17819,7 +17819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838423457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Cover.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17849,7 +17849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 843057160}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18263,7 +18263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 44
+  openTime: 48
 --- !u!1 &862955588
 GameObject:
   m_ObjectHideFlags: 0
@@ -18273,7 +18273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862955589}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18385,7 +18385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 872889469}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18876,7 +18876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 46
+  openTime: 50
 --- !u!1 &903781433
 GameObject:
   m_ObjectHideFlags: 0
@@ -19191,7 +19191,7 @@ MeshRenderer:
   m_GameObject: {fileID: 910806121}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -19240,7 +19240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 911099126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19724,7 +19724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937480069}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19759,7 +19759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939416582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_Roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19923,7 +19923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944401703}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19984,7 +19984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 949067234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20693,7 +20693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965478974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20967,7 +20967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 980966481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Cover.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21658,7 +21658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010710986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21770,7 +21770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1036658593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21882,7 +21882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045882805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22180,7 +22180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1060543699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pages.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22211,7 +22211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061078115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22479,7 +22479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072916236}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Cover.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22590,7 +22590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077762776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22623,7 +22623,7 @@ GameObject:
   - component: {fileID: 1079161423}
   - component: {fileID: 1079161425}
   - component: {fileID: 1079161424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22686,7 +22686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1080619257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23372,7 +23372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091936010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23403,7 +23403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096936243}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23566,7 +23566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 409
+  openTime: 411
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -23576,7 +23576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1105478102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23814,7 +23814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1146830286}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24033,7 +24033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1167980637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24145,7 +24145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173865749}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24176,7 +24176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1176304674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Cover.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24712,7 +24712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1198135198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Thickness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24906,7 +24906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204896615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24937,7 +24937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205198192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25130,7 +25130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209796070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25163,7 +25163,7 @@ GameObject:
   - component: {fileID: 1211769451}
   - component: {fileID: 1211769450}
   - component: {fileID: 1211769449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookStandinClosedBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25323,7 +25323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215284586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25516,7 +25516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237393666}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25547,7 +25547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237915419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26136,7 +26136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 409
+  openTime: 411
 --- !u!1 &1261984302
 GameObject:
   m_ObjectHideFlags: 0
@@ -26500,7 +26500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 417
+  openTime: 419
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -26510,7 +26510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287273839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26711,7 +26711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 416
+  openTime: 418
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -27019,7 +27019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304278672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27676,7 +27676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 410
+  openTime: 412
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -27767,7 +27767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371834248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.08_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27797,7 +27797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373821802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27828,7 +27828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374991661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28039,7 +28039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 411
+  openTime: 413
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -28130,7 +28130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1390275543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28161,7 +28161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1390695720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Standins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28201,7 +28201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394210294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28868,7 +28868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423874944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29290,7 +29290,7 @@ GameObject:
   - component: {fileID: 1437325335}
   - component: {fileID: 1437325337}
   - component: {fileID: 1437325336}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29471,7 +29471,7 @@ MonoBehaviour:
   stateAnimationTime: 1
   turnTimeType: 0
   PageFlipAnimationTime: 1
-  turnTimePage: 5
+  turnTimePage: 3
   cyclesBetweenVideoPlay: 3
 --- !u!114 &1437325336
 MonoBehaviour:
@@ -29533,7 +29533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1440620879}
   - component: {fileID: 1440620880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29708,7 +29708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448689564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30074,7 +30074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1465366683}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30105,7 +30105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466049425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30234,7 +30234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468578580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30947,7 +30947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1502272470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30978,7 +30978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1502800345}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31143,7 +31143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510124379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31174,7 +31174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511611300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31205,7 +31205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520455247}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31236,7 +31236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530169781}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31380,7 +31380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535290884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31411,7 +31411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542226527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31808,7 +31808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1549206881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32054,7 +32054,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575292514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32474,7 +32474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1596384048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32817,7 +32817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619527512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33063,7 +33063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1623897453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33220,7 +33220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638718554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33252,7 +33252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640548429}
   - component: {fileID: 1640548430}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33346,7 +33346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648562544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33379,7 +33379,7 @@ GameObject:
   - component: {fileID: 1649962084}
   - component: {fileID: 1649962086}
   - component: {fileID: 1649962085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33995,7 +33995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1676085465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34026,7 +34026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680220593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34529,7 +34529,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 19.6
   m_Depth: 50
   m_CullingMask:
@@ -34555,7 +34555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693204857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.L.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34586,7 +34586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1706859001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34651,7 +34651,7 @@ GameObject:
   - component: {fileID: 1711211322}
   - component: {fileID: 1711211321}
   - component: {fileID: 1711211320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookStandinOpenFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34991,7 +34991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720012257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Book_Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35131,7 +35131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 648
+  openTime: 652
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35775,7 +35775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1768605913}
   - component: {fileID: 1768605914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36534,7 +36534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819805001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.R.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36668,7 +36668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 46
+  openTime: 50
 --- !u!114 &1824763422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38825,7 +38825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 417
+  openTime: 419
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -38835,7 +38835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1905715453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38868,7 +38868,7 @@ GameObject:
   - component: {fileID: 1910359312}
   - component: {fileID: 1910359314}
   - component: {fileID: 1910359313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39069,7 +39069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913467974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39397,7 +39397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 884
+  openTime: 888
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -39815,7 +39815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943640982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40271,7 +40271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962604638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40673,7 +40673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976543976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40833,7 +40833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 45
+  openTime: 49
 --- !u!1 &1982555864
 GameObject:
   m_ObjectHideFlags: 0
@@ -40843,7 +40843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1982555865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40876,7 +40876,7 @@ GameObject:
   - component: {fileID: 1983922897}
   - component: {fileID: 1983922896}
   - component: {fileID: 1983922895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookStandinOpenMiddle_High
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41366,7 +41366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015906309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cover.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41397,7 +41397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027555388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41468,7 +41468,7 @@ GameObject:
   - component: {fileID: 2033760136}
   - component: {fileID: 2033760138}
   - component: {fileID: 2033760137}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41639,7 +41639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 415
+  openTime: 417
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -41940,7 +41940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 410
+  openTime: 412
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0
@@ -42478,7 +42478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2062191615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Top.L.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42955,7 +42955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074478114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43148,7 +43148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2080929221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43422,7 +43422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2086736411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Deform_Pages_Bottom.R.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43818,7 +43818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096142697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44194,7 +44194,7 @@ GameObject:
   - component: {fileID: 2128871381}
   - component: {fileID: 2128871380}
   - component: {fileID: 2128871379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BookStandinClosedFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}

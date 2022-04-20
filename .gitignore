@@ -83,14 +83,6 @@ Assets/TextMesh Pro/
 
 *.meta
 
-Packages/packages-lock.json
-
-UserSettings/EditorUserSettings.asset
-
-Packages/manifest.json
-
-ProjectSettings/ProjectVersion.txt
-
 log.txt
 
 Assets/Frozen GUI Pack/
