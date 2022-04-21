@@ -9,7 +9,9 @@ using DG.Tweening;
 */
 public class VideoManager : MonoBehaviour
 {
+    [Tooltip("Should the Video screen be minimized on start")]
     public bool minimizeOnStart = true;
+    [Tooltip("Is this the main video screen. Usually the screen in front of the Book")]
     public bool mainGameVideo = true;
 
     public VideoPlayer videoPlayer;

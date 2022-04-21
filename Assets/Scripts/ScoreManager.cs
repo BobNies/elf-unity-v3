@@ -18,8 +18,10 @@ public class ScoreManager : MonoBehaviour
 {
     public VideoManager videoManager;
     public PresentManager presentManager;
+    [Tooltip("The minimum award value(score) to pop the box top")]
     public int minScorePopBox = 1000000;
-    [SoundGroupAttribute] public string popJesterSound;
+    [Tooltip("Sound FX played when the box top pops")]
+    [SoundGroupAttribute] public string popBoxTopSound;
 
     private TextMeshProUGUI scoreP1;
     private TextMeshProUGUI scoreP2;
@@ -28,9 +30,13 @@ public class ScoreManager : MonoBehaviour
 
     private int currentPlayerNumber;
 
+    [Tooltip("Object that includes the displayed score 1")]
     public GameObject playerOneTransform;
+    [Tooltip("Object that includes the displayed score 2")]
     public GameObject playerTwoTransform;
+    [Tooltip("Object that includes the displayed score 3")]
     public GameObject playerThreeTransform;
+    [Tooltip("Object that includes the displayed score 4")]
     public GameObject playerFourTransform;
 
 
@@ -97,7 +103,7 @@ public class ScoreManager : MonoBehaviour
         {
             presentManager.updateScoreText(newBoxScore);
             //TODO - find better sound
-            MasterAudio.PlaySound(popJesterSound);
+            MasterAudio.PlaySound(popBoxTopSound);
         }
 
         switch (player)
