@@ -44,8 +44,8 @@ public class ModeManager : MonoBehaviour
 
     public void ModeStart(object sender, ModeStartMessageEventArgs e)
     {
-        //Debug.Log("bob ModeStart:" + e.Name);
-        //BcpLogger.Trace("bob ModeStart: " + e.Name);
+        Debug.Log("bob ModeStart:" + e.Name);
+        BcpLogger.Trace("bob ModeStart: " + e.Name);
 
         switch (e.Name)
         {

@@ -48,7 +48,7 @@ public class PlayfieldManager : MonoBehaviour
     // 13 - special
     public void ShowLevel(int level)
     {
-        Debug.Log("bob ShowLevel: " + level);
+        //Debug.Log("bob ShowLevel: " + level);
         //BcpLogger.Trace("bob ShowLevelb: " + level);
         hideAll();
        // if (level != 0)

@@ -66,7 +66,9 @@ public class BookFlip : MonoBehaviour
 
             book.TurnToPage(currentPage, turnTimeType, PageFlipAnimationTime);
 
-            if(currentPage == 7 && cycles == 0)
+            Debug.Log("bob currentPage: " + currentPage);
+            //BcpLogger.Trace("bob ShowLevelb: " + level);
+            if (currentPage == 7 && cycles == 0)
             {
                 // start the video early by using left side page
                 videoManager.playVideo(videoClips[videoIndex]);
