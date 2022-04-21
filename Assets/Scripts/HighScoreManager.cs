@@ -15,6 +15,8 @@ using DarkTonic.MasterAudio;
 /* ELF
      Listen for Event when a high_score_award_display BCP Trigger 
      Handles high-scores.
+     By default, this should be disabled in the scene - let the ModeManager
+        turn it on/off
 */
 public class HighScoreManager : MonoBehaviour
 {
