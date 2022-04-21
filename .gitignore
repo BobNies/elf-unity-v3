@@ -62,6 +62,8 @@ crashlytics-build.properties
 
 log.txt
 
+.idea/
+
 Assets/PlayMaker/
 
 Assets/Plugins/PlayMaker/
@@ -71,16 +73,11 @@ Assets/Plugins/RainbowAssets/
 
 Assets/Frozen GUI Pack/
 
-Assets/Xmas luck slot game kit/
-
-.idea/
-
 Assets/DOTween Examples/
 
 Assets/Pinball Creator/
 Assets/Pinball Creator/Assets/
 
-Assets/NarayanaGames/
 Assets/SerialPortUtilityPro/
 Assets/ConsolePro/
 
