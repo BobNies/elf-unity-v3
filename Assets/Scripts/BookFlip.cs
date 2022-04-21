@@ -15,7 +15,7 @@ public class BookFlip : MonoBehaviour
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float PageFlipAnimationTime = 1f;
     public float turnTimePage = 5f;
-    public int cyclesBetweenVideoPlay = 3;
+    public int cyclesBetweenVideoPlay = 1;
 
     private float timer = 0f;
     private float origTimeBetweenTurn = 20;
