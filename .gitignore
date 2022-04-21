@@ -58,14 +58,13 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.meta
+
+log.txt
 
 Assets/3Skyboxes/
 
-Assets/AVProVideo/
-
 Assets/Christmas-Assets-FREE/
-
-Assets/Gizmos/
 
 Assets/Hodgepodge Pack/
 
@@ -78,15 +77,7 @@ Assets/Plugins/DarkTonic/MasterAudio/ExampleScenes/
 Assets/Plugins/Demigiant/DOTweenPro Examples/
 Assets/Plugins/RainbowAssets/
 
-Assets/Presents 3D Pack/
-
-Assets/SkySerie Freebie/
-
 Assets/TextMesh Pro/
-
-*.meta
-
-log.txt
 
 Assets/Frozen GUI Pack/
 
