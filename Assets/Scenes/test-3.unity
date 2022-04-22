@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 430
+  openTime: 431
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 427
+  openTime: 428
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 426
+  openTime: 427
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,7 +6216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 426
+  openTime: 427
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,7 +7118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 901
+  openTime: 902
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -9525,7 +9525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453473857}
   m_Layer: 6
-  m_Name: B12
+  m_Name: L_Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12885,7 +12885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 431
+  openTime: 432
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13194,12 +13194,12 @@ MonoBehaviour:
   L5: {fileID: 1866343204}
   L6: {fileID: 1156979896}
   L7: {fileID: 458308928}
-  L8: {fileID: 920069426}
-  L9: {fileID: 939625597}
-  L10: {fileID: 1946669367}
-  L11: {fileID: 2119740962}
-  L12: {fileID: 453473856}
-  L13: {fileID: 896319477}
+  LSkillShot: {fileID: 920069426}
+  LBallLock: {fileID: 939625597}
+  LJackpot: {fileID: 1946669367}
+  LRampShot: {fileID: 2119740962}
+  LSpecial: {fileID: 453473856}
+  LOmg: {fileID: 896319477}
 --- !u!1 &604335189
 GameObject:
   m_ObjectHideFlags: 0
@@ -13413,7 +13413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 665
+  openTime: 666
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -17383,7 +17383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 426
+  openTime: 427
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -18743,7 +18743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896319478}
   m_Layer: 6
-  m_Name: B13
+  m_Name: L_Omg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19383,7 +19383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920069427}
   m_Layer: 6
-  m_Name: B8
+  m_Name: L_Skillshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19791,7 +19791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939625598}
   m_Layer: 6
-  m_Name: B9
+  m_Name: L_BallLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23566,7 +23566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 425
+  openTime: 426
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -26136,7 +26136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 425
+  openTime: 426
 --- !u!1 &1261984302
 GameObject:
   m_ObjectHideFlags: 0
@@ -26500,7 +26500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 433
+  openTime: 434
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -26711,7 +26711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 432
+  openTime: 433
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -27676,7 +27676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 426
+  openTime: 427
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -28039,7 +28039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 427
+  openTime: 428
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -35131,7 +35131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 666
+  openTime: 667
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38825,7 +38825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 433
+  openTime: 434
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -39397,7 +39397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 902
+  openTime: 903
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -39847,7 +39847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1946669368}
   m_Layer: 6
-  m_Name: B10
+  m_Name: L_Jackpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41639,7 +41639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 431
+  openTime: 432
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -41940,7 +41940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 426
+  openTime: 427
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0
@@ -44158,7 +44158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2119740963}
   m_Layer: 6
-  m_Name: B11
+  m_Name: L_Rampshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,12 +15,12 @@ public class PlayfieldManager : MonoBehaviour
     public GameObject L5;
     public GameObject L6;
     public GameObject L7;
-    public GameObject L8;
-    public GameObject L9;
-    public GameObject L10;
-    public GameObject L11;
-    public GameObject L12;
-    public GameObject L13;
+    public GameObject LSkillShot;
+    public GameObject LBallLock;
+    public GameObject LJackpot;
+    public GameObject LRampShot;
+    public GameObject LSpecial;
+    public GameObject LOmg;
 
     //private GameObject[] screens;
 
@@ -86,22 +86,22 @@ public class PlayfieldManager : MonoBehaviour
                 L7.SetActive(true);
                 break;
             case 8:
-               // L8.SetActive(true);
+                LSkillShot.SetActive(true);
                 break;
             case 9:
-                L9.SetActive(true);
+                LBallLock.SetActive(true);
                 break;
             case 10:
-                L10.SetActive(true);
+                LJackpot.SetActive(true);
                 break;
             case 11:
-                L11.SetActive(true);
+                LRampShot.SetActive(true);
                 break;
             case 12:
-                L12.SetActive(true);
+                LSpecial.SetActive(true);
                 break;
             case 13:
-                L13.SetActive(true);
+                LOmg.SetActive(true);
                 break;
         }
     }
@@ -116,12 +116,13 @@ public class PlayfieldManager : MonoBehaviour
         L5.SetActive(false);
         L6.SetActive(false);
         L7.SetActive(false);
-        L8.SetActive(false);
-        L9.SetActive(false);
-        L10.SetActive(false);
-        L11.SetActive(false);
-        L12.SetActive(false);
-        L13.SetActive(false);
+
+        LSkillShot.SetActive(false);
+        LBallLock.SetActive(false);
+        LJackpot.SetActive(false);
+        LRampShot.SetActive(false);
+        LSpecial.SetActive(false);
+        LOmg.SetActive(false);
 
         //screens[level].SetActive(true);
     }
