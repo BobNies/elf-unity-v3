@@ -58,61 +58,22 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-
-Assets/3Skyboxes/
-
-Assets/AVProVideo/
-
-Assets/Christmas-Assets-FREE/
-
-Assets/Gizmos/
-
-Assets/Hodgepodge Pack/
-
-Assets/HONETi/
+log.txt
 
 Assets/PlayMaker/
 
-Assets/Plugins/
-
-Assets/Presents 3D Pack/
-
-Assets/SkySerie Freebie/
-
-Assets/TextMesh Pro/
-
-*.meta
-
-Packages/packages-lock.json
-
-UserSettings/EditorUserSettings.asset
-
-Packages/manifest.json
-
-ProjectSettings/ProjectVersion.txt
-
-log.txt
-
-Assets/Frozen GUI Pack/
-
-Assets/Xmas luck slot game kit/
-
-Assets/Editor Default Resources/MasterAudio/
-
-.idea/
+Assets/Plugins/PlayMaker/
+Assets/Plugins/DarkTonic/MasterAudio/ExampleScenes/
+Assets/Plugins/Demigiant/DOTweenPro Examples/
+Assets/Plugins/RainbowAssets/
 
 Assets/DOTween Examples/
-
-Assets/Tiny Giant Studio/Modular 3D Text/
-
-Assets/Scenes/SkySerie Freebie/
-
-Assets/64_MSF_by_Alx/
 
 Assets/Pinball Creator/
 Assets/Pinball Creator/Assets/
 
-Assets/EndlessBook/
+Assets/SerialPortUtilityPro/
+Assets/ConsolePro/
 
-lfs/objects/
-hooks/
+Assets/2000 Game Sound FX/
+
