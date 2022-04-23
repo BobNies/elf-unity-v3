@@ -18,12 +18,18 @@ public class KeyboardInput : MonoBehaviour
     public string level5Start = "5";    //level_coffee
     public string level6Start = "6";    //level_nutcracker
     public string level7Start = "7";    //level_central_park
+
+    public string modeAttractStart = "8";
+    public string modeAttractStop = "9";
+
+    public string playfield_skillshot = "d";
+    // TODO -f, g
+
     public string lockLit = "n";
     public string multiballStart = "m";
     public string multiballComplete = "b";
     public string highScoreEnterInitials = "v";
-    public string modeAttractStart = "8";
-    public string modeAttractStop = "9";
+    
     public string playerAdded = "q";
     public string playerTurnStarted = "w";
     

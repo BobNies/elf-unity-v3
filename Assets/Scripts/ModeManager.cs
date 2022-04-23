@@ -233,6 +233,11 @@ public class ModeManager : MonoBehaviour
             Debug.Log("ModeManager level7Start pressed");
             ModeStart(null, new ModeStartMessageEventArgs(null, "level_central_park", 0));
         }
+      else  if (Input.GetKeyDown(mgr.playfield_skillshot))
+        {
+            Debug.Log("ModeManager level7Start pressed");
+            ModeStart(null, new ModeStartMessageEventArgs(null, "plunger_skill_shot", 0));
+        }
     }
 #endif
 
