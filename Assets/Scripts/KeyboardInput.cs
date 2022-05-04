@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DarkTonic.MasterAudio;
 
 // For testing, using KB inputs.
 // Disable in scene for production.
@@ -29,14 +30,35 @@ public class KeyboardInput : MonoBehaviour
     public string multiballStart = "m";
     public string multiballComplete = "b";
     public string highScoreEnterInitials = "v";
-    
+
     public string playerAdded = "q";
     public string playerTurnStarted = "w";
-    
+
     public string award1 = "h";
     public string award2 = "j";
     public string award3 = "k";
     public string award4 = "l";
     public string tiltWarning = "y";
     public string tilt = "t";
+    public string audioTest1 = ",";
+    public string audioTest2 = ".";
+
+#if UNITY_EDITOR
+    [SoundGroupAttribute] public string[] ballEndSounds;
+#endif
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(audioTest1))
+        {
+            MasterAudio.PlaySound(ballEndSounds[0]);
+        }
+        else if (Input.GetKeyDown(audioTest2))
+        {
+            MasterAudio.PlaySound(ballEndSounds[1]);
+        }
+    }
+#endif
+
 }
