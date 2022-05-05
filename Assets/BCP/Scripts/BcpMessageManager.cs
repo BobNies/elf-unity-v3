@@ -451,7 +451,8 @@ public class BcpMessageManager : MonoBehaviour
         "start_full_ball_mb," +             // multiball
         "pop_jester," +                     // jester
         "plunger_skill_shot_awarded," +     // plunge ball & hit correct drop target
-        "start_extra_ball," +               // extra ball
+        "award_extra_ball," +               // extra ball awarded
+        "start_extra_ball," +               // extra ball started
         "snow_lane_advance_complete," +     // snow lanes
         "top_lane_advance_complete," +      // 2 upper lanes
         "santa_lit_complete," +             // loop hit 5 times

@@ -17,17 +17,38 @@ using DG.Tweening;
 
 public class AwardManager : MonoBehaviour
 {
+    [Header("Top-Left award Boxes")]
+    [Tooltip("Main transform that holds all the award boxes. Used for show/hide.")]
     public Transform awardTransform;
     public TextMeshProUGUI textAward1;
     public TextMeshProUGUI textAward2;
     public TextMeshProUGUI textAward3;
     public TextMeshProUGUI textAward4;
 
+    [Header("BCP triggers to advance above awards")]
     [Tooltip("The name of the BCP Trigger to listen for. Should be a Counter.events_when_hit")]
     public string triggerAward1;
     public string triggerAward2;
     public string triggerAward3;
     public string triggerAward4;
+
+    [Header("Prefab awards for matching BCP message")]
+    public GameObject pf_startFullBallMb;
+    public GameObject pf_popJester;
+    public GameObject pf_plungerSkillShotAwarded;
+    public GameObject pf_awardExtraBall;
+    public GameObject pf_startExtraBall;
+    public GameObject pf_snowLaneAdvanceComplete;
+    public GameObject pf_topLaneAdvanceComplete;
+    public GameObject pf_santaLitComplete;
+    public GameObject pf_angryTargetsAdvanceComplete;
+    public GameObject pf_dropElfAdvanceComplete;
+    public GameObject pf_targetsBuddyAdvanceComplete;
+    public GameObject pf_targetFoodGroupsAwarded;
+    public GameObject pf_jetsCollectAward;
+    public GameObject pf_loopCollectAward;
+    public GameObject pf_vukCollectAward;
+
 
 #if UNITY_EDITOR
     private KeyboardInput mgr;
@@ -55,7 +76,7 @@ public class AwardManager : MonoBehaviour
 
     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
-        // To receive a trigger, it MUST be registered in BcpMessageManager
+        // To receive a trigger, it MUST be registered in BcpMessageManager:elfTriggers
         //  #Event: ======'spinner_collect_award'====== Args={'count': 3}
         string name = e.Name;
         //Debug.Log("bob name:" + name);
