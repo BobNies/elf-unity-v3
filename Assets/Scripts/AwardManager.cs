@@ -81,7 +81,13 @@ public class AwardManager : MonoBehaviour
         string name = e.Name;
         //Debug.Log("bob name:" + name);
         //BcpLogger.Trace("bob name: " + name);
-        string count = e.BcpMessage.Parameters["count"].Value;
+
+        string count = "0";
+        if (e.BcpMessage != null)
+        {
+            count = e.BcpMessage.Parameters["count"].Value;
+        }
+        
        
         if (name == triggerAward1)
         {           
@@ -95,9 +101,49 @@ public class AwardManager : MonoBehaviour
         {
             textAward3.text = count;
         }
-        else
+        else if (name == triggerAward4)
         {
             textAward4.text = count;
+        } else
+        {
+            // spawn prefabs
+            switch(name)
+            {
+                case "start_full_ball_mb":
+                    break;
+                case "pop_jester":
+                    break ;
+                case "plunger_skill_shot_awarded":
+                    break;
+                case "award_extra_ball":
+                    var obj = Instantiate(pf_awardExtraBall, new Vector3(0, .5f, 0), Quaternion.identity);
+                    Destroy(obj, 5f);
+                    break;
+                case "start_extra_ball":
+                    break;
+                case "snow_lane_advance_complete":
+                    break;
+                case "top_lane_advance_complete":
+                    break;
+                case "santa_lit_complete":
+                    break;
+                case "angry_targets_advance_complete":
+                    break;
+                case "drop_elf_advance_complete":
+                    break;
+                case "targets_buddy_advance_complete":
+                    break;
+                case "target_food_groups_awarded":
+                    break;
+                case "spinner_collect_award":
+                    break;
+                case "jets_collect_award":
+                    break;
+                case "loop_collect_award":
+                    break;
+                case "vuk_collect_award":
+                    break;
+            }
         }
 
     }
@@ -120,7 +166,7 @@ public class AwardManager : MonoBehaviour
         awardTransform.DOLocalMoveX(-500, 1f).SetEase(Ease.OutQuad);
     }
 
-// **** DEBUG
+    // **** DEBUG
 #if UNITY_EDITOR
   void Update()
     {
@@ -145,6 +191,12 @@ public class AwardManager : MonoBehaviour
             Debug.Log("AwardManager Award-4 pressed");
             Trigger(null, new TriggerMessageEventArgs(null, triggerAward4));
         }
+    else  if (Input.GetKeyDown(mgr.extraBall))
+        {
+            Debug.Log("AwardManager Award-4 pressed");
+            Trigger(null, new TriggerMessageEventArgs(null,"award_extra_ball"));
+        }
+   
     }
 #endif
 

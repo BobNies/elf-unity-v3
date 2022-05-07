@@ -448,6 +448,7 @@ public class BcpMessageManager : MonoBehaviour
         // ELF specific triggers. Setting them here instead of Scene
         // Do not add modes here, they go in ModeManager
         string elfTriggers =
+        "first_ball," +                     // ball 1, called for each player
         "start_full_ball_mb," +             // multiball
         "pop_jester," +                     // jester
         "plunger_skill_shot_awarded," +     // plunge ball & hit correct drop target

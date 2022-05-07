@@ -40,6 +40,8 @@ public class KeyboardInput : MonoBehaviour
     public string award4 = "l";
     public string tiltWarning = "y";
     public string tilt = "t";
+    public string extraBall = "[";
+
     public string audioTest1 = ",";
     public string audioTest2 = ".";
 
