@@ -88,22 +88,27 @@ public class AwardManager : MonoBehaviour
             count = e.BcpMessage.Parameters["count"].Value;
         }
         
-       
         if (name == triggerAward1)
         {           
             textAward1.text = count;
+            // animation
+            DOTween.Restart("hat");
+            //squareAward1.transform.DORotate(new Vector3(360f, 0, 0), .22f, RotateMode.LocalAxisAdd).SetEase(Ease.OutQuad);
         }
         else if (name == triggerAward2)
         {
             textAward2.text = count;
+            DOTween.Restart("flake");
         }
         else if (name == triggerAward3)
         {
             textAward3.text = count;
+            DOTween.Restart("cookie");
         }
         else if (name == triggerAward4)
         {
             textAward4.text = count;
+            DOTween.Restart("present");
         } else
         {
             // spawn prefabs
