@@ -36,6 +36,7 @@ public class AwardManager : MonoBehaviour
     public GameObject pf_startFullBallMb;
     public GameObject pf_popJester;
     public GameObject pf_plungerSkillShotAwarded;
+    public GameObject pf_ballSave;
     public GameObject pf_awardExtraBall;
     public GameObject pf_startExtraBall;
     public GameObject pf_snowLaneAdvanceComplete;
@@ -114,6 +115,8 @@ public class AwardManager : MonoBehaviour
             // spawn prefabs
             switch(name)
             {
+                case "ball_save_bs_plunger_saving_ball":
+                    break;
                 case "start_full_ball_mb":
                     break;
                 case "pop_jester":

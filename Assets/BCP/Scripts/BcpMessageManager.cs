@@ -464,7 +464,8 @@ public class BcpMessageManager : MonoBehaviour
         "spinner_collect_award," +
         "jets_collect_award," +
         "loop_collect_award," +
-        "vuk_collect_award";
+        "vuk_collect_award," +
+        "ball_save_bs_plunger_saving_ball"; // ball save 
         // ^^ include comma ^^
 
 
