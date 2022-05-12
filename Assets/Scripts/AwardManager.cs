@@ -46,9 +46,9 @@ public class AwardManager : MonoBehaviour
     public GameObject pf_dropElfAdvanceComplete;
     public GameObject pf_targetsBuddyAdvanceComplete;
     public GameObject pf_targetFoodGroupsAwarded;
-    public GameObject pf_jetsCollectAward;
-    public GameObject pf_loopCollectAward;
-    public GameObject pf_vukCollectAward;
+    // public GameObject pf_jetsCollectAward;
+    // public GameObject pf_loopCollectAward;
+    // public GameObject pf_vukCollectAward;
 
 
 #if UNITY_EDITOR
@@ -113,44 +113,61 @@ public class AwardManager : MonoBehaviour
         } else
         {
             // spawn prefabs
+            GameObject gObj = null;
+            var killTime = 5f;
             switch(name)
             {
                 case "ball_save_bs_plunger_saving_ball":
+                    gObj = pf_ballSave;
                     break;
                 case "start_full_ball_mb":
+                    gObj = pf_startFullBallMb;
                     break;
                 case "pop_jester":
+                    gObj = pf_popJester;
                     break ;
                 case "plunger_skill_shot_awarded":
                     break;
                 case "award_extra_ball":
-                    var obj = Instantiate(pf_awardExtraBall, new Vector3(0, .5f, 0), Quaternion.identity);
-                    Destroy(obj, 5f);
+                    gObj = pf_awardExtraBall;         
                     break;
                 case "start_extra_ball":
+                    gObj = pf_startExtraBall;                 
                     break;
                 case "snow_lane_advance_complete":
+                    gObj = pf_snowLaneAdvanceComplete;
                     break;
                 case "top_lane_advance_complete":
+                    gObj = pf_topLaneAdvanceComplete;
                     break;
                 case "santa_lit_complete":
+                    gObj = pf_santaLitComplete;
                     break;
                 case "angry_targets_advance_complete":
+                    gObj = pf_angryTargetsAdvanceComplete;
                     break;
                 case "drop_elf_advance_complete":
+                    gObj = pf_dropElfAdvanceComplete;
                     break;
                 case "targets_buddy_advance_complete":
+                    gObj = pf_targetsBuddyAdvanceComplete;
                     break;
                 case "target_food_groups_awarded":
+                    gObj = pf_targetFoodGroupsAwarded;
                     break;
-                case "spinner_collect_award":
-                    break;
-                case "jets_collect_award":
-                    break;
-                case "loop_collect_award":
-                    break;
-                case "vuk_collect_award":
-                    break;
+                // case "spinner_collect_award":
+                //     break;
+                // case "jets_collect_award":
+                //     break;
+                // case "loop_collect_award":
+                //     break;
+                // case "vuk_collect_award":
+                //     break;
+            }
+
+            if(gObj != null) {
+                var obj = Instantiate(gObj, new Vector3(0, .5f, 0), Quaternion.identity);
+                Destroy(obj, killTime);
             }
         }
 
