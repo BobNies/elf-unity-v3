@@ -33,7 +33,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 return;
             }
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/SoundGroupOrganizer.htm");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/SoundGroupOrganizer.htm");
 
             _groups = ScanForGroups();
 
@@ -1778,6 +1778,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                         var clip = Resources.Load(fileName) as AudioClip;
                         if (clip != null)
                         {
+                            DTGUIHelper.PlaySilentWakeUpPreview(previewer, clip);
                             previewer.PlayOneShot(clip, rndVar.VarAudio.volume);
                         }
                         else
@@ -1789,6 +1790,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 case MasterAudio.AudioLocation.Clip:
                     if (previewer != null)
                     {
+                        DTGUIHelper.PlaySilentWakeUpPreview(previewer, rndVar.VarAudio.clip);
                         previewer.PlayOneShot(rndVar.VarAudio.clip, calcVolume);
                     }
                     break;

@@ -130,12 +130,15 @@ namespace DarkTonic.MasterAudio.EditorScripts
                                     if (previewer != null)
                                     {
                                         var fileName = AudioResourceOptimizer.GetLocalizedFileName(rndVar.useLocalization, rndVar.resourceFileName);
-                                        previewer.PlayOneShot(Resources.Load(fileName) as AudioClip, calcVolume);
+                                        var resClip = Resources.Load(fileName) as AudioClip;
+                                        DTGUIHelper.PlaySilentWakeUpPreview(previewer, resClip);
+                                        previewer.PlayOneShot(resClip, calcVolume);
                                     }
                                     break;
                                 case MasterAudio.AudioLocation.Clip:
                                     if (previewer != null)
                                     {
+                                        DTGUIHelper.PlaySilentWakeUpPreview(previewer, rndVar.VarAudio.clip);
                                         previewer.PlayOneShot(rndVar.VarAudio.clip, calcVolume);
                                     }
                                     break;
@@ -168,15 +171,18 @@ namespace DarkTonic.MasterAudio.EditorScripts
             }
             EditorGUILayout.EndHorizontal();
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm");
 
             EditorGUILayout.BeginHorizontal();
 
             var newVol = DTGUIHelper.DisplayVolumeField(_group.groupMasterVolume, DTGUIHelper.VolumeFieldType.None, MasterAudio.MixerWidthMode.Normal, 0f, true, "Group Master Volume");
-            if (newVol != _group.groupMasterVolume)
-            {
+            if (newVol != _group.groupMasterVolume) {
                 AudioUndoHelper.RecordObjectPropertyForUndo(ref _isDirty, _group, "change Group Master Volume");
                 _group.groupMasterVolume = newVol;
+
+                if (Application.isPlaying) {
+                    MasterAudio.SetGroupVolume(_group.GameObjectName, _group.groupMasterVolume);
+                }
             }
 
             var button = DTGUIHelper.AddGroupButtons(_group, "Group");
@@ -272,7 +278,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
                 EditorGUILayout.BeginHorizontal();
                 var newTargetGone = (MasterAudioGroup.TargetDespawnedBehavior)EditorGUILayout.EnumPopup("Caller Despawned Mode", _group.targetDespawnedBehavior);
-                DTGUIHelper.AddMiddleHelpIcon("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#CallerDespawned");
+                DTGUIHelper.AddMiddleHelpIcon("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#CallerDespawned");
                 EditorGUILayout.EndHorizontal();
                 if (newTargetGone != _group.targetDespawnedBehavior)
                 {
@@ -565,7 +571,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 DTGUIHelper.StartGroupHeader();
                 EditorGUILayout.BeginHorizontal();
                 var newVarMode = (MasterAudioGroup.VariationMode)EditorGUILayout.EnumPopup("Variation Mode", _group.curVariationMode);
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#VarMode");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#VarMode");
                 EditorGUILayout.EndHorizontal();
                 if (newVarMode != _group.curVariationMode)
                 {
@@ -581,7 +587,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                     case MasterAudioGroup.VariationMode.Normal:
                         EditorGUILayout.BeginHorizontal();
                         var newRetrigger = EditorGUILayout.IntSlider("Retrigger Percentage", _group.retriggerPercentage, 0, 100);
-                        DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#Retrigger");
+                        DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#Retrigger");
                         EditorGUILayout.EndHorizontal();
                         if (newRetrigger != _group.retriggerPercentage)
                         {
@@ -861,7 +867,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                     GUI.contentColor = DTGUIHelper.BrightButtonColor;
                     EditorGUILayout.BeginHorizontal();
                     if (GUILayout.Button(new GUIContent("Add 'Start' Linked Group"), EditorStyles.toolbarButton,
-                        GUILayout.Width(140)))
+                        GUILayout.Width(150)))
                     {
                         _group.childSoundGroups.Add(MasterAudio.NoGroupName);
                     }
@@ -997,7 +1003,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                     GUI.contentColor = DTGUIHelper.BrightButtonColor;
                     EditorGUILayout.BeginHorizontal();
                     if (GUILayout.Button(new GUIContent("Add 'Stop' Linked Group"), EditorStyles.toolbarButton,
-                        GUILayout.Width(140)))
+                        GUILayout.Width(150)))
                     {
                         _group.endLinkedGroups.Add(MasterAudio.NoGroupName);
                     }
@@ -1142,7 +1148,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                         _group.copySettingsExpanded = newBulk;
                     }
                     GUILayout.FlexibleSpace();
-                    DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#CopySettings");
+                    DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#CopySettings");
 
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.EndVertical();
@@ -1502,12 +1508,15 @@ namespace DarkTonic.MasterAudio.EditorScripts
                                             if (previewer != null)
                                             {
                                                 var fileName = AudioResourceOptimizer.GetLocalizedFileName(variation.useLocalization, variation.resourceFileName);
-                                                previewer.PlayOneShot(Resources.Load(fileName) as AudioClip, calcVolume);
+                                                var resClip = Resources.Load(fileName) as AudioClip;
+                                                DTGUIHelper.PlaySilentWakeUpPreview(previewer, resClip);
+                                                previewer.PlayOneShot(resClip, calcVolume);
                                             }
                                             break;
                                         case MasterAudio.AudioLocation.Clip:
                                             if (previewer != null)
                                             {
+                                                DTGUIHelper.PlaySilentWakeUpPreview(previewer, variation.VarAudio.clip);
                                                 previewer.PlayOneShot(variation.VarAudio.clip, calcVolume);
                                             }
                                             break;
@@ -1534,7 +1543,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                         GUILayout.Space(4);
                     }
                     EditorGUILayout.EndHorizontal();
-                    DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#Variations");
+                    DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroups.htm#Variations");
 
                     EditorGUILayout.EndHorizontal();
 

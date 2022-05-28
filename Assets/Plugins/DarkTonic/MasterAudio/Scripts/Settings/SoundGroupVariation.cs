@@ -1449,6 +1449,10 @@ namespace DarkTonic.MasterAudio {
 
                 return _objectName;
             }
+            set {
+                // fix it if set too early with (clone)
+                _objectName = value;
+            }
         }
 
         public void ClearSubscribers() {

@@ -69,7 +69,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
         void OnGUI()
         {
             DTGUIHelper.ShowHeaderTexture(MasterAudioInspectorResources.LogoTexture);
-            //DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm");
+            //DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm");
 
             DTGUIHelper.DrawUILine(DTGUIHelper.DividerColor);
             GUILayout.Label("Welcome to Master Audio for Unity! The buttons below are shortcuts to commonly used help options.", EditorStyles.textArea);
@@ -80,11 +80,11 @@ namespace DarkTonic.MasterAudio.EditorScripts
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Quick Starts", GUILayout.Width(90)))
             {
-                Application.OpenURL("http://www.dtdevtools.com/docs/masteraudio/HowToCreateSFX.htm");
+                Application.OpenURL("https://www.dtdevtools.com/docs/masteraudio/HowToCreateSFX.htm");
             }
             if (GUILayout.Button("Manual", GUILayout.Width(90)))
             {
-                Application.OpenURL("http://www.dtdevtools.com/docs/masteraudio/TOC.htm");
+                Application.OpenURL("https://www.dtdevtools.com/docs/masteraudio/TOC.htm");
             }
             if (GUILayout.Button("Videos", GUILayout.Width(90)))
             {
@@ -92,7 +92,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             }
             if (GUILayout.Button("Scripting API", GUILayout.Width(90)))
             {
-                Application.OpenURL("http://www.dtdevtools.com/API/masteraudio/annotated.html");
+                Application.OpenURL("https://www.dtdevtools.com/API/masteraudio/annotated.html");
             }
             if (GUILayout.Button("Support Forum", GUILayout.Width(100)))
             {

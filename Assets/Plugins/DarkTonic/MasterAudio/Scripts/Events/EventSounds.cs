@@ -1873,34 +1873,34 @@ namespace DarkTonic.MasterAudio {
                                         case MasterAudio.SoundSpawnLocationMode.CallerLocation:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySound3DAtTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySound3DAtTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySound3DAtTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySound3DAtTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySound3DAtTransformAndForget(sType, _trans, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySound3DAtTransformAndForget(soundType, _trans, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                         case MasterAudio.SoundSpawnLocationMode.AttachToCaller:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySound3DFollowTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySound3DFollowTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySound3DFollowTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySound3DFollowTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySound3DFollowTransformAndForget(sType, _trans, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySound3DFollowTransformAndForget(soundType, _trans, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                         case MasterAudio.SoundSpawnLocationMode.MasterAudioLocation:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySoundAndForget(Trans, sType, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySoundAndForget(Trans, soundType, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySoundAndForget(sType, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySoundAndForget(soundType, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySoundAndForget(sType, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySoundAndForget(soundType, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                     }
@@ -1922,34 +1922,34 @@ namespace DarkTonic.MasterAudio {
                                         case MasterAudio.SoundSpawnLocationMode.CallerLocation:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySound3DAtTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySound3DAtTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySound3DAtTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySound3DAtTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySound3DAtTransformAndForget(sType, _trans, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySound3DAtTransformAndForget(soundType, _trans, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                         case MasterAudio.SoundSpawnLocationMode.AttachToCaller:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySound3DFollowTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySound3DFollowTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySound3DFollowTransformAndForget(sType, Trans, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySound3DFollowTransformAndForget(soundType, Trans, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySound3DFollowTransformAndForget(sType, _trans, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySound3DFollowTransformAndForget(soundType, _trans, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                         case MasterAudio.SoundSpawnLocationMode.MasterAudioLocation:
 #if MULTIPLAYER_ENABLED
                                             if (willSendToAllPlayers) {
-                                                MasterAudioMultiplayerAdapter.PlaySoundAndForget(Trans, sType, volume, pitch, aEvent.delaySound);
+                                                MasterAudioMultiplayerAdapter.PlaySoundAndForget(Trans, soundType, volume, pitch, aEvent.delaySound);
                                             } else {
-                                                MasterAudio.PlaySoundAndForget(sType, volume, pitch, aEvent.delaySound);
+                                                MasterAudio.PlaySoundAndForget(soundType, volume, pitch, aEvent.delaySound);
                                             }
 #else
-                                            MasterAudio.PlaySoundAndForget(sType, volume, pitch, aEvent.delaySound);
+                                            MasterAudio.PlaySoundAndForget(soundType, volume, pitch, aEvent.delaySound);
 #endif
                                             break;
                                     }
@@ -2017,6 +2017,17 @@ namespace DarkTonic.MasterAudio {
                                 }
 #else
                                 MasterAudio.FadeOutAllOfSound(soundType, aEvent.fadeTime);
+#endif
+                                break;
+                            case MasterAudio.SoundGroupCommand.FadeSoundGroupOfTransformToVolume:
+#if MULTIPLAYER_ENABLED
+                                if (willSendToAllPlayers) {
+                                    MasterAudioMultiplayerAdapter.FadeSoundGroupOfTransformToVolume(Trans, soundType, aEvent.fadeTime, aEvent.fadeVolume);
+                                } else {
+                                    MasterAudio.FadeSoundGroupOfTransformToVolume(Trans, soundType, aEvent.fadeTime, aEvent.fadeVolume);
+                                }
+#else
+                                MasterAudio.FadeSoundGroupOfTransformToVolume(Trans, soundType, aEvent.fadeTime, aEvent.fadeVolume);
 #endif
                                 break;
                             case MasterAudio.SoundGroupCommand.Mute:

@@ -292,6 +292,8 @@ namespace DarkTonic.MasterAudio.EditorScripts
             return;
         }
 
+        PlaySilentWakeUpPreview(previewer, clip);
+
         previewer.PlayOneShot(clip, volume);
     }
 #endif
@@ -439,7 +441,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             }
         }
 
-        public static void HelpHeader(string helpUrl, string apiUrl = "http://www.dtdevtools.com/API/masteraudio/annotated.html")
+        public static void HelpHeader(string helpUrl, string apiUrl = "https://www.dtdevtools.com/API/masteraudio/annotated.html")
         {
             EditorGUILayout.BeginHorizontal(CornerGUIStyle);
             AddHelpIconNoStyle(helpUrl);
@@ -1405,12 +1407,15 @@ namespace DarkTonic.MasterAudio.EditorScripts
                             if (previewer != null)
                             {
                                 var fileName = AudioResourceOptimizer.GetLocalizedFileName(rndVar.useLocalization, rndVar.resourceFileName);
-                                previewer.PlayOneShot(Resources.Load(fileName) as AudioClip, calcVolume);
+                                var resClip = Resources.Load(fileName) as AudioClip;
+                                PlaySilentWakeUpPreview(previewer, resClip);
+                                previewer.PlayOneShot(resClip, calcVolume);
                             }
                             break;
                         case MasterAudio.AudioLocation.Clip:
                             if (previewer != null)
                             {
+                                PlaySilentWakeUpPreview(previewer, rndVar.VarAudio.clip);
                                 rndVar.VarAudio.PlayOneShot(rndVar.VarAudio.clip, 1);
                             } 
                             break;
@@ -1448,12 +1453,15 @@ namespace DarkTonic.MasterAudio.EditorScripts
                             if (previewer != null)
                             {
                                 var fileName = AudioResourceOptimizer.GetLocalizedFileName(rndVar.useLocalization, rndVar.resourceFileName);
-                                previewer.PlayOneShot(Resources.Load(fileName) as AudioClip, calcVolume);
+                                var resClip = Resources.Load(fileName) as AudioClip;
+                                PlaySilentWakeUpPreview(previewer, resClip);
+                                previewer.PlayOneShot(resClip, calcVolume);
                             }
                             break;
                         case MasterAudio.AudioLocation.Clip:
                             if (previewer != null)
                             {
+                                PlaySilentWakeUpPreview(previewer, rndVar.VarAudio.clip);
                                 previewer.PlayOneShot(rndVar.VarAudio.clip, calcVolume);
                             }
                             break;
@@ -1844,6 +1852,16 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
         public static bool IsPrefabInProjectView(GameObject gObject) {
             return gObject.scene.name == null;
+        }
+
+        public static void PlaySilentWakeUpPreview(AudioSource previewer, AudioClip clip) {
+            previewer.volume = 0;
+            previewer.clip = clip;
+            previewer.Play();
+            
+            previewer.Stop();
+            previewer.clip = null;
+            previewer.volume = 1;
         }
 
         public static GameObject DuplicateGameObject(GameObject gameObj, string baseName, int? optionalCountSuffix) {
