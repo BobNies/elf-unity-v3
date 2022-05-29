@@ -17,6 +17,8 @@ using DG.Tweening;
 
 public class AwardManager : MonoBehaviour
 {
+    public PlayfieldManager playfieldManager;
+
     [Header("Top-Left award Boxes")]
     [Tooltip("Main transform that holds all the award boxes. Used for show/hide.")]
     public Transform awardTransform;
@@ -55,7 +57,7 @@ public class AwardManager : MonoBehaviour
     private KeyboardInput mgr;
 #endif
 
-    
+
     void Start()
     {
 #if UNITY_EDITOR
@@ -129,10 +131,12 @@ public class AwardManager : MonoBehaviour
                 case "plunger_skill_shot_awarded":
                     break;
                 case "award_extra_ball":
-                    gObj = pf_awardExtraBall;         
+                    gObj = pf_awardExtraBall;
+                    displayAwardOnPlayfieldMonitor("Extra Ball");
                     break;
                 case "start_extra_ball":
-                    gObj = pf_startExtraBall;                 
+                    gObj = pf_startExtraBall;
+                    displayAwardOnPlayfieldMonitor("Shoot Again", 4);
                     break;
                 case "snow_lane_advance_complete":
                     gObj = pf_snowLaneAdvanceComplete;
@@ -166,11 +170,17 @@ public class AwardManager : MonoBehaviour
             }
 
             if(gObj != null) {
+                //main screen
                 var obj = Instantiate(gObj, new Vector3(0, .5f, 0), Quaternion.identity);
                 Destroy(obj, killTime);
             }
         }
 
+    }
+
+    private void displayAwardOnPlayfieldMonitor(string text, int delay = 2)
+    {
+        playfieldManager.ShowAward(text, delay);
     }
 
     public void resetAllAwards()

@@ -59,7 +59,6 @@ public class PlayerManager : MonoBehaviour
                 // 0 to view, -100 to hide
                 scoreManager.playerOneTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
                 scoreManager.playerOneTransform.transform.DOScale(.8f, 1).SetEase(Ease.InElastic);
-                //scoreManager.playerOneTransform.transform.DOScale(1, 1).SetEase(Ease.InElastic);
                 break;
             case 2:
                 scoreManager.playerTwoTransform.transform.DOMoveY(-100, 1).SetEase(Ease.OutBounce);
@@ -92,7 +91,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerOneAddedSound);
                 }
                 // Score UI animation - move it into the scene
-                scoreManager.playerOneTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerOneTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
                 break;
             case 2:
                 if (playerTwoAddedSound != null)
@@ -100,7 +99,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerTwoAddedSound);
                 }
 
-                scoreManager.playerTwoTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerTwoTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
                 if (playerThreeAddedSound != null)
@@ -108,7 +107,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerThreeAddedSound);
                 }
 
-                scoreManager.playerThreeTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerThreeTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
                 if (playerFourAddedSound != null)
@@ -116,7 +115,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerFourAddedSound);
                 }
 
-                scoreManager.playerFourTransform.transform.DOMoveY(50, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerFourTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
                 break;
         }
     }

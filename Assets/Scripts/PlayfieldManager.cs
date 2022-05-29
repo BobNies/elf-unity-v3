@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Controls UI on the small PF monitor
 // show/hide objects per level
@@ -22,13 +23,28 @@ public class PlayfieldManager : MonoBehaviour
     public GameObject LSpecial;
     public GameObject LOmg;
 
-    //private GameObject[] screens;
+    public GameObject Award;
+    private TextMeshProUGUI awardText;
 
     // Start is called before the first frame update
     void Start()
     {
-       // screens = new GameObject[] { Attract, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13};
+        awardText = Award.transform.Find("TextAward").GetComponent<TextMeshProUGUI>();
+        Award.SetActive(false); // just incase
         ShowLevel(0);
+    }
+
+    public void ShowAward(string text, int delay = 3)
+    {
+        Award.SetActive(true);
+        awardText.text = text;
+        StartCoroutine(HideAward(delay));
+    }
+
+    IEnumerator HideAward(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Award.SetActive(false);
     }
 
     // 0 - attract
@@ -109,6 +125,8 @@ public class PlayfieldManager : MonoBehaviour
     private void hideAll()
     {
         attract.SetActive(false);
+        //Award.SetActive(false);
+
         L1.SetActive(false);
         L2.SetActive(false);
         L3.SetActive(false);
@@ -123,7 +141,6 @@ public class PlayfieldManager : MonoBehaviour
         LRampShot.SetActive(false);
         LSpecial.SetActive(false);
         LOmg.SetActive(false);
-
-        //screens[level].SetActive(true);
     }
+
 }
