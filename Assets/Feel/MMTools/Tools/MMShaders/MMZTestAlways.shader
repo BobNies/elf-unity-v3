@@ -1,4 +1,5 @@
-﻿Shader "MoreMountains/MMZTestAlways" {
+﻿Shader "MoreMountains/MMZTestAlways"
+{
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
@@ -9,10 +10,10 @@
 	SubShader
 	{
 		Tags
-		{ 
-			"Queue"="Transparent" 
-			"IgnoreProjector"="True" 
-			"RenderType"="Transparent" 
+		{
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
 			"PreviewType"="Plane"
 			"CanUseSpriteAtlas"="True"
 		}
@@ -25,26 +26,26 @@
 
 		Pass
 		{
-		CGPROGRAM
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile _ PIXELSNAP_ON
 			#include "UnityCG.cginc"
-			
+
 			struct appdata_t
 			{
-				float4 vertex   : POSITION;
-				float4 color    : COLOR;
+				float4 vertex : POSITION;
+				float4 color : COLOR;
 				float2 texcoord : TEXCOORD0;
 			};
 
 			struct v2f
 			{
-				float4 vertex   : SV_POSITION;
-				fixed4 color    : COLOR;
-				float2 texcoord  : TEXCOORD0;
+				float4 vertex : SV_POSITION;
+				fixed4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
 			};
-			
+
 			fixed4 _Color;
 
 			v2f vert(appdata_t IN)
@@ -64,24 +65,24 @@
 			sampler2D _AlphaTex;
 			float _AlphaSplitEnabled;
 
-			fixed4 SampleSpriteTexture (float2 uv)
+			fixed4 SampleSpriteTexture(float2 uv)
 			{
-				fixed4 color = tex2D (_MainTex, uv);
+				fixed4 color = tex2D(_MainTex, uv);
 
-#if UNITY_TEXTURE_ALPHASPLIT_ALLOWED
+				#if UNITY_TEXTURE_ALPHASPLIT_ALLOWED
 				if (_AlphaSplitEnabled)
 					color.a = tex2D (_AlphaTex, uv).r;
-#endif 
+				#endif
 				return color;
 			}
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
+				fixed4 c = SampleSpriteTexture(IN.texcoord) * IN.color;
 				c.rgb *= c.a;
 				return c;
 			}
-		ENDCG
+			ENDCG
 		}
 	}
 }

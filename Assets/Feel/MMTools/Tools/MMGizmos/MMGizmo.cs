@@ -15,10 +15,15 @@ namespace MoreMountains.Tools
 		/// whether to display gizmos always or only when the object is selected
 		/// </summary>
 		public enum DisplayModes { Always, OnlyWhenSelected }
+
 		/// <summary>
 		/// the shape of the gizmo to display the position of the object
 		/// </summary>
-		public enum PositionModes { Point, Cube, WireCube, Sphere, WireSphere, Texture, Arrows, RightArrow, UpArrow, ForwardArrow }
+		public enum PositionModes
+		{
+			Point, Cube, WireCube, Sphere, WireSphere, Texture, Arrows, RightArrow, UpArrow, ForwardArrow,
+			Lines, RightLine, UpLine, ForwardLine
+		}
 		/// <summary>
 		/// what to display as text for that gizmo
 		/// </summary>
@@ -184,4 +189,3 @@ namespace MoreMountains.Tools
 		
 	}	
 }
-

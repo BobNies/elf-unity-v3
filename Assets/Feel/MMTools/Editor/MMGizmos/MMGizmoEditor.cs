@@ -283,6 +283,30 @@ namespace MoreMountains.Tools
 					Handles.ArrowHandleCap(0, ComputeGizmoPosition(mmGizmo, mmGizmo.transform.position, false),
 						Quaternion.LookRotation(mmGizmo.transform.forward, mmGizmo.transform.up), mmGizmo.PositionSize, EventType.Repaint);
 					break;
+				case MMGizmo.PositionModes.Lines:
+					Vector3 origin = ComputeGizmoPosition(mmGizmo, mmGizmo._vector3Zero);
+					Vector3 destination = origin + Vector3.right * mmGizmo.PositionSize;
+					Gizmos.DrawLine(origin, destination);
+					destination = origin + Vector3.up * mmGizmo.PositionSize;
+					Gizmos.DrawLine(origin, destination);
+					destination = origin + Vector3.forward * mmGizmo.PositionSize;
+					Gizmos.DrawLine(origin, destination);
+					break;
+				case MMGizmo.PositionModes.RightLine:
+					Vector3 rightOrigin = ComputeGizmoPosition(mmGizmo, mmGizmo._vector3Zero);
+					Vector3 rightDestination = rightOrigin + Vector3.right * mmGizmo.PositionSize;
+					Gizmos.DrawLine(rightOrigin, rightDestination);
+					break;
+				case MMGizmo.PositionModes.UpLine:
+					Vector3 upOrigin = ComputeGizmoPosition(mmGizmo, mmGizmo._vector3Zero);
+					Vector3 upDestination = upOrigin + Vector3.up * mmGizmo.PositionSize;
+					Gizmos.DrawLine(upOrigin, upDestination);
+					break;
+				case MMGizmo.PositionModes.ForwardLine:
+					Vector3 fwdOrigin = ComputeGizmoPosition(mmGizmo, mmGizmo._vector3Zero);
+					Vector3 fwdDestination = fwdOrigin + Vector3.forward * mmGizmo.PositionSize;
+					Gizmos.DrawLine(fwdOrigin, fwdDestination);
+					break;
 			}
 		}
 
@@ -358,4 +382,3 @@ namespace MoreMountains.Tools
 		
 	}	
 }
-

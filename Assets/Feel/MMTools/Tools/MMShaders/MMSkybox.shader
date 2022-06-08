@@ -8,10 +8,13 @@ Shader "MoreMountains/MMSkybox"
 		_Intensity("Intensity", Float) = 1
 		[Toggle(_SCREENSPACE)] _ScreenSpace("Screen Space", Float) = 0
 	}
-	
+
 	SubShader
-	{	
-		Tags { "RenderType"="Opaque" }
+	{
+		Tags
+		{
+			"RenderType"="Opaque"
+		}
 		LOD 100
 
 		CGINCLUDE
@@ -23,15 +26,17 @@ Shader "MoreMountains/MMSkybox"
 		ZWrite On
 		ZTest LEqual
 		Offset 0 , 0
-		
-		
-		
+
+
+
 		Pass
 		{
 			Name "Unlit"
-			Tags { "LightMode"="ForwardBase" }
+			Tags
+			{
+				"LightMode"="ForwardBase"
+			}
 			CGPROGRAM
-
 			#ifndef UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX
 			#define UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input)
 			#endif
@@ -46,9 +51,8 @@ Shader "MoreMountains/MMSkybox"
 				float4 vertex : POSITION;
 				float4 color : COLOR;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
-				
 			};
-			
+
 			struct v2f
 			{
 				float4 vertex : SV_POSITION;
@@ -66,8 +70,8 @@ Shader "MoreMountains/MMSkybox"
 			uniform float _Saturation;
 			uniform float _Intensity;
 
-			
-			v2f vert ( appdata v )
+
+			v2f vert(appdata v)
 			{
 				v2f o;
 				UNITY_SETUP_INSTANCE_ID(v);
@@ -76,7 +80,7 @@ Shader "MoreMountains/MMSkybox"
 
 				float4 ase_clipPos = UnityObjectToClipPos(v.vertex);
 				float4 screenPos = ComputeScreenPos(ase_clipPos);
-				o.ase_texcoord2 = screenPos;				
+				o.ase_texcoord2 = screenPos;
 				o.ase_texcoord1 = v.vertex;
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
@@ -86,7 +90,7 @@ Shader "MoreMountains/MMSkybox"
 				#if ASE_ABSOLUTE_VERTEX_POS
 					v.vertex.xyz = vertexValue;
 				#else
-					v.vertex.xyz += vertexValue;
+				v.vertex.xyz += vertexValue;
 				#endif
 				o.vertex = UnityObjectToClipPos(v.vertex);
 
@@ -95,8 +99,8 @@ Shader "MoreMountains/MMSkybox"
 				#endif
 				return o;
 			}
-			
-			fixed4 frag (v2f i ) : SV_Target
+
+			fixed4 frag(v2f i) : SV_Target
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
@@ -106,17 +110,20 @@ Shader "MoreMountains/MMSkybox"
 				#endif
 				float4 screenPos = i.ase_texcoord2;
 				float4 ase_screenPosNorm = screenPos / screenPos.w;
-				ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
+				ase_screenPosNorm.z = (UNITY_NEAR_CLIP_VALUE >= 0)
+					                      ? ase_screenPosNorm.z
+					                      : ase_screenPosNorm.z * 0.5 + 0.5;
 				#ifdef _SCREENSPACE
-					float staticSwitch13 = ase_screenPosNorm.y;
+				float staticSwitch13 = ase_screenPosNorm.y;
 				#else
 					float staticSwitch13 = i.ase_texcoord1.xyz.y;
 				#endif
-				float4 lerpResult3 = lerp( _BottomColor , _TopColor , pow( saturate( ( staticSwitch13 * _Saturation) ) , _Intensity ));
+				float4 lerpResult3 = lerp(_BottomColor, _TopColor,
+				                          pow(saturate((staticSwitch13 * _Saturation)), _Intensity));
 				finalColor = lerpResult3;
 				return finalColor;
 			}
 			ENDCG
 		}
-	}	
+	}
 }

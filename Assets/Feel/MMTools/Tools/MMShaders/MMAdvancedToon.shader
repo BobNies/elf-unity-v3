@@ -60,27 +60,35 @@ Shader "MoreMountains/MMAdvancedToon"
 
 	SubShader
 	{
-		Tags{ "RenderType" = "TransparentCutout"  "Queue" = "AlphaTest+0"}
+		Tags
+		{
+			"RenderType" = "TransparentCutout" "Queue" = "AlphaTest+0"
+		}
 		Cull Front
 		CGPROGRAM
 		#pragma target 3.0
-		#pragma surface outlineSurf Outline nofog  keepalpha noshadow noambient novertexlights nolightmap nodynlightmap nodirlightmap nometa noforwardadd vertex:outlineVertexDataFunc 
-		void outlineVertexDataFunc( inout appdata_full v, out Input o )
+		#pragma surface outlineSurf Outline nofog  keepalpha noshadow noambient novertexlights nolightmap nodynlightmap nodirlightmap nometa noforwardadd vertex:outlineVertexDataFunc
+		void outlineVertexDataFunc(inout appdata_full v, out Input o)
 		{
-			UNITY_INITIALIZE_OUTPUT( Input, o );
+			UNITY_INITIALIZE_OUTPUT(Input, o);
 			float outlineVar = _OutlineWidth;
-			v.vertex.xyz += ( v.normal * outlineVar );
+			v.vertex.xyz += (v.normal * outlineVar);
 		}
-		inline half4 LightingOutline( SurfaceOutput s, half3 lightDir, half atten ) { return half4 ( 0,0,0, s.Alpha); }
-		void outlineSurf( Input i, inout SurfaceOutput o )
+
+		inline half4 LightingOutline(SurfaceOutput s, half3 lightDir, half atten) { return half4(0, 0, 0, s.Alpha); }
+
+		void outlineSurf(Input i, inout SurfaceOutput o)
 		{
 			o.Emission = _OutlineColor.rgb;
-			clip( _OutlineAlpha - _Cutoff );
+			clip(_OutlineAlpha - _Cutoff);
 		}
 		ENDCG
-		
 
-		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" "IsEmissive" = "true"  }
+
+		Tags
+		{
+			"RenderType" = "Opaque" "Queue" = "Geometry+0" "IsEmissive" = "true"
+		}
 		Cull Back
 		CGINCLUDE
 		#include "UnityPBSLighting.cginc"
@@ -173,36 +181,42 @@ Shader "MoreMountains/MMAdvancedToon"
 		uniform float _OutlineAlpha;
 		uniform float _Cutoff = 0.5;
 
-		void vertexDataFunc( inout appdata_full v, out Input o )
+		void vertexDataFunc(inout appdata_full v, out Input o)
 		{
-			UNITY_INITIALIZE_OUTPUT( Input, o );
+			UNITY_INITIALIZE_OUTPUT(Input, o);
 			float4 temp_cast_0 = (0.0).xxxx;
-			half steppedTime293 = ( round( ( _Time.y * _Framerate ) ) / _Framerate );
+			half steppedTime293 = (round((_Time.y * _Framerate)) / _Framerate);
 			float3 ase_vertex3Pos = v.vertex.xyz;
-			float3 temp_output_281_0 = ( ase_vertex3Pos * _VertexOffsetFrequency );
-			half2 vertexOffsetXUV302 = ( steppedTime293 + (temp_output_281_0).xy );
-			half2 vertexOffsetYUV303 = ( ( steppedTime293 * 2.0 ) + (temp_output_281_0).yz );
-			half2 vertexOffsetZUV304 = ( ( steppedTime293 * 4.0 ) + (temp_output_281_0).xz );
-			float4 appendResult308 = (float4(( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetXUV302, 0, 0.0) ).r - _VertexOffsetX ) , ( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetYUV303, 0, 0.0) ).r - _VertexOffsetY ) , ( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetZUV304, 0, 0.0) ).r - _VertexOffsetZ ) , 0.0));
+			float3 temp_output_281_0 = (ase_vertex3Pos * _VertexOffsetFrequency);
+			half2 vertexOffsetXUV302 = (steppedTime293 + (temp_output_281_0).xy);
+			half2 vertexOffsetYUV303 = ((steppedTime293 * 2.0) + (temp_output_281_0).yz);
+			half2 vertexOffsetZUV304 = ((steppedTime293 * 4.0) + (temp_output_281_0).xz);
+			float4 appendResult308 = (float4(
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetXUV302, 0, 0.0)).r - _VertexOffsetX),
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetYUV303, 0, 0.0)).r - _VertexOffsetY),
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetZUV304, 0, 0.0)).r - _VertexOffsetZ), 0.0));
 			#ifdef _USEVERTEXOFFSET_ON
-				float4 staticSwitch350 = ( _VertexOffsetMagnitude * appendResult308 );
+			float4 staticSwitch350 = (_VertexOffsetMagnitude * appendResult308);
 			#else
 				float4 staticSwitch350 = temp_cast_0;
 			#endif
 			float3 vertexOffset311 = (staticSwitch350).xyz;
 			float3 outline364 = 0;
-			v.vertex.xyz += ( vertexOffset311 + outline364 );
+			v.vertex.xyz += (vertexOffset311 + outline364);
 			float2 uv_Normal = v.texcoord * _Normal_ST.xy + _Normal_ST.zw;
-			float3 normal83 = UnpackNormal( tex2Dlod( _Normal, float4( uv_Normal, 0, 0.0) ) );
-			float3 ase_worldNormal = UnityObjectToWorldNormal( v.normal );
-			float3 ase_worldTangent = UnityObjectToWorldDir( v.tangent.xyz );
-			float3x3 tangentToWorld = CreateTangentToWorldPerVertex( ase_worldNormal, ase_worldTangent, v.tangent.w );
+			float3 normal83 = UnpackNormal(tex2Dlod(_Normal, float4(uv_Normal, 0, 0.0)));
+			float3 ase_worldNormal = UnityObjectToWorldNormal(v.normal);
+			float3 ase_worldTangent = UnityObjectToWorldDir(v.tangent.xyz);
+			float3x3 tangentToWorld = CreateTangentToWorldPerVertex(ase_worldNormal, ase_worldTangent, v.tangent.w);
 			float3 tangentNormal33 = normal83;
-			float3 modWorldNormal33 = normalize( (tangentToWorld[0] * tangentNormal33.x + tangentToWorld[1] * tangentNormal33.y + tangentToWorld[2] * tangentNormal33.z) );
+			float3 modWorldNormal33 = normalize(
+				(tangentToWorld[0] * tangentNormal33.x + tangentToWorld[1] * tangentNormal33.y + tangentToWorld[2] *
+					tangentNormal33.z));
 			o.vertexToFrag80 = modWorldNormal33;
 		}
 
-		inline half4 LightingStandardCustomLighting( inout SurfaceOutputCustomLightingCustom s, half3 viewDir, UnityGI gi )
+		inline half4 LightingStandardCustomLighting(inout SurfaceOutputCustomLightingCustom s, half3 viewDir,
+		                                            UnityGI gi)
 		{
 			UnityGIInput data = s.GIData;
 			Input i = s.SurfInput;
@@ -212,8 +226,8 @@ Shader "MoreMountains/MMAdvancedToon"
 			if( _LightColor0.a == 0)
 			ase_lightAtten = 0;
 			#else
-			float3 ase_lightAttenRGB = gi.light.color / ( ( _LightColor0.rgb ) + 0.000001 );
-			float ase_lightAtten = max( max( ase_lightAttenRGB.r, ase_lightAttenRGB.g ), ase_lightAttenRGB.b );
+			float3 ase_lightAttenRGB = gi.light.color / ((_LightColor0.rgb) + 0.000001);
+			float ase_lightAtten = max(max(ase_lightAttenRGB.r, ase_lightAttenRGB.g), ase_lightAttenRGB.b);
 			#endif
 			#if defined(HANDLE_SHADOWS_BLENDING_IN_GI)
 			half bakedAtten = UnitySampleBakedOcclusion(data.lightmapUV.xy, data.worldPos);
@@ -221,65 +235,72 @@ Shader "MoreMountains/MMAdvancedToon"
 			float fadeDist = UnityComputeShadowFadeDistance(data.worldPos, zDist);
 			ase_lightAtten = UnityMixRealtimeAndBakedShadows(data.atten, bakedAtten, UnityComputeShadowFade(fadeDist));
 			#endif
-			float3 normalizeResult81 = normalize( i.vertexToFrag80 );
+			float3 normalizeResult81 = normalize(i.vertexToFrag80);
 			float3 ase_worldPos = i.worldPos;
 			#if defined(LIGHTMAP_ON) && UNITY_VERSION < 560 //aseld
 			float3 ase_worldlightDir = 0;
 			#else //aseld
-			float3 ase_worldlightDir = Unity_SafeNormalize( UnityWorldSpaceLightDir( ase_worldPos ) );
+			float3 ase_worldlightDir = Unity_SafeNormalize(UnityWorldSpaceLightDir(ase_worldPos));
 			#endif //aseld
-			float dotResult34 = dot( normalizeResult81 , ase_worldlightDir );
+			float dotResult34 = dot(normalizeResult81, ase_worldlightDir);
 			float NdotL31 = dotResult34;
-			float4 lerpResult277 = lerp( _RampDark , _RampLight , saturate( (( floor( ( NdotL31 / _StepWidth ) ) / _StepAmount )*0.5 + _RampOffset) ));
-			float2 temp_cast_1 = (saturate( (NdotL31*0.5 + 0.5) )).xx;
+			float4 lerpResult277 = lerp(_RampDark, _RampLight,
+			                            saturate(((floor((NdotL31 / _StepWidth)) / _StepAmount) * 0.5 + _RampOffset)));
+			float2 temp_cast_1 = (saturate((NdotL31 * 0.5 + 0.5))).xx;
 			#ifdef _USERAMPTEXTURE_ON
-				float4 staticSwitch3 = tex2D( _RampTexture, temp_cast_1 );
+			float4 staticSwitch3 = tex2D(_RampTexture, temp_cast_1);
 			#else
 				float4 staticSwitch3 = lerpResult277;
 			#endif
 			float4 ramp51 = staticSwitch3;
 			#if defined(LIGHTMAP_ON) && ( UNITY_VERSION < 560 || ( defined(LIGHTMAP_SHADOW_MIXING) && !defined(SHADOWS_SHADOWMASK) && defined(SHADOWS_SCREEN) ) )//aselc
+
 			float4 ase_lightColor = 0;
 			#else //aselc
 			float4 ase_lightColor = _LightColor0;
 			#endif //aselc
-			half steppedTime293 = ( round( ( _Time.y * _Framerate ) ) / _Framerate );
+			half steppedTime293 = (round((_Time.y * _Framerate)) / _Framerate);
 			float2 uv_MainTex = i.uv_texcoord * _MainTex_ST.xy + _MainTex_ST.zw;
 			float4 temp_cast_3 = (1.0).xxxx;
 			#ifdef _USEVERTEXCOLORS_ON
-				float4 staticSwitch7 = i.vertexColor;
+			float4 staticSwitch7 = i.vertexColor;
 			#else
 				float4 staticSwitch7 = temp_cast_3;
 			#endif
-			float4 blendOpSrc460 = ( tex2D( _SecondaryTexture, ( ( i.uv_texcoord * _SecondaryTextureSize ) + ( steppedTime293 * _SecondaryTextureSpeedFactor ) ) ) * _SecondaryTextureStrength );
-			float4 blendOpDest460 = ( ( tex2D( _MainTex, uv_MainTex ) * _Tint ) * staticSwitch7 );
-			float4 albedo11 = ( saturate( ( blendOpDest460 - blendOpSrc460 ) ));
-			float4 temp_output_73_0 = ( ( ramp51 * float4( ase_lightColor.rgb , 0.0 ) ) * albedo11 );
-			float temp_output_120_0 = ( 1.0 - _SpecularSize );
-			float3 ase_worldViewDir = normalize( UnityWorldSpaceViewDir( ase_worldPos ) );
-			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
-			float dotResult106 = dot( ase_worldViewDir , ase_worldNormal );
+			float4 blendOpSrc460 = (tex2D(_SecondaryTexture,
+			                              ((i.uv_texcoord * _SecondaryTextureSize) + (steppedTime293 *
+				                              _SecondaryTextureSpeedFactor))) * _SecondaryTextureStrength);
+			float4 blendOpDest460 = ((tex2D(_MainTex, uv_MainTex) * _Tint) * staticSwitch7);
+			float4 albedo11 = (saturate((blendOpDest460 - blendOpSrc460)));
+			float4 temp_output_73_0 = ((ramp51 * float4(ase_lightColor.rgb, 0.0)) * albedo11);
+			float temp_output_120_0 = (1.0 - _SpecularSize);
+			float3 ase_worldViewDir = normalize(UnityWorldSpaceViewDir(ase_worldPos));
+			float3 ase_worldNormal = WorldNormalVector(i, float3( 0, 0, 1 ));
+			float dotResult106 = dot(ase_worldViewDir, ase_worldNormal);
 			float2 uv_Normal = i.uv_texcoord * _Normal_ST.xy + _Normal_ST.zw;
-			float3 normal83 = UnpackNormal( tex2D( _Normal, uv_Normal ) );
-			float dotResult110 = dot( ase_worldViewDir , -reflect( ase_worldlightDir , (WorldNormalVector( i , normal83 )) ) );
-			float specular113 = ( pow( dotResult106 , _SpecularFalloff ) * dotResult110 );
-			float specularDelta116 = fwidth( specular113 );
-			float smoothstepResult121 = smoothstep( temp_output_120_0 , ( temp_output_120_0 + specularDelta116 ) , specular113);
+			float3 normal83 = UnpackNormal(tex2D(_Normal, uv_Normal));
+			float dotResult110 = dot(ase_worldViewDir, -reflect(ase_worldlightDir, (WorldNormalVector(i, normal83))));
+			float specular113 = (pow(dotResult106, _SpecularFalloff) * dotResult110);
+			float specularDelta116 = fwidth(specular113);
+			float smoothstepResult121 = smoothstep(temp_output_120_0, (temp_output_120_0 + specularDelta116),
+			                                       specular113);
 			float temp_output_2_0_g2 = _ShadowStrength;
-			float temp_output_3_0_g2 = ( 1.0 - temp_output_2_0_g2 );
-			float3 appendResult7_g2 = (float3(temp_output_3_0_g2 , temp_output_3_0_g2 , temp_output_3_0_g2));
-			float clampResult189 = clamp( ase_lightAtten , 0.0 , 1.0 );
-			float lerpResult409 = lerp( clampResult189 , step( _ShadowSize , clampResult189 ) , _ShadowBlur);
-			float temp_output_191_0 = pow( lerpResult409 , _ShadowBlur );
-			float4 lerpResult194 = lerp( float4( ( ( _ShadowColor.rgb * temp_output_2_0_g2 ) + appendResult7_g2 ) , 0.0 ) , _LightColor , temp_output_191_0);
+			float temp_output_3_0_g2 = (1.0 - temp_output_2_0_g2);
+			float3 appendResult7_g2 = (float3(temp_output_3_0_g2, temp_output_3_0_g2, temp_output_3_0_g2));
+			float clampResult189 = clamp(ase_lightAtten, 0.0, 1.0);
+			float lerpResult409 = lerp(clampResult189, step(_ShadowSize, clampResult189), _ShadowBlur);
+			float temp_output_191_0 = pow(lerpResult409, _ShadowBlur);
+			float4 lerpResult194 = lerp(float4(((_ShadowColor.rgb * temp_output_2_0_g2) + appendResult7_g2), 0.0),
+			                            _LightColor, temp_output_191_0);
 			float4 shadow195 = lerpResult194;
 			float4 temp_cast_7 = (_SpecularForceUnderShadow).xxxx;
-			float4 temp_output_274_0 = round( pow( max( shadow195 , float4( 0.9528302,0.9528302,0.9528302,0 ) ) , temp_cast_7 ) );
-			float4 specularIntensity124 = ( ( _SpecularPower * smoothstepResult121 ) * temp_output_274_0 );
-			float4 temp_output_131_0 = ( specular113 * _SpecularColor * saturate( specularIntensity124 ) );
+			float4 temp_output_274_0 = round(pow(max(shadow195, float4(0.9528302, 0.9528302, 0.9528302, 0)),
+			                                     temp_cast_7));
+			float4 specularIntensity124 = ((_SpecularPower * smoothstepResult121) * temp_output_274_0);
+			float4 temp_output_131_0 = (specular113 * _SpecularColor * saturate(specularIntensity124));
 			float4 computedSpecular133 = temp_output_131_0;
 			#ifdef _USESPECULAR_ON
-				float4 staticSwitch137 = ( ( temp_output_73_0 * ( 1.0 - specularIntensity124 ) ) + computedSpecular133 );
+			float4 staticSwitch137 = ((temp_output_73_0 * (1.0 - specularIntensity124)) + computedSpecular133);
 			#else
 				float4 staticSwitch137 = temp_output_73_0;
 			#endif
@@ -290,7 +311,7 @@ Shader "MoreMountains/MMAdvancedToon"
 			float4 blendOpSrc430 = litColor422;
 			float4 blendOpDest430 = shadow195;
 			#if defined(_SHADOWMIXMODE_MULTIPLY)
-				float4 staticSwitch420 = ( litColor422 * shadow195 );
+			float4 staticSwitch420 = (litColor422 * shadow195);
 			#elif defined(_SHADOWMIXMODE_REPLACE)
 				float4 staticSwitch420 = ( ( litColor422 * shadowArea411 ) + ( shadow195 * ( 1.0 - shadowArea411 ) ) );
 			#elif defined(_SHADOWMIXMODE_LIGHTEN)
@@ -303,61 +324,65 @@ Shader "MoreMountains/MMAdvancedToon"
 			float4 shadowMix435 = staticSwitch420;
 			float4 temp_cast_8 = (0.0).xxxx;
 			float rimAmount169 = _RimAmount;
-			float dotResult89 = dot( (WorldNormalVector( i , normal83 )) , ase_worldViewDir );
+			float dotResult89 = dot((WorldNormalVector(i, normal83)), ase_worldViewDir);
 			float NdotV90 = dotResult89;
 			#ifdef _HIDERIMUNDERSHADOW_ON
-				float staticSwitch166 = NdotL31;
+			float staticSwitch166 = NdotL31;
 			#else
 				float staticSwitch166 = 1.0;
 			#endif
-			float temp_output_148_0 = ( ( 1.0 - NdotV90 ) * pow( staticSwitch166 , _RimPower ) );
-			float smoothstepResult150 = smoothstep( ( rimAmount169 - 0.01 ) , ( 0.01 + rimAmount169 ) , temp_output_148_0);
+			float temp_output_148_0 = ((1.0 - NdotV90) * pow(staticSwitch166, _RimPower));
+			float smoothstepResult150 = smoothstep((rimAmount169 - 0.01), (0.01 + rimAmount169), temp_output_148_0);
 			#ifdef _SHARPRIMLIGHT_ON
-				float staticSwitch168 = smoothstepResult150;
+			float staticSwitch168 = smoothstepResult150;
 			#else
 				float staticSwitch168 = ( rimAmount169 * temp_output_148_0 );
 			#endif
 			#ifdef _USERIMLIGHT_ON
-				float4 staticSwitch164 = ( staticSwitch168 * _RimColor );
+			float4 staticSwitch164 = (staticSwitch168 * _RimColor);
 			#else
 				float4 staticSwitch164 = temp_cast_8;
 			#endif
 			float4 rimLight157 = staticSwitch164;
-			float4 preToneMapping438 = ( shadowMix435 + rimLight157 );
+			float4 preToneMapping438 = (shadowMix435 + rimLight157);
 			float grayscale442 = Luminance(preToneMapping438.rgb);
 			float4 temp_cast_10 = (grayscale442).xxxx;
-			float4 lerpResult444 = lerp( preToneMapping438 , temp_cast_10 , _Desaturation);
+			float4 lerpResult444 = lerp(preToneMapping438, temp_cast_10, _Desaturation);
 			float4 temp_cast_11 = (_Contrast).xxxx;
-			float4 postToneMapping439 = (float4( 0,0,0,0 ) + (lerpResult444 - temp_cast_11) * (float4( 1,1,1,0 ) - float4( 0,0,0,0 )) / (float4( 1,1,1,0 ) - temp_cast_11));
+			float4 postToneMapping439 = (float4(0, 0, 0, 0) + (lerpResult444 - temp_cast_11) * (float4(1, 1, 1, 0) -
+				float4(0, 0, 0, 0)) / (float4(1, 1, 1, 0) - temp_cast_11));
 			float4 lightCol68 = postToneMapping439;
 			c.rgb = lightCol68.rgb;
 			c.a = 1;
 			return c;
 		}
 
-		inline void LightingStandardCustomLighting_GI( inout SurfaceOutputCustomLightingCustom s, UnityGIInput data, inout UnityGI gi )
+		inline void LightingStandardCustomLighting_GI(inout SurfaceOutputCustomLightingCustom s, UnityGIInput data,
+		                                              inout UnityGI gi)
 		{
 			s.GIData = data;
 		}
 
-		void surf( Input i , inout SurfaceOutputCustomLightingCustom o )
+		void surf(Input i, inout SurfaceOutputCustomLightingCustom o)
 		{
 			o.SurfInput = i;
-			o.Normal = float3(0,0,1);
+			o.Normal = float3(0, 0, 1);
 			float2 uv_EmissionTexture = i.uv_texcoord * _EmissionTexture_ST.xy + _EmissionTexture_ST.zw;
-			float4 computedEmission182 = ( ( tex2D( _EmissionTexture, uv_EmissionTexture ) * _EmissionColor ) * _EmissionForce );
+			float4 computedEmission182 = ((tex2D(_EmissionTexture, uv_EmissionTexture) * _EmissionColor) *
+				_EmissionForce);
 			o.Emission = computedEmission182.rgb;
 		}
-
 		ENDCG
 		CGPROGRAM
-		#pragma surface surf StandardCustomLighting keepalpha fullforwardshadows exclude_path:deferred vertex:vertexDataFunc 
-
+		#pragma surface surf StandardCustomLighting keepalpha fullforwardshadows exclude_path:deferred vertex:vertexDataFunc
 		ENDCG
 		Pass
 		{
 			Name "ShadowCaster"
-			Tags{ "LightMode" = "ShadowCaster" }
+			Tags
+			{
+				"LightMode" = "ShadowCaster"
+			}
 			ZWrite On
 			CGPROGRAM
 			#pragma vertex vert
@@ -368,11 +393,12 @@ Shader "MoreMountains/MMAdvancedToon"
 			#pragma skip_variants FOG_LINEAR FOG_EXP FOG_EXP2
 			#include "HLSLSupport.cginc"
 			#if ( SHADER_API_D3D11 || SHADER_API_GLCORE || SHADER_API_GLES || SHADER_API_GLES3 || SHADER_API_METAL || SHADER_API_VULKAN )
-				#define CAN_SKIP_VPOS
+			#define CAN_SKIP_VPOS
 			#endif
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "UnityPBSLighting.cginc"
+
 			struct v2f
 			{
 				V2F_SHADOW_CASTER;
@@ -384,55 +410,57 @@ Shader "MoreMountains/MMAdvancedToon"
 				half4 color : COLOR0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
-			v2f vert( appdata_full v )
+
+			v2f vert(appdata_full v)
 			{
 				v2f o;
-				UNITY_SETUP_INSTANCE_ID( v );
-				UNITY_INITIALIZE_OUTPUT( v2f, o );
-				UNITY_TRANSFER_INSTANCE_ID( v, o );
+				UNITY_SETUP_INSTANCE_ID(v);
+				UNITY_INITIALIZE_OUTPUT(v2f, o);
+				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				Input customInputData;
-				vertexDataFunc( v, customInputData );
-				float3 worldPos = mul( unity_ObjectToWorld, v.vertex ).xyz;
-				half3 worldNormal = UnityObjectToWorldNormal( v.normal );
-				half3 worldTangent = UnityObjectToWorldDir( v.tangent.xyz );
+				vertexDataFunc(v, customInputData);
+				float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+				half3 worldTangent = UnityObjectToWorldDir(v.tangent.xyz);
 				half tangentSign = v.tangent.w * unity_WorldTransformParams.w;
-				half3 worldBinormal = cross( worldNormal, worldTangent ) * tangentSign;
-				o.tSpace0 = float4( worldTangent.x, worldBinormal.x, worldNormal.x, worldPos.x );
-				o.tSpace1 = float4( worldTangent.y, worldBinormal.y, worldNormal.y, worldPos.y );
-				o.tSpace2 = float4( worldTangent.z, worldBinormal.z, worldNormal.z, worldPos.z );
+				half3 worldBinormal = cross(worldNormal, worldTangent) * tangentSign;
+				o.tSpace0 = float4(worldTangent.x, worldBinormal.x, worldNormal.x, worldPos.x);
+				o.tSpace1 = float4(worldTangent.y, worldBinormal.y, worldNormal.y, worldPos.y);
+				o.tSpace2 = float4(worldTangent.z, worldBinormal.z, worldNormal.z, worldPos.z);
 				o.customPack1.xy = customInputData.uv_texcoord;
 				o.customPack1.xy = v.texcoord;
 				o.customPack2.xyz = customInputData.vertexToFrag80;
-				TRANSFER_SHADOW_CASTER_NORMALOFFSET( o )
+				TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
 				o.color = v.color;
 				return o;
 			}
-			half4 frag( v2f IN
-			#if !defined( CAN_SKIP_VPOS )
+
+			half4 frag(v2f IN
+				#if !defined( CAN_SKIP_VPOS )
 			, UNITY_VPOS_TYPE vpos : VPOS
-			#endif
+				#endif
 			) : SV_Target
 			{
-				UNITY_SETUP_INSTANCE_ID( IN );
+				UNITY_SETUP_INSTANCE_ID(IN);
 				Input surfIN;
-				UNITY_INITIALIZE_OUTPUT( Input, surfIN );
+				UNITY_INITIALIZE_OUTPUT(Input, surfIN);
 				surfIN.uv_texcoord = IN.customPack1.xy;
 				surfIN.vertexToFrag80 = IN.customPack2.xyz;
-				float3 worldPos = float3( IN.tSpace0.w, IN.tSpace1.w, IN.tSpace2.w );
-				half3 worldViewDir = normalize( UnityWorldSpaceViewDir( worldPos ) );
+				float3 worldPos = float3(IN.tSpace0.w, IN.tSpace1.w, IN.tSpace2.w);
+				half3 worldViewDir = normalize(UnityWorldSpaceViewDir(worldPos));
 				surfIN.worldPos = worldPos;
-				surfIN.worldNormal = float3( IN.tSpace0.z, IN.tSpace1.z, IN.tSpace2.z );
+				surfIN.worldNormal = float3(IN.tSpace0.z, IN.tSpace1.z, IN.tSpace2.z);
 				surfIN.internalSurfaceTtoW0 = IN.tSpace0.xyz;
 				surfIN.internalSurfaceTtoW1 = IN.tSpace1.xyz;
 				surfIN.internalSurfaceTtoW2 = IN.tSpace2.xyz;
 				surfIN.vertexColor = IN.color;
 				SurfaceOutputCustomLightingCustom o;
-				UNITY_INITIALIZE_OUTPUT( SurfaceOutputCustomLightingCustom, o )
-				surf( surfIN, o );
+				UNITY_INITIALIZE_OUTPUT(SurfaceOutputCustomLightingCustom, o)
+				surf(surfIN, o);
 				#if defined( CAN_SKIP_VPOS )
 				float2 vpos = IN.pos;
 				#endif
-				SHADOW_CASTER_FRAGMENT( IN )
+				SHADOW_CASTER_FRAGMENT(IN)
 			}
 			ENDCG
 		}

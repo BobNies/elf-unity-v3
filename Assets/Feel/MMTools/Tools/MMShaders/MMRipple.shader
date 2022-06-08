@@ -11,10 +11,16 @@ Shader "MoreMountains/MMRipple"
 
 	SubShader
 	{
-		Tags{ "Queue" = "Transparent+1" "RenderType" = "Transparent" }
+		Tags
+		{
+			"Queue" = "Transparent+1" "RenderType" = "Transparent"
+		}
 		Zwrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
-		GrabPass { "_BackgroundTexture" }
+		GrabPass
+		{
+			"_BackgroundTexture"
+		}
 		Pass
 		{
 			CGPROGRAM

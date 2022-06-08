@@ -24,11 +24,11 @@ namespace MoreMountains.Tools
 	/// </summary>
 	public enum MMPoolingMethods { OriginalOrder, OriginalOrderSequential, RandomBetweenObjects, RandomPoolSizeBased }
 
-    /// <summary>
-    /// This class allows you to have a pool of various objects to pool from.
-    /// </summary>
-    [AddComponentMenu("More Mountains/Tools/Object Pool/MMMultipleObjectPooler")]
-    public class MMMultipleObjectPooler : MMObjectPooler
+	/// <summary>
+	/// This class allows you to have a pool of various objects to pool from.
+	/// </summary>
+	[AddComponentMenu("More Mountains/Tools/Object Pool/MMMultipleObjectPooler")]
+	public class MMMultipleObjectPooler : MMObjectPooler
 	{
 		/// the list of objects to pool
 		public List<MMMultipleObjectPoolerObject> Pool;
@@ -71,16 +71,16 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public override void FillObjectPool()
 		{
-            if ((Pool == null) || (Pool.Count == 0))
-            {
-                return;
-            }
+			if ((Pool == null) || (Pool.Count == 0))
+			{
+				return;
+			}
 
-            // we create a waiting pool, if one already exists, no need to fill anything
-            if (!CreateWaitingPool())
-            {
-	            return;
-            }
+			// we create a waiting pool, if one already exists, no need to fill anything
+			if (!CreateWaitingPool())
+			{
+				return;
+			}
             
 			// if there's only one item in the Pool, we force CanPoolSameObjectTwice to true
 			if (Pool.Count <= 1)
@@ -335,8 +335,8 @@ namespace MoreMountains.Tools
 			// if we can't pool the same object twice, we'll loop for a while to try and get another one
 			overflowCounter = 0;
 			while (!CanPoolSameObjectTwice 
-				&& _objectPool.PooledGameObjects[randomIndex] == _lastPooledObject 
-				&& overflowCounter < _objectPool.PooledGameObjects.Count)
+			       && _objectPool.PooledGameObjects[randomIndex] == _lastPooledObject 
+			       && overflowCounter < _objectPool.PooledGameObjects.Count)
 			{
 				randomIndex = UnityEngine.Random.Range(0, _objectPool.PooledGameObjects.Count);
 				overflowCounter++;
@@ -402,8 +402,8 @@ namespace MoreMountains.Tools
 			// while we haven't found an object to return, and while we haven't gone through all the different object types, we keep going
 			overflowCounter=0;
 			while (!objectFound 
-				&& randomIndex != originalRandomIndex 
-				&& overflowCounter < _objectPool.PooledGameObjects.Count)
+			       && randomIndex != originalRandomIndex 
+			       && overflowCounter < _objectPool.PooledGameObjects.Count)
 			{
 				// if our index is at the end, we reset it
 				if (randomIndex >= Pool.Count)

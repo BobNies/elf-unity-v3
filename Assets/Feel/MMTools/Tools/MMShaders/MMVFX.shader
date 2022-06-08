@@ -42,28 +42,36 @@ Shader "MoreMountains/MMVFX"
 
 	SubShader
 	{
-		Tags{ "RenderType" = "TransparentCutout"  "Queue" = "AlphaTest+0"}
+		Tags
+		{
+			"RenderType" = "TransparentCutout" "Queue" = "AlphaTest+0"
+		}
 		Cull Front
 		CGPROGRAM
 		#pragma target 3.0
-		#pragma surface outlineSurf Outline nofog  keepalpha noshadow noambient novertexlights nolightmap nodynlightmap nodirlightmap nometa noforwardadd vertex:outlineVertexDataFunc 
-		
-		void outlineVertexDataFunc( inout appdata_full v, out Input o )
+		#pragma surface outlineSurf Outline nofog  keepalpha noshadow noambient novertexlights nolightmap nodynlightmap nodirlightmap nometa noforwardadd vertex:outlineVertexDataFunc
+
+		void outlineVertexDataFunc(inout appdata_full v, out Input o)
 		{
-			UNITY_INITIALIZE_OUTPUT( Input, o );
+			UNITY_INITIALIZE_OUTPUT(Input, o);
 			float outlineVar = _OutlineWidth;
-			v.vertex.xyz += ( v.normal * outlineVar );
+			v.vertex.xyz += (v.normal * outlineVar);
 		}
-		inline half4 LightingOutline( SurfaceOutput s, half3 lightDir, half atten ) { return half4 ( 0,0,0, s.Alpha); }
-		void outlineSurf( Input i, inout SurfaceOutput o )
+
+		inline half4 LightingOutline(SurfaceOutput s, half3 lightDir, half atten) { return half4(0, 0, 0, s.Alpha); }
+
+		void outlineSurf(Input i, inout SurfaceOutput o)
 		{
 			o.Emission = _OutlineColor.rgb;
-			clip( _OutlineAlpha - _Cutoff );
+			clip(_OutlineAlpha - _Cutoff);
 		}
 		ENDCG
-		
 
-		Tags{ "RenderType" = "Transparent"  "Queue" = "Transparent+0" "IgnoreProjector" = "True" "IsEmissive" = "true"  }
+
+		Tags
+		{
+			"RenderType" = "Transparent" "Queue" = "Transparent+0" "IgnoreProjector" = "True" "IsEmissive" = "true"
+		}
 		Cull Back
 		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
@@ -113,65 +121,72 @@ Shader "MoreMountains/MMVFX"
 		uniform float _OutlineAlpha;
 		uniform float _OutlineWidth;
 
-		void vertexDataFunc( inout appdata_full v, out Input o )
+		void vertexDataFunc(inout appdata_full v, out Input o)
 		{
-			UNITY_INITIALIZE_OUTPUT( Input, o );
+			UNITY_INITIALIZE_OUTPUT(Input, o);
 			float4 temp_cast_0 = (0.0).xxxx;
-			half steppedTime293 = ( round( ( _Time.y * _Framerate ) ) / _Framerate );
+			half steppedTime293 = (round((_Time.y * _Framerate)) / _Framerate);
 			float3 ase_vertex3Pos = v.vertex.xyz;
-			float3 temp_output_281_0 = ( ase_vertex3Pos * _VertexOffsetFrequency );
-			half2 vertexOffsetXUV302 = ( steppedTime293 + (temp_output_281_0).xy );
-			half2 vertexOffsetYUV303 = ( ( steppedTime293 * 2.0 ) + (temp_output_281_0).yz );
-			half2 vertexOffsetZUV304 = ( ( steppedTime293 * 4.0 ) + (temp_output_281_0).xz );
-			float4 appendResult308 = (float4(( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetXUV302, 0, 0.0) ).r - _VertexOffsetX ) , ( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetYUV303, 0, 0.0) ).r - _VertexOffsetY ) , ( tex2Dlod( _VertexOffsetNoiseTexture, float4( vertexOffsetZUV304, 0, 0.0) ).r - _VertexOffsetZ ) , 0.0));
+			float3 temp_output_281_0 = (ase_vertex3Pos * _VertexOffsetFrequency);
+			half2 vertexOffsetXUV302 = (steppedTime293 + (temp_output_281_0).xy);
+			half2 vertexOffsetYUV303 = ((steppedTime293 * 2.0) + (temp_output_281_0).yz);
+			half2 vertexOffsetZUV304 = ((steppedTime293 * 4.0) + (temp_output_281_0).xz);
+			float4 appendResult308 = (float4(
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetXUV302, 0, 0.0)).r - _VertexOffsetX),
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetYUV303, 0, 0.0)).r - _VertexOffsetY),
+				(tex2Dlod(_VertexOffsetNoiseTexture, float4(vertexOffsetZUV304, 0, 0.0)).r - _VertexOffsetZ), 0.0));
 			#ifdef _USEVERTEXOFFSET_ON
-				float4 staticSwitch350 = ( _VertexOffsetMagnitude * appendResult308 );
+			float4 staticSwitch350 = (_VertexOffsetMagnitude * appendResult308);
 			#else
 				float4 staticSwitch350 = temp_cast_0;
 			#endif
 			float3 vertexOffset311 = (staticSwitch350).xyz;
 			float3 outline364 = 0;
-			v.vertex.xyz += ( vertexOffset311 + outline364 );
+			v.vertex.xyz += (vertexOffset311 + outline364);
 			v.vertex.w = 1;
 		}
 
-		inline half4 LightingUnlit( SurfaceOutput s, half3 lightDir, half atten )
+		inline half4 LightingUnlit(SurfaceOutput s, half3 lightDir, half atten)
 		{
-			return half4 ( 0, 0, 0, s.Alpha );
+			return half4(0, 0, 0, s.Alpha);
 		}
 
-		void surf( Input i , inout SurfaceOutput o )
+		void surf(Input i, inout SurfaceOutput o)
 		{
-			half steppedTime293 = ( round( ( _Time.y * _Framerate ) ) / _Framerate );
-			float2 panner462 = ( 1.0 * _Time.y * _MainTexPanningSpeed + i.uv_texcoord);
+			half steppedTime293 = (round((_Time.y * _Framerate)) / _Framerate);
+			float2 panner462 = (1.0 * _Time.y * _MainTexPanningSpeed + i.uv_texcoord);
 			float4 temp_cast_0 = (1.0).xxxx;
 			#ifdef _USEVERTEXCOLORS_ON
-				float4 staticSwitch7 = i.vertexColor;
+			float4 staticSwitch7 = i.vertexColor;
 			#else
 				float4 staticSwitch7 = temp_cast_0;
 			#endif
-			float4 blendOpSrc460 = ( tex2D( _SecondaryTexture, ( ( i.uv_texcoord * _SecondaryTextureSize ) + ( steppedTime293 * _SecondaryTextureSpeedFactor ) ) ) * _SecondaryTextureStrength );
-			float4 blendOpDest460 = ( ( tex2D( _MainTex, panner462 ) * _Tint ) * staticSwitch7 );
-			float4 albedo11 = ( saturate( ( blendOpDest460 - blendOpSrc460 ) ));
+			float4 blendOpSrc460 = (tex2D(_SecondaryTexture,
+			                              ((i.uv_texcoord * _SecondaryTextureSize) + (steppedTime293 *
+				                              _SecondaryTextureSpeedFactor))) * _SecondaryTextureStrength);
+			float4 blendOpDest460 = ((tex2D(_MainTex, panner462) * _Tint) * staticSwitch7);
+			float4 albedo11 = (saturate((blendOpDest460 - blendOpSrc460)));
 			float2 uv_EmissionTexture = i.uv_texcoord * _EmissionTexture_ST.xy + _EmissionTexture_ST.zw;
-			float4 computedEmission182 = ( ( tex2D( _EmissionTexture, uv_EmissionTexture ) * _EmissionColor ) * _EmissionForce );
-			o.Emission = ( albedo11 * computedEmission182 ).rgb;
+			float4 computedEmission182 = ((tex2D(_EmissionTexture, uv_EmissionTexture) * _EmissionColor) *
+				_EmissionForce);
+			o.Emission = (albedo11 * computedEmission182).rgb;
 			float Opacity473 = _Opacity;
 			o.Alpha = Opacity473;
 			float4 temp_cast_2 = (_OpacityMask).xxxx;
-			float4 OpacityMask468 = step( albedo11 , temp_cast_2 );
-			clip( OpacityMask468.r - _Cutoff );
+			float4 OpacityMask468 = step(albedo11, temp_cast_2);
+			clip(OpacityMask468.r - _Cutoff);
 		}
-
 		ENDCG
 		CGPROGRAM
-		#pragma surface surf Unlit keepalpha fullforwardshadows exclude_path:deferred vertex:vertexDataFunc 
-
+		#pragma surface surf Unlit keepalpha fullforwardshadows exclude_path:deferred vertex:vertexDataFunc
 		ENDCG
 		Pass
 		{
 			Name "ShadowCaster"
-			Tags{ "LightMode" = "ShadowCaster" }
+			Tags
+			{
+				"LightMode" = "ShadowCaster"
+			}
 			ZWrite On
 			CGPROGRAM
 			#pragma vertex vert
@@ -182,12 +197,13 @@ Shader "MoreMountains/MMVFX"
 			#pragma skip_variants FOG_LINEAR FOG_EXP FOG_EXP2
 			#include "HLSLSupport.cginc"
 			#if ( SHADER_API_D3D11 || SHADER_API_GLCORE || SHADER_API_GLES || SHADER_API_GLES3 || SHADER_API_METAL || SHADER_API_VULKAN )
-				#define CAN_SKIP_VPOS
+			#define CAN_SKIP_VPOS
 			#endif
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "UnityPBSLighting.cginc"
 			sampler3D _DitherMaskLOD;
+
 			struct v2f
 			{
 				V2F_SHADOW_CASTER;
@@ -197,46 +213,48 @@ Shader "MoreMountains/MMVFX"
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
-			v2f vert( appdata_full v )
+
+			v2f vert(appdata_full v)
 			{
 				v2f o;
-				UNITY_SETUP_INSTANCE_ID( v );
-				UNITY_INITIALIZE_OUTPUT( v2f, o );
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( o );
-				UNITY_TRANSFER_INSTANCE_ID( v, o );
+				UNITY_SETUP_INSTANCE_ID(v);
+				UNITY_INITIALIZE_OUTPUT(v2f, o);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				Input customInputData;
-				vertexDataFunc( v, customInputData );
-				float3 worldPos = mul( unity_ObjectToWorld, v.vertex ).xyz;
-				half3 worldNormal = UnityObjectToWorldNormal( v.normal );
+				vertexDataFunc(v, customInputData);
+				float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.customPack1.xy = customInputData.uv_texcoord;
 				o.customPack1.xy = v.texcoord;
 				o.worldPos = worldPos;
-				TRANSFER_SHADOW_CASTER_NORMALOFFSET( o )
+				TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
 				o.color = v.color;
 				return o;
 			}
-			half4 frag( v2f IN
-			#if !defined( CAN_SKIP_VPOS )
+
+			half4 frag(v2f IN
+				#if !defined( CAN_SKIP_VPOS )
 			, UNITY_VPOS_TYPE vpos : VPOS
-			#endif
+				#endif
 			) : SV_Target
 			{
-				UNITY_SETUP_INSTANCE_ID( IN );
+				UNITY_SETUP_INSTANCE_ID(IN);
 				Input surfIN;
-				UNITY_INITIALIZE_OUTPUT( Input, surfIN );
+				UNITY_INITIALIZE_OUTPUT(Input, surfIN);
 				surfIN.uv_texcoord = IN.customPack1.xy;
 				float3 worldPos = IN.worldPos;
-				half3 worldViewDir = normalize( UnityWorldSpaceViewDir( worldPos ) );
+				half3 worldViewDir = normalize(UnityWorldSpaceViewDir(worldPos));
 				surfIN.vertexColor = IN.color;
 				SurfaceOutput o;
-				UNITY_INITIALIZE_OUTPUT( SurfaceOutput, o )
-				surf( surfIN, o );
+				UNITY_INITIALIZE_OUTPUT(SurfaceOutput, o)
+				surf(surfIN, o);
 				#if defined( CAN_SKIP_VPOS )
 				float2 vpos = IN.pos;
 				#endif
-				half alphaRef = tex3D( _DitherMaskLOD, float3( vpos.xy * 0.25, o.Alpha * 0.9375 ) ).a;
-				clip( alphaRef - 0.01 );
-				SHADOW_CASTER_FRAGMENT( IN )
+				half alphaRef = tex3D(_DitherMaskLOD, float3(vpos.xy * 0.25, o.Alpha * 0.9375)).a;
+				clip(alphaRef - 0.01);
+				SHADOW_CASTER_FRAGMENT(IN)
 			}
 			ENDCG
 		}

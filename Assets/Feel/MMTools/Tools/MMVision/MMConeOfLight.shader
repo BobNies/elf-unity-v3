@@ -23,49 +23,47 @@
 			AlphaTest Greater 0.0
 			Blend DstColor One
 			Cull Off
-	
+
 			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnityCG.cginc"
+			uniform sampler2D _MainTex;
+			uniform float _Contrast;
+			uniform float4 _Color;
 
-				uniform sampler2D _MainTex;
-				uniform float _Contrast;
-				uniform float4 _Color;
+			struct VertexInput
+			{
+				float4 vertex : POSITION;
+				float4 uv : TEXCOORD0;
+				float4 color : COLOR;
+			};
 
-				struct VertexInput
-				{
-					float4 vertex : POSITION;
-					float4 uv : TEXCOORD0;
-					float4 color : COLOR;
-				};
+			struct VertexOutput
+			{
+				float4 pos : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				float4 color : COLOR;
+			};
 
-				struct VertexOutput
-				{
-					float4 pos : SV_POSITION;
-					float2 uv : TEXCOORD0;
-					float4 color : COLOR;
-				};
+			VertexOutput vert(VertexInput input)
+			{
+				VertexOutput output;
+				output.uv = input.uv;
+				output.color = input.color;
+				output.pos = UnityObjectToClipPos(input.vertex);
+				return output;
+			}
 
-				VertexOutput vert(VertexInput input)
-				{
-					VertexOutput output;
-					output.uv = input.uv;
-					output.color = input.color;
-					output.pos = UnityObjectToClipPos(input.vertex);
-					return output;
-				}
-
-				float4 frag(VertexOutput input) : COLOR
-				{
-					float4 diffuse = tex2D(_MainTex, input.uv);
-					diffuse.rgb = diffuse.rgb * _Color.rgb * input.color.rgb;
-					diffuse.rgb *= diffuse.a * _Color.a * input.color.a;
-					diffuse *= _Contrast;
-					return float4(diffuse);
-				}
-
+			float4 frag(VertexOutput input) : COLOR
+			{
+				float4 diffuse = tex2D(_MainTex, input.uv);
+				diffuse.rgb = diffuse.rgb * _Color.rgb * input.color.rgb;
+				diffuse.rgb *= diffuse.a * _Color.a * input.color.a;
+				diffuse *= _Contrast;
+				return float4(diffuse);
+			}
 			ENDCG
 		}
 	}

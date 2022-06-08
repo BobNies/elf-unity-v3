@@ -7,23 +7,23 @@ using UnityEngine.UI;
 
 namespace MoreMountains.Tools
 {
-    /// <summary>
-    /// Add this component to an object and it will show a healthbar above it
-    /// You can either use a prefab for it, or have the component draw one at the start
-    /// </summary>
-    [AddComponentMenu("More Mountains/Tools/GUI/MMHealthBar")]
-    public class MMHealthBar : MonoBehaviour 
+	/// <summary>
+	/// Add this component to an object and it will show a healthbar above it
+	/// You can either use a prefab for it, or have the component draw one at the start
+	/// </summary>
+	[AddComponentMenu("More Mountains/Tools/GUI/MMHealthBar")]
+	public class MMHealthBar : MonoBehaviour 
 	{
 		/// the possible health bar types
 		public enum HealthBarTypes { Prefab, Drawn }
-        /// the possible timescales the bar can work on
-        public enum TimeScales { UnscaledTime, Time }
+		/// the possible timescales the bar can work on
+		public enum TimeScales { UnscaledTime, Time }
 
 		[MMInformation("Add this component to an object and it'll add a healthbar next to it to reflect its health level in real time. You can decide here whether the health bar should be drawn automatically or use a prefab.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// whether the healthbar uses a prefab or is drawn automatically
 		public HealthBarTypes HealthBarType = HealthBarTypes.Drawn;
-        /// defines whether the bar will work on scaled or unscaled time (whether or not it'll keep moving if time is slowed down for example)
-        public TimeScales TimeScale = TimeScales.UnscaledTime;
+		/// defines whether the bar will work on scaled or unscaled time (whether or not it'll keep moving if time is slowed down for example)
+		public TimeScales TimeScale = TimeScales.UnscaledTime;
 
 		[Header("Select a Prefab")]
 		[MMInformation("Select a prefab with a progress bar script on it. There is one example of such a prefab in Common/Prefabs/GUI.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
@@ -38,43 +38,43 @@ namespace MoreMountains.Tools
 		public Vector2 BackgroundPadding = new Vector2(0.01f,0.01f);
 		/// the rotation to apply to the MMHealthBarContainer when drawing it
 		public Vector3 InitialRotationAngles;
-        /// if the healthbar is drawn, the color of its foreground
-        public Gradient ForegroundColor = new Gradient()
-            {
-                colorKeys = new GradientColorKey[2] {
-                new GradientColorKey(MMColors.BestRed, 0),
-                new GradientColorKey(MMColors.BestRed, 1f)
-            },
-            alphaKeys = new GradientAlphaKey[2] {new GradientAlphaKey(1, 0),new GradientAlphaKey(1, 1)}};
-        /// if the healthbar is drawn, the color of its delayed bar
-        public Gradient DelayedColor = new Gradient()
-        {
-            colorKeys = new GradientColorKey[2] {
-                new GradientColorKey(MMColors.Orange, 0),
-                new GradientColorKey(MMColors.Orange, 1f)
-            },
-            alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
-        };
-        /// if the healthbar is drawn, the color of its border
-        public Gradient BorderColor = new Gradient()
-        {
-            colorKeys = new GradientColorKey[2] {
-                new GradientColorKey(MMColors.AntiqueWhite, 0),
-                new GradientColorKey(MMColors.AntiqueWhite, 1f)
-            },
-            alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
-        };
-        /// if the healthbar is drawn, the color of its background
-        public Gradient BackgroundColor = new Gradient()
-        {
-            colorKeys = new GradientColorKey[2] {
-                new GradientColorKey(MMColors.Black, 0),
-                new GradientColorKey(MMColors.Black, 1f)
-            },
-            alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
-        };
-        /// the name of the sorting layer to put this health bar on
-        public string SortingLayerName = "UI";
+		/// if the healthbar is drawn, the color of its foreground
+		public Gradient ForegroundColor = new Gradient()
+		{
+			colorKeys = new GradientColorKey[2] {
+				new GradientColorKey(MMColors.BestRed, 0),
+				new GradientColorKey(MMColors.BestRed, 1f)
+			},
+			alphaKeys = new GradientAlphaKey[2] {new GradientAlphaKey(1, 0),new GradientAlphaKey(1, 1)}};
+		/// if the healthbar is drawn, the color of its delayed bar
+		public Gradient DelayedColor = new Gradient()
+		{
+			colorKeys = new GradientColorKey[2] {
+				new GradientColorKey(MMColors.Orange, 0),
+				new GradientColorKey(MMColors.Orange, 1f)
+			},
+			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
+		};
+		/// if the healthbar is drawn, the color of its border
+		public Gradient BorderColor = new Gradient()
+		{
+			colorKeys = new GradientColorKey[2] {
+				new GradientColorKey(MMColors.AntiqueWhite, 0),
+				new GradientColorKey(MMColors.AntiqueWhite, 1f)
+			},
+			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
+		};
+		/// if the healthbar is drawn, the color of its background
+		public Gradient BackgroundColor = new Gradient()
+		{
+			colorKeys = new GradientColorKey[2] {
+				new GradientColorKey(MMColors.Black, 0),
+				new GradientColorKey(MMColors.Black, 1f)
+			},
+			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
+		};
+		/// the name of the sorting layer to put this health bar on
+		public string SortingLayerName = "UI";
 		/// the delay to apply to the delayed bar if drawn
 		public float Delay = 0.5f;
 		/// whether or not the front bar should lerp
@@ -91,9 +91,9 @@ namespace MoreMountains.Tools
 		public float BumpDuration = 0.2f;
 		/// the animation curve to map the bump animation on
 		public AnimationCurve BumpAnimationCurve = AnimationCurve.Constant(0,1,1);
-        /// the mode the bar should follow the target in
-        public MMFollowTarget.UpdateModes FollowTargetMode = MMFollowTarget.UpdateModes.LateUpdate;
-        public bool NestDrawnHealthBar = false;
+		/// the mode the bar should follow the target in
+		public MMFollowTarget.UpdateModes FollowTargetMode = MMFollowTarget.UpdateModes.LateUpdate;
+		public bool NestDrawnHealthBar = false;
 
 		[Header("Death")]
 		/// a gameobject (usually a particle system) to instantiate when the healthbar reaches zero
@@ -130,7 +130,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void Awake()
 		{
-            Initialization();
+			Initialization();
 		}
 
 		/// <summary>
@@ -147,44 +147,44 @@ namespace MoreMountains.Tools
 		}
 
 		public virtual void Initialization()
-        {
-            _finalHideStarted = false;
+		{
+			_finalHideStarted = false;
 
-            if (_progressBar != null)
-            {
-                _progressBar.gameObject.SetActive(AlwaysVisible);
-                return;
-            }
+			if (_progressBar != null)
+			{
+				_progressBar.gameObject.SetActive(AlwaysVisible);
+				return;
+			}
 
-            if (HealthBarType == HealthBarTypes.Prefab)
-            {
-                if (HealthBarPrefab == null)
-                {
-                    Debug.LogWarning(this.name + " : the HealthBar has no prefab associated to it, nothing will be displayed.");
-                    return;
-                }
-                _progressBar = Instantiate(HealthBarPrefab, transform.position + HealthBarOffset, transform.rotation) as MMProgressBar;
-                SceneManager.MoveGameObjectToScene(_progressBar.gameObject, this.gameObject.scene);
-                _progressBar.transform.SetParent(this.transform);
-                _progressBar.gameObject.name = "HealthBar";
-            }
+			if (HealthBarType == HealthBarTypes.Prefab)
+			{
+				if (HealthBarPrefab == null)
+				{
+					Debug.LogWarning(this.name + " : the HealthBar has no prefab associated to it, nothing will be displayed.");
+					return;
+				}
+				_progressBar = Instantiate(HealthBarPrefab, transform.position + HealthBarOffset, transform.rotation) as MMProgressBar;
+				SceneManager.MoveGameObjectToScene(_progressBar.gameObject, this.gameObject.scene);
+				_progressBar.transform.SetParent(this.transform);
+				_progressBar.gameObject.name = "HealthBar";
+			}
 
-            if (HealthBarType == HealthBarTypes.Drawn)
-            {
-                DrawHealthBar();
-                UpdateDrawnColors();
-            }
+			if (HealthBarType == HealthBarTypes.Drawn)
+			{
+				DrawHealthBar();
+				UpdateDrawnColors();
+			}
 
-            if (!AlwaysVisible)
-            {
-                _progressBar.gameObject.SetActive(false);
-            }
+			if (!AlwaysVisible)
+			{
+				_progressBar.gameObject.SetActive(false);
+			}
 
-            if (_progressBar != null)
-            {
-                _progressBar.SetBar(100f, 0f, 100f);
-            }
-        }
+			if (_progressBar != null)
+			{
+				_progressBar.SetBar(100f, 0f, 100f);
+			}
+		}
 
 		/// <summary>
 		/// Draws the health bar.
@@ -195,10 +195,10 @@ namespace MoreMountains.Tools
 			SceneManager.MoveGameObjectToScene(newGameObject, this.gameObject.scene);
 			newGameObject.name = "HealthBar|"+this.gameObject.name;
 
-            if (NestDrawnHealthBar)
-            {
-                newGameObject.transform.SetParent(this.transform);
-            }
+			if (NestDrawnHealthBar)
+			{
+				newGameObject.transform.SetParent(this.transform);
+			}
 
 			_progressBar = newGameObject.AddComponent<MMProgressBar>();
 
@@ -206,23 +206,23 @@ namespace MoreMountains.Tools
 			_followTransform.Offset = HealthBarOffset;
 			_followTransform.Target = this.transform;
 			_followTransform.FollowRotation = false; 
-            _followTransform.InterpolatePosition = false;
-            _followTransform.InterpolateRotation = false;
-            _followTransform.UpdateMode = FollowTargetMode;
+			_followTransform.InterpolatePosition = false;
+			_followTransform.InterpolateRotation = false;
+			_followTransform.UpdateMode = FollowTargetMode;
 
 			Canvas newCanvas = newGameObject.AddComponent<Canvas>();
 			newCanvas.renderMode = RenderMode.WorldSpace;
 			newCanvas.transform.localScale = Vector3.one;
 			newCanvas.GetComponent<RectTransform>().sizeDelta = Size;
-            if (!string.IsNullOrEmpty(SortingLayerName))
-            {
-                newCanvas.sortingLayerName = SortingLayerName;
-            }
+			if (!string.IsNullOrEmpty(SortingLayerName))
+			{
+				newCanvas.sortingLayerName = SortingLayerName;
+			}
 
-            GameObject container = new GameObject();
-            container.transform.SetParent(newGameObject.transform);
-            container.name = "MMProgressBarContainer";
-            container.transform.localScale = Vector3.one;
+			GameObject container = new GameObject();
+			container.transform.SetParent(newGameObject.transform);
+			container.name = "MMProgressBarContainer";
+			container.transform.localScale = Vector3.one;
             
 			GameObject borderImageGameObject = new GameObject();
 			borderImageGameObject.transform.SetParent(container.transform);
@@ -259,8 +259,8 @@ namespace MoreMountains.Tools
 			_foregroundImage = frontImageGameObject.AddComponent<Image>();
 			_foregroundImage.transform.position = Vector3.zero;
 			_foregroundImage.transform.localScale = Vector3.one;
-            _foregroundImage.color = ForegroundColor.Evaluate(1);
-            _foregroundImage.GetComponent<RectTransform>().sizeDelta = Size - BackgroundPadding*2;
+			_foregroundImage.color = ForegroundColor.Evaluate(1);
+			_foregroundImage.GetComponent<RectTransform>().sizeDelta = Size - BackgroundPadding*2;
 			_foregroundImage.GetComponent<RectTransform>().anchoredPosition = -_foregroundImage.GetComponent<RectTransform>().sizeDelta/2;
 			_foregroundImage.GetComponent<RectTransform>().pivot = Vector2.zero;
 
@@ -274,9 +274,9 @@ namespace MoreMountains.Tools
 			_progressBar.BumpScaleOnChange = BumpScaleOnChange;
 			_progressBar.BumpDuration = BumpDuration;
 			_progressBar.BumpScaleAnimationCurve = BumpAnimationCurve;
-            _progressBar.TimeScale = (TimeScale == TimeScales.Time) ? MMProgressBar.TimeScales.Time : MMProgressBar.TimeScales.UnscaledTime;
-            container.transform.localEulerAngles = InitialRotationAngles;
-            _progressBar.Initialization();
+			_progressBar.TimeScale = (TimeScale == TimeScales.Time) ? MMProgressBar.TimeScales.Time : MMProgressBar.TimeScales.UnscaledTime;
+			container.transform.localEulerAngles = InitialRotationAngles;
+			_progressBar.Initialization();
 		}
 
 		/// <summary>
@@ -304,7 +304,7 @@ namespace MoreMountains.Tools
 			if (_showBar)
 			{
 				_progressBar.gameObject.SetActive(true);
-                float currentTime = (TimeScale == TimeScales.UnscaledTime) ? Time.unscaledTime : Time.time;
+				float currentTime = (TimeScale == TimeScales.UnscaledTime) ? Time.unscaledTime : Time.time;
 				if (currentTime - _lastShowTimestamp > DisplayDurationOnHit)
 				{
 					_showBar = false;
@@ -328,16 +328,16 @@ namespace MoreMountains.Tools
 				GameObject instantiatedOnDeath = Instantiate(InstantiatedOnDeath, this.transform.position + HealthBarOffset, this.transform.rotation);
 				SceneManager.MoveGameObjectToScene(instantiatedOnDeath.gameObject, this.gameObject.scene);
 			}
-            if (HideBarAtZeroDelay == 0)
-            {
-                _showBar = false;
-                _progressBar.gameObject.SetActive(false);
-                yield return null;
-            }
-            else
-            {
-                _progressBar.HideBar(HideBarAtZeroDelay);
-            }            
+			if (HideBarAtZeroDelay == 0)
+			{
+				_showBar = false;
+				_progressBar.gameObject.SetActive(false);
+				yield return null;
+			}
+			else
+			{
+				_progressBar.HideBar(HideBarAtZeroDelay);
+			}            
 		}
 
 		/// <summary>
@@ -384,24 +384,24 @@ namespace MoreMountains.Tools
 		/// <param name="maxHealth">Max health.</param>
 		/// <param name="show">Whether or not we should show the bar.</param>
 		public virtual void UpdateBar(float currentHealth, float minHealth, float maxHealth, bool show)
-        {
-            // if the healthbar isn't supposed to be always displayed, we turn it on for the specified duration
-            if (!AlwaysVisible && show)
-            {
-                _showBar = true;
-                _lastShowTimestamp = (TimeScale == TimeScales.UnscaledTime) ? Time.unscaledTime : Time.time;
-            }
+		{
+			// if the healthbar isn't supposed to be always displayed, we turn it on for the specified duration
+			if (!AlwaysVisible && show)
+			{
+				_showBar = true;
+				_lastShowTimestamp = (TimeScale == TimeScales.UnscaledTime) ? Time.unscaledTime : Time.time;
+			}
 
-            if (_progressBar != null)
+			if (_progressBar != null)
 			{
 				_progressBar.UpdateBar(currentHealth, minHealth, maxHealth)	;
                 
-                if (HideBarAtZero && _progressBar.BarTarget <= 0)
-                {
-                    StartCoroutine(FinalHideBar());
-                }
+				if (HideBarAtZero && _progressBar.BarTarget <= 0)
+				{
+					StartCoroutine(FinalHideBar());
+				}
 
-                if (BumpScaleOnChange)
+				if (BumpScaleOnChange)
 				{
 					_progressBar.Bump();
 				}

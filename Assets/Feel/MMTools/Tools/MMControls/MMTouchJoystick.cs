@@ -18,8 +18,8 @@ namespace MoreMountains.Tools
 	/// </summary>
 	[RequireComponent(typeof(Rect))]
 	[RequireComponent(typeof(CanvasGroup))]
-    [AddComponentMenu("More Mountains/Tools/Controls/MMTouchJoystick")]
-    public class MMTouchJoystick : MonoBehaviour, IDragHandler, IEndDragHandler
+	[AddComponentMenu("More Mountains/Tools/Controls/MMTouchJoystick")]
+	public class MMTouchJoystick : MonoBehaviour, IDragHandler, IEndDragHandler
 	{
 		[Header("Camera")]
 		public Camera TargetCamera;
@@ -62,26 +62,26 @@ namespace MoreMountains.Tools
 		protected Vector3 _newJoystickPosition;
 		protected float _initialZPosition;
 
-	    protected CanvasGroup _canvasGroup;
+		protected CanvasGroup _canvasGroup;
 		protected float _initialOpacity;
 		protected Transform _knobTransform;
 		protected bool _rotatingIndicatorIsNotNull = false;
 
 
-        /// <summary>
-        /// On Start, we get our working canvas, and we set our neutral position
-        /// </summary>
-        protected virtual void Awake()
-        {
-           // Initialize();
-        }
+		/// <summary>
+		/// On Start, we get our working canvas, and we set our neutral position
+		/// </summary>
+		protected virtual void Awake()
+		{
+			// Initialize();
+		}
 
-        protected virtual void Start()
-        {
-            Initialize();
-        }
+		protected virtual void Start()
+		{
+			Initialize();
+		}
 
-        public virtual void Initialize()
+		public virtual void Initialize()
 		{
 			_canvasRectTransform = GetComponentInParent<Canvas>().transform as RectTransform;
 			_canvasGroup = GetComponent<CanvasGroup>();
@@ -89,7 +89,7 @@ namespace MoreMountains.Tools
 
 			SetKnobTransform(this.transform);
 
-            SetNeutralPosition();
+			SetNeutralPosition();
 			if (TargetCamera == null)
 			{
 				throw new Exception("MMTouchJoystick : you have to set a target camera");
@@ -99,10 +99,10 @@ namespace MoreMountains.Tools
 			_initialOpacity = _canvasGroup.alpha;			
 		}
 
-        /// <summary>
-        /// Assigns a new transform as the joystick knob
-        /// </summary>
-        /// <param name="newTransform"></param>
+		/// <summary>
+		/// Assigns a new transform as the joystick knob
+		/// </summary>
+		/// <param name="newTransform"></param>
 		public virtual void SetKnobTransform(Transform newTransform)
 		{
 			_knobTransform = newTransform;
@@ -113,7 +113,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void Update()
 		{
-            if (JoystickValue != null)
+			if (JoystickValue != null)
 			{
 				if (HorizontalAxisEnabled || VerticalAxisEnabled)
 				{
@@ -121,7 +121,7 @@ namespace MoreMountains.Tools
 				}
 			}
 
-            RotateIndicator();
+			RotateIndicator();
 		}
 
 		protected virtual void RotateIndicator()
@@ -141,8 +141,8 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void SetNeutralPosition()
 		{
-            _neutralPosition = _knobTransform.position;
-        }
+			_neutralPosition = _knobTransform.position;
+		}
 
 		public virtual void SetNeutralPosition(Vector3 newPosition)
 		{

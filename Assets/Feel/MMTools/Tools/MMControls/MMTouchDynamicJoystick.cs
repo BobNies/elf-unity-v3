@@ -8,12 +8,12 @@ using UnityEngine.SceneManagement;
 
 namespace MoreMountains.Tools
 {
-    /// <summary>
-    /// Add this component to a UI rectangle and it'll act as a detection zone for a joystick.
-    /// Note that this component extends the MMTouchJoystick class so you don't need to add another joystick to it. It's both the detection zone and the stick itself.
-    /// </summary>
-    [AddComponentMenu("More Mountains/Tools/Controls/MMTouchDynamicJoystick")]
-    public class MMTouchDynamicJoystick : MMTouchJoystick, IPointerDownHandler
+	/// <summary>
+	/// Add this component to a UI rectangle and it'll act as a detection zone for a joystick.
+	/// Note that this component extends the MMTouchJoystick class so you don't need to add another joystick to it. It's both the detection zone and the stick itself.
+	/// </summary>
+	[AddComponentMenu("More Mountains/Tools/Controls/MMTouchDynamicJoystick")]
+	public class MMTouchDynamicJoystick : MMTouchJoystick, IPointerDownHandler
 	{
 		[Header("Dynamic Joystick")]
 		[MMInformation("Here you can select an image for your joystick's knob, and decide if the joystick's detection zone should reset its position whenever the drag ends.", MMInformationAttribute.InformationType.Info,false)]
@@ -58,7 +58,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		/// <param name="data">Data.</param>
 		public virtual void OnPointerDown(PointerEventData data)
-	    {
+		{
 			// if we're in "screen space - camera" render mode
 			if (ParentCanvasRenderMode == RenderMode.ScreenSpaceCamera)
 			{
@@ -73,12 +73,12 @@ namespace MoreMountains.Tools
 
 			// we define a new neutral position
 			SetNeutralPosition(_newPosition);
-	    }
+		}
 
-	    /// <summary>
-	    /// When the player lets go of the stick, we restore our stick's position if needed
-	    /// </summary>
-	    /// <param name="eventData">Event data.</param>
+		/// <summary>
+		/// When the player lets go of the stick, we restore our stick's position if needed
+		/// </summary>
+		/// <param name="eventData">Event data.</param>
 		public override void OnEndDrag(PointerEventData eventData)
 		{
 			base.OnEndDrag(eventData);
