@@ -121,14 +121,18 @@ public class AwardManager : MonoBehaviour
             {
                 case "ball_save_bs_plunger_saving_ball":
                     gObj = pf_ballSave;
+                    displayAwardOnPlayfieldMonitor("Ball Saved", 2);
                     break;
                 case "start_full_ball_mb":
                     gObj = pf_startFullBallMb;
+                    displayAwardOnPlayfieldMonitor("MultiBall",4);
                     break;
                 case "pop_jester":
                     gObj = pf_popJester;
+                    displayAwardOnPlayfieldMonitor("Jester Award", 2);
                     break ;
                 case "plunger_skill_shot_awarded":
+                    displayAwardOnPlayfieldMonitor("Skillshot Awarded", 2);
                     break;
                 case "award_extra_ball":
                     gObj = pf_awardExtraBall;
@@ -140,15 +144,19 @@ public class AwardManager : MonoBehaviour
                     break;
                 case "snow_lane_advance_complete":
                     gObj = pf_snowLaneAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Snow Lane Advance Bonus", 2);
                     break;
                 case "top_lane_advance_complete":
                     gObj = pf_topLaneAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Lane Advance Award", 2);
                     break;
                 case "santa_lit_complete":
                     gObj = pf_santaLitComplete;
+                    displayAwardOnPlayfieldMonitor("SANTA Bonus", 2);
                     break;
                 case "angry_targets_advance_complete":
                     gObj = pf_angryTargetsAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Angry Elf Advance Bonus", 2);
                     break;
                 case "drop_elf_advance_complete":
                     gObj = pf_dropElfAdvanceComplete;
@@ -158,6 +166,7 @@ public class AwardManager : MonoBehaviour
                     break;
                 case "target_food_groups_awarded":
                     gObj = pf_targetFoodGroupsAwarded;
+                    displayAwardOnPlayfieldMonitor("Food Groups Awarded", 2);
                     break;
                 // case "spinner_collect_award":
                 //     break;
