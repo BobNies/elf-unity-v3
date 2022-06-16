@@ -36,12 +36,14 @@ public class BallCountUpdater : MonoBehaviour
 
     public void tweenIn()
     {
-        modular3DText.transform.DOScale(1f, .1f); //.SetEase(Ease.InQuint);
+        modular3DText.enabled = true;
+        //modular3DText.transform.DOScale(1f, .1f); //.SetEase(Ease.InQuint);
     }
 
     public void tweenOut()
     {
-        modular3DText.transform.DOScale(0f, .1f); //.SetEase(Ease.OutQuint);
+        modular3DText.enabled = false;
+        //modular3DText.transform.DOScale(0f, .1f); //.SetEase(Ease.OutQuint);
     }
 
 }

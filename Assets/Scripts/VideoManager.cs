@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using DG.Tweening;
+using DarkTonic.MasterAudio;
 
 /* ELF
     Video Manager: handles video playback 
@@ -40,6 +41,9 @@ public class VideoManager : MonoBehaviour
         {
             videoPlayer.transform.DOScale(0f, .5f)
                 .SetEase(Ease.OutQuint);
+
+            //duck audio
+            MasterAudio.UnmutePlaylist();
         }
     }
 
@@ -59,6 +63,12 @@ public class VideoManager : MonoBehaviour
 
         videoPlayer.clip = videoClip;
         videoPlayer.Play();
+
+        if (mainGameVideo)
+        {
+            //mute background music during video
+            MasterAudio.MutePlaylist();
+        }
     }
 
     public void playVideo(string videoName)
@@ -71,6 +81,12 @@ public class VideoManager : MonoBehaviour
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = url;
         videoPlayer.Play();
+
+        if (mainGameVideo)
+        {
+            //mute background music during video
+            MasterAudio.MutePlaylist();
+        }
     }
 
     public void easeInVideoScreen()

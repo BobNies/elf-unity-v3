@@ -12,7 +12,6 @@ public class ModeManager : MonoBehaviour
     public VideoManager videoManager;
     public PlayfieldManager playfieldManager;
 
-    public VideoClip videoOmg;
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
     public VideoClip[] videoClips;
@@ -123,8 +122,9 @@ public class ModeManager : MonoBehaviour
                 playfieldManager.ShowLevel(12);
                 break;
             case "omg":
-                videoManager.playVideo(videoOmg);
-                playfieldManager.ShowLevel(13);
+                // mode starts and waits for ball to drain before playing video.
+                //videoManager.playVideo(videoOmg);
+                //playfieldManager.ShowLevel(13);
                 break;
             case "singing":
                 videoManager.stopAllVideos();

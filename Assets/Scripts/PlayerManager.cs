@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerOneAddedSound);
                 }
                 // Score UI animation - move it into the scene
-                scoreManager.playerOneTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerOneTransform.transform.DOMoveY(90, 1).SetEase(Ease.OutBounce);
                 break;
             case 2:
                 if (playerTwoAddedSound != null)
@@ -99,7 +99,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerTwoAddedSound);
                 }
 
-                scoreManager.playerTwoTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerTwoTransform.transform.DOMoveY(90, 1).SetEase(Ease.OutBounce);
                 break;
             case 3:
                 if (playerThreeAddedSound != null)
@@ -107,7 +107,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerThreeAddedSound);
                 }
 
-                scoreManager.playerThreeTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerThreeTransform.transform.DOMoveY(90, 1).SetEase(Ease.OutBounce);
                 break;
             case 4:
                 if (playerFourAddedSound != null)
@@ -115,7 +115,7 @@ public class PlayerManager : MonoBehaviour
                     MasterAudio.PlaySound(playerFourAddedSound);
                 }
 
-                scoreManager.playerFourTransform.transform.DOMoveY(60, 1).SetEase(Ease.OutBounce);
+                scoreManager.playerFourTransform.transform.DOMoveY(90, 1).SetEase(Ease.OutBounce);
                 break;
         }
     }

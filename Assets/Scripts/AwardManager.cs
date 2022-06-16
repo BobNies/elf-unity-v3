@@ -3,6 +3,7 @@ using UnityEngine;
 using MText;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.Video;
 
 // award icons on top right:
 // icon 1: spinner
@@ -18,6 +19,8 @@ using DG.Tweening;
 public class AwardManager : MonoBehaviour
 {
     public PlayfieldManager playfieldManager;
+    public VideoManager videoManager;
+    public VideoClip videoOmg;
 
     [Header("Top-Left award Boxes")]
     [Tooltip("Main transform that holds all the award boxes. Used for show/hide.")]
@@ -115,58 +118,65 @@ public class AwardManager : MonoBehaviour
         } else
         {
             // spawn prefabs
-            GameObject gObj = null;
+            GameObject gameObjectMainMonitorSpawn = null;
             var killTime = 5f;
             switch(name)
             {
                 case "ball_save_bs_plunger_saving_ball":
-                    gObj = pf_ballSave;
-                    displayAwardOnPlayfieldMonitor("Ball Saved", 2);
+                    gameObjectMainMonitorSpawn = pf_ballSave;
+                    displayAwardOnPlayfieldMonitor("Ball Saved");
                     break;
                 case "start_full_ball_mb":
-                    gObj = pf_startFullBallMb;
+                    gameObjectMainMonitorSpawn = pf_startFullBallMb;
                     displayAwardOnPlayfieldMonitor("MultiBall",4);
                     break;
                 case "pop_jester":
-                    gObj = pf_popJester;
-                    displayAwardOnPlayfieldMonitor("Jester Award", 2);
+                    gameObjectMainMonitorSpawn = pf_popJester;
+                    displayAwardOnPlayfieldMonitor("Jester Award");
                     break ;
                 case "plunger_skill_shot_awarded":
-                    displayAwardOnPlayfieldMonitor("Skillshot Awarded", 2);
+                    displayAwardOnPlayfieldMonitor("Skillshot Awarded");
                     break;
                 case "award_extra_ball":
-                    gObj = pf_awardExtraBall;
+                    gameObjectMainMonitorSpawn = pf_awardExtraBall;
                     displayAwardOnPlayfieldMonitor("Extra Ball");
                     break;
                 case "start_extra_ball":
-                    gObj = pf_startExtraBall;
+                    gameObjectMainMonitorSpawn = pf_startExtraBall;
                     displayAwardOnPlayfieldMonitor("Shoot Again", 4);
                     break;
                 case "snow_lane_advance_complete":
-                    gObj = pf_snowLaneAdvanceComplete;
-                    displayAwardOnPlayfieldMonitor("Snow Lane Advance Bonus", 2);
+                    gameObjectMainMonitorSpawn = pf_snowLaneAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Snow Lane Advance Bonus");
                     break;
                 case "top_lane_advance_complete":
-                    gObj = pf_topLaneAdvanceComplete;
-                    displayAwardOnPlayfieldMonitor("Lane Advance Award", 2);
+                    gameObjectMainMonitorSpawn = pf_topLaneAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Lane Advance Award");
                     break;
                 case "santa_lit_complete":
-                    gObj = pf_santaLitComplete;
-                    displayAwardOnPlayfieldMonitor("SANTA Bonus", 2);
+                    gameObjectMainMonitorSpawn = pf_santaLitComplete;
+                    displayAwardOnPlayfieldMonitor("SANTA Bonus");
                     break;
                 case "angry_targets_advance_complete":
-                    gObj = pf_angryTargetsAdvanceComplete;
-                    displayAwardOnPlayfieldMonitor("Angry Elf Advance Bonus", 2);
+                    gameObjectMainMonitorSpawn = pf_angryTargetsAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Angry Elf Advance Bonus");
                     break;
                 case "drop_elf_advance_complete":
-                    gObj = pf_dropElfAdvanceComplete;
+                    gameObjectMainMonitorSpawn = pf_dropElfAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Elf Advance Bonus");
                     break;
                 case "targets_buddy_advance_complete":
-                    gObj = pf_targetsBuddyAdvanceComplete;
+                    gameObjectMainMonitorSpawn = pf_targetsBuddyAdvanceComplete;
+                    displayAwardOnPlayfieldMonitor("Buddy Lit Bonus");
                     break;
                 case "target_food_groups_awarded":
-                    gObj = pf_targetFoodGroupsAwarded;
-                    displayAwardOnPlayfieldMonitor("Food Groups Awarded", 2);
+                    gameObjectMainMonitorSpawn = pf_targetFoodGroupsAwarded;
+                    displayAwardOnPlayfieldMonitor("Food Groups Awarded");
+                    break;
+                case "video_play_omg":
+                    videoManager.playVideo(videoOmg);
+
+                    // omg mode is active and ball drained. play video & post award
                     break;
                 // case "spinner_collect_award":
                 //     break;
@@ -178,16 +188,16 @@ public class AwardManager : MonoBehaviour
                 //     break;
             }
 
-            if(gObj != null) {
+            if(gameObjectMainMonitorSpawn != null) {
                 //main screen
-                var obj = Instantiate(gObj, new Vector3(0, .5f, 0), Quaternion.identity);
+                var obj = Instantiate(gameObjectMainMonitorSpawn, new Vector3(0, .5f, 0), Quaternion.identity);
                 Destroy(obj, killTime);
             }
         }
 
     }
 
-    private void displayAwardOnPlayfieldMonitor(string text, int delay = 2)
+    private void displayAwardOnPlayfieldMonitor(string text, int delay = 3)
     {
         playfieldManager.ShowAward(text, delay);
     }
