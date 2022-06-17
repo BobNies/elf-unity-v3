@@ -15,6 +15,8 @@ public class VideoManager : MonoBehaviour
     [Tooltip("Is this the main video screen. Usually the screen in front of the Book")]
     public bool mainGameVideo = true;
 
+    public PresentManager presentManager;
+
     public VideoPlayer videoPlayer;
     private VideoSource videoSource;
     private Vector3 vec = new Vector3(5, 3);
@@ -42,6 +44,8 @@ public class VideoManager : MonoBehaviour
             videoPlayer.transform.DOScale(0f, .5f)
                 .SetEase(Ease.OutQuint);
 
+            presentManager.show();
+
             //duck audio
             MasterAudio.UnmutePlaylist();
         }
@@ -68,6 +72,7 @@ public class VideoManager : MonoBehaviour
         {
             //mute background music during video
             MasterAudio.MutePlaylist();
+            presentManager.hide();
         }
     }
 
