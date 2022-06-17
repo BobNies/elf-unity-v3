@@ -20,12 +20,16 @@ public class VideoManager : MonoBehaviour
     public VideoPlayer videoPlayer;
     private VideoSource videoSource;
     private Vector3 vec = new Vector3(5, 3);
+    private float playlistResumeVolume;
 
     void Start()
     {
         //video player component
         //videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += CheckOver;
+
+        playlistResumeVolume = PlaylistController.InstanceByName("PlaylistController").PlaylistVolume;
+
 
         // Hide video screen onStart
         if (minimizeOnStart && mainGameVideo)
@@ -48,7 +52,7 @@ public class VideoManager : MonoBehaviour
 
             //duck audio
             //MasterAudio.UnmutePlaylist();
-            PlaylistController.InstanceByName("PlaylistController").FadeToVolume(.38f, .5f);
+            PlaylistController.InstanceByName("PlaylistController").FadeToVolume(playlistResumeVolume, .5f); //.38f
         }
     }
 
