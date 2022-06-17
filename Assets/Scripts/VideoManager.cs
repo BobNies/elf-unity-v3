@@ -47,7 +47,8 @@ public class VideoManager : MonoBehaviour
             presentManager.show();
 
             //duck audio
-            MasterAudio.UnmutePlaylist();
+            //MasterAudio.UnmutePlaylist();
+            PlaylistController.InstanceByName("PlaylistController").FadeToVolume(.38f, .5f);
         }
     }
 
@@ -71,7 +72,8 @@ public class VideoManager : MonoBehaviour
         if (mainGameVideo)
         {
             //mute background music during video
-            MasterAudio.MutePlaylist();
+            //MasterAudio.MutePlaylist();
+            PlaylistController.InstanceByName("PlaylistController").FadeToVolume(.15f, .5f);
             presentManager.hide();
         }
     }

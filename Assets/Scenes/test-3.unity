@@ -1222,7 +1222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1280,6 +1280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimizeOnStart: 1
   mainGameVideo: 1
+  presentManager: {fileID: 629728012}
   videoPlayer: {fileID: 69051573}
 --- !u!1 &74463679
 GameObject:
@@ -2340,7 +2341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 451
+  openTime: 453
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 448
+  openTime: 450
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 447
+  openTime: 449
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,7 +6147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 447
+  openTime: 449
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7107,7 +7108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1065
+  openTime: 1086
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -13225,7 +13226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 452
+  openTime: 454
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13964,7 +13965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 829
+  openTime: 850
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14347,6 +14348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ade0a11bf9e82478f5895023cb0d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  present: {fileID: 629728011}
   containedItemText: {fileID: 6493243801667380161}
   presentAnimator: {fileID: 629728013}
 --- !u!114 &629728013 stripped
@@ -17934,7 +17936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 447
+  openTime: 449
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -24288,7 +24290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 446
+  openTime: 448
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -26919,7 +26921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 446
+  openTime: 448
 --- !u!1 &1261984302
 GameObject:
   m_ObjectHideFlags: 0
@@ -27677,7 +27679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 454
+  openTime: 456
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -27888,7 +27890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 453
+  openTime: 455
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -27955,7 +27957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoManager: {fileID: 69051577}
   playfieldManager: {fileID: 597679883}
-  videoOmg: {fileID: 32900000, guid: 44a33042bf7f962489ca9ae9e75b0fde, type: 3}
   videoSinging: {fileID: 32900000, guid: b6986e36d284ed9448ec746368f9a7b8, type: 3}
   videoSomeoneSpecial: {fileID: 32900000, guid: 49af505241d523a43978edbd824142c0, type: 3}
   videoClips:
@@ -28126,6 +28127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playfieldManager: {fileID: 597679883}
+  videoManager: {fileID: 69051577}
+  videoOmg: {fileID: 32900000, guid: 44a33042bf7f962489ca9ae9e75b0fde, type: 3}
   awardTransform: {fileID: 2100080881}
   textAward1: {fileID: 2133200736}
   textAward2: {fileID: 40584411}
@@ -28890,7 +28893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 447
+  openTime: 449
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -29312,7 +29315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 448
+  openTime: 450
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -30760,6 +30763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimizeOnStart: 0
   mainGameVideo: 0
+  presentManager: {fileID: 0}
   videoPlayer: {fileID: 1437325337}
 --- !u!328 &1437325337
 VideoPlayer:
@@ -35889,7 +35893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1707567868
 Transform:
   m_ObjectHideFlags: 0
@@ -36397,7 +36401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 830
+  openTime: 851
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40200,7 +40204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 454
+  openTime: 456
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -40772,7 +40776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1066
+  openTime: 1087
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -43060,7 +43064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 452
+  openTime: 454
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -43361,7 +43365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 447
+  openTime: 449
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0

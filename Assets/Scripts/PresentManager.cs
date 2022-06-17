@@ -8,7 +8,7 @@ public class PresentManager : MonoBehaviour
 {
 
     private GameObject containedItem;
-    private GameObject present;
+    public GameObject present;
     private Vector3 vec = new Vector3(3, 3, 3);
 
     public Modular3DText containedItemText = null;
@@ -18,7 +18,7 @@ public class PresentManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        present =GameObject.Find("main-box").GetComponent<GameObject>();
+       // present =GameObject.Find("main-box").GetComponent<GameObject>();
         containedItem = presentAnimator.ContainedItems[0];
         this.gameObject.GetComponent<Animator>().enabled = true;
         //scoreP1 = playerOneTransform.transform.Find("score").GetComponent<TextMeshProUGUI>();
