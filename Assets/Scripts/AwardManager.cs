@@ -32,10 +32,11 @@ public class AwardManager : MonoBehaviour
 
     [Header("BCP triggers to advance above awards")]
     [Tooltip("The name of the BCP Trigger to listen for. Should be a Counter.events_when_hit")]
-    public string triggerAward1;
-    public string triggerAward2;
-    public string triggerAward3;
-    public string triggerAward4;
+    public string triggerAwardSpinner;          // 
+    public Spinner_Rotation spinnerRotation;    // 
+    public string triggerAwardJets;             // jets_collect_award
+    public string triggerAwardLoop;             // loop_collect_award
+    public string triggerAwardVuk;              // vuk_collect_award
 
     [Header("Prefab awards for matching BCP message")]
     public GameObject pf_startFullBallMb;
@@ -94,24 +95,25 @@ public class AwardManager : MonoBehaviour
             count = e.BcpMessage.Parameters["count"].Value;
         }
         
-        if (name == triggerAward1)
+        if (name == triggerAwardSpinner)
         {           
             textAward1.text = count;
             // animation
-            DOTween.Restart("hat");
+            //DOTween.Restart("hat");
+            spinnerRotation.Spin(1.5f);
             //squareAward1.transform.DORotate(new Vector3(360f, 0, 0), .22f, RotateMode.LocalAxisAdd).SetEase(Ease.OutQuad);
         }
-        else if (name == triggerAward2)
+        else if (name == triggerAwardJets)
         {
             textAward2.text = count;
             DOTween.Restart("flake");
         }
-        else if (name == triggerAward3)
+        else if (name == triggerAwardLoop)
         {
             textAward3.text = count;
             DOTween.Restart("cookie");
         }
-        else if (name == triggerAward4)
+        else if (name == triggerAwardVuk)
         {
             textAward4.text = count;
             DOTween.Restart("present");
@@ -228,22 +230,22 @@ public class AwardManager : MonoBehaviour
         {
             Debug.Log("AwardManager Award-1  pressed");
             
-            Trigger(null, new TriggerMessageEventArgs(null, triggerAward1));
+            Trigger(null, new TriggerMessageEventArgs(null, triggerAwardSpinner));
         }
      else  if (Input.GetKeyDown(mgr.award2))
         {
             Debug.Log("AwardManager Award-2 pressed");
-             Trigger(null, new TriggerMessageEventArgs(null, triggerAward2));
+             Trigger(null, new TriggerMessageEventArgs(null, triggerAwardJets));
         }
     else  if (Input.GetKeyDown(mgr.award3))
         {
             Debug.Log("AwardManager Award-3 pressed");
-             Trigger(null, new TriggerMessageEventArgs(null, triggerAward3));
+             Trigger(null, new TriggerMessageEventArgs(null, triggerAwardLoop));
         }
     else  if (Input.GetKeyDown(mgr.award4))
         {
             Debug.Log("AwardManager Award-4 pressed");
-            Trigger(null, new TriggerMessageEventArgs(null, triggerAward4));
+            Trigger(null, new TriggerMessageEventArgs(null, triggerAwardVuk));
         }
     else  if (Input.GetKeyDown(mgr.extraBall))
         {
