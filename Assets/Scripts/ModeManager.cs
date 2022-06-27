@@ -14,6 +14,7 @@ public class ModeManager : MonoBehaviour
 
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
+    [Header("Random clip played on ball 1")]
     public VideoClip[] videoClips;
     public int videoQueueTime = 1;
     [MasterCustomEventAttribute] public string playlist;
