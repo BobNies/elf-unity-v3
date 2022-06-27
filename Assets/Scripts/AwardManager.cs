@@ -25,10 +25,12 @@ public class AwardManager : MonoBehaviour
     [Header("Top-Left award Boxes")]
     [Tooltip("Main transform that holds all the award boxes. Used for show/hide.")]
     public Transform awardTransform;
-    public TextMeshProUGUI textAward1;
-    public TextMeshProUGUI textAward2;
-    public TextMeshProUGUI textAward3;
-    public TextMeshProUGUI textAward4;
+
+    public GameObject spinnerTransform;
+    public TextMeshProUGUI textSpinner;
+    public TextMeshProUGUI textJets;
+    public TextMeshProUGUI textLoops;
+    public TextMeshProUGUI textNarwhal;
 
     [Header("BCP triggers to advance above awards")]
     [Tooltip("The name of the BCP Trigger to listen for. Should be a Counter.events_when_hit")]
@@ -97,7 +99,7 @@ public class AwardManager : MonoBehaviour
         
         if (name == triggerAwardSpinner)
         {           
-            textAward1.text = count;
+            textSpinner.text = count;
             // animation
             //DOTween.Restart("hat");
             spinnerRotation.Spin(1.5f);
@@ -105,17 +107,17 @@ public class AwardManager : MonoBehaviour
         }
         else if (name == triggerAwardJets)
         {
-            textAward2.text = count;
+            textJets.text = count;
             DOTween.Restart("flake");
         }
         else if (name == triggerAwardLoop)
         {
-            textAward3.text = count;
+            textLoops.text = count;
             DOTween.Restart("loops");
         }
         else if (name == triggerAwardVuk)
         {
-            textAward4.text = count;
+            textNarwhal.text = count;
             DOTween.Restart("narwhal");
         } else
         {
@@ -206,20 +208,26 @@ public class AwardManager : MonoBehaviour
 
     public void resetAllAwards()
     {
-        textAward1.text = "0";
-        textAward2.text = "0";
-        textAward3.text = "0";
-        textAward4.text = "0";
+        textSpinner.text = "0";
+        textJets.text = "0";
+        textLoops.text = "0";
+        textNarwhal.text = "0";
     }
 
     public void tweenIn()
     {
         awardTransform.DOLocalMoveX(-350, 1f).SetEase(Ease.InQuad);
+        textSpinner.transform.DOLocalMoveY(159, .5f).SetEase(Ease.OutQuad);
+        //spinnerTransform.DOLocalMoveY(100, .5f).SetEase(Ease.OutQuad);
+        spinnerTransform.SetActive(true);
     }
 
     public void tweenOut()
     {
         awardTransform.DOLocalMoveX(-500, 1f).SetEase(Ease.OutQuad);
+        textSpinner.transform.DOLocalMoveY(250, .5f).SetEase(Ease.OutQuad);
+        spinnerTransform.SetActive(false);
+        //spinnerTransform.DOLocalMoveY(-100, .5f).SetEase(Ease.OutQuad);
     }
 
     // **** DEBUG
@@ -229,13 +237,14 @@ public class AwardManager : MonoBehaviour
      if (Input.GetKeyDown(mgr.award1))
         {
             Debug.Log("AwardManager Award-1  pressed");
-            
+            //tweenIn();
             Trigger(null, new TriggerMessageEventArgs(null, triggerAwardSpinner));
         }
      else  if (Input.GetKeyDown(mgr.award2))
         {
+            //tweenOut();
             Debug.Log("AwardManager Award-2 pressed");
-             Trigger(null, new TriggerMessageEventArgs(null, triggerAwardJets));
+            Trigger(null, new TriggerMessageEventArgs(null, triggerAwardJets));
         }
     else  if (Input.GetKeyDown(mgr.award3))
         {
