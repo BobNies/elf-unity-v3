@@ -111,12 +111,12 @@ public class AwardManager : MonoBehaviour
         else if (name == triggerAwardLoop)
         {
             textAward3.text = count;
-            DOTween.Restart("cookie");
+            DOTween.Restart("loops");
         }
         else if (name == triggerAwardVuk)
         {
             textAward4.text = count;
-            DOTween.Restart("present");
+            DOTween.Restart("narwhal");
         } else
         {
             // spawn prefabs
