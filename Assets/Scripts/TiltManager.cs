@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DarkTonic.MasterAudio;
 
 /* ELF
     Tilt manager: Handles tilt & tilt warning
 */
 public class TiltManager : MonoBehaviour
 {
+    public GameObject tiltObject;
+    public TextMeshProUGUI tiltText;
+
+    [SoundGroupAttribute] public string tilt;
 
 #if UNITY_EDITOR
     private KeyboardInput mgr;
@@ -33,6 +39,7 @@ public class TiltManager : MonoBehaviour
 
     public void TiltWarning(object sender, TiltWarningMessageEventArgs e)
     {
+        StartCoroutine(queueTilt("Warning"));
         // TODO
         //if (!warnings.IsNone)
         //  warnings.Value = e.Warnings;
@@ -43,15 +50,24 @@ public class TiltManager : MonoBehaviour
 
     public void Tilt(object sender, BcpMessageEventArgs e)
     {
-        // TODO
+        StartCoroutine(queueTilt("Tilt"));
     }
 
     public void SlamTilt(object sender, BcpMessageEventArgs e)
     {
-        // TODO
+        StartCoroutine(queueTilt("Tilt"));
     }
 
-        // **** DEBUG
+    IEnumerator queueTilt(string msg)
+    {
+        tiltText.text =msg;
+        tiltObject.SetActive(true);
+        MasterAudio.PlaySound(tilt);
+        yield return new WaitForSeconds(4);
+        tiltObject.SetActive(false);
+    }
+
+    // **** DEBUG
 #if UNITY_EDITOR
   void Update()
     {

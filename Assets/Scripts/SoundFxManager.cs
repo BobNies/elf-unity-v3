@@ -23,7 +23,7 @@ public class SoundFxManager : MonoBehaviour
     [SoundGroupAttribute] public string buddyTargets;
     //[SoundGroupAttribute] public string popJesterSound;
     [SoundGroupAttribute] public string santaRamp;
-    [SoundGroupAttribute] public string tilt;
+    //[SoundGroupAttribute] public string tilt;
     [SoundGroupAttribute] public string jesterCrank;
     [SoundGroupAttribute] public string jesterPop;
 
@@ -128,9 +128,9 @@ public class SoundFxManager : MonoBehaviour
             case "s_ramp_loop":
                 MasterAudio.PlaySound(santaRamp);
                 break;
-            case "s_tilt":
-                MasterAudio.PlaySound(tilt);
-                break;
+            //case "s_tilt":
+              //  MasterAudio.PlaySound(tilt);
+                //break;
         }
     }
 

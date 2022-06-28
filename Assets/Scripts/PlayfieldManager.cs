@@ -55,8 +55,8 @@ public class PlayfieldManager : MonoBehaviour
     // 5 - coffee
     // 6 - nutcrackker
     // 7 - park
-    // 8 - UNUSED
 
+    // 8 - skillshot
     // 9 - ball lock
     // 10 - jackpot
     // 11 - plunger skillshot
