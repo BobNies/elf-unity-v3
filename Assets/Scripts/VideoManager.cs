@@ -7,6 +7,7 @@ using DarkTonic.MasterAudio;
 
 /* ELF
     Video Manager: handles video playback 
+    NODE: if you modify this script, you need to delete/add the player back to MasterAudio
 */
 public class VideoManager : MonoBehaviour
 {
