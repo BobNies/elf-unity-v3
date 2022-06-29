@@ -421,9 +421,9 @@ public class BcpMessageManager : MonoBehaviour
         }
         if (tilt)
         {
-            BcpMessage.RegisterTriggerMessage("tilt");
-            BcpMessage.RegisterTriggerMessage("tilt_warning");
-            BcpMessage.RegisterTriggerMessage("slam_tilt");
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("tilt"));
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("tilt_warning"));
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("slam_tilt"));
         }
         char[] charSeparators = new char[] { ',' };
 

@@ -24,7 +24,8 @@ public class TiltManager : MonoBehaviour
 #if UNITY_EDITOR
         mgr = GameObject.Find("TEST_ONLY").GetComponent<KeyboardInput>();
 #endif
-
+        // NOTE: BcpMessageManager does not handle these correctly, MUST add tags (tilt_warning,tilt,slam)
+        // to the Unity scene Bcp Message Manager
         BcpMessageController.OnTiltWarning += TiltWarning;
         BcpMessageController.OnTilt += Tilt;
         BcpMessageController.OnSlamTilt += SlamTilt;

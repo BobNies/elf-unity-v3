@@ -44,7 +44,7 @@ public class SoundFxManager : MonoBehaviour
     public void Trigger(object sender, TriggerMessageEventArgs e)
     {
         //trigger jester sounds -- ,sh_jester_hit_2_hit,sh_jester_hit_3_hit
-        BcpLogger.Trace("bob NAME:" + e.Name);
+        //BcpLogger.Trace("bob NAME:" + e.Name);
         switch (e.Name)
         {
             case "sh_jester_hit_1_hit":
