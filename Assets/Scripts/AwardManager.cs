@@ -216,18 +216,18 @@ public class AwardManager : MonoBehaviour
 
     public void tweenIn()
     {
-        awardTransform.DOLocalMoveX(-350, 1f).SetEase(Ease.InQuad);
+        awardTransform.DOLocalMoveX(0, 1f).SetEase(Ease.InQuad);
         textSpinner.transform.DOLocalMoveY(159, .5f).SetEase(Ease.OutQuad);
-        //spinnerTransform.DOLocalMoveY(100, .5f).SetEase(Ease.OutQuad);
+        //spinnerTransform.transform.DOLocalMoveY(100, .5f).SetEase(Ease.OutQuad);
         spinnerTransform.SetActive(true);
     }
 
     public void tweenOut()
     {
-        awardTransform.DOLocalMoveX(-500, 1f).SetEase(Ease.OutQuad);
+        awardTransform.DOLocalMoveX(-200, 1f).SetEase(Ease.OutQuad);
         textSpinner.transform.DOLocalMoveY(250, .5f).SetEase(Ease.OutQuad);
         spinnerTransform.SetActive(false);
-        //spinnerTransform.DOLocalMoveY(-100, .5f).SetEase(Ease.OutQuad);
+        //spinnerTransform.transform.DOLocalMoveY(-100, .5f).SetEase(Ease.OutQuad);
     }
 
     // **** DEBUG
