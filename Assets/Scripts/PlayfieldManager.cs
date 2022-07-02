@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 // Controls UI on the small PF monitor
 // show/hide objects per level
@@ -38,6 +39,7 @@ public class PlayfieldManager : MonoBehaviour
     {
         Award.SetActive(true);
         awardText.text = text;
+        DOTween.Restart("AwardText");
         StartCoroutine(HideAward(delay));
     }
 

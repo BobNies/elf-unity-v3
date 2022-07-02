@@ -54,9 +54,6 @@ public class AwardManager : MonoBehaviour
     public GameObject pf_dropElfAdvanceComplete;
     public GameObject pf_targetsBuddyAdvanceComplete;
     public GameObject pf_targetFoodGroupsAwarded;
-    // public GameObject pf_jetsCollectAward;
-    // public GameObject pf_loopCollectAward;
-    // public GameObject pf_vukCollectAward;
 
 
 #if UNITY_EDITOR
@@ -72,7 +69,7 @@ public class AwardManager : MonoBehaviour
 
         BcpMessageController.OnTrigger += Trigger;
 
-        resetAllAwards();
+        resetAllAwardScores();
         //test only
         // tweenOut();
         //tweenIn();
@@ -101,7 +98,6 @@ public class AwardManager : MonoBehaviour
         {           
             textSpinner.text = count;
             // animation
-            //DOTween.Restart("hat");
             spinnerRotation.Spin(1.5f);
             //squareAward1.transform.DORotate(new Vector3(360f, 0, 0), .22f, RotateMode.LocalAxisAdd).SetEase(Ease.OutQuad);
         }
@@ -206,7 +202,7 @@ public class AwardManager : MonoBehaviour
         playfieldManager.ShowAward(text, delay);
     }
 
-    public void resetAllAwards()
+    public void resetAllAwardScores()
     {
         textSpinner.text = "0";
         textJets.text = "0";

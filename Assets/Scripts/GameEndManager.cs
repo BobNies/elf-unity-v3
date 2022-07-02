@@ -47,6 +47,7 @@ public class GameEndManager : MonoBehaviour
             ballCountUpdater.tweenOut();
             //reset awards
             awardManager.tweenOut();
+            awardManager.resetAllAwardScores();
             // reset PF screen.
             playfieldManager.ShowLevel(0);  //TODO - show something before attract
 
