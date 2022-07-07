@@ -421,9 +421,9 @@ public class BcpMessageManager : MonoBehaviour
         }
         if (tilt)
         {
-            BcpMessage.RegisterTriggerMessage("tilt");
-            BcpMessage.RegisterTriggerMessage("tilt_warning");
-            BcpMessage.RegisterTriggerMessage("slam_tilt");
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("tilt"));
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("tilt_warning"));
+            BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("slam_tilt"));
         }
         char[] charSeparators = new char[] { ',' };
 
@@ -448,10 +448,12 @@ public class BcpMessageManager : MonoBehaviour
         // ELF specific triggers. Setting them here instead of Scene
         // Do not add modes here, they go in ModeManager
         string elfTriggers =
+        "first_ball," +                     // ball 1, called for each player
         "start_full_ball_mb," +             // multiball
         "pop_jester," +                     // jester
         "plunger_skill_shot_awarded," +     // plunge ball & hit correct drop target
-        "start_extra_ball," +               // extra ball
+        "award_extra_ball," +               // extra ball awarded
+        "start_extra_ball," +               // extra ball started
         "snow_lane_advance_complete," +     // snow lanes
         "top_lane_advance_complete," +      // 2 upper lanes
         "santa_lit_complete," +             // loop hit 5 times
@@ -462,7 +464,9 @@ public class BcpMessageManager : MonoBehaviour
         "spinner_collect_award," +
         "jets_collect_award," +
         "loop_collect_award," +
-        "vuk_collect_award";
+        "vuk_collect_award," +
+        "video_play_omg," +                 // play OMG video
+        "ball_save_bs_plunger_saving_ball"; // ball save 
         // ^^ include comma ^^
 
 

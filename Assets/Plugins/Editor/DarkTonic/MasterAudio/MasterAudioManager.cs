@@ -55,7 +55,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 return;
             }
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm");
 
             var settings = MasterAudioInspectorResources.GearTexture;
 
@@ -95,7 +95,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             }
 
             GUILayout.FlexibleSpace();
-            DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#MAGO");
+            DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#MAGO");
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.Separator();
@@ -114,7 +114,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             GUI.contentColor = Color.white;
 
             GUILayout.FlexibleSpace();
-            DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#PCGO");
+            DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#PCGO");
             EditorGUILayout.EndHorizontal();
             if (!plControllerInScene)
             {
@@ -137,7 +137,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             GUI.contentColor = Color.white;
 
             GUILayout.FlexibleSpace();
-            DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#DSGC");
+            DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#DSGC");
             EditorGUILayout.EndHorizontal();
 
 
@@ -171,7 +171,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             GUI.contentColor = Color.white;
 
             GUILayout.FlexibleSpace();
-            DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#SGO");
+            DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#SGO");
             EditorGUILayout.EndHorizontal();
 
 
@@ -181,7 +181,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
             {
                 EditorGUILayout.BeginHorizontal(EditorStyles.objectFieldThumb);
                 GUILayout.Label("Global Settings");
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#GlobalSettings");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#GlobalSettings");
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginHorizontal();
@@ -272,11 +272,11 @@ namespace DarkTonic.MasterAudio.EditorScripts
                         }
                         GUI.contentColor = Color.white;
                         GUILayout.Space(10);
-                        DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/InstallationFolder.htm");
+                        DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/InstallationFolder.htm");
                     }
                     else
                     {
-                        DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/InstallationFolder.htm");
+                        DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/InstallationFolder.htm");
                         GUILayout.FlexibleSpace();
                     }
 
@@ -287,7 +287,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
                 EditorGUILayout.BeginHorizontal(EditorStyles.objectFieldThumb);
                 GUILayout.Label("Utility Functions");
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#UtilityFunctions");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/MasterAudioManager.htm#UtilityFunctions");
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginHorizontal();

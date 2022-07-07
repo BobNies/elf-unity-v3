@@ -2,9 +2,20 @@ MASTER AUDIO PLUGIN - By DarkTonic, Inc. (c) 2012-2022
 
 - Code by Brian Hunsaker
 
-Master Audio 2022 released! Version numbers reset.
+-V 1.0.2    - Added Playmaker Custom Action MasterAudioFadeSoundGroupOfTransform.
+			- Added Multiplayer integration with FishNet.
+			- Fixed previewing so it works in newer versions of Unity despite the PlayOneShot Unity bug.
+			- Fixed Sound Group Inspector so during runtime, moving the Group Master Volume slider adjusts the volume of any playing Variations in the Group.
+			- Fixed "All Groups" checkbox functionality for Event Sounds.
+			- Fixed bugs in Mirror Multiplayer package. Some sounds were playing twice. Others not firing sometimes.
+			- Fixed occasional wrong lookup of briefly named (clone) variations.
+			- Reverted AsmDef packages, they must be ""all platform" or the Inspectors don't show in Unity.
+			- Added Fade Sound Group Of Transform To Volume to Event Sounds.
+			- All links to documentation website and API website are now HTTPS in case your browser doesn't auto-redirect.
+
 -V 1.0.1    - Fixed export problem with MasterAudioReferenceHolder.cs
 
+Master Audio 2022 released! Version numbers reset.
 -V 1.0		- Fixed bug where Variations were not found because of name containing "Clone" for Variations with Weight > 1.
 			- Fixed bug in Unity 2021 where domain not reloading settings broke outside the editor.
  			- Fixed bug with calculation of "is too far away to play" Audio.
@@ -157,7 +168,7 @@ Master Audio / Master Audio 2021 releases ended.
 -V 4.2.6    - Added a toggle for "Remove Probability-Unplayed Variations" on the Master Audio Manager screen. Defaults to "on". If you turn it off, Variations that aren't played due to failing the Probability To Play check will not be removed from the pool, so they may be played again later through another probability check. 
 			- Fixed bug where a despawned or destroyed Game Object with Ambient Sound script would stop all playing instances of the Sound Group instead of just the single voice.
 
--V 4.2.5    - Made compilation possible without having Physics3D and/or Physics2D installed. You will lose Occlusion / AmbientSound functionality and corresponding events on EventSounds depending on which you remove, but everything else will work. Check the Physics page on the documentation on how to get it compiling since you have to add a define for each missing package. Link here: http://www.dtdevtools.com/docs/masteraudio/Physics.htm
+-V 4.2.5    - Made compilation possible without having Physics3D and/or Physics2D installed. You will lose Occlusion / AmbientSound functionality and corresponding events on EventSounds depending on which you remove, but everything else will work. Check the Physics page on the documentation on how to get it compiling since you have to add a define for each missing package. Link here: https://www.dtdevtools.com/docs/masteraudio/Physics.htm
 
 -V 4.2.4	- Fixed warning: Script execution order thing with DGSC and Ambient Sound would log "missing sound group". Added a check so the warning doesn't happen. Fixed a similar bug last update but it was only half the problem.
 			- Fixed bug where re-enter mode of Ambient Sound wouldn't play anything after the first trigger enter if set to "fade in same sound".

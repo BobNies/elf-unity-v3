@@ -138,12 +138,15 @@ namespace DarkTonic.MasterAudio.EditorScripts
                                     if (previewer != null)
                                     {
                                         var fileName = AudioResourceOptimizer.GetLocalizedFileName(_variation.useLocalization, _variation.resourceFileName);
-                                        previewer.PlayOneShot(Resources.Load(fileName) as AudioClip, calcVolume);
+                                        var resClip = Resources.Load(fileName) as AudioClip;
+                                        DTGUIHelper.PlaySilentWakeUpPreview(previewer, resClip);
+                                        previewer.PlayOneShot(resClip, calcVolume);
                                     }
                                     break;
                                 case MasterAudio.AudioLocation.Clip:
                                     if (previewer != null)
                                     {
+                                        DTGUIHelper.PlaySilentWakeUpPreview(previewer, _variation.VarAudio.clip);
                                         previewer.PlayOneShot(_variation.VarAudio.clip, calcVolume);
                                     }
                                     break;
@@ -175,7 +178,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
             EditorGUILayout.EndHorizontal();
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm", "http://www.dtdevtools.com/API/masteraudio/class_dark_tonic_1_1_master_audio_1_1_sound_group_variation.html");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm", "https://www.dtdevtools.com/API/masteraudio/class_dark_tonic_1_1_master_audio_1_1_sound_group_variation.html");
 
             if (!isVideoPlayersGroup)
             {
@@ -212,7 +215,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 {
                     EditorGUILayout.LabelField("Audio Origin", _variation.audLocation.ToString());
                 }
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm#AudioOrigin");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm#AudioOrigin");
                 EditorGUILayout.EndHorizontal();
 
                 if (oldLocation != _variation.audLocation && oldLocation == MasterAudio.AudioLocation.Clip)
@@ -378,7 +381,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
                 EditorGUILayout.BeginHorizontal();
                 var newWeight = EditorGUILayout.IntSlider("Voices / Weight", _variation.weight, 0, 100);
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm#Voices");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/SoundGroupVariations.htm#Voices");
                 EditorGUILayout.EndHorizontal();
                 if (newWeight != _variation.weight)
                 {

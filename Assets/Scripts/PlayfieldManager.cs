@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
 // Controls UI on the small PF monitor
 // show/hide objects per level
@@ -15,20 +17,36 @@ public class PlayfieldManager : MonoBehaviour
     public GameObject L5;
     public GameObject L6;
     public GameObject L7;
-    public GameObject L8;
-    public GameObject L9;
-    public GameObject L10;
-    public GameObject L11;
-    public GameObject L12;
-    public GameObject L13;
+    public GameObject LSkillShot;
+    public GameObject LBallLock;
+    public GameObject LJackpot;
+    public GameObject LRampShot;
+    public GameObject LSpecial;
+    public GameObject LOmg;
 
-    //private GameObject[] screens;
+    public GameObject Award;
+    private TextMeshProUGUI awardText;
 
     // Start is called before the first frame update
     void Start()
     {
-       // screens = new GameObject[] { Attract, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13};
+        awardText = Award.transform.Find("TextAward").GetComponent<TextMeshProUGUI>();
+        Award.SetActive(false); // just incase
         ShowLevel(0);
+    }
+
+    public void ShowAward(string text, int delay = 3)
+    {
+        Award.SetActive(true);
+        awardText.text = text;
+        DOTween.Restart("AwardText");
+        StartCoroutine(HideAward(delay));
+    }
+
+    IEnumerator HideAward(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Award.SetActive(false);
     }
 
     // 0 - attract
@@ -39,8 +57,8 @@ public class PlayfieldManager : MonoBehaviour
     // 5 - coffee
     // 6 - nutcrackker
     // 7 - park
-    // 8 - UNUSED
 
+    // 8 - skillshot
     // 9 - ball lock
     // 10 - jackpot
     // 11 - plunger skillshot
@@ -86,22 +104,22 @@ public class PlayfieldManager : MonoBehaviour
                 L7.SetActive(true);
                 break;
             case 8:
-               // L8.SetActive(true);
+                LSkillShot.SetActive(true);
                 break;
             case 9:
-                L9.SetActive(true);
+                LBallLock.SetActive(true);
                 break;
             case 10:
-                L10.SetActive(true);
+                LJackpot.SetActive(true);
                 break;
             case 11:
-                L11.SetActive(true);
+                LRampShot.SetActive(true);
                 break;
             case 12:
-                L12.SetActive(true);
+                LSpecial.SetActive(true);
                 break;
             case 13:
-                L13.SetActive(true);
+                LOmg.SetActive(true);
                 break;
         }
     }
@@ -109,6 +127,8 @@ public class PlayfieldManager : MonoBehaviour
     private void hideAll()
     {
         attract.SetActive(false);
+        //Award.SetActive(false);
+
         L1.SetActive(false);
         L2.SetActive(false);
         L3.SetActive(false);
@@ -116,13 +136,13 @@ public class PlayfieldManager : MonoBehaviour
         L5.SetActive(false);
         L6.SetActive(false);
         L7.SetActive(false);
-        L8.SetActive(false);
-        L9.SetActive(false);
-        L10.SetActive(false);
-        L11.SetActive(false);
-        L12.SetActive(false);
-        L13.SetActive(false);
 
-        //screens[level].SetActive(true);
+        LSkillShot.SetActive(false);
+        LBallLock.SetActive(false);
+        LJackpot.SetActive(false);
+        LRampShot.SetActive(false);
+        LSpecial.SetActive(false);
+        LOmg.SetActive(false);
     }
+
 }

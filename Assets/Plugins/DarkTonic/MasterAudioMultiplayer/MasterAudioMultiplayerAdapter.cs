@@ -221,6 +221,18 @@ namespace DarkTonic.MasterAudio.Multiplayer {
         }
 
         /// <summary>
+        /// This calls MasterAudio.FadeSoundGroupOfTransformToVolume
+        /// </summary>
+        /// <param name="trans"></param>
+        /// <param name="soundType"></param>
+        /// <param name="fadeTime"></param>
+        /// <param name="fadeVolume"></param>
+        public static void FadeSoundGroupOfTransformToVolume(Transform trans, string soundType, float fadeTime, float fadeVolume)
+        {
+
+        }
+
+        /// <summary>
         /// This calls MasterAudio.RefillSoundGroupPool
         /// </summary>
         /// <param name="trans"></param>

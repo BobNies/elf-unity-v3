@@ -20,6 +20,7 @@ using DarkTonic.MasterAudio;
 */
 public class HighScoreManager : MonoBehaviour
 {
+    [Header("**** This script MUST be inactive in scene ****")]
     [SerializeField]
     public Modular3DText initial1 = null;
     [SerializeField]

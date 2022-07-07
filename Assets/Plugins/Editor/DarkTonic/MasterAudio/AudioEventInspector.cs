@@ -151,7 +151,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
             _isDirty = false;
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/EventSounds.htm");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/EventSounds.htm");
 
             _sounds = (EventSounds)target;
 
@@ -486,7 +486,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 
                 EditorGUILayout.BeginHorizontal();
                 var newEventIndex = EditorGUILayout.Popup("Event To Activate", -1, unusedEventTypes.ToArray());
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#SupportedEvents");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#SupportedEvents");
 
                 EditorGUILayout.EndHorizontal();
 
@@ -1363,7 +1363,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
 #if UNITY_2019_3_OR_NEWER
         topMargin = 0;
 #endif
-            DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#EventSettings", topMargin);
+            DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#EventSettings", topMargin);
 
             GUILayout.EndHorizontal();
 
@@ -2020,7 +2020,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                     eventGrp.retriggerLimitMode = newRetrigger;
                 }
 
-                DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#Retrigger");
+                DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#Retrigger");
 
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.EndVertical();
@@ -2078,7 +2078,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                     var buttonPressed = DTGUIHelper.AddFoldOutListItemButtonItems(j, eventGrp.SoundEvents.Count, "Action", true, false, true);
 
                     GUILayout.Space(4);
-                    DTGUIHelper.AddHelpIconNoStyle("http://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#Actions");
+                    DTGUIHelper.AddHelpIconNoStyle("https://www.dtdevtools.com/docs/masteraudio/EventSounds.htm#Actions");
 
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.EndVertical();
@@ -3214,6 +3214,14 @@ namespace DarkTonic.MasterAudio.EditorScripts
                                         {
                                             AudioUndoHelper.RecordObjectPropertyForUndo(ref _isDirty, _sounds, "change Fade Time");
                                             aEvent.fadeTime = newFade;
+                                        }
+                                        break;
+                                    case MasterAudio.SoundGroupCommand.FadeSoundGroupOfTransformToVolume:
+                                        var newFade2 = EditorGUILayout.Slider("Fade Time", aEvent.fadeTime, 0f, 10f);
+                                        if (newFade2 != aEvent.fadeTime)
+                                        {
+                                            AudioUndoHelper.RecordObjectPropertyForUndo(ref _isDirty, _sounds, "change Fade Time");
+                                            aEvent.fadeTime = newFade2;
                                         }
                                         break;
                                     case MasterAudio.SoundGroupCommand.RouteToBus:

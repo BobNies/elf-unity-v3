@@ -603,7 +603,8 @@ namespace DarkTonic.MasterAudio {
             ToggleSoundGroupOfTransform,
             FadeOutAllSoundsOfTransform,
             StopOldSoundGroupVoices,
-            FadeOutOldSoundGroupVoices
+            FadeOutOldSoundGroupVoices,
+            FadeSoundGroupOfTransformToVolume
         }
 
         public enum PersistentSettingsCommand {
@@ -645,13 +646,7 @@ namespace DarkTonic.MasterAudio {
 
         public static readonly List<SoundGroupCommand> GroupCommandsWithNoAllGroupSelector = new List<SoundGroupCommand> {
             SoundGroupCommand.None,
-            SoundGroupCommand.FadeOutSoundGroupOfTransform,
-            SoundGroupCommand.PauseSoundGroupOfTransform,
-            SoundGroupCommand.UnpauseSoundGroupOfTransform,
-            SoundGroupCommand.StopSoundGroupOfTransform,
-            SoundGroupCommand.ToggleSoundGroupOfTransform,
-            SoundGroupCommand.ToggleSoundGroup,
-            SoundGroupCommand.FadeOutAllSoundsOfTransform
+            SoundGroupCommand.FadeOutAllSoundsOfTransform 
         };
 
 #endregion
@@ -1719,6 +1714,7 @@ namespace DarkTonic.MasterAudio {
         /// <returns>boolean- true indicating that the sound was either played or scheduled, false otherwise.</returns>
         public static bool PlaySoundAndForget(string sType, float volumePercentage = 1f, float? pitch = null,
             float delaySoundTime = 0f, string variationName = null, double? timeToSchedulePlay = null, bool isChaining = false) {
+
             if (!SceneHasMasterAudio) {
                 return false;
             }
@@ -2593,21 +2589,22 @@ namespace DarkTonic.MasterAudio {
             var choiceMatches = Instance._nonRandomChoices[sType];
             choiceMatches.Clear();
 
-            for (var i = 0; i < sources.Count; i++)
-            {
+            for (var i = 0; i < sources.Count; i++) {
                 var aSource = sources[i];
-                if (!string.IsNullOrEmpty(aSource.Variation.clipAlias) && aSource.Variation.clipAlias == variationName)
-                {
+
+                if (!string.IsNullOrEmpty(aSource.Variation.clipAlias) && aSource.Variation.clipAlias == variationName) {
                     // name match
                 } else if (aSource.Variation.GameObjectName == variationName) {
                     // name match
+                } else if (aSource.Variation.VarAudio.name == variationName) { // for the odd case when GameObjectName is set to early to (clone)
+                    // name match 
+                    aSource.Variation.GameObjectName = variationName; // fix it for next time
                 } else {
                     continue;
                 }
 
                 matchesFound++;
-                if (aSource.Variation.IsAvailableToPlay || (canUseBusVoiceToStop && aSource.Variation == busVoiceToStop))
-                {
+                if (aSource.Variation.IsAvailableToPlay || (canUseBusVoiceToStop && aSource.Variation == busVoiceToStop)) {
                     choiceMatches.Add(i);
                 }
             }
@@ -3360,6 +3357,34 @@ namespace DarkTonic.MasterAudio {
                     continue;
                 }
                 variation.FadeOutNowAndStop(fadeTime);
+            }
+        }
+
+        /// <summary>
+        /// This method allows you to fade a certain Sound Group triggered by or following a Transform to a target volume over a period of time.
+        /// </summary>
+		/// <param name="sourceTrans">The Transform the sound was triggered to follow or use the position of.</param>
+        /// <param name="sType">The name of the Sound Group.</param>
+        /// <param name="fadeTime">The amount of seconds the fading will take.</param>
+        /// <param name="targetVolume">The end volume of the fade.</param>
+		public static void FadeSoundGroupOfTransformToVolume(Transform sourceTrans, string sType, float fadeTime, float targetVolume) {
+            if (!SceneHasMasterAudio || sourceTrans == null) {
+                // No MA
+                return;
+            }
+
+            var allVarsOfTransform = GetAllPlayingVariationsOfTransform(sourceTrans);
+
+            // ReSharper disable once ForCanBeConvertedToForeach
+            for (var v = 0; v < allVarsOfTransform.Count; v++) {
+                var aVar = allVarsOfTransform[v];
+                var grpName = aVar.ParentGroup.GameObjectName;
+
+                if (grpName != sType) {
+                    continue;
+                }
+
+                aVar.FadeToVolume(targetVolume, fadeTime);
             }
         }
 

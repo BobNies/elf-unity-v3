@@ -12,12 +12,14 @@ public class ModeManager : MonoBehaviour
     public VideoManager videoManager;
     public PlayfieldManager playfieldManager;
 
-    public VideoClip videoOmg;
     public VideoClip videoSinging;
     public VideoClip videoSomeoneSpecial;
+    [Header("Random clip played on ball 1")]
     public VideoClip[] videoClips;
     public int videoQueueTime = 1;
     [MasterCustomEventAttribute] public string playlist;
+
+    private int previousLevel = -1;
 
 #if UNITY_EDITOR
     private KeyboardInput mgr;
@@ -61,67 +63,78 @@ public class ModeManager : MonoBehaviour
             case "attract":
                 MasterAudio.StopPlaylist(); // just incase
                 playfieldManager.ShowLevel(0);
+                previousLevel = -1;
                 break;
             case "level_candy_cane_forest":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(1);
                 // start BG music
                 StartPlaylist();
+                previousLevel = 1;
                 break;
             case "level_gumdrop":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(2);
+                previousLevel = 2;
                 break;
             case "level_lincoln_tunnel":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(3);
+                previousLevel = 3;
                 break;
             case "level_gimbels":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(4);
+                previousLevel = 4;
                 break;
             case "level_coffee":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(5);
+                previousLevel = 5;
                 break;
             case "level_nutcracker":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(6);
+                previousLevel = 6;
                 break;
             case "level_central_park":
                 playVideoOnBallOne();
                 playfieldManager.ShowLevel(7);
+                previousLevel = 7;
                 break;
-            // sub-levels
-            // TODO - 8 is unused
-            // TODO - play then put back
+
+            // --------- sub-levels ---------------
+            // these are short-lived screens and will return to
+            // previous screen (level 1-7) when done.
+            case "plunger_skill_shot":
+                    playfieldManager.ShowLevel(8);
+                break;
             case "ball_lock":
-                // playfieldManager.ShowLevel(9);
-                break;
-            case "end_of_ball_bonus":
+                    playfieldManager.ShowLevel(9);
                 break;
             case "jackpot":
-                //playfieldManager.ShowLevel(10);
-                break;
-            case "jet_bonus":
-                break;
-            case "omg":
-                //videoManager.playVideo(videoOmg);
-                break;
-            case "plunger_skill_shot":
-                //playfieldManager.ShowLevel(11);
+                    playfieldManager.ShowLevel(10);
                 break;
             case "ramp_shot":
-                //playfieldManager.ShowLevel(12);
+                playfieldManager.ShowLevel(11);
+                break;
+            case "someone_special":
+                playVideoOnBallOne();
+                playfieldManager.ShowLevel(12);
+                break;
+            case "omg":
+                // mode starts and waits for ball to drain before playing video.
+                //videoManager.playVideo(videoOmg);
+                //playfieldManager.ShowLevel(13);
                 break;
             case "singing":
                 videoManager.stopAllVideos();
                 videoManager.playVideo(videoSinging);
                 break;
-            case "someone_special":
-                playVideoOnBallOne();
-                playfieldManager.ShowLevel(13);
-                break;
+                //case "end_of_ball_bonus":
+                //  break;
+                //case "jet_bonus":
+                //  break;
 
         }
 
@@ -220,6 +233,11 @@ public class ModeManager : MonoBehaviour
         {
             Debug.Log("ModeManager level7Start pressed");
             ModeStart(null, new ModeStartMessageEventArgs(null, "level_central_park", 0));
+        }
+      else  if (Input.GetKeyDown(mgr.playfield_skillshot))
+        {
+            Debug.Log("ModeManager level7Start pressed");
+            ModeStart(null, new ModeStartMessageEventArgs(null, "plunger_skill_shot", 0));
         }
     }
 #endif

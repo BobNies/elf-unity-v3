@@ -29,7 +29,7 @@ namespace DarkTonic.MasterAudio.EditorScripts
                 _customEventNames = ma.CustomEventNames;
             }
 
-            DTGUIHelper.HelpHeader("http://www.dtdevtools.com/docs/masteraudio/PlaylistControllers.htm", "http://www.dtdevtools.com/API/masteraudio/class_dark_tonic_1_1_master_audio_1_1_playlist_controller.html");
+            DTGUIHelper.HelpHeader("https://www.dtdevtools.com/docs/masteraudio/PlaylistControllers.htm", "https://www.dtdevtools.com/API/masteraudio/class_dark_tonic_1_1_master_audio_1_1_playlist_controller.html");
 
             var isDirty = false;
 
