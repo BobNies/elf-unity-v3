@@ -204,6 +204,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1552,6 +1553,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Ui-elements1_2_46: 21300092
+      Ui-elements1_2_50: 21300100
+      Ui-elements1_2_53: 21300106
+      Ui-elements1_2_51: 21300102
+      Ui-elements1_2_59: 21300118
+      Ui-elements1_2_16: 21300032
+      Ui-elements1_2_52: 21300104
+      Ui-elements1_2_36: 21300072
+      Ui-elements1_2_13: 21300026
+      Ui-elements1_2_27: 21300054
+      Ui-elements1_2_57: 21300114
+      Ui-elements1_2_3: 21300006
+      Ui-elements1_2_56: 21300112
+      Ui-elements1_2_47: 21300094
+      Ui-elements1_2_39: 21300078
+      Ui-elements1_2_9: 21300018
+      Ui-elements1_2_0: 21300000
+      Ui-elements1_2_21: 21300042
+      Ui-elements1_2_7: 21300014
+      Ui-elements1_2_10: 21300020
+      Ui-elements1_2_23: 21300046
+      Ui-elements1_2_35: 21300070
+      Ui-elements1_2_25: 21300050
+      Ui-elements1_2_1: 21300002
+      Ui-elements1_2_26: 21300052
+      Ui-elements1_2_24: 21300048
+      Ui-elements1_2_31: 21300062
+      Ui-elements1_2_12: 21300024
+      Ui-elements1_2_6: 21300012
+      Ui-elements1_2_58: 21300116
+      Ui-elements1_2_15: 21300030
+      Ui-elements1_2_18: 21300036
+      Ui-elements1_2_11: 21300022
+      Ui-elements1_2_44: 21300088
+      Ui-elements1_2_41: 21300082
+      Ui-elements1_2_2: 21300004
+      Ui-elements1_2_49: 21300098
+      Ui-elements1_2_22: 21300044
+      Ui-elements1_2_8: 21300016
+      Ui-elements1_2_45: 21300090
+      Ui-elements1_2_55: 21300110
+      Ui-elements1_2_48: 21300096
+      Ui-elements1_2_19: 21300038
+      Ui-elements1_2_42: 21300084
+      Ui-elements1_2_38: 21300076
+      Ui-elements1_2_14: 21300028
+      Ui-elements1_2_17: 21300034
+      Ui-elements1_2_29: 21300058
+      Ui-elements1_2_37: 21300074
+      Ui-elements1_2_33: 21300066
+      Ui-elements1_2_43: 21300086
+      Ui-elements1_2_54: 21300108
+      Ui-elements1_2_5: 21300010
+      Ui-elements1_2_32: 21300064
+      Ui-elements1_2_40: 21300080
+      Ui-elements1_2_4: 21300008
+      Ui-elements1_2_34: 21300068
+      Ui-elements1_2_28: 21300056
+      Ui-elements1_2_30: 21300060
+      Ui-elements1_2_20: 21300040
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

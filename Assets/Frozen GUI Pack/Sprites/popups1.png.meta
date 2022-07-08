@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -472,6 +473,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      popups1_1: 21300002
+      popups1_10: 21300020
+      popups1_14: 21300028
+      popups1_2: 21300004
+      popups1_7: 21300014
+      popups1_6: 21300012
+      popups1_12: 21300024
+      popups1_5: 21300010
+      popups1_13: 21300026
+      popups1_8: 21300016
+      popups1_4: 21300008
+      popups1_11: 21300022
+      popups1_0: 21300000
+      popups1_9: 21300018
+      popups1_3: 21300006
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

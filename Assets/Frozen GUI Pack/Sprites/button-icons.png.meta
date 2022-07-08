@@ -312,6 +312,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2416,6 +2417,103 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      button-icons_22: 21300036
+      button-icons_72: 21300100
+      button-icons_82: 21300114
+      button-icons_92: 21300128
+      button-icons_49: 21300074
+      button-icons_140: 21300188
+      button-icons_111: 21300158
+      button-icons_102: 21300142
+      button-icons_42: 21300060
+      button-icons_17: 21300028
+      button-icons_53: 21300078
+      button-icons_57: 21300086
+      button-icons_48: 21300072
+      button-icons_12: 21300018
+      button-icons_104: 21300146
+      button-icons_35: 21300046
+      button-icons_16: 21300026
+      button-icons_56: 21300084
+      button-icons_80: 21300110
+      button-icons_89: 21300124
+      button-icons_110: 21300156
+      button-icons_123: 21300162
+      button-icons_101: 21300140
+      button-icons_15: 21300024
+      button-icons_121: 21300160
+      button-icons_58: 21300088
+      button-icons_61: 21300092
+      button-icons_74: 21300102
+      button-icons_37: 21300050
+      button-icons_21: 21300034
+      button-icons_93: 21300130
+      button-icons_40: 21300056
+      button-icons_39: 21300054
+      button-icons_103: 21300144
+      button-icons_9: 21300016
+      button-icons_62: 21300094
+      button-icons_44: 21300064
+      button-icons_4: 21300006
+      button-icons_63: 21300096
+      button-icons_47: 21300070
+      button-icons_94: 21300132
+      button-icons_30: 21300040
+      button-icons_38: 21300052
+      button-icons_100: 21300138
+      button-icons_131: 21300176
+      button-icons_59: 21300090
+      button-icons_124: 21300164
+      button-icons_6: 21300010
+      button-icons_125: 21300166
+      button-icons_90: 21300126
+      button-icons_45: 21300066
+      button-icons_81: 21300112
+      button-icons_136: 21300182
+      button-icons_83: 21300116
+      button-icons_75: 21300104
+      button-icons_141: 21300190
+      button-icons_87: 21300120
+      button-icons_128: 21300170
+      button-icons_126: 21300168
+      button-icons_43: 21300062
+      button-icons_50: 21300076
+      button-icons_130: 21300174
+      button-icons_34: 21300044
+      button-icons_54: 21300080
+      button-icons_3: 21300004
+      button-icons_0: 21300000
+      button-icons_7: 21300012
+      button-icons_36: 21300048
+      button-icons_14: 21300022
+      button-icons_20: 21300032
+      button-icons_84: 21300118
+      button-icons_13: 21300020
+      button-icons_105: 21300148
+      button-icons_137: 21300184
+      button-icons_5: 21300008
+      button-icons_129: 21300172
+      button-icons_88: 21300122
+      button-icons_64: 21300098
+      button-icons_108: 21300152
+      button-icons_135: 21300180
+      button-icons_109: 21300154
+      button-icons_33: 21300042
+      button-icons_55: 21300082
+      button-icons_41: 21300058
+      button-icons_77: 21300108
+      button-icons_76: 21300106
+      button-icons_1: 21300002
+      button-icons_132: 21300178
+      button-icons_138: 21300186
+      button-icons_106: 21300150
+      button-icons_97: 21300136
+      button-icons_8: 21300014
+      button-icons_23: 21300038
+      button-icons_18: 21300030
+      button-icons_46: 21300068
+      button-icons_95: 21300134
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

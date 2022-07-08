@@ -93,6 +93,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -664,6 +665,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ice_buttons4_1: 21300002
+      ice_buttons4_8: 21300016
+      ice_buttons4_3: 21300006
+      ice_buttons4_19: 21300038
+      ice_buttons4_14: 21300028
+      ice_buttons4_10: 21300020
+      ice_buttons4_4: 21300008
+      ice_buttons4_7: 21300014
+      ice_buttons4_5: 21300010
+      ice_buttons4_6: 21300012
+      ice_buttons4_9: 21300018
+      ice_buttons4_22: 21300044
+      ice_buttons4_18: 21300036
+      ice_buttons4_11: 21300022
+      ice_buttons4_16: 21300032
+      ice_buttons4_12: 21300024
+      ice_buttons4_20: 21300040
+      ice_buttons4_13: 21300026
+      ice_buttons4_2: 21300004
+      ice_buttons4_15: 21300030
+      ice_buttons4_0: 21300000
+      ice_buttons4_17: 21300034
+      ice_buttons4_21: 21300042
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

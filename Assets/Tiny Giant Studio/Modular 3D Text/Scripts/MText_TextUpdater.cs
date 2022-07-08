@@ -7,7 +7,7 @@ using UnityEditor;
 #if UNITY_2021_2_0_OR_NEWER
 using UnityEditor.SceneManagement;
 #elif UNITY_2018_3_0_OR_NEWER || UNITY_2019_1_OR_NEWER
-using UnityEditor.Experimental.SceneManagement;
+
 #endif
 
 #endif
@@ -51,7 +51,7 @@ namespace MText
             PrefabUtility.prefabInstanceUpdated += OnPrefabInstanceUpdated;
 
 #if UNITY_2021_2_0_OR_NEWER || UNITY_2018_3_0_OR_NEWER || UNITY_2019_1_OR_NEWER
-            PrefabStage.prefabStageOpened += OnPrefabStageOpened;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageOpened += OnPrefabStageOpened;
 #endif
 
 #endif
@@ -110,16 +110,16 @@ namespace MText
 
 #if UNITY_2021_2_0_OR_NEWER || UNITY_2018_3_0_OR_NEWER || UNITY_2019_1_OR_NEWER
 
-        private void OnPrefabStageOpened(PrefabStage prefabStage)
+        private void OnPrefabStageOpened(UnityEditor.SceneManagement.PrefabStage prefabStage)
         {
             if (!this)
             {
-                PrefabStage.prefabStageOpened -= OnPrefabStageOpened;
+                UnityEditor.SceneManagement.PrefabStage.prefabStageOpened -= OnPrefabStageOpened;
                 return;
             }
 
 
-            PrefabStage.prefabStageClosing += OnPrefabStageClosed;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing += OnPrefabStageClosed;
 
             if (prefabStage.IsPartOfPrefabContents(gameObject))
             {
@@ -127,17 +127,17 @@ namespace MText
             }
 
         }
-        private void OnPrefabStageClosed(PrefabStage prefabStage)
+        private void OnPrefabStageClosed(UnityEditor.SceneManagement.PrefabStage prefabStage)
         {
 
             if (!this)
             {
-                PrefabStage.prefabStageClosing -= OnPrefabStageClosed;
+                UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosed;
                 return;
             }
 
             inPrefabStageOpened = false;
-            PrefabStage.prefabStageClosing -= OnPrefabStageClosed;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosed;
         }
 
         void OnPrefabInstanceUpdated(GameObject instance)

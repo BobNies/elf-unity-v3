@@ -147,6 +147,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1096,6 +1097,48 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Ui-elements2_10: 21300020
+      Ui-elements2_1: 21300002
+      Ui-elements2_16: 21300032
+      Ui-elements2_14: 21300028
+      Ui-elements2_12: 21300024
+      Ui-elements2_15: 21300030
+      Ui-elements2_31: 21300062
+      Ui-elements2_21: 21300042
+      Ui-elements2_26: 21300052
+      Ui-elements2_0: 21300000
+      Ui-elements2_6: 21300012
+      Ui-elements2_39: 21300078
+      Ui-elements2_9: 21300018
+      Ui-elements2_34: 21300068
+      Ui-elements2_40: 21300080
+      Ui-elements2_27: 21300054
+      Ui-elements2_29: 21300058
+      Ui-elements2_20: 21300040
+      Ui-elements2_23: 21300046
+      Ui-elements2_32: 21300064
+      Ui-elements2_3: 21300006
+      Ui-elements2_33: 21300066
+      Ui-elements2_19: 21300038
+      Ui-elements2_2: 21300004
+      Ui-elements2_28: 21300056
+      Ui-elements2_25: 21300050
+      Ui-elements2_8: 21300016
+      Ui-elements2_22: 21300044
+      Ui-elements2_36: 21300072
+      Ui-elements2_11: 21300022
+      Ui-elements2_37: 21300074
+      Ui-elements2_17: 21300034
+      Ui-elements2_18: 21300036
+      Ui-elements2_4: 21300008
+      Ui-elements2_5: 21300010
+      Ui-elements2_24: 21300048
+      Ui-elements2_13: 21300026
+      Ui-elements2_38: 21300076
+      Ui-elements2_35: 21300070
+      Ui-elements2_30: 21300060
+      Ui-elements2_7: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
