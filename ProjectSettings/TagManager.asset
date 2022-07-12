@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - playfield
   - book
   - video
-  - 
-  - 
+  - ConnectivityReceptor
+  - ConnectivityConnector
   - 
   - 
   - 

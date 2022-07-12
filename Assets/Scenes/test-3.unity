@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 487
+  openTime: 488
 --- !u!1 &117066635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,7 +2568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 484
+  openTime: 485
 --- !u!1 &124229989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 483
+  openTime: 484
 --- !u!1 &154636684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6154,7 +6154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 483
+  openTime: 484
 --- !u!1 &249513580
 GameObject:
   m_ObjectHideFlags: 0
@@ -6990,6 +6990,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -7127,7 +7128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1291
+  openTime: 1292
 --- !u!4 &275687528
 Transform:
   m_ObjectHideFlags: 0
@@ -12832,6 +12833,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1010145467055020689, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
@@ -12903,6 +12905,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 76c43a36d99bcfe47a2b7eaac5a4be91, type: 3}
 --- !u!1 &563123651
 GameObject:
@@ -13408,7 +13411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 488
+  openTime: 489
 --- !u!1 &578477848
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,7 +14163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1055
+  openTime: 1056
 --- !u!1 &606726347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14483,6 +14486,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 100000, guid: 1b76c200b1a92da44af29ceda385bd07, type: 3}
@@ -14530,6 +14534,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9d063dd7971a1b043bfca3488be2dc36, type: 2}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b76c200b1a92da44af29ceda385bd07, type: 3}
 --- !u!1 &629728011 stripped
 GameObject:
@@ -18040,6 +18045,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 4214648}
     m_Modifications:
     - target: {fileID: 344185407492775001, guid: c8766f979ed17164980347440ab65c74, type: 3}
@@ -18159,6 +18165,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4352817861519263694, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2058106169}
+    - targetCorrespondingSourceObject: {fileID: 4352817861519263694, guid: c8766f979ed17164980347440ab65c74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 475434609}
   m_SourcePrefab: {fileID: 100100000, guid: c8766f979ed17164980347440ab65c74, type: 3}
 --- !u!1 &819631602
 GameObject:
@@ -18392,7 +18405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 483
+  openTime: 484
 --- !u!1 &823235826
 GameObject:
   m_ObjectHideFlags: 0
@@ -25013,7 +25026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 482
+  openTime: 483
 --- !u!1 &1105478101
 GameObject:
   m_ObjectHideFlags: 0
@@ -27877,7 +27890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 482
+  openTime: 483
 --- !u!1 &1261984302
 GameObject:
   m_ObjectHideFlags: 0
@@ -28961,7 +28974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 490
+  openTime: 491
 --- !u!1 &1287273838
 GameObject:
   m_ObjectHideFlags: 0
@@ -29175,7 +29188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 489
+  openTime: 490
 --- !u!1 &1288889225
 GameObject:
   m_ObjectHideFlags: 0
@@ -29987,6 +30000,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -30188,7 +30202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 483
+  openTime: 484
 --- !u!1 &1367199166
 GameObject:
   m_ObjectHideFlags: 0
@@ -30617,7 +30631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 484
+  openTime: 485
 --- !u!1 &1385332532
 GameObject:
   m_ObjectHideFlags: 0
@@ -35569,6 +35583,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1152729245882542, guid: 8a8d02102a1d940e7a090024a6d95e73, type: 3}
@@ -35660,6 +35675,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8d02102a1d940e7a090024a6d95e73, type: 3}
 --- !u!1 &1610407883
 GameObject:
@@ -38073,7 +38089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1056
+  openTime: 1057
 --- !u!114 &1723412147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41936,7 +41952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 490
+  openTime: 491
 --- !u!1 &1905715452
 GameObject:
   m_ObjectHideFlags: 0
@@ -42515,7 +42531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1292
+  openTime: 1293
 --- !u!4 &1914678389
 Transform:
   m_ObjectHideFlags: 0
@@ -44844,7 +44860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 488
+  openTime: 489
 --- !u!1 &2043185178
 GameObject:
   m_ObjectHideFlags: 0
@@ -45147,7 +45163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 483
+  openTime: 484
 --- !u!1 &2044118036
 GameObject:
   m_ObjectHideFlags: 0
@@ -47753,6 +47769,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -49971,6 +49988,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 100
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -53304,6 +53322,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
