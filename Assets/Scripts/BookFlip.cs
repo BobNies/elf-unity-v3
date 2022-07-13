@@ -66,7 +66,7 @@ public class BookFlip : MonoBehaviour
 
             book.TurnToPage(currentPage, turnTimeType, PageFlipAnimationTime);
 
-            Debug.Log("bob currentPage: " + currentPage);
+            //Debug.Log("bob currentPage: " + currentPage);
             //BcpLogger.Trace("bob ShowLevelb: " + level);
             if (currentPage == 7 && cycles == 0)
             {

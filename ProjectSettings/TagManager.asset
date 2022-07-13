@@ -6,6 +6,10 @@ TagManager:
   tags:
   - FxTemporaire
   - Projectile
+  - NoCombineMesh
+  - spinner
+  - Camera2
+  - playfield
   layers:
   - Default
   - TransparentFX

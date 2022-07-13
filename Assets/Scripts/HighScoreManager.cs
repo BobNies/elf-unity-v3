@@ -104,8 +104,8 @@ public class HighScoreManager : MonoBehaviour
 
     IEnumerator PlayClip()
     {
-        yield return new WaitForSeconds(3);
-        MasterAudio.StopPlaylist(); // just incase
+        yield return new WaitForSeconds(1);
+        MasterAudio.StopPlaylist(); // just incase -- TODO play award BG music
         MasterAudio.PlaySound("whats_your_name");
     }
 
@@ -143,26 +143,26 @@ public class HighScoreManager : MonoBehaviour
         else if (e.Name == selectEvent) Select();
     }
 
-    public void Trigger(object sender, TriggerMessageEventArgs e)
-    {
-        // Determine if this trigger message is the one we are interested in.  If so, send specified FSM event.
-        if (e.Name == "high_score_enter_initials")
-        {
-            //BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
-            try
-            {
-                //TODO here
-                //show book
-                //Debug.Log("bob tweenIn:");
-                //BcpLogger.Trace("bob tweenIn");
-            }
-            catch (Exception ex)
-            {
-                BcpServer.Instance.Send(BcpMessage.ErrorMessage("HighScoreManager An error occurred while processing a 'high_score_award_display' trigger message: " + ex.Message, e.BcpMessage.RawMessage));
-            }
+    //public void Trigger(object sender, TriggerMessageEventArgs e)
+    //{
+    //    // Determine if this trigger message is the one we are interested in.  If so, send specified FSM event.
+    //    if (e.Name == "high_score_enter_initials")
+    //    {
+    //        //BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
+    //        try
+    //        {
+    //            //TODO here
+    //            //show book
+    //            //Debug.Log("bob tweenIn:");
+    //            //BcpLogger.Trace("bob tweenIn");
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            BcpServer.Instance.Send(BcpMessage.ErrorMessage("HighScoreManager An error occurred while processing a 'high_score_award_display' trigger message: " + ex.Message, e.BcpMessage.RawMessage));
+    //        }
 
-        }
-    }
+    //    }
+    //}
 
     // Called when user presses shift left button
     private void ShiftLeft()

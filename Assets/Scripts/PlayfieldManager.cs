@@ -27,11 +27,15 @@ public class PlayfieldManager : MonoBehaviour
     public GameObject Award;
     private TextMeshProUGUI awardText;
 
+    public GameObject[] allScreens;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (allScreens.Length == 0)
+            allScreens = GameObject.FindGameObjectsWithTag("playfield");
+        //Debug.Log("bob allScreens len: " + allScreens.Length);
         awardText = Award.transform.Find("TextAward").GetComponent<TextMeshProUGUI>();
-        Award.SetActive(false); // just incase
         ShowLevel(0);
     }
 
@@ -66,15 +70,9 @@ public class PlayfieldManager : MonoBehaviour
     // 13 - special
     public void ShowLevel(int level)
     {
-        //Debug.Log("bob ShowLevel: " + level);
-        //BcpLogger.Trace("bob ShowLevelb: " + level);
         hideAll();
-       // if (level != 0)
-        //{
-            background.SetActive(true);
-        //}
-        
-        // loop by a tag instead
+        //Debug.Log("bob ShowLevel: " + level);
+
         switch (level)
         {
             case 0:
@@ -126,23 +124,10 @@ public class PlayfieldManager : MonoBehaviour
 
     private void hideAll()
     {
-        attract.SetActive(false);
-        //Award.SetActive(false);
-
-        L1.SetActive(false);
-        L2.SetActive(false);
-        L3.SetActive(false);
-        L4.SetActive(false);
-        L5.SetActive(false);
-        L6.SetActive(false);
-        L7.SetActive(false);
-
-        LSkillShot.SetActive(false);
-        LBallLock.SetActive(false);
-        LJackpot.SetActive(false);
-        LRampShot.SetActive(false);
-        LSpecial.SetActive(false);
-        LOmg.SetActive(false);
+        foreach (GameObject go in allScreens)
+        {
+            go.SetActive(false);
+        }
     }
 
 }
