@@ -35,9 +35,6 @@ public class HighScoreManager : MonoBehaviour
     public GameObject highScoresContainer;
     public GameObject initialsContainer;
 
-    // private string hightScoreAwardDisplay;  // show high scores
-    // private string highScoreEnterInitials; // player enters initials
-
     // The maximum number of high score characters user is permitted
     private int maxCharacters;
     // The available characters the user is presented during intitial selection
@@ -51,27 +48,18 @@ public class HighScoreManager : MonoBehaviour
     private int currentPosition;
     private List<string> initials = null;
     private List<string> characterList = null;
-    private float timeoutSecondsRemaining;
 
 
-    //TODO - hide onStart
     void Start()
     {
-        // enter initials
         BcpMessageController.OnSwitch += Switch;
-        //High scores
-        // BcpServer.Instance.Send(BcpMessage.RegisterTriggerMessage("high_score_enter_initials"));
-        // BcpMessageController.OnTrigger += Trigger;
-
-
     }
 
     void OnEnable()
     {
         reset();
         BuildCharacterList();
-        //PositionChanged();
-        //CharacterChanged();
+
         // resetUI
         bookFlip.tweenIn();
         bookFlip.turnToPageOneAndDisableFlip();
@@ -84,22 +72,6 @@ public class HighScoreManager : MonoBehaviour
     void OnDestroy()
     {
         BcpMessageController.OnSwitch -= Switch;
-        // BcpMessageController.OnTrigger -= Trigger;
-    }
-
-    /// <summary>
-    /// Called every frame by Unity. Updates the timer.
-    /// </summary>
-    void Update()
-    {
-        timeoutSecondsRemaining -= Time.deltaTime;
-        if (timeoutSecondsRemaining <= 0.0f)
-        {
-            // BcpLogger.Trace("HighScoreManager: Timeout reached");
-            // Abort();
-            // todo time out here, not mpf. send msg ?
-        }
-
     }
 
     IEnumerator PlayClip()
@@ -120,7 +92,6 @@ public class HighScoreManager : MonoBehaviour
 
         currentCharacter = 0;
         currentPosition = 0;
-        timeoutSecondsRemaining = timeoutSeconds;
 
         if (initials == null)
             initials = new List<string>(maxCharacters);
@@ -143,26 +114,6 @@ public class HighScoreManager : MonoBehaviour
         else if (e.Name == selectEvent) Select();
     }
 
-    //public void Trigger(object sender, TriggerMessageEventArgs e)
-    //{
-    //    // Determine if this trigger message is the one we are interested in.  If so, send specified FSM event.
-    //    if (e.Name == "high_score_enter_initials")
-    //    {
-    //        //BcpLogger.Trace("HighScoreManager: Trigger (" + e.Name + ")");
-    //        try
-    //        {
-    //            //TODO here
-    //            //show book
-    //            //Debug.Log("bob tweenIn:");
-    //            //BcpLogger.Trace("bob tweenIn");
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            BcpServer.Instance.Send(BcpMessage.ErrorMessage("HighScoreManager An error occurred while processing a 'high_score_award_display' trigger message: " + ex.Message, e.BcpMessage.RawMessage));
-    //        }
-
-    //    }
-    //}
 
     // Called when user presses shift left button
     private void ShiftLeft()
