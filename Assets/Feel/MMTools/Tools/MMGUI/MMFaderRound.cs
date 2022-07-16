@@ -239,8 +239,15 @@ namespace MoreMountains.Tools
 		/// <param name="fadeEvent">Fade event.</param>
 		public virtual void OnMMEvent(MMFadeInEvent fadeEvent)
 		{
-			StartFading(MaskScale.y, MaskScale.x, fadeEvent.Duration, fadeEvent.Curve, fadeEvent.ID, 
-				fadeEvent.IgnoreTimeScale, fadeEvent.WorldPosition);
+			if (fadeEvent.Duration > 0)
+			{
+				StartFading(MaskScale.y, MaskScale.x, fadeEvent.Duration, fadeEvent.Curve, fadeEvent.ID, 
+					fadeEvent.IgnoreTimeScale, fadeEvent.WorldPosition);	
+			}
+			else
+			{
+				FaderMask.transform.localScale = MaskScale.x * Vector3.one;
+			}
 		}
 
 		/// <summary>
@@ -249,8 +256,15 @@ namespace MoreMountains.Tools
 		/// <param name="fadeEvent">Fade event.</param>
 		public virtual void OnMMEvent(MMFadeOutEvent fadeEvent)
 		{
-			StartFading(MaskScale.x, MaskScale.y, fadeEvent.Duration, fadeEvent.Curve, fadeEvent.ID, 
-				fadeEvent.IgnoreTimeScale, fadeEvent.WorldPosition);
+			if (fadeEvent.Duration > 0)
+			{
+				StartFading(MaskScale.x, MaskScale.y, fadeEvent.Duration, fadeEvent.Curve, fadeEvent.ID, 
+					fadeEvent.IgnoreTimeScale, fadeEvent.WorldPosition);	
+			}
+			else
+			{
+				FaderMask.transform.localScale = MaskScale.y * Vector3.one;
+			}
 		}
 
 		/// <summary>

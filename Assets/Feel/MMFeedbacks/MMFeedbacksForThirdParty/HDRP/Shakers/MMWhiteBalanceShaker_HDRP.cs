@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
@@ -20,7 +21,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeValues = true;
 
-		[Header("Temperature")]
+		[MMInspectorGroup("Temperature", true, 47)]
 		/// the curve used to animate the temperature value on
 		[Tooltip("the curve used to animate the temperature value on")]
 		public AnimationCurve ShakeTemperature = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -33,7 +34,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-100f, 100f)]
 		public float RemapTemperatureOne = 100f;
 
-		[Header("Tint")]
+		[MMInspectorGroup("Tint", true, 48)]
 		/// the curve used to animate the tint value on
 		[Tooltip("the curve used to animate the tint value on")]
 		public AnimationCurve ShakeTint = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

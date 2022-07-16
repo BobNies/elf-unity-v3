@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Film Grain active, and a MMFilmGrainShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Film Grain URP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control Film Grain intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Film Grain active, and a MMFilmGrainShaker_URP component.")]

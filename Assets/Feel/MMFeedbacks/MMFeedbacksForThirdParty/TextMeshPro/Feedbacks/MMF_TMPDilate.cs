@@ -12,7 +12,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you dilate a TMP text over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Dilate")]
+	#endif
 	public class MMF_TMPDilate : MMF_Feedback
 	{
 		/// sets the inspector color for this feedback

@@ -12,7 +12,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to control bloom intensity and threshold over time. It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Bloom active, and a MMBloomShaker component.")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Bloom")]
+	#endif
 	public class MMF_Bloom : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

@@ -36,6 +36,7 @@ namespace MoreMountains.Feedbacks
 		protected SerializedProperty _mmfeedbacksDisplayFullDurationDetails;
 		protected SerializedProperty _mmfeedbacksCooldownDuration;
 		protected SerializedProperty _mmfeedbacksInitialDelay;
+		protected SerializedProperty _mmfeedbacksCanPlay;
 		protected SerializedProperty _mmfeedbacksCanPlayWhileAlreadyPlaying;
 		protected SerializedProperty _mmfeedbacksPerformanceMode;
 		protected SerializedProperty _mmfeedbacksForceStopFeedbacksOnDisable;
@@ -172,6 +173,7 @@ namespace MoreMountains.Feedbacks
 			_mmfeedbacksDisplayFullDurationDetails = serializedObject.FindProperty("DisplayFullDurationDetails");
 			_mmfeedbacksCooldownDuration = serializedObject.FindProperty("CooldownDuration");
 			_mmfeedbacksInitialDelay = serializedObject.FindProperty("InitialDelay");
+			_mmfeedbacksCanPlay = serializedObject.FindProperty("CanPlay");
 			_mmfeedbacksCanPlayWhileAlreadyPlaying = serializedObject.FindProperty("CanPlayWhileAlreadyPlaying");
 			_mmfeedbacksFeedbacksIntensity = serializedObject.FindProperty("FeedbacksIntensity");
 			_keepPlayModeChanges = serializedObject.FindProperty("KeepPlayModeChanges");
@@ -361,6 +363,7 @@ namespace MoreMountains.Feedbacks
                 
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField(_playConditionsText, EditorStyles.boldLabel);
+				EditorGUILayout.PropertyField(_mmfeedbacksCanPlay);
 				EditorGUILayout.PropertyField(_mmfeedbacksCanPlayWhileAlreadyPlaying);
 				EditorGUILayout.PropertyField(_mmfeedbacksPerformanceMode);
 				EditorGUILayout.PropertyField(_mmfeedbacksForceStopFeedbacksOnDisable);

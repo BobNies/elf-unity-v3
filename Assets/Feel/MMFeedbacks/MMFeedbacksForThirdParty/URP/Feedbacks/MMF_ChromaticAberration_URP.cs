@@ -10,9 +10,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with URP Chromatic Aberration active, and a MMChromaticAberrationShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
-	[FeedbackPath("PostProcess/Chromatic Aberration URP")]
 	[FeedbackHelp("This feedback allows you to control chromatic aberration intensity over time. It requires you have in your scene an object with a Volume " +
 	              "with Chromatic Aberration active, and a MMChromaticAberrationShaker_URP component.")]
+	#if MM_URP
+	[FeedbackPath("PostProcess/Chromatic Aberration URP")]
+	#endif
 	public class MMF_ChromaticAberration_URP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

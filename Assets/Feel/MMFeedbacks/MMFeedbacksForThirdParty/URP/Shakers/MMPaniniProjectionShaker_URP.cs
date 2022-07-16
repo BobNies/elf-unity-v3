@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -18,7 +19,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMPaniniProjectionShaker_URP")]
 	public class MMPaniniProjectionShaker_URP : MMShaker
 	{
-		[Header("Distance")]
+		[MMInspectorGroup("Distance", true, 62)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeDistance = false;

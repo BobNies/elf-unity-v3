@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the color of a target TMP over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Color")]
+	#endif
 	public class MMF_TMPColor : MMF_Feedback
 	{
 		/// sets the inspector color for this feedback

@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the color of a target TMP's outline over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Outline Color")]
+	#endif
 	public class MMF_TMPOutlineColor : MMF_Feedback
 	{
 		/// sets the inspector color for this feedback

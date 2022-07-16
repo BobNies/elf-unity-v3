@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Exposure active, and a MMExposureShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Exposure HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control Exposure intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Exposure active, and a MMExposureShaker_HDRP component.")]

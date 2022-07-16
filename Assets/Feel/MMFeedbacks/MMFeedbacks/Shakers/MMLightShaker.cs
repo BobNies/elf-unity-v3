@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(Light))]
 	public class MMLightShaker : MMShaker
 	{
-		[Header("Light")]
+		[MMInspectorGroup("Light", true, 37)]
 		/// the light to affect when playing the feedback
 		[Tooltip("the light to affect when playing the feedback")]
 		public Light BoundLight;
@@ -22,7 +23,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether or not the values should be relative or not")]
 		public bool RelativeValues = true;
 
-		[Header("Color")]
+		[MMInspectorGroup("Color", true, 41)]
 		/// whether or not this shaker should modify color 
 		[Tooltip("whether or not this shaker should modify color")]
 		public bool ModifyColor = true;
@@ -30,7 +31,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the colors to apply to the light over time")]
 		public Gradient ColorOverTime;
 
-		[Header("Intensity")]
+		[MMInspectorGroup("Intensity", true, 40)]
 		/// the intensity to apply to the light over time
 		/// the curve to tween the intensity on
 		[Tooltip("the intensity to apply to the light over time")]
@@ -42,7 +43,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the value to remap the intensity curve's 1 to")]
 		public float RemapIntensityOne = 1f;
 
-		[Header("Range")]
+		[MMInspectorGroup("Range", true, 39)]
 		/// the range to apply to the light over time
 		[Tooltip("the range to apply to the light over time")]
 		public AnimationCurve RangeCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.3f, 1f), new Keyframe(1, 0));
@@ -53,7 +54,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the value to remap the range curve's 0 to")]
 		public float RemapRangeOne = 10f;
 
-		[Header("Shadow Strength")]
+		[MMInspectorGroup("Shadow Strength", true, 38)]
 		/// the range to apply to the light over time
 		[Tooltip("the range to apply to the light over time")]
 		public AnimationCurve ShadowStrengthCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.3f, 1f), new Keyframe(1, 0));

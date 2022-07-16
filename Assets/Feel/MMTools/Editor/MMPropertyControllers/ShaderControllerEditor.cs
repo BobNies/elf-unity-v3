@@ -47,11 +47,19 @@ namespace MoreMountains.Tools
 		protected SerializedProperty _CurrentValue;
 		protected SerializedProperty _CurrentValueNormalized;
 		protected SerializedProperty _InitialColor;
+		protected SerializedProperty _ColorMode;
+		protected SerializedProperty _ColorRamp;
 		protected SerializedProperty _PropertyID;
 		protected SerializedProperty _PropertyFound;
 		protected SerializedProperty _TargetMaterial;
 		protected SerializedProperty _FromColor;
 		protected SerializedProperty _ToColor;
+		protected SerializedProperty _LoopCurve;
+		protected SerializedProperty _LoopStartValue;
+		protected SerializedProperty _LoopEndValue;
+		protected SerializedProperty _LoopDuration;
+		protected SerializedProperty _LoopPauseDuration;
+		protected SerializedProperty _SpriteRendererTextureProperty;
 
 
 		public override bool RequiresConstantRepaint()
@@ -99,12 +107,20 @@ namespace MoreMountains.Tools
 			_CurrentValue = serializedObject.FindProperty("CurrentValue");
 			_CurrentValueNormalized = serializedObject.FindProperty("CurrentValueNormalized");
 			_InitialColor = serializedObject.FindProperty("InitialColor");
+			_ColorMode = serializedObject.FindProperty("ColorMode");
+			_ColorRamp = serializedObject.FindProperty("ColorRamp");
 			_PropertyID = serializedObject.FindProperty("PropertyID");
 			_PropertyFound = serializedObject.FindProperty("PropertyFound");
 			_TargetMaterial = serializedObject.FindProperty("TargetMaterial");
 			_DrivenLevel = serializedObject.FindProperty("DrivenLevel");
 			_FromColor = serializedObject.FindProperty("FromColor");
 			_ToColor = serializedObject.FindProperty("ToColor");
+			_LoopCurve = serializedObject.FindProperty("LoopCurve");
+			_LoopStartValue = serializedObject.FindProperty("LoopStartValue");
+			_LoopEndValue = serializedObject.FindProperty("LoopEndValue");
+			_LoopDuration = serializedObject.FindProperty("LoopDuration");
+			_LoopPauseDuration = serializedObject.FindProperty("LoopPauseDuration");
+			_SpriteRendererTextureProperty = serializedObject.FindProperty("SpriteRendererTextureProperty");
 		}
 
 		/// <summary>
@@ -121,14 +137,26 @@ namespace MoreMountains.Tools
 				"Amplitude", "Frequency", "Shift", "OneTimeDuration", "OneTimeAmplitude", "OneTimeRemapMin",
 				"OneTimeRemapMax", "OneTimeCurve", "DisableAfterOneTime", "DisableGameObjectAfterOneTime", "OneTimeButton", "AudioAnalyzer",
 				"BeatID", "AudioAnalyzerMultiplier", "AudioAnalyzerOffset",
-				"AudioAnalyzerLerp", "ToDestinationValue", "RemapNoiseValues","RemapNoiseZero","RemapNoiseOne",
+				"AudioAnalyzerLerp", "ToDestinationValue", "RemapNoiseValues","RemapNoiseZero","RemapNoiseOne", "ColorMode", "ColorRamp",
 				"ToDestinationDuration", "ToDestinationCurve", "DisableAfterToDestination", "ToDestinationButton", "DrivenLevel", "FromColor", "ToColor",
+				"LoopCurve", "LoopStartValue", "LoopEndValue", "LoopDuration", "LoopPauseDuration", 
 				"InitialValue","CurrentValue", "CurrentValueNormalized","InitialColor","PropertyID","PropertyFound","TargetMaterial"});
 
 			if (myTarget.PropertyType == ShaderController.PropertyTypes.Color)
 			{
-				EditorGUILayout.PropertyField(_FromColor);
-				EditorGUILayout.PropertyField(_ToColor);
+				EditorGUILayout.PropertyField(_ColorMode);
+				if (myTarget.ColorMode == ShaderController.ColorModes.TwoColors)
+				{
+					if (myTarget.ControlMode != ShaderController.ControlModes.ToDestination)
+					{
+						EditorGUILayout.PropertyField(_FromColor);	
+					}
+					EditorGUILayout.PropertyField(_ToColor);	
+				}
+				else
+				{
+					EditorGUILayout.PropertyField(_ColorRamp);
+				}
 			}
 
 			if (myTarget.ControlMode == ShaderController.ControlModes.PingPong)
@@ -138,6 +166,14 @@ namespace MoreMountains.Tools
 				EditorGUILayout.PropertyField(_MaxValue);
 				EditorGUILayout.PropertyField(_Duration);
 				EditorGUILayout.PropertyField(_PingPongPauseDuration);
+			}
+			if (myTarget.ControlMode == ShaderController.ControlModes.Loop)
+			{
+				EditorGUILayout.PropertyField(_LoopCurve);
+				EditorGUILayout.PropertyField(_LoopStartValue);
+				EditorGUILayout.PropertyField(_LoopEndValue);
+				EditorGUILayout.PropertyField(_LoopDuration);
+				EditorGUILayout.PropertyField(_LoopPauseDuration);
 			}
 			else if (myTarget.ControlMode == ShaderController.ControlModes.Random)
 			{

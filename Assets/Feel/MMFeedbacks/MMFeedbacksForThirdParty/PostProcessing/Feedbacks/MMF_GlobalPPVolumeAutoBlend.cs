@@ -9,7 +9,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you pilot a Global PostProcessing Volume AutoBlend component. " +
 	              "A GPPVAB component is placed on a PostProcessing Volume, and will let you control and blend its weight over time on demand.")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Global PP Volume Auto Blend")]
+	#endif
 	public class MMF_GlobalPPVolumeAutoBlend : MMF_Feedback
 	{
 		/// sets the inspector color for this feedback

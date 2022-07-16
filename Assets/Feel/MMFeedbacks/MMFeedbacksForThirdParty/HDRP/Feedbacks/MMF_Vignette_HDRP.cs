@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Vignette active, and a MMVignetteShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Vignette HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control vignette intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Vignette active, and a MMVignetteShaker_HDRP component.")]

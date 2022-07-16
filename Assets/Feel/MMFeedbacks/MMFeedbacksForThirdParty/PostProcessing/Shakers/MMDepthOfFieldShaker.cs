@@ -3,6 +3,7 @@
 using UnityEngine.Rendering.PostProcessing;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -18,7 +19,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial value
 		public bool RelativeValues = true;
 
-		[Header("Focus Distance")]
+		[MMInspectorGroup("Focus Distance", true, 49)]
 		/// the curve used to animate the focus distance value on
 		[Tooltip("the curve used to animate the focus distance value on")]
 		public AnimationCurve ShakeFocusDistance = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -29,7 +30,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapFocusDistanceOne = 3f;
 
-		[Header("Aperture")]
+		[MMInspectorGroup("Aperture", true, 50)]
 		/// the curve used to animate the aperture value on
 		[Tooltip("the curve used to animate the aperture value on")]
 		public AnimationCurve ShakeAperture = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -42,7 +43,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(0.1f, 32f)]
 		public float RemapApertureOne = 0f;
 
-		[Header("Focal Length")]
+		[MMInspectorGroup("Focal Length", true, 51)]
 		/// the curve used to animate the focal length value on
 		[Tooltip("the curve used to animate the focal length value on")]
 		public AnimationCurve ShakeFocalLength = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

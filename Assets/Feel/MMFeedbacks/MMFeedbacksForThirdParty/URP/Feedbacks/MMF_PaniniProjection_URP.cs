@@ -13,7 +13,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[FeedbackHelp("This feedback allows you to control Panini Projection distance and crop to fit over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with PaniniProjection active, and a MMPaniniProjectionShaker_URP component.")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Panini Projection URP")]
+	#endif
 	public class MMF_PaniniProjection_URP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

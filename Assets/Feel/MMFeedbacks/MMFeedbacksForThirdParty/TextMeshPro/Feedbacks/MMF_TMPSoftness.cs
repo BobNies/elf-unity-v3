@@ -12,7 +12,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you tweak the softness of a TMP text over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Softness")]
+	#endif
 	public class MMF_TMPSoftness : MMF_Feedback
 	{
 		/// sets the inspector color for this feedback

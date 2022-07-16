@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,12 +12,12 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(Camera))]
 	public class MMCameraClippingPlanesShaker : MMShaker
 	{
-		[Header("Clipping Planes")]
+		[MMInspectorGroup("Clipping Planes", true, 31)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeClippingPlanes = false;
         
-		[Header("Near Plane")]
+		[MMInspectorGroup("Near Plane", true, 32)]
 		/// the curve used to animate the intensity value on
 		[Tooltip("the curve used to animate the intensity value on")]
 		public AnimationCurve ShakeNear = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -27,7 +28,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapNearOne = 100f;
 
-		[Header("Far Plane")]
+		[MMInspectorGroup("Far Plane", true, 33)]
 		/// the curve used to animate the intensity value on
 		[Tooltip("the curve used to animate the intensity value on")]
 		public AnimationCurve ShakeFar = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

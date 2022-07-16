@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Lens Distortion active, and a MMLensDistortionShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Lens Distortion URP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control URP lens distortion intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Lens Distortion active, and a MMLensDistortionShaker_URP component.")]

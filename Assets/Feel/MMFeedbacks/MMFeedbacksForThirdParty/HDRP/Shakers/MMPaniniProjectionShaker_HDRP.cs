@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Rendering;
+using MoreMountains.Tools;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
@@ -16,7 +17,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMPaniniProjectionShaker_HDRP")]
 	public class MMPaniniProjectionShaker_HDRP : MMShaker
 	{
-		[Header("Distance")]
+		[MMInspectorGroup("Panini Projection Distance", true, 49)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeDistance = false;

@@ -212,7 +212,7 @@ namespace MoreMountains.Feedbacks
 					_currentIndex++;
 					if (_currentIndex >= Materials.Count)
 					{
-						_currentIndex = Loop ? 0 : _currentIndex;
+						_currentIndex = Loop ? 0 : _currentIndex - 1;
 					}
 					return _currentIndex;
 			}

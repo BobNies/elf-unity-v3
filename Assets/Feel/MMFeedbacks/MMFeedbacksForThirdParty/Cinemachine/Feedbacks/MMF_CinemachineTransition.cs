@@ -15,7 +15,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// Then all you have to do is pick a channel and a new priority on your feedback, and play it. Magic transition!
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_CINEMACHINE
 	[FeedbackPath("Camera/Cinemachine Transition")]
+	#endif
 	[FeedbackHelp("This feedback will let you change the priorities of your cameras. It requires a bit of setup : " +
 	              "adding a MMCinemachinePriorityListener to your different cameras, with unique Channel values on them. " +
 	              "Optionally, you can add a MMCinemachinePriorityBrainListener on your Cinemachine Brain to handle different transition types and durations. " +

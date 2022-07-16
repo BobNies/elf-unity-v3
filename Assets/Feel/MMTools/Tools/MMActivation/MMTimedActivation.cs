@@ -116,7 +116,7 @@ namespace MoreMountains.Tools
 		/// <param name="collider"></param>
 		protected virtual void OnTriggerExit(Collider collider)
 		{
-			if ((ActivationMode == ActivationModes.OnTriggerEnter) && (CorrectTagOrLayer(collider.gameObject)))
+			if ((ActivationMode == ActivationModes.OnTriggerExit) && (CorrectTagOrLayer(collider.gameObject)))
 			{
 				StartChangeState();
 			}
@@ -128,7 +128,7 @@ namespace MoreMountains.Tools
 		/// <param name="collider"></param>
 		protected virtual void OnTriggerEnter2d(Collider2D collider)
 		{
-			if ((ActivationMode == ActivationModes.OnTriggerEnter) && (CorrectTagOrLayer(collider.gameObject)))
+			if ((ActivationMode == ActivationModes.OnTriggerEnter2D) && (CorrectTagOrLayer(collider.gameObject)))
 			{
 				StartChangeState();
 			}
@@ -140,7 +140,7 @@ namespace MoreMountains.Tools
 		/// <param name="collider"></param>
 		protected virtual void OnTriggerExit2d(Collider2D collider)
 		{
-			if ((ActivationMode == ActivationModes.OnTriggerEnter) && (CorrectTagOrLayer(collider.gameObject)))
+			if ((ActivationMode == ActivationModes.OnTriggerExit2D) && (CorrectTagOrLayer(collider.gameObject)))
 			{
 				StartChangeState();
 			}

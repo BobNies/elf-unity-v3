@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Vignette active, and a MMVignetteShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Vignette URP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control vignette intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Vignette active, and a MMVignetteShaker_URP component.")]

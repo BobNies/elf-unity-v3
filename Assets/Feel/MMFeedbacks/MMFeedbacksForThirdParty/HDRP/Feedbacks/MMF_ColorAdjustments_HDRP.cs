@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Color Adjustments active, and a MMColorAdjustmentsShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Color Adjustments HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control color adjustments' post exposure, hue shift, saturation and contrast over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Color Adjustments active, and a MMColorAdjustmentsShaker_HDRP component.")]

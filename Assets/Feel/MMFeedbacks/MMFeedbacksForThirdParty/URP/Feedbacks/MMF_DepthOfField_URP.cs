@@ -14,7 +14,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[FeedbackHelp("This feedback allows you to control URP depth of field focus distance, aperture and focal length over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Depth of Field active, and a MMDepthOfFieldShaker_URP component.")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Depth Of Field URP")]
+	#endif
 	public class MMF_DepthOfField_URP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

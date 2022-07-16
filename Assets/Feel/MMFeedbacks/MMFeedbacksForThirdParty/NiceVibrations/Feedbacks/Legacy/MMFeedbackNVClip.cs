@@ -101,7 +101,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 			HapticController.Stop();
 		}
 		#else
-	    protected override void CustomPlayFeedback(Vector3 position, float feedbacksIntensity = 1.0f) { }
+		protected override void CustomPlayFeedback(Vector3 position, float feedbacksIntensity = 1.0f) { }
 		#endif
 	}    
 }

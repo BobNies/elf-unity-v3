@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(AudioSource))]
 	public class MMAudioSourceStereoPanShaker : MMShaker
 	{
-		[Header("Stereo Pan")]
+		[MMInspectorGroup("Stereo Pan", true, 57)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeStereoPan = false;

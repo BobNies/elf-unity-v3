@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the character spacing of a target TMP over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Character Spacing")]
+	#endif
 	public class MMF_TMPCharacterSpacing : MMF_FeedbackBase
 	{
 		/// sets the inspector color for this feedback

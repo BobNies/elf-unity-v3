@@ -21,24 +21,31 @@ namespace MoreMountains.Tools
 
 		[MMInformation("Add this component to an object and it'll add a healthbar next to it to reflect its health level in real time. You can decide here whether the health bar should be drawn automatically or use a prefab.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// whether the healthbar uses a prefab or is drawn automatically
+		[Tooltip("whether the healthbar uses a prefab or is drawn automatically")]
 		public HealthBarTypes HealthBarType = HealthBarTypes.Drawn;
 		/// defines whether the bar will work on scaled or unscaled time (whether or not it'll keep moving if time is slowed down for example)
+		[Tooltip("defines whether the bar will work on scaled or unscaled time (whether or not it'll keep moving if time is slowed down for example)")]
 		public TimeScales TimeScale = TimeScales.UnscaledTime;
 
 		[Header("Select a Prefab")]
 		[MMInformation("Select a prefab with a progress bar script on it. There is one example of such a prefab in Common/Prefabs/GUI.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// the prefab to use as the health bar
+		[Tooltip("the prefab to use as the health bar")]
 		public MMProgressBar HealthBarPrefab;
 
 		[Header("Drawn Healthbar Settings ")]
 		[MMInformation("Set the size (in world units), padding, back and front colors of the healthbar.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// if the healthbar is drawn, its size in world units
+		[Tooltip("if the healthbar is drawn, its size in world units")]
 		public Vector2 Size = new Vector2(1f,0.2f);
 		/// if the healthbar is drawn, the padding to apply to the foreground, in world units
+		[Tooltip("if the healthbar is drawn, the padding to apply to the foreground, in world units")]
 		public Vector2 BackgroundPadding = new Vector2(0.01f,0.01f);
 		/// the rotation to apply to the MMHealthBarContainer when drawing it
+		[Tooltip("the rotation to apply to the MMHealthBarContainer when drawing it")]
 		public Vector3 InitialRotationAngles;
 		/// if the healthbar is drawn, the color of its foreground
+		[Tooltip("if the healthbar is drawn, the color of its foreground")]
 		public Gradient ForegroundColor = new Gradient()
 		{
 			colorKeys = new GradientColorKey[2] {
@@ -47,6 +54,7 @@ namespace MoreMountains.Tools
 			},
 			alphaKeys = new GradientAlphaKey[2] {new GradientAlphaKey(1, 0),new GradientAlphaKey(1, 1)}};
 		/// if the healthbar is drawn, the color of its delayed bar
+		[Tooltip("if the healthbar is drawn, the color of its delayed bar")]
 		public Gradient DelayedColor = new Gradient()
 		{
 			colorKeys = new GradientColorKey[2] {
@@ -56,6 +64,7 @@ namespace MoreMountains.Tools
 			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
 		};
 		/// if the healthbar is drawn, the color of its border
+		[Tooltip("if the healthbar is drawn, the color of its border")]
 		public Gradient BorderColor = new Gradient()
 		{
 			colorKeys = new GradientColorKey[2] {
@@ -65,6 +74,7 @@ namespace MoreMountains.Tools
 			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
 		};
 		/// if the healthbar is drawn, the color of its background
+		[Tooltip("if the healthbar is drawn, the color of its background")]
 		public Gradient BackgroundColor = new Gradient()
 		{
 			colorKeys = new GradientColorKey[2] {
@@ -74,45 +84,66 @@ namespace MoreMountains.Tools
 			alphaKeys = new GradientAlphaKey[2] { new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1) }
 		};
 		/// the name of the sorting layer to put this health bar on
+		[Tooltip("the name of the sorting layer to put this health bar on")]
 		public string SortingLayerName = "UI";
 		/// the delay to apply to the delayed bar if drawn
+		[Tooltip("the delay to apply to the delayed bar if drawn")]
 		public float Delay = 0.5f;
 		/// whether or not the front bar should lerp
+		[Tooltip("whether or not the front bar should lerp")]
 		public bool LerpFrontBar = true;
 		/// the speed at which the front bar lerps
+		[Tooltip("the speed at which the front bar lerps")]
 		public float LerpFrontBarSpeed = 15f;
 		/// whether or not the delayed bar should lerp
+		[Tooltip("whether or not the delayed bar should lerp")]
 		public bool LerpDelayedBar = true;
 		/// the speed at which the delayed bar lerps
+		[Tooltip("the speed at which the delayed bar lerps")]
 		public float LerpDelayedBarSpeed = 15f;
 		/// if this is true, bumps the scale of the healthbar when its value changes
+		[Tooltip("if this is true, bumps the scale of the healthbar when its value changes")]
 		public bool BumpScaleOnChange = true;
 		/// the duration of the bump animation
+		[Tooltip("the duration of the bump animation")]
 		public float BumpDuration = 0.2f;
 		/// the animation curve to map the bump animation on
+		[Tooltip("the animation curve to map the bump animation on")]
 		public AnimationCurve BumpAnimationCurve = AnimationCurve.Constant(0,1,1);
 		/// the mode the bar should follow the target in
+		[Tooltip("the mode the bar should follow the target in")]
 		public MMFollowTarget.UpdateModes FollowTargetMode = MMFollowTarget.UpdateModes.LateUpdate;
+		/// if this is true, the drawn health bar will be nested below the MMHealthBar
+		[Tooltip("if this is true, the drawn health bar will be nested below the MMHealthBar")]
 		public bool NestDrawnHealthBar = false;
+		/// if this is true, a MMBillboard component will be added to the progress bar to make sure it always looks towards the camera
+		[Tooltip("if this is true, a MMBillboard component will be added to the progress bar to make sure it always looks towards the camera")]
+		public bool Billboard = false;
 
 		[Header("Death")]
 		/// a gameobject (usually a particle system) to instantiate when the healthbar reaches zero
+		[Tooltip("a gameobject (usually a particle system) to instantiate when the healthbar reaches zero")]
 		public GameObject InstantiatedOnDeath;
 
 		[Header("Offset")]
 		[MMInformation("Set the offset (in world units), relative to the object's center, to which the health bar will be displayed.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// the offset to apply to the healthbar compared to the object's center
+		[Tooltip("the offset to apply to the healthbar compared to the object's center")]
 		public Vector3 HealthBarOffset = new Vector3(0f,1f,0f);
 
 		[Header("Display")]
 		[MMInformation("Here you can define whether or not the healthbar should always be visible. If not, you can set here how long after a hit it'll remain visible.",MoreMountains.Tools.MMInformationAttribute.InformationType.Info,false)]
 		/// whether or not the bar should be permanently displayed
+		[Tooltip("whether or not the bar should be permanently displayed")]
 		public bool AlwaysVisible = true;
 		/// the duration (in seconds) during which to display the bar
+		[Tooltip("the duration (in seconds) during which to display the bar")]
 		public float DisplayDurationOnHit = 1f;
 		/// if this is set to true the bar will hide itself when it reaches zero
+		[Tooltip("if this is set to true the bar will hide itself when it reaches zero")]
 		public bool HideBarAtZero = true;
 		/// the delay (in seconds) after which to hide the bar
+		[Tooltip("the delay (in seconds) after which to hide the bar")]
 		public float HideBarAtZeroDelay = 1f;
 
 		protected MMProgressBar _progressBar;
@@ -263,6 +294,11 @@ namespace MoreMountains.Tools
 			_foregroundImage.GetComponent<RectTransform>().sizeDelta = Size - BackgroundPadding*2;
 			_foregroundImage.GetComponent<RectTransform>().anchoredPosition = -_foregroundImage.GetComponent<RectTransform>().sizeDelta/2;
 			_foregroundImage.GetComponent<RectTransform>().pivot = Vector2.zero;
+
+			if (Billboard)
+			{
+				_progressBar.gameObject.AddComponent<MMBillboard>();
+			}
 
 			_progressBar.LerpDecreasingDelayedBar = LerpDelayedBar;
 			_progressBar.LerpForegroundBar = LerpFrontBar;

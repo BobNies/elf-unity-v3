@@ -3,6 +3,7 @@
 using UnityEngine.Rendering.PostProcessing;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -18,7 +19,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial value
 		public bool RelativeValues = true;
 
-		[Header("Intensity")]
+		[MMInspectorGroup("Bloom Intensity", true, 45)]
 		/// the curve used to animate the intensity value on
 		[Tooltip("the curve used to animate the intensity value on")]
 		public AnimationCurve ShakeIntensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -29,7 +30,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapIntensityOne = 10f;
 
-		[Header("Threshold")]
+		[MMInspectorGroup("Bloom Threshold", true, 46)]
 		/// the curve used to animate the threshold value on
 		[Tooltip("the curve used to animate the threshold value on")]
 		public AnimationCurve ShakeThreshold = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

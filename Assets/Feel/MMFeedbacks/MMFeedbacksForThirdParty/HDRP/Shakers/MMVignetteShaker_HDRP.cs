@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
@@ -17,6 +18,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	public class MMVignetteShaker_HDRP : MMShaker
 	{
 		[Header("Intensity")]
+		[MMInspectorGroup("Vignette Intensity", true, 46)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeIntensity = false;

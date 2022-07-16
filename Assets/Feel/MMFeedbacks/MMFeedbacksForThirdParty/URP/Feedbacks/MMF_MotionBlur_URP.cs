@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with MotionBlur active, and a MMMotionBlurShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_URP
 	[FeedbackPath("PostProcess/Motion Blur URP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control motion blur intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with MotionBlur active, and a MMMotionBlurShaker_URP component.")]

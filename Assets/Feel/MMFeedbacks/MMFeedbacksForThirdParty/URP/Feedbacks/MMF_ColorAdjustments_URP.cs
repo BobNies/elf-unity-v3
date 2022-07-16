@@ -11,10 +11,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Color Adjustments active, and a MMColorAdjustmentsShaker_URP component.
 	/// </summary>
 	[AddComponentMenu("")]
-	[FeedbackPath("PostProcess/Color Adjustments URP")]
 	[FeedbackHelp("This feedback allows you to control color adjustments' post exposure, hue shift, saturation and contrast over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Color Adjustments active, and a MMColorAdjustmentsShaker_URP component.")]
+	#if MM_URP
+	[FeedbackPath("PostProcess/Color Adjustments URP")]
+	#endif
 	public class MMF_ColorAdjustments_URP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

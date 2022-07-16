@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Color Grading active, and a MMColorGradingShaker component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Color Grading")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control color grading post exposure, hue shift, saturation and contrast over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Color Grading active, and a MMColorGradingShaker component.")]

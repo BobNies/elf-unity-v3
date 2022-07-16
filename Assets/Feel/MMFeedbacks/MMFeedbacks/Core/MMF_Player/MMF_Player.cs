@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -72,6 +73,9 @@ namespace MoreMountains.Feedbacks
 			{
 				Initialization();
 			}
+			
+			InitializeFeedbackList();
+			ExtraInitializationChecks();
 			CheckForLoops();
 		}
 
@@ -91,11 +95,26 @@ namespace MoreMountains.Feedbacks
 			CheckForLoops();
 		}
 
-		protected virtual void InitializeList()
+		/// <summary>
+		/// We initialize our list of feedbacks
+		/// </summary>
+		protected virtual void InitializeFeedbackList()
 		{
 			if (FeedbacksList == null)
 			{
 				FeedbacksList = new List<MMF_Feedback>();
+			}
+		}
+
+		/// <summary>
+		/// Performs extra checks, mostly to cover cases of dynamic creation
+		/// </summary>
+		protected virtual void ExtraInitializationChecks()
+		{
+			if (Events == null)
+			{
+				Events = new MMFeedbacksEvents();
+				Events.Initialization();
 			}
 		}
 
@@ -253,6 +272,11 @@ namespace MoreMountains.Feedbacks
 		/// <param name="feedbacksIntensity"></param>
 		protected override void PlayFeedbacksInternal(Vector3 position, float feedbacksIntensity, bool forceRevert = false)
 		{
+			if (!CanPlay)
+			{
+				return;
+			}
+			
 			if (IsPlaying && !CanPlayWhileAlreadyPlaying)
 			{
 				return;
@@ -352,7 +376,7 @@ namespace MoreMountains.Feedbacks
 					}    
 				}
 			}
-
+			
 			if (!_pauseFound)
 			{
 				PlayAllFeedbacks(position, feedbacksIntensity, forceRevert);
@@ -702,7 +726,7 @@ namespace MoreMountains.Feedbacks
 		/// <param name="newFeedback"></param>
 		public virtual void AddFeedback(MMF_Feedback newFeedback)
 		{
-			InitializeList();
+			InitializeFeedbackList();
 			newFeedback.Owner = this;
 			newFeedback.UniqueID = Guid.NewGuid().GetHashCode();
 			FeedbacksList.Add(newFeedback);
@@ -717,7 +741,7 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		public new MMF_Feedback AddFeedback(System.Type feedbackType)
 		{
-			InitializeList();
+			InitializeFeedbackList();
 			MMF_Feedback newFeedback = (MMF_Feedback)Activator.CreateInstance(feedbackType);
 			newFeedback.Label = FeedbackPathAttribute.GetFeedbackDefaultName(feedbackType);
 			newFeedback.Owner = this;

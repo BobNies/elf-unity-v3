@@ -13,7 +13,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you update a TMP text value over time, with a value going from A to B over time, on a curve")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Count To")]
+	#endif
 	public class MMF_TMPCountTo : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

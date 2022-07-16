@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(AudioLowPassFilter))]
 	public class MMAudioFilterLowPassShaker : MMShaker
 	{
-		[Header("Low Pass")]
+		[MMInspectorGroup("Low Pass", true, 54)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeLowPass = false;

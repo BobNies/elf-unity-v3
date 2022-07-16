@@ -87,9 +87,9 @@ namespace MoreMountains.Feedbacks
 				               "\n\n");
                 
 				if (EditorUtility.DisplayDialog("Missing dependencies!",
-					"This demo requires a few dependencies to be installed first (Cinemachine, TextMesh Pro, PostProcessing).\n\n" +
-					"You can use Feel without them of course, but this demo needs them to work (check out the documentation to learn more!).\n\n" +
-					"Would you like to automatically install them?", "Yes, install dependencies", "No"))
+					    "This demo requires a few dependencies to be installed first (Cinemachine, TextMesh Pro, PostProcessing).\n\n" +
+					    "You can use Feel without them of course, but this demo needs them to work (check out the documentation to learn more!).\n\n" +
+					    "Would you like to automatically install them?", "Yes, install dependencies", "No"))
 				{
 					MMFDependencyInstaller.InstallFromPlay();
 				}

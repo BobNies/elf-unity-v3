@@ -83,6 +83,8 @@ namespace MoreMountains.Tools
 			if (TargetLight != null)
 			{
 				TargetLight.intensity = Intensity * Multiplier;
+				TargetLight.range = Range;
+				TargetLight.color = LightColor;
 			}
 
 			if (TargetLights.Count > 0)
@@ -92,6 +94,8 @@ namespace MoreMountains.Tools
 					if (light != null)
 					{
 						light.intensity = Intensity * Multiplier;
+						light.range = Range;
+						light.color = LightColor;
 					}
 				}
 			}

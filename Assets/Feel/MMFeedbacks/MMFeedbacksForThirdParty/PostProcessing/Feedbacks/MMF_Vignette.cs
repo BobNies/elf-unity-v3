@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Vignette active, and a MMVignetteShaker component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Vignette")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control vignette intensity over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Vignette active, and a MMVignetteShaker component.")]
@@ -55,6 +57,26 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial intensity
 		[Tooltip("whether or not to add to the initial intensity")]
 		public bool RelativeIntensity = false;
+		
+		[MMFInspectorGroup("Vignette Color", true, 60)]
+		/// whether or not to also animate  the vignette's color
+		[Tooltip("whether or not to also animate the vignette's color")]
+		public bool InterpolateColor = false;
+		/// the curve to animate the color on
+		[Tooltip("the curve to animate the color on")]
+		public AnimationCurve ColorCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.05f, 1f), new Keyframe(0.95f, 1), new Keyframe(1, 0));
+		/// the value to remap the curve's 0 to
+		[Tooltip("the value to remap the curve's 0 to")]
+		[Range(0, 1)]
+		public float RemapColorZero = 0f;
+		/// the value to remap the curve's 1 to
+		[Tooltip("the value to remap the curve's 1 to")]
+		[Range(0f, 1f)]
+		public float RemapColorOne = 1f;
+		/// the color to lerp towards
+		[Tooltip("the color to lerp towards")]
+		public Color TargetColor = Color.red;
+
 
 		/// <summary>
 		/// Triggers a vignette shake
@@ -69,7 +91,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			}
 			float intensityMultiplier = Timing.ConstantIntensity ? 1f : feedbacksIntensity;
 			MMVignetteShakeEvent.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, intensityMultiplier, 
-				Channel, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, Timing.TimescaleMode);
+				Channel, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, Timing.TimescaleMode, false, InterpolateColor, 
+				ColorCurve, RemapColorZero, RemapColorOne, TargetColor);
             
 		}
 

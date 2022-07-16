@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+#if MM_TEXTMESHPRO
+using TMPro;
+#endif
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
@@ -157,6 +160,9 @@ namespace MoreMountains.Tools
 
 		[MMInspectorGroup("Text", true, 20)] 
 		public Text PercentageText;
+		#if MM_TEXTMESHPRO
+		public TMP_Text PercentageTextMeshPro;
+		#endif
 
 		public string TextPrefix;
 		public string TextSuffix;
@@ -217,6 +223,7 @@ namespace MoreMountains.Tools
 		protected float _delayedBarDecreasingProgress;
 		protected float _delayedBarIncreasingProgress;
 		protected MMProgressBarStates CurrentState = MMProgressBarStates.Idle;
+		protected string _updatedText;
 
 		#region PUBLIC_API
         
@@ -463,16 +470,19 @@ namespace MoreMountains.Tools
 
 		#endregion TESTS
 
-        
-        
 		protected virtual void UpdateText()
 		{
-			if (PercentageText == null)
+			_updatedText = TextPrefix + (BarTarget * TextValueMultiplier).ToString(TextFormat) + TextSuffix;
+			if (PercentageText != null)
 			{
-				return;
+				PercentageText.text = _updatedText;
 			}
-
-			PercentageText.text = TextPrefix + (BarTarget * TextValueMultiplier).ToString(TextFormat) + TextSuffix;
+			#if MM_TEXTMESHPRO
+			if (PercentageTextMeshPro != null)
+			{
+				PercentageTextMeshPro.text = _updatedText;
+			}
+			#endif
 		}
         
 		/// <summary>

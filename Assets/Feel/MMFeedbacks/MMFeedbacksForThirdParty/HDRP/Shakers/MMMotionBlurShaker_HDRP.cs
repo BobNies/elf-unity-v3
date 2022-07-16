@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
@@ -16,7 +17,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMMotionBlurShaker_HDRP")]
 	public class MMMotionBlurShaker_HDRP : MMShaker
 	{
-		[Header("Intensity")]
+		[MMInspectorGroup("Motion Blur Intensity", true, 48)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeIntensity = false;

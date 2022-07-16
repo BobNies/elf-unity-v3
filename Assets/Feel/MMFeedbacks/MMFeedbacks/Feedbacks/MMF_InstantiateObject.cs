@@ -70,6 +70,11 @@ namespace MoreMountains.Feedbacks
 		[MMFCondition("RandomizePosition", true)]
 		public Vector3 RandomizedPositionMax = Vector3.one;
 
+		[MMFInspectorGroup("Parent", true, 47)]
+		/// if specified, the instantiated object (or the pool of objects) will be parented to this transform 
+		[Tooltip("if specified, the instantiated object (or the pool of objects) will be parented to this transform ")]
+		public Transform ParentTransform;
+
 		[MMFInspectorGroup("Object Pool", true, 40)]
 		/// whether or not we should create automatically an object pool for this object
 		[Tooltip("whether or not we should create automatically an object pool for this object")]
@@ -111,7 +116,14 @@ namespace MoreMountains.Feedbacks
 				_objectPooler = objectPoolGo.AddComponent<MMMiniObjectPooler>();
 				_objectPooler.GameObjectToPool = GameObjectToInstantiate;
 				_objectPooler.PoolSize = ObjectPoolSize;
-				_objectPooler.transform.SetParent(Owner.transform);
+				if (ParentTransform != null)
+				{
+					_objectPooler.transform.SetParent(ParentTransform);
+				}
+				else
+				{
+					_objectPooler.transform.SetParent(Owner.transform);
+				}
 				_objectPooler.MutualizeWaitingPools = MutualizePools;
 				_objectPooler.FillObjectPool();
 				if ((Owner != null) && (objectPoolGo.transform.parent == null))
@@ -164,6 +176,10 @@ namespace MoreMountains.Feedbacks
 			if (AlsoApplyScale)
 			{
 				_newGameObject.transform.localScale = GetScale();    
+			}
+			if (!CreateObjectPool && (ParentTransform != null))
+			{
+				_newGameObject.transform.SetParent(ParentTransform);
 			}
 		}
 

@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using MoreMountains.Tools;
-using System;
+using UnityEngine.Events;
 
 namespace MoreMountains.Tools
 {
@@ -10,8 +8,12 @@ namespace MoreMountains.Tools
 	/// Note that these objects can't be destroyed by calling Destroy(), they'll just be set inactive (that's the whole point).
 	/// </summary>
 	[AddComponentMenu("More Mountains/Tools/Object Pool/MMPoolableObject")]
-	public class MMPoolableObject : MMObjectBounds 
+	public class MMPoolableObject : MMObjectBounds
 	{
+		[Header("Events")]
+		public UnityEvent ExecuteOnEnable;
+		public UnityEvent ExecuteOnDisable;
+		
 		public delegate void Events();
 		public event Events OnSpawnComplete;
 
@@ -45,6 +47,7 @@ namespace MoreMountains.Tools
 			{
 				Invoke("Destroy", LifeTime);	
 			}
+			ExecuteOnEnable?.Invoke();
 		}
 
 		/// <summary>
@@ -52,6 +55,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void OnDisable()
 		{
+			ExecuteOnDisable?.Invoke();
 			CancelInvoke();
 		}
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(AudioReverbFilter))]
 	public class MMAudioFilterReverbShaker : MMShaker
 	{
-		[Header("Reverb")]
+		[MMInspectorGroup("Reverb", true, 55)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeReverb = false;

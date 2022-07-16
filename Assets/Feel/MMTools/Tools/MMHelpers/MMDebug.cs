@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Reflection;
 using System.Linq;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -194,7 +191,7 @@ namespace MoreMountains.Tools
 					}
 					log.Append("<color=#f9a682>[" + MMTime.FloatToTimeString(LogHistory[i].Time, false, true, true, true) + "]</color> ");
 					log.Append(colorPrefix + LogHistory[i].Message + colorSuffix);
-					log.Append(Environment.NewLine);
+					log.Append(System.Environment.NewLine);
 				}
 				return log.ToString();
 			}

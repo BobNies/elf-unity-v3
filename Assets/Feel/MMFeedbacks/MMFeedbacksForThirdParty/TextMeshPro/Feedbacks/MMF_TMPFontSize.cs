@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the font size of a target TMP over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Font Size")]
+	#endif
 	public class MMF_TMPFontSize : MMF_FeedbackBase
 	{
 		/// sets the inspector color for this feedback

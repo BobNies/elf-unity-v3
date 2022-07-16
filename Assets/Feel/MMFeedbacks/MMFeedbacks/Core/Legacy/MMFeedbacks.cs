@@ -80,6 +80,9 @@ namespace MoreMountains.Feedbacks
 		/// a duration, in seconds, to delay the start of this MMFeedbacks' contents play
 		[Tooltip("a duration, in seconds, to delay the start of this MMFeedbacks' contents play")]
 		public float InitialDelay = 0f;
+		/// whether this player can be played or not, useful to temporarily prevent play from another class, for example
+		[Tooltip("whether this player can be played or not, useful to temporarily prevent play from another class, for example")]
+		public bool CanPlay = true;
 		/// if this is true, you'll be able to trigger a new Play while this feedback is already playing, otherwise you won't be able to
 		[Tooltip("if this is true, you'll be able to trigger a new Play while this feedback is already playing, otherwise you won't be able to")]
 		public bool CanPlayWhileAlreadyPlaying = true;
@@ -366,6 +369,11 @@ namespace MoreMountains.Feedbacks
 		/// <param name="feedbacksIntensity"></param>
 		protected virtual void PlayFeedbacksInternal(Vector3 position, float feedbacksIntensity, bool forceRevert = false)
 		{
+			if (!CanPlay)
+			{
+				return;
+			}
+			
 			if (IsPlaying && !CanPlayWhileAlreadyPlaying)
 			{
 				return;
@@ -750,6 +758,15 @@ namespace MoreMountains.Feedbacks
 		{
 			Events.TriggerOnRevert(this);
 			Direction = (Direction == Directions.BottomToTop) ? Directions.TopToBottom : Directions.BottomToTop;
+		}
+
+		/// <summary>
+		/// Use this method to authorize or prevent this player from being played
+		/// </summary>
+		/// <param name="newState"></param>
+		public virtual void SetCanPlay(bool newState)
+		{
+			CanPlay = newState;
 		}
 
 		/// <summary>

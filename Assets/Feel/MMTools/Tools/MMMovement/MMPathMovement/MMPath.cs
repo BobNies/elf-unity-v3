@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using MoreMountains.Tools;
 
 namespace MoreMountains.Tools
@@ -116,6 +117,18 @@ namespace MoreMountains.Tools
 				return;
 			}
 
+			// if the first path element isn't at 0, we offset everything
+			if (PathElements[0].PathElementPosition != Vector3.zero)
+			{
+				Vector3 path0Position = PathElements[0].PathElementPosition;
+				this.transform.position += path0Position;
+				
+				foreach (MMPathMovementElement element in PathElements)
+				{
+					element.PathElementPosition -= path0Position;
+				}
+			}
+
 			// we set our initial direction based on the settings
 			if (LoopInitialMovementDirection == MovementDirection.Ascending)
 			{
@@ -128,6 +141,7 @@ namespace MoreMountains.Tools
 
 			// we initialize our path enumerator
 			_initialPosition = this.transform.position;
+			
 			_currentPoint = GetPathEnumerator();
 			_previousPoint = _currentPoint.Current;
 			_currentPoint.MoveNext();
@@ -166,7 +180,7 @@ namespace MoreMountains.Tools
 			   || PathElements.Count < 1
 			   || _endReached
 			   || !CanMove
-			)
+			  )
 			{
 				return;
 			}
@@ -180,10 +194,10 @@ namespace MoreMountains.Tools
 		protected virtual void ComputePath()
 		{
 			// we store our initial position to compute the current speed at the end of the udpate	
-			_initialPositionThisFrame=transform.position;
+			_initialPositionThisFrame = this.transform.position;
             
 			// we decide if we've reached our next destination or not, if yes, we move our destination to the next point 
-			_distanceToNextPoint = (transform.position - (_originalTransformPosition + _currentPoint.Current)).magnitude;
+			_distanceToNextPoint = (this.transform.position - (_originalTransformPosition + _currentPoint.Current)).magnitude;
 			if(_distanceToNextPoint < MinDistanceToGoal)
 			{
 				_previousPoint = _currentPoint.Current;
@@ -191,7 +205,7 @@ namespace MoreMountains.Tools
 			}
 
 			// we determine the current speed		
-			_finalPosition = transform.position;
+			_finalPosition = this.transform.position;
 		}
 
 		/// <summary>
@@ -290,13 +304,13 @@ namespace MoreMountains.Tools
 			// if we haven't stored the object's original position yet, we do it
 			if (_originalTransformPositionStatus==false)
 			{
-				_originalTransformPosition=transform.position;
+				_originalTransformPosition = this.transform.position;
 				_originalTransformPositionStatus=true;
 			}
 			// if we're not in runtime mode and the transform has changed, we update our position
-			if (transform.hasChanged && _active==false)
+			if (transform.hasChanged && (_active == false))
 			{
-				_originalTransformPosition=transform.position;
+				_originalTransformPosition = this.transform.position;
 			}
 			// for each point in the path
 			for (int i=0;i<PathElements.Count;i++)
@@ -366,6 +380,83 @@ namespace MoreMountains.Tools
 		public virtual bool GetOriginalTransformPositionStatus()
 		{
 			return _originalTransformPositionStatus ;
+		}
+
+		/// <summary>
+		/// A data structure 
+		/// </summary>
+		[System.Serializable] public struct Data
+		{
+			public static Data ForwardLoopingPath(Vector3 ctr, Vector3[] vtx, float wait) 
+				=> new Data()
+				{
+					Center = ctr, Offsets = vtx, Delay = wait,
+					Cycle = CycleOptions.Loop, Direction = MovementDirection.Ascending
+				};
+			public static Data ForwardBackAndForthPath(Vector3 ctr, Vector3[] vtx, float wait) 
+				=> new Data()
+				{
+					Center = ctr, Offsets = vtx, Delay = wait,
+					Cycle = CycleOptions.BackAndForth, Direction = MovementDirection.Ascending
+				};
+			public static Data ForwardOnlyOncePath(Vector3 ctr, Vector3[] vtx, float wait) 
+				=> new Data()
+				{
+					Center = ctr, Offsets = vtx, Delay = wait,
+					Cycle = CycleOptions.OnlyOnce, Direction = MovementDirection.Ascending
+				};
+
+			public Vector3 Center;
+			public Vector3[] Offsets;
+			public float Delay;
+			public CycleOptions Cycle;
+			public MovementDirection Direction;
+		}
+		
+		/// <summary>
+		/// Replaces this MMPath's settings with the ones passed in parameters
+		/// </summary>
+		/// <param name="configuration"></param>
+		public void SetPath(in Data configuration)
+		{
+			if (configuration.Offsets == null) return;
+
+			// same as on Start, we set our active flag to true
+			_active = true;
+			_endReached = false;
+			CanMove = true;
+
+			PathElements = PathElements ?? new List<MMPathMovementElement>(configuration.Offsets.Length);
+			PathElements.Clear();
+
+			foreach (var offset in configuration.Offsets)
+			{
+				PathElements.Add(new MMPathMovementElement() {Delay = configuration.Delay, PathElementPosition = offset});
+			}
+
+			// if the path is null we exit
+			if (PathElements == null || PathElements.Count < 1)
+			{
+				return;
+			}
+
+			CycleOption = configuration.Cycle;
+
+			// we set our initial direction based on the settings
+			if (configuration.Direction == MovementDirection.Ascending)
+			{
+				_direction = 1;
+			}
+			else
+			{
+				_direction = -1;
+			}
+
+			_initialPosition = configuration.Center;
+			_originalTransformPosition = configuration.Center;
+			_currentPoint = GetPathEnumerator();
+			_previousPoint = _currentPoint.Current;
+			_currentPoint.MoveNext();
 		}
 	}
 }

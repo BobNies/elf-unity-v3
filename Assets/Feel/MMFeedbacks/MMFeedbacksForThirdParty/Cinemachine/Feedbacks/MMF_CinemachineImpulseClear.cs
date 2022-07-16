@@ -9,7 +9,9 @@ using Cinemachine;
 namespace MoreMountains.FeedbacksForThirdParty
 {
 	[AddComponentMenu("")]
+	#if MM_CINEMACHINE
 	[FeedbackPath("Camera/Cinemachine Impulse Clear")]
+	#endif
 	[FeedbackHelp("This feedback lets you trigger a Cinemachine Impulse clear, stopping instantly any impulse that may be playing.")]
 	public class MMF_CinemachineImpulseClear : MMF_Feedback
 	{

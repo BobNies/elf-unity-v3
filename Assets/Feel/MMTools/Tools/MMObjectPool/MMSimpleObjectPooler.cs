@@ -99,13 +99,16 @@ namespace MoreMountains.Tools
 		/// <returns>The one object to the pool.</returns>
 		protected virtual GameObject AddOneObjectToThePool()
 		{
-			if (GameObjectToPool==null)
+			if (GameObjectToPool == null)
 			{
 				Debug.LogWarning("The "+gameObject.name+" ObjectPooler doesn't have any GameObjectToPool defined.", gameObject);
 				return null;
 			}
+
+			bool initialStatus = GameObjectToPool.activeSelf;
 			GameObjectToPool.SetActive(false);
 			GameObject newGameObject = (GameObject)Instantiate(GameObjectToPool);
+			GameObjectToPool.SetActive(initialStatus);
 			SceneManager.MoveGameObjectToScene(newGameObject, this.gameObject.scene);
 			if (NestWaitingPool)
 			{

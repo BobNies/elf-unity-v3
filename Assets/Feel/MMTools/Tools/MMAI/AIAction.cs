@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +10,30 @@ namespace MoreMountains.Tools
 	/// </summary>
 	public abstract class AIAction : MonoBehaviour
 	{
+		public enum InitializationModes { EveryTime, OnlyOnce, }
+
+		public InitializationModes InitializationMode;
+		protected bool _initialized;
+		
 		public string Label;
 		public abstract void PerformAction();
 		public bool ActionInProgress { get; set; }
 		protected AIBrain _brain;
+
+		protected virtual bool ShouldInitialize
+		{
+			get
+			{
+				switch (InitializationMode)
+				{
+					case InitializationModes.EveryTime:
+						return true;
+					case InitializationModes.OnlyOnce:
+						return _initialized == false;
+				}
+				return true;
+			}
+		}
 
 		/// <summary>
 		/// On Awake we grab our AIBrain
@@ -27,7 +48,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void Initialization()
 		{
-
+			_initialized = true;
 		}
 
 		/// <summary>

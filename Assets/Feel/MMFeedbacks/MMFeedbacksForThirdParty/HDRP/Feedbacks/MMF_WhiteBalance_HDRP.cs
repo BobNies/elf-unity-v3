@@ -13,7 +13,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[FeedbackHelp("This feedback allows you to control white balance temperature and tint over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with WhiteBalance active, and a MMWhiteBalanceShaker_HDRP component.")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/White Balance HDRP")]
+	#endif
 	public class MMF_WhiteBalance_HDRP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

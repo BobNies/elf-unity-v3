@@ -3,6 +3,7 @@
 using UnityEngine.Rendering.PostProcessing;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -15,7 +16,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#endif
 	public class MMChromaticAberrationShaker : MMShaker
 	{
-		[Header("Intensity")]
+		[MMInspectorGroup("Chromatic Aberration Intensity", true, 46)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeIntensity = false;

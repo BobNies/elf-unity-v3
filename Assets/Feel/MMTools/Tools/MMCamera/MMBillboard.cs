@@ -13,12 +13,16 @@ namespace MoreMountains.Tools
 		/// the camera we're facing
 		public Camera MainCamera { get; set; }
 		/// whether or not this object should automatically grab a camera on start
+		[Tooltip("whether or not this object should automatically grab a camera on start")]
 		public bool GrabMainCameraOnStart = true;
 		/// whether or not to nest this object below a parent container
+		[Tooltip("whether or not to nest this object below a parent container")]
 		public bool NestObject = true;
 		/// the Vector3 to offset the look at direction by
+		[Tooltip("the Vector3 to offset the look at direction by")]
 		public Vector3 OffsetDirection = Vector3.back;
-		/// the Vector3 to consider as "world up" 
+		/// the Vector3 to consider as "world up"
+		[Tooltip("the Vector3 to consider as 'world up'")] 
 		public Vector3 Up = Vector3.up;
 
 		protected GameObject _parentContainer;
@@ -54,7 +58,7 @@ namespace MoreMountains.Tools
 			SceneManager.MoveGameObjectToScene(_parentContainer, this.gameObject.scene);
 			_parentContainer.name = "Parent"+transform.gameObject.name;
 			_parentContainer.transform.position = transform.position;
-			transform.parent = _parentContainer.transform;
+			transform.SetParent(_parentContainer.transform);
 		}
 
 		/// <summary>

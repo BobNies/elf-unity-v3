@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -21,7 +22,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial value
 		public bool RelativeValues = true;
 
-		[Header("Focus Distance")]
+		[MMInspectorGroup("Focus Distance", true, 51)]
 		/// the curve used to animate the focus distance value on
 		[Tooltip("the curve used to animate the focus distance value on")]
 		public AnimationCurve ShakeFocusDistance = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -32,7 +33,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapFocusDistanceOne = 3f;
 
-		[Header("Aperture")]
+		[MMInspectorGroup("Aperture", true, 52)]
 		/// the curve used to animate the aperture value on
 		[Tooltip("the curve used to animate the aperture value on")]
 		public AnimationCurve ShakeAperture = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -45,7 +46,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapApertureOne = 0f;
 
-		[Header("Focal Length")]
+		[MMInspectorGroup("Focal Length", true, 53)]
 		/// the curve used to animate the focal length value on
 		[Tooltip("the curve used to animate the focal length value on")]
 		public AnimationCurve ShakeFocalLength = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -61,11 +62,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#if MM_URP
 		protected Volume _volume;
 		protected DepthOfField _depthOfField;
-
 		protected float _initialFocusDistance;
 		protected float _initialAperture;
 		protected float _initialFocalLength;
-
 		protected float _originalShakeDuration;
 		protected bool _originalRelativeValues;
 		protected AnimationCurve _originalShakeFocusDistance;

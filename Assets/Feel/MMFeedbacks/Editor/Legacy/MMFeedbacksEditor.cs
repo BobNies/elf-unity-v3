@@ -124,6 +124,7 @@ namespace MoreMountains.Feedbacks
 		protected SerializedProperty _mmfeedbacksDisplayFullDurationDetails;
 		protected SerializedProperty _mmfeedbacksCooldownDuration;
 		protected SerializedProperty _mmfeedbacksInitialDelay;
+		protected SerializedProperty _mmfeedbacksCanPlay;
 		protected SerializedProperty _mmfeedbacksCanPlayWhileAlreadyPlaying;
 		protected SerializedProperty _mmfeedbacksEvents;
 		protected SerializedProperty _mmfeedbacksChanceToPlay;
@@ -163,6 +164,7 @@ namespace MoreMountains.Feedbacks
 			_mmfeedbacksDisplayFullDurationDetails = serializedObject.FindProperty("DisplayFullDurationDetails");
 			_mmfeedbacksCooldownDuration = serializedObject.FindProperty("CooldownDuration");
 			_mmfeedbacksInitialDelay = serializedObject.FindProperty("InitialDelay");
+			_mmfeedbacksCanPlay = serializedObject.FindProperty("CanPlay");
 			_mmfeedbacksCanPlayWhileAlreadyPlaying = serializedObject.FindProperty("CanPlayWhileAlreadyPlaying");
 			_mmfeedbacksFeedbacksIntensity = serializedObject.FindProperty("FeedbacksIntensity");
 			_mmfeedbacksChanceToPlay = serializedObject.FindProperty("ChanceToPlay");
@@ -305,6 +307,7 @@ namespace MoreMountains.Feedbacks
                 
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField("Play Conditions", EditorStyles.boldLabel);
+				EditorGUILayout.PropertyField(_mmfeedbacksCanPlay);
 				EditorGUILayout.PropertyField(_mmfeedbacksCanPlayWhileAlreadyPlaying);
 
 				EditorGUILayout.Space(10);
@@ -1015,6 +1018,7 @@ namespace MoreMountains.Feedbacks
 				finalPlayer.DisplayFullDurationDetails = newPlayer.DisplayFullDurationDetails;
 				finalPlayer.CooldownDuration = newPlayer.CooldownDuration;
 				finalPlayer.InitialDelay = newPlayer.InitialDelay;
+				finalPlayer.CanPlay = newPlayer.CanPlay;
 				finalPlayer.CanPlayWhileAlreadyPlaying = newPlayer.CanPlayWhileAlreadyPlaying;
 				finalPlayer.FeedbacksIntensity = newPlayer.FeedbacksIntensity;
 				finalPlayer.Events = newPlayer.Events;
@@ -1065,6 +1069,7 @@ namespace MoreMountains.Feedbacks
 			newPlayer.DisplayFullDurationDetails = _targetMMFeedbacks.DisplayFullDurationDetails;
 			newPlayer.CooldownDuration = _targetMMFeedbacks.CooldownDuration;
 			newPlayer.InitialDelay = _targetMMFeedbacks.InitialDelay;
+			newPlayer.CanPlay = _targetMMFeedbacks.CanPlay;
 			newPlayer.CanPlayWhileAlreadyPlaying = _targetMMFeedbacks.CanPlayWhileAlreadyPlaying;
 			newPlayer.FeedbacksIntensity = _targetMMFeedbacks.FeedbacksIntensity;
 			newPlayer.Events = _targetMMFeedbacks.Events;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine.Rendering;
 #if MM_URP
 using UnityEngine.Rendering.Universal;
@@ -16,7 +17,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMChromaticAberrationShaker_URP")]
 	public class MMChromaticAberrationShaker_URP : MMShaker
 	{
-		[Header("Intensity")]
+		[MMInspectorGroup("Chromatic Aberration Intensity", true, 45)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeIntensity = false;

@@ -206,7 +206,7 @@ namespace MoreMountains.Tools
 			   || PathElements.Count < 1
 			   || _endReached
 			   || !CanMove
-			)
+			  )
 			{
 				CurrentSpeed = _vector3Zero;
 				return;

@@ -9,7 +9,9 @@ using Cinemachine;
 namespace MoreMountains.FeedbacksForThirdParty
 {
 	[AddComponentMenu("")]
+	#if MM_CINEMACHINE
 	[FeedbackPath("Camera/Cinemachine Impulse")]
+	#endif
 	[FeedbackHelp("This feedback lets you trigger a Cinemachine Impulse event. You'll need a Cinemachine Impulse Listener on your camera for this to work.")]
 	public class MMF_CinemachineImpulse : MMF_Feedback
 	{

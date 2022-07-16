@@ -59,6 +59,13 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("how to change the state on reset")]
 		[MMFCondition("SetStateOnReset", true)]
 		public PossibleStates StateOnReset = PossibleStates.Inactive;
+		/// whether or not we should alter the state of the target object on skip
+		[Tooltip("whether or not we should alter the state of the target object on skip")]
+		public bool SetStateOnSkip = false;
+		/// how to change the state on skip
+		[Tooltip("how to change the state on skip")]
+		[MMFCondition("SetStateOnSkip", true)]
+		public PossibleStates StateOnSkip = PossibleStates.Inactive;
         
         
 		/// <summary>
@@ -130,6 +137,30 @@ namespace MoreMountains.Feedbacks
 				if (SetStateOnReset)
 				{
 					SetStatus(StateOnReset);
+				}
+			}
+		}
+		
+		
+		/// <summary>
+		/// On Skip, changes the state of our target object if needed
+		/// </summary>
+		/// <param name="position"></param>
+		/// <param name="feedbacksIntensity"></param>
+		protected override void CustomSkipToTheEnd(Vector3 position, float feedbacksIntensity = 1.0f)
+		{
+			base.CustomSkipToTheEnd(position, feedbacksIntensity);
+
+			if (InCooldown)
+			{
+				return;
+			}
+
+			if (Active && FeedbackTypeAuthorized && (TargetGameObject != null))
+			{
+				if (SetStateOnSkip)
+				{
+					SetStatus(StateOnSkip);
 				}
 			}
 		}

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MoreMountains.Tools
 {
@@ -11,8 +13,6 @@ namespace MoreMountains.Tools
 	public class AIBrain : MonoBehaviour
 	{
 		[Header("Debug")]
-		/// whether or not this brain is active
-		public bool BrainActive = true;
 		/// the owner of that AI Brain, usually the associated character
 		[MMReadOnly]
 		public GameObject Owner;
@@ -29,6 +29,12 @@ namespace MoreMountains.Tools
 		/// the last known world position of the target
 		[MMReadOnly]
 		public Vector3 _lastKnownTargetPosition = Vector3.zero;
+		
+		[Header("State")]
+		/// whether or not this brain is active
+		public bool BrainActive = true;
+		public bool ResetBrainOnStart = true;
+		public bool ResetBrainOnEnable = false;
 
 		[Header("Frequencies")]
 		/// the frequency (in seconds) at which to perform actions (lower values : higher frequency, high values : lower frequency but better performance)
@@ -63,6 +69,14 @@ namespace MoreMountains.Tools
 			return decisions;
 		}
 
+		protected void OnEnable()
+		{
+			if (ResetBrainOnEnable)
+			{
+				ResetBrain();
+			}
+		}
+
 		/// <summary>
 		/// On awake we set our brain for all states
 		/// </summary>
@@ -86,7 +100,10 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void Start()
 		{
-			ResetBrain();
+			if (ResetBrainOnStart)
+			{
+				ResetBrain();	
+			}
 		}
 
 		/// <summary>

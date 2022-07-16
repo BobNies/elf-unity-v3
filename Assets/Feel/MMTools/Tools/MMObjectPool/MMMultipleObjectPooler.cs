@@ -158,8 +158,11 @@ namespace MoreMountains.Tools
 			{
 				return null;
 			}
+
+			bool initialStatus = typeOfObject.activeSelf;
 			typeOfObject.SetActive(false);
 			GameObject newGameObject = (GameObject)Instantiate(typeOfObject);
+			typeOfObject.SetActive(initialStatus);
 			SceneManager.MoveGameObjectToScene(newGameObject, this.gameObject.scene);
 			if (NestWaitingPool)
 			{
@@ -214,11 +217,6 @@ namespace MoreMountains.Tools
 		{
 			int newIndex;
 			// if we've reached the end of our list, we start again from the beginning
-			if (_currentIndexCounter >= Pool[_currentIndex].PoolSize)
-			{
-				_currentIndexCounter = 0;
-				_currentIndex++;
-			}
 			if (_currentIndex >= Pool.Count)
 			{
 				ResetCurrentIndex ();
@@ -235,14 +233,14 @@ namespace MoreMountains.Tools
 				GameObject findObject = FindInactiveObject(_objectPool.PooledGameObjects[_currentIndex].gameObject.name,_objectPool.PooledGameObjects);
 				if (findObject != null)
 				{
-					_currentIndexCounter++;
+					_currentIndex++;
 					return findObject;
 				}
 
 				// if its pool can expand, we create a new one
 				if (searchedObject.PoolCanExpand)
 				{
-					_currentIndexCounter++;
+					_currentIndex++;
 					return AddOneObjectToThePool(searchedObject.GameObjectToPool);	
 				}
 				else
@@ -255,10 +253,12 @@ namespace MoreMountains.Tools
 			{
 				// if the object is inactive, we return it
 				newIndex = _currentIndex;
-				_currentIndexCounter++;
+				_currentIndex++;
 				return _objectPool.PooledGameObjects[newIndex]; 
 			}
 		}
+
+		protected int _currentCount = 0;
 
 		/// <summary>
 		/// Tries to find a gameobject in the pool according to the order the list has been setup in (one of each, no matter how big their respective pool sizes)
@@ -266,47 +266,60 @@ namespace MoreMountains.Tools
 		/// <returns>The pooled game object original order.</returns>
 		protected virtual GameObject GetPooledGameObjectOriginalOrderSequential()
 		{
-			int newIndex;
-			
 			// if we've reached the end of our list, we start again from the beginning
 			if (_currentIndex >= Pool.Count)
 			{
+				_currentCount = 0;
 				ResetCurrentIndex ();
 			}
 
 			MMMultipleObjectPoolerObject searchedObject = GetPoolObject(Pool[_currentIndex].GameObjectToPool);
 
 			if (_currentIndex >= _objectPool.PooledGameObjects.Count) { return null; }
-			if (!searchedObject.Enabled) { _currentIndex++; return null; }
+			if (!searchedObject.Enabled) { _currentIndex++; _currentCount = 0; return null; }
+
 
 			// if the object is already active, we need to find another one
 			if (_objectPool.PooledGameObjects[_currentIndex].gameObject.activeInHierarchy)
 			{
-				GameObject findObject = FindInactiveObject(_objectPool.PooledGameObjects[_currentIndex].gameObject.name,_objectPool.PooledGameObjects);
+				GameObject findObject = FindInactiveObject(Pool[_currentIndex].GameObjectToPool.name, _objectPool.PooledGameObjects);
 				if (findObject != null)
 				{
-					_currentIndex++;
+					_currentCount++;
+					OrderSequentialResetCounter(searchedObject);
 					return findObject;
 				}
 
 				// if its pool can expand, we create a new one
 				if (searchedObject.PoolCanExpand)
 				{
-					_currentIndex++;
+					_currentCount++;
+					OrderSequentialResetCounter(searchedObject);
 					return AddOneObjectToThePool(searchedObject.GameObjectToPool);	
 				}
 				else
 				{
 					// if it can't expand we return nothing
+					_currentIndex++;
+					_currentCount = 0;
 					return null;					
 				}
 			}
 			else
 			{
 				// if the object is inactive, we return it
-				newIndex = _currentIndex;
+				_currentCount++;
+				OrderSequentialResetCounter(searchedObject);
+				return _objectPool.PooledGameObjects[_currentIndex]; 
+			}
+		}
+
+		protected virtual void OrderSequentialResetCounter(MMMultipleObjectPoolerObject searchedObject)
+		{
+			if (_currentCount >= searchedObject.PoolSize)
+			{
 				_currentIndex++;
-				return _objectPool.PooledGameObjects[newIndex]; 
+				_currentCount = 0;
 			}
 		}
 

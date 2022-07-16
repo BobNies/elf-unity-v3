@@ -10,7 +10,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the text of a target TMP text component")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Text")]
+	#endif
 	public class MMF_TMPText : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

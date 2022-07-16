@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Lens Distortion active, and a MMLensDistortionShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Lens Distortion HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control HDRP lens distortion intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Lens Distortion active, and a MMLensDistortionShaker_HDRP component.")]

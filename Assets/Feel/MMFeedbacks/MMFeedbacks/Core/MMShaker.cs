@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
-using MoreMountains.Feedbacks;
 
 namespace MoreMountains.Feedbacks
 {
-	public class MMShaker : MonoBehaviour
+	public class MMShaker : MMMonoBehaviour
 	{
-		[Header("Shake Settings")]
+		[MMInspectorGroup("Shaker Settings", true, 3)]
 		/// the channel to listen to - has to match the one on the feedback
 		[Tooltip("the channel to listen to - has to match the one on the feedback")]
 		public int Channel = 0;
@@ -18,6 +16,9 @@ namespace MoreMountains.Feedbacks
 		/// if this is true this shaker will play on awake
 		[Tooltip("if this is true this shaker will play on awake")]
 		public bool PlayOnAwake = false;
+		/// if this is true, the shaker will shake permanently as long as its game object is active
+		[Tooltip("if this is true, the shaker will shake permanently as long as its game object is active")]
+		public bool PermanentShake = false;
 		/// if this is true, a new shake can happen while shaking
 		[Tooltip("if this is true, a new shake can happen while shaking")]
 		public bool Interruptible = true;
@@ -57,13 +58,13 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		protected virtual void Awake()
 		{
-			Shaking = false;
 			Initialization();
 			// in case someone else trigger StartListening before Awake
 			if (!_listeningToEvents)
 			{
 				StartListening();
 			}
+			Shaking = PlayOnAwake;
 			this.enabled = PlayOnAwake;
 		}
 
@@ -121,13 +122,13 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		protected virtual void Update()
 		{
-			if (Shaking)
+			if (Shaking || PermanentShake)
 			{
 				Shake();
 				_journey += ForwardDirection ? GetDeltaTime() : -GetDeltaTime();
 			}
 
-			if (Shaking && ((_journey < 0) || (_journey > ShakeDuration)))
+			if (Shaking && !PermanentShake && ((_journey < 0) || (_journey > ShakeDuration)))
 			{
 				Shaking = false;
 				ShakeComplete();

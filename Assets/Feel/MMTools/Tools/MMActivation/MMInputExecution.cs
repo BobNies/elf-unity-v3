@@ -93,6 +93,10 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void HandleInput()
 		{
+			if (Bindings == null)
+			{
+				return;
+			}
 			foreach(MMInputExecutionBinding binding in Bindings)
 			{
 				binding.ProcessInput();

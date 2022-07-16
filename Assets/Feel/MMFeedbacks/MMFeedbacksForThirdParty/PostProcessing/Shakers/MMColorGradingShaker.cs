@@ -3,6 +3,7 @@
 using UnityEngine.Rendering.PostProcessing;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -18,7 +19,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial value
 		public bool RelativeValues = true;
 
-		[Header("Post Exposure")]
+		[MMInspectorGroup("Post Exposure", true, 40)]
 		/// the curve used to animate the focus distance value on
 		[Tooltip("the curve used to animate the focus distance value on")]
 		public AnimationCurve ShakePostExposure = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -29,7 +30,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the value to remap the curve's 1 to")]
 		public float RemapPostExposureOne = 1f;
 
-		[Header("Hue Shift")]
+		[MMInspectorGroup("Hue Shift", true, 49)]
 		/// the curve used to animate the aperture value on
 		[Tooltip("the curve used to animate the aperture value on")]
 		public AnimationCurve ShakeHueShift = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -42,7 +43,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-180f, 180f)]
 		public float RemapHueShiftOne = 180f;
 
-		[Header("Saturation")]
+		[MMInspectorGroup("Saturation", true, 48)]
 		/// the curve used to animate the focal length value on
 		[Tooltip("the curve used to animate the focal length value on")]
 		public AnimationCurve ShakeSaturation = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -55,7 +56,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-100f, 100f)]
 		public float RemapSaturationOne = 100f;
 
-		[Header("Contrast")]
+		[MMInspectorGroup("Contrast", true, 47)]
 		/// the curve used to animate the focal length value on
 		[Tooltip("the curve used to animate the focal length value on")]
 		public AnimationCurve ShakeContrast = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

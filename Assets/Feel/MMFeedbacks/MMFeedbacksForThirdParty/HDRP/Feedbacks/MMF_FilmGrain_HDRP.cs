@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Film Grain active, and a MMFilmGrainShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Film Grain HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control Film Grain intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Film Grain active, and a MMFilmGrainShaker_HDRP component.")]

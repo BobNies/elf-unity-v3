@@ -121,6 +121,10 @@ namespace MoreMountains.Tools
 						{
 							TargetAnimator.SetTrigger(bind.ParameterHash);
 						}
+						else
+						{
+							TargetAnimator.ResetTrigger(bind.ParameterHash);
+						}
 						break;
 				}
 			}

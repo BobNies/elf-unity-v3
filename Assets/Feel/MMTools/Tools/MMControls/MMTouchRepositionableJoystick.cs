@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace MoreMountains.Tools
 {
@@ -14,18 +13,24 @@ namespace MoreMountains.Tools
 	[AddComponentMenu("More Mountains/Tools/Controls/MMTouchRepositionableJoystick")]
 	public class MMTouchRepositionableJoystick : MMTouchJoystick, IPointerDownHandler
 	{
-		[Header("Dynamic Joystick")] 
+		[MMInspectorGroup("Repositionable Joystick", true, 22)]
 		/// the canvas group to use as the joystick's knob
+		[Tooltip("the canvas group to use as the joystick's knob")]
 		public CanvasGroup KnobCanvasGroup;
 		/// the canvas group to use as the joystick's background
+		[Tooltip("the canvas group to use as the joystick's background")]
 		public CanvasGroup BackgroundCanvasGroup;
 		/// if this is true, the joystick won't be able to travel beyond the bounds of the top level canvas
+		[Tooltip("if this is true, the joystick won't be able to travel beyond the bounds of the top level canvas")]
 		public bool ConstrainToInitialRectangle = true;
+		/// if this is true, the joystick will return back to its initial position when released
+		[Tooltip("if this is true, the joystick will return back to its initial position when released")]
+		public bool ResetPositionToInitialOnRelease = false;
 
 		protected Vector3 _initialPosition;
 		protected Vector3 _newPosition;
 		protected CanvasGroup _knobCanvasGroup;
-		protected RectTransform _rect;
+		protected RectTransform _rectTransform;
 
 		/// <summary>
 		/// On Start, we instantiate our joystick's image if there's one
@@ -35,10 +40,13 @@ namespace MoreMountains.Tools
 			base.Start();
 
 			// we store the detection zone's initial position
-			_initialPosition = GetComponent<RectTransform>().localPosition;
-			_rect = GetComponent<RectTransform>();
+			_rectTransform = GetComponent<RectTransform>();
+			_initialPosition = _rectTransform.position;
 		}
 
+		/// <summary>
+		/// On init we set our knob transform
+		/// </summary>
 		public override void Initialize()
 		{
 			base.Initialize();
@@ -51,8 +59,10 @@ namespace MoreMountains.Tools
 		/// When the zone is pressed, we move our joystick accordingly
 		/// </summary>
 		/// <param name="data">Data.</param>
-		public virtual void OnPointerDown(PointerEventData data)
+		public override void OnPointerDown(PointerEventData data)
 		{
+			base.OnPointerDown(data);
+			
 			// if we're in "screen space - camera" render mode
 			if (ParentCanvasRenderMode == RenderMode.ScreenSpaceCamera)
 			{
@@ -86,16 +96,53 @@ namespace MoreMountains.Tools
 			{
 				return true;
 			}
-			return RectTransformUtility.RectangleContainsScreenPoint(_rect, _newPosition);
+			return RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, _newPosition);
 		}
 
 		/// <summary>
 		/// When the player lets go of the stick, we restore our stick's position if needed
 		/// </summary>
 		/// <param name="eventData">Event data.</param>
-		public override void OnEndDrag(PointerEventData eventData)
+		public override void OnPointerUp(PointerEventData eventData)
 		{
-			base.OnEndDrag(eventData);
+			base.OnPointerUp(eventData);
+
+			if (ResetPositionToInitialOnRelease)
+			{
+				BackgroundCanvasGroup.transform.position = _initialPosition;
+				_knobTransform.position = _initialPosition;
+			}
 		}
+		
+		
+		#if UNITY_EDITOR
+		/// <summary>
+		/// Draws gizmos if needed
+		/// </summary>
+		protected override void OnDrawGizmos()
+		{
+			if (!DrawGizmos)
+			{
+				return;
+			}
+
+			Handles.color = MMColors.Orange;
+			if (!Application.isPlaying)
+			{
+				if (KnobCanvasGroup != null)
+				{
+					Handles.DrawWireDisc(KnobCanvasGroup.transform.position, Vector3.forward, MaxRange);	
+				}
+				else
+				{
+					Handles.DrawWireDisc(this.transform.position, Vector3.forward, MaxRange);	
+				}
+			}
+			else
+			{
+				Handles.DrawWireDisc(_neutralPosition, Vector3.forward, MaxRange);
+			}
+		}
+		#endif
 	}
 }

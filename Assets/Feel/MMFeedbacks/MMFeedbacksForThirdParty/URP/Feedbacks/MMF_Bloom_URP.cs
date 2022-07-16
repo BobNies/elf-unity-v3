@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to control bloom intensity and threshold over time. It requires you have in your scene an object with a Volume " +
 	              "with Bloom active, and a MMBloomShaker_URP component.")]
+    #if MM_URP
 	[FeedbackPath("PostProcess/Bloom URP")]
+	#endif
 	public class MMF_Bloom_URP : MMF_Feedback 
 	{
 		/// a static bool used to disable all feedbacks of this type at once

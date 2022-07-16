@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you reveal words, lines, or characters in a target TMP, one at a time")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Text Reveal")]
+	#endif
 	public class MMF_TMPTextReveal : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

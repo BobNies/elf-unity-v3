@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,7 +23,7 @@ namespace MoreMountains.Feedbacks
 		public override string RequiredTargetText { get { return AnimatePositionTarget != null ? AnimatePositionTarget.name : "";  } }
 		public override string RequiresSetupText { get { return "This feedback requires that a AnimatePositionTarget and a Destination be set to be able to work properly. You can set one below."; } }
 		#endif
-		public enum Spaces { World, Local, RectTransform }
+		public enum Spaces { World, Local, RectTransform, Self }
 		public enum Modes { AtoB, AlongCurve, ToDestination }
 		public enum TimeScales { Scaled, Unscaled }
 
@@ -38,6 +39,10 @@ namespace MoreMountains.Feedbacks
 		/// the space in which to move the position in
 		[Tooltip("the space in which to move the position in")]
 		public Spaces Space = Spaces.World;
+		/// whether or not to randomize remap values between their base and alt values on play, useful to add some variety every time you play this feedback
+		[Tooltip("whether or not to randomize remap values between their base and alt values on play, useful to add some variety every time you play this feedback")]
+		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
+		public bool RandomizeRemap = false;
 		/// the duration of the animation on play
 		[Tooltip("the duration of the animation on play")]
 		public float AnimatePositionDuration = 0.2f;
@@ -49,11 +54,21 @@ namespace MoreMountains.Feedbacks
 		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
 		[Tooltip("the value to remap the curve's 0 value to")]
 		public float RemapCurveZero = 0f;
+		/// in randomize remap mode, the value to remap the curve's 0 value to (randomized between this and RemapCurveZero)
+		[MMFCondition("RandomizeRemap", true)]
+		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
+		[Tooltip("in randomize remap mode, the value to remap the curve's 0 value to (randomized between this and RemapCurveZero")]
+		public float RemapCurveZeroAlt = 0f;
 		/// the value to remap the curve's 1 value to
 		[Tooltip("the value to remap the curve's 1 value to")]
 		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
 		[FormerlySerializedAs("CurveMultiplier")]
 		public float RemapCurveOne = 1f;
+		/// in randomize remap mode, the value to remap the curve's 1 value to (randomized between this and RemapCurveOne)
+		[Tooltip("in randomize remap mode, the value to remap the curve's 1 value to (randomized between this and RemapCurveOne)")]
+		[MMFCondition("RandomizeRemap", true)]
+		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
+		public float RemapCurveOneAlt = 1f;
 		/// if this is true, the x position will be animated
 		[Tooltip("if this is true, the x position will be animated")]
 		[MMFEnumCondition("Mode", (int)Modes.AlongCurve)]
@@ -115,6 +130,8 @@ namespace MoreMountains.Feedbacks
 		protected Vector3 _destinationPosition;
 		protected Coroutine _coroutine;
 		protected Vector3 _workInitialPosition;
+		protected float _remapCurveZero;
+		protected float _remapCurveOne;
 
 		/// <summary>
 		/// On init, we set our initial and destination positions (transform will take precedence over vector3s)
@@ -150,16 +167,16 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
             
+			if (InitialPositionTransform != null)
+			{
+				_workInitialPosition = GetPosition(InitialPositionTransform);
+			}
+			else
+			{
+				_workInitialPosition = RelativePosition ? GetPosition(AnimatePositionTarget.transform) + InitialPosition : GetPosition(AnimatePositionTarget.transform);
+			}
 			if (Mode != Modes.ToDestination)
 			{
-				if (InitialPositionTransform != null)
-				{
-					_workInitialPosition = GetPosition(InitialPositionTransform);
-				}
-				else
-				{
-					_workInitialPosition = RelativePosition ? GetPosition(AnimatePositionTarget.transform) + InitialPosition : GetPosition(AnimatePositionTarget.transform);
-				}
 				if (DestinationPositionTransform != null)
 				{
 					DestinationPosition = GetPosition(DestinationPositionTransform);
@@ -214,6 +231,10 @@ namespace MoreMountains.Feedbacks
 							return;
 						}
 						float intensityMultiplier = Timing.ConstantIntensity ? 1f : feedbacksIntensity;
+
+						_remapCurveZero = RandomizeRemap ? Random.Range(RemapCurveZero, RemapCurveZeroAlt) : RemapCurveZero;
+						_remapCurveOne = RandomizeRemap ? Random.Range(RemapCurveOne, RemapCurveOneAlt) : RemapCurveOne;
+						
 						_coroutine = Owner.StartCoroutine(MoveAlongCurve(AnimatePositionTarget, _workInitialPosition, FeedbackDuration, intensityMultiplier));
 						break;
 				}                    
@@ -260,9 +281,9 @@ namespace MoreMountains.Feedbacks
 			float newValueY = AnimatePositionCurveY.Evaluate(percent);
 			float newValueZ = AnimatePositionCurveZ.Evaluate(percent);
 
-			newValueX = MMFeedbacksHelpers.Remap(newValueX, 0f, 1f, RemapCurveZero * intensityMultiplier, RemapCurveOne * intensityMultiplier);
-			newValueY = MMFeedbacksHelpers.Remap(newValueY, 0f, 1f, RemapCurveZero * intensityMultiplier, RemapCurveOne * intensityMultiplier);
-			newValueZ = MMFeedbacksHelpers.Remap(newValueZ, 0f, 1f, RemapCurveZero * intensityMultiplier, RemapCurveOne * intensityMultiplier);
+			newValueX = MMFeedbacksHelpers.Remap(newValueX, 0f, 1f, _remapCurveZero * intensityMultiplier, _remapCurveOne * intensityMultiplier);
+			newValueY = MMFeedbacksHelpers.Remap(newValueY, 0f, 1f, _remapCurveZero * intensityMultiplier, _remapCurveOne * intensityMultiplier);
+			newValueZ = MMFeedbacksHelpers.Remap(newValueZ, 0f, 1f, _remapCurveZero * intensityMultiplier, _remapCurveOne * intensityMultiplier);
 
 			_newPosition = initialPosition;
 			_currentPosition = GetPosition(movingObject.transform);
@@ -272,7 +293,6 @@ namespace MoreMountains.Feedbacks
 				_newPosition.x = AnimateX ? initialPosition.x + newValueX : _currentPosition.x;
 				_newPosition.y = AnimateY ? initialPosition.y + newValueY : _currentPosition.y;
 				_newPosition.z = AnimateZ ? initialPosition.z + newValueZ : _currentPosition.z;
-
 			}
 			else
 			{
@@ -281,6 +301,13 @@ namespace MoreMountains.Feedbacks
 				_newPosition.z = AnimateZ ? newValueZ : _currentPosition.z;
 			}
 
+			if (Space == Spaces.Self)
+			{
+				_newPosition.x = AnimateX ? newValueX : 0f;
+				_newPosition.y = AnimateY ? newValueY : 0f;
+				_newPosition.z = AnimateZ ? newValueZ : 0f;
+			}
+			
 			SetPosition(movingObject.transform, _newPosition);
 		}
 
@@ -298,11 +325,10 @@ namespace MoreMountains.Feedbacks
 			while ((journey >= 0) && (journey <= duration) && (duration > 0))
 			{
 				float percent = Mathf.Clamp01(journey / duration);
-
 				_newPosition = Vector3.LerpUnclamped(pointA, pointB, curve.Evaluate(percent));
 
 				SetPosition(movingObject.transform, _newPosition);
-
+				
 				journey += NormalPlayDirection ? FeedbackDeltaTime : -FeedbackDeltaTime;
 				yield return null;
 			}
@@ -336,6 +362,8 @@ namespace MoreMountains.Feedbacks
 					return target.localPosition;
 				case Spaces.RectTransform:
 					return target.gameObject.GetComponent<RectTransform>().anchoredPosition;
+				case Spaces.Self:
+					return target.position;
 			}
 			return Vector3.zero;
 		}
@@ -357,6 +385,14 @@ namespace MoreMountains.Feedbacks
 					break;
 				case Spaces.RectTransform:
 					_rectTransform.anchoredPosition = newPosition;
+					break;
+				case Spaces.Self:
+					target.position = _workInitialPosition;
+					if ((Mode == Modes.AtoB) || (Mode == Modes.ToDestination))
+					{
+						newPosition -= _workInitialPosition;
+					}
+					target.Translate(newPosition, target);
 					break;
 			}
 		}

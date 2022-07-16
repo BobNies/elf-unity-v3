@@ -11,6 +11,8 @@ namespace MoreMountains.Tools
 	{
 		protected MMReorderableList _list;
 		protected SerializedProperty _brainActive;
+		protected SerializedProperty _resetBrainOnEnable;
+		protected SerializedProperty _resetBrainOnStart;
 		protected SerializedProperty _timeInThisState;
 		protected SerializedProperty _target;
 		protected SerializedProperty _owner;
@@ -27,6 +29,8 @@ namespace MoreMountains.Tools
 			_list.elementDisplayType = MMReorderableList.ElementDisplayType.Expandable;
 
 			_brainActive = serializedObject.FindProperty("BrainActive");
+			_resetBrainOnEnable = serializedObject.FindProperty("ResetBrainOnEnable");
+			_resetBrainOnStart = serializedObject.FindProperty("ResetBrainOnStart");
 			_timeInThisState = serializedObject.FindProperty("TimeInThisState");
 			_target = serializedObject.FindProperty("Target");
 			_owner = serializedObject.FindProperty("Owner");
@@ -43,10 +47,12 @@ namespace MoreMountains.Tools
 			serializedObject.Update();
 
 			_list.DoLayoutList();
-			EditorGUILayout.PropertyField(_brainActive);
 			EditorGUILayout.PropertyField(_timeInThisState);
 			EditorGUILayout.PropertyField(_owner);
 			EditorGUILayout.PropertyField(_target);
+			EditorGUILayout.PropertyField(_brainActive);
+			EditorGUILayout.PropertyField(_resetBrainOnEnable);
+			EditorGUILayout.PropertyField(_resetBrainOnStart);
 			EditorGUILayout.PropertyField(_actionsFrequency);
 			EditorGUILayout.PropertyField(_decisionFrequency);
 			EditorGUILayout.PropertyField(_randomizeFrequencies);

@@ -222,6 +222,11 @@ namespace MoreMountains.Feedbacks
 		/// <param name="owner"></param>
 		public virtual void Initialization(MMF_Player owner)
 		{
+			if (Timing == null)
+			{
+				Timing = new MMFeedbackTiming();
+			}
+			
 			_lastPlayTimestamp = -1f;
 			_initialized = true;
 			Owner = owner;

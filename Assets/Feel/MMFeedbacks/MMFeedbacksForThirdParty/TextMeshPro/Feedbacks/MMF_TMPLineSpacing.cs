@@ -11,7 +11,9 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the line spacing of a target TMP over time.")]
+	#if MM_TEXTMESHPRO
 	[FeedbackPath("TextMesh Pro/TMP Line Spacing")]
+	#endif
 	public class MMF_TMPLineSpacing : MMF_FeedbackBase
 	{
 		/// sets the inspector color for this feedback

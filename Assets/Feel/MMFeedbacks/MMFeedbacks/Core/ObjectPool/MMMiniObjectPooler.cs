@@ -91,7 +91,7 @@ namespace MoreMountains.Feedbacks
 			}
 			foreach (MMMiniObjectPool pool in _pools)
 			{
-				if ((pool != null) && (pool.name == poolName) && (pool.gameObject.scene == this.gameObject.scene))
+				if ((pool != null) && (pool.name == poolName)/* && (pool.gameObject.scene == this.gameObject.scene)*/)
 				{
 					return pool;
 				}

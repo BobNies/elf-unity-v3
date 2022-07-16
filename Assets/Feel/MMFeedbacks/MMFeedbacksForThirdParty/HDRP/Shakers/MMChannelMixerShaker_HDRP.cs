@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
@@ -19,7 +20,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial value
 		public bool RelativeValues = true;
 
-		[Header("Red")]
+		[MMInspectorGroup("Red", true, 42)]
 		/// the curve used to animate the red value on
 		[Tooltip("the curve used to animate the red value on")]
 		public AnimationCurve ShakeRed = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -32,7 +33,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-200f, 200f)]
 		public float RemapRedOne = 200f;
 
-		[Header("Green")]
+		[MMInspectorGroup("Green", true, 43)]
 		/// the curve used to animate the green value on
 		[Tooltip("the curve used to animate the green value on")]
 		public AnimationCurve ShakeGreen = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -45,7 +46,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-200f, 200f)]
 		public float RemapGreenOne = 200f;
 
-		[Header("Blue")]
+		[MMInspectorGroup("Blue", true, 44)]
 		/// the curve used to animate the blue value on
 		[Tooltip("the curve used to animate the blue value on")]
 		public AnimationCurve ShakeBlue = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));

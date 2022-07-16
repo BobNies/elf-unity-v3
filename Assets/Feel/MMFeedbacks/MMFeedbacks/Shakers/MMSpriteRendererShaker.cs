@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class MMSpriteRendererShaker : MMShaker
 	{
-		[Header("SpriteRenderer")]
+		[MMInspectorGroup("SpriteRenderer", true, 39)]
 		/// the SpriteRenderer to affect when playing the feedback
 		[Tooltip("the SpriteRenderer to affect when playing the feedback")]
 		public SpriteRenderer BoundSpriteRenderer;
@@ -19,7 +20,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether or not that SpriteRenderer should be turned off on start")]
 		public bool StartsOff = true;
 
-		[Header("Color")]
+		[MMInspectorGroup("Color", true, 40)]
 		/// whether or not this shaker should modify color 
 		[Tooltip("whether or not this shaker should modify color")]
 		public bool ModifyColor = true;
@@ -27,7 +28,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the colors to apply to the SpriteRenderer over time")]
 		public Gradient ColorOverTime;
 
-		[Header("Flip")]
+		[MMInspectorGroup("Flip", true, 41)]
 		/// whether or not to flip the sprite on X
 		[Tooltip("whether or not to flip the sprite on X")]
 		public bool FlipX = false;

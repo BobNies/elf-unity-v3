@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +12,7 @@ namespace MoreMountains.Feedbacks
 	[RequireComponent(typeof(AudioDistortionFilter))]
 	public class MMAudioFilterDistortionShaker : MMShaker
 	{
-		[Header("Distortion")]
+		[MMInspectorGroup("Distortion", true, 51)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeDistortion = false;

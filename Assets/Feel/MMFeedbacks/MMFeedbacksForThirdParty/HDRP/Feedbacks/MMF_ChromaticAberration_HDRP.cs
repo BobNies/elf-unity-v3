@@ -10,7 +10,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with HDRP Chromatic Aberration active, and a MMChromaticAberrationShaker_HDRP component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_HDRP
 	[FeedbackPath("PostProcess/Chromatic Aberration HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control chromatic aberration intensity over time. It requires you have in your scene an object with a Volume " +
 	              "with Chromatic Aberration active, and a MMChromaticAberrationShaker_HDRP component.")]
 	public class MMF_ChromaticAberration_HDRP : MMF_Feedback

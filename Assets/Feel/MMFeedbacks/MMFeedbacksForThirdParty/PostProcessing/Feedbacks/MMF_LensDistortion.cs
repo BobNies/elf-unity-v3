@@ -11,7 +11,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Lens Distortion active, and a MMLensDistortionShaker component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Lens Distortion")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control lens distortion intensity over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Lens Distortion active, and a MMLensDistortionShaker component.")]

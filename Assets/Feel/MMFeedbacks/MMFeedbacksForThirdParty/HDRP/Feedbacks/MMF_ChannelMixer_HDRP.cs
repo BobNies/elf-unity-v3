@@ -10,7 +10,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Channel Mixer active, and a MMChannelMixerShaker_HDRP component.	
 	/// </summary>	
 	[AddComponentMenu("")]	
-	[FeedbackPath("PostProcess/Channel Mixer HDRP")]	
+	#if MM_HDRP
+	[FeedbackPath("PostProcess/Channel Mixer HDRP")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control channel mixer's red, green and blue over time." +
 	              "It requires you have in your scene an object with a Volume" +
 	              "with Channel Mixer active, and a MM Channel Mixer HDRP component.")]

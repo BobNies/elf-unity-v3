@@ -10,7 +10,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// with Chromatic Aberration active, and a MMChromaticAberrationShaker component.
 	/// </summary>
 	[AddComponentMenu("")]
+	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Chromatic Aberration")]
+	#endif
 	[FeedbackHelp("This feedback allows you to control chromatic aberration intensity over time. It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Chromatic Aberration active, and a MMChromaticAberrationShaker component.")]
 	public class MMF_ChromaticAberration : MMF_Feedback

@@ -355,9 +355,9 @@ namespace MoreMountains.Tools
 
 		private void OnDisable()
 		{
-			bool wasActive = CurrentState != ButtonStates.Off && CurrentState != ButtonStates.Disabled;
+			bool wasActive = CurrentState != ButtonStates.Off && CurrentState != ButtonStates.Disabled && CurrentState != ButtonStates.ButtonUp;
 			DisableButton();
-			CurrentState = ButtonStates.Off; // cause it's what is tested to StopInput (for weapon by example)
+			CurrentState = ButtonStates.Off; 
 			if (wasActive)
 			{
 				ButtonStateChange?.Invoke(PointerEventData.FramePressState.Released, null);

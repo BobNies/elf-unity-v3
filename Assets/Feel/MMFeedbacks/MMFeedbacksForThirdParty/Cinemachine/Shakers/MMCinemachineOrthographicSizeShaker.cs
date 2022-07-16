@@ -3,6 +3,7 @@
 using Cinemachine;
 #endif
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -15,7 +16,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#endif
 	public class MMCinemachineOrthographicSizeShaker : MMShaker
 	{
-		[Header("Orthographic Size")]
+		[MMInspectorGroup("Orthographic Size", true, 43)]
 		/// whether or not to add to the initial value
 		[Tooltip("whether or not to add to the initial value")]
 		public bool RelativeOrthographicSize = false;
