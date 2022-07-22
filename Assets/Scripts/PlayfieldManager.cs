@@ -5,7 +5,6 @@ using TMPro;
 using DG.Tweening;
 
 // Controls UI on the small PF monitor
-// show/hide objects per level
 public class PlayfieldManager : MonoBehaviour
 {
     public GameObject background;
@@ -26,22 +25,20 @@ public class PlayfieldManager : MonoBehaviour
 
     public GameObject Award;
     private TextMeshProUGUI awardText;
+    private GameObject currentScreen;
+    private float tweenTime = .2f;
 
-    public GameObject[] allScreens;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (allScreens.Length == 0)
-            allScreens = GameObject.FindGameObjectsWithTag("playfield");
-        //Debug.Log("bob allScreens len: " + allScreens.Length);
         awardText = Award.transform.Find("TextAward").GetComponent<TextMeshProUGUI>();
         ShowLevel(0);
     }
 
     public void ShowAward(string text, int delay = 3)
     {
-        Award.SetActive(true);
+        Award.transform.DOLocalMoveY(0, 0).SetEase(Ease.OutQuad);
         awardText.text = text;
         DOTween.Restart("AwardText");
         StartCoroutine(HideAward(delay));
@@ -50,7 +47,7 @@ public class PlayfieldManager : MonoBehaviour
     IEnumerator HideAward(int delay)
     {
         yield return new WaitForSeconds(delay);
-        Award.SetActive(false);
+        Award.transform.DOLocalMoveY(900, 0).SetEase(Ease.OutQuad);
     }
 
     // 0 - attract
@@ -70,64 +67,64 @@ public class PlayfieldManager : MonoBehaviour
     // 13 - special
     public void ShowLevel(int level)
     {
-        hideAll();
         //Debug.Log("bob ShowLevel: " + level);
+        // move out current screen
+        if (currentScreen != null)
+        {
+            currentScreen.transform.DOLocalMoveY(900, tweenTime).SetEase(Ease.OutQuad);
+        }
 
         switch (level)
         {
             case 0:
-                // attrack
-               // background.SetActive(false);
-                attract.SetActive(true);
+                moveScreen(attract);
                 break;
             case 1:
-                L1.SetActive(true);
+                moveScreen(L1);
                 break;
             case 2:
-                L2.SetActive(true);
+                moveScreen(L2);
                 break;
             case 3:
-                L3.SetActive(true);
+                moveScreen(L3);
                 break;
             case 4:
-                L4.SetActive(true);
+                moveScreen(L4);
                 break;
             case 5:
-                L5.SetActive(true);
+                moveScreen(L5);
                 break;
             case 6:
-                L6.SetActive(true);
+                moveScreen(L6);
                 break;
             case 7:
-                L7.SetActive(true);
+                moveScreen(L7);
                 break;
             case 8:
-                LSkillShot.SetActive(true);
+                moveScreen(LSkillShot);
                 break;
             case 9:
-                LBallLock.SetActive(true);
+                moveScreen(LBallLock);
                 break;
             case 10:
-                LJackpot.SetActive(true);
+                moveScreen(LJackpot);
                 break;
             case 11:
-                LRampShot.SetActive(true);
+                moveScreen(LRampShot);
                 break;
             case 12:
-                LSpecial.SetActive(true);
+                moveScreen(LSpecial);
                 break;
             case 13:
-                LOmg.SetActive(true);
+                moveScreen(LOmg);
                 break;
         }
     }
 
-    private void hideAll()
+    private void moveScreen(GameObject level)
     {
-        foreach (GameObject go in allScreens)
-        {
-            go.SetActive(false);
-        }
+        level.transform.DOLocalMoveY(0, tweenTime).SetEase(Ease.OutQuad);
+        currentScreen = level;
     }
 
 }
